@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>表观基因组学</title>
+      <link href="/2024/07/20/%E8%A1%A8%E8%A7%82%E5%9F%BA%E5%9B%A0%E7%BB%84%E5%AD%A6/"/>
+      <url>/2024/07/20/%E8%A1%A8%E8%A7%82%E5%9F%BA%E5%9B%A0%E7%BB%84%E5%AD%A6/</url>
+      
+        <content type="html"><![CDATA[<ul><li>表观基因组学和环境有关</li></ul><blockquote><p>定义：在核苷酸序列不发生改变的情况下，研究基因组上的化学修饰和空间结构变化如何影响基因功能和表达调控的一门学科。</p></blockquote><ul><li>研究内容：<ul><li>化学修饰：DNA、RNA、 蛋白质</li><li>空间结构：核小体 （nucleosome）、染色质（chromatin）、基因组</li></ul></li></ul><p><img src="https://pic.imgdb.cn/item/669c9aaed9c307b7e95d7333.png"></p><p>每个阶段都有很多的化学修饰，而且是可逆的</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生物信息 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 表观基因组学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>转录组学</title>
+      <link href="/2024/07/20/%E8%BD%AC%E5%BD%95%E7%BB%84%E5%AD%A6/"/>
+      <url>/2024/07/20/%E8%BD%AC%E5%BD%95%E7%BB%84%E5%AD%A6/</url>
+      
+        <content type="html"><![CDATA[<ul><li>可以看出哪些基因是正调控，哪些是负调控</li></ul><p><img src="https://pic.imgdb.cn/item/669b689dd9c307b7e932b885.png"></p><ul><li>计算相关系数，不同的点是不同的实验条件<ul><li>右下角聚类可以发现哪些基因之间相互有关，可能共同调控</li></ul></li></ul><p><img src="https://pic.imgdb.cn/item/669b69fed9c307b7e934be68.png"></p><p><img src="https://pic.imgdb.cn/item/669b6bdad9c307b7e93773b9.png"></p><ul><li>管家基因和组织特异基因<ul><li>house keeping genes 和tissue specific genes</li><li>管家基因基本都会打开，组织特异性基因就会在不同组织间打开或关闭有区别</li></ul></li><li>做一些GO terms的分析<ul><li><img src="https://pic.imgdb.cn/item/669b6d6ed9c307b7e939915a.png"></li></ul></li><li>单细胞转录组学<ul><li><img src="https://pic.imgdb.cn/item/669b6e89d9c307b7e93c7f34.png"></li></ul></li><li>空间转录组学<ul><li>除了细胞类型还要加上位置</li><li><img src="https://pic.imgdb.cn/item/669b6eaed9c307b7e93cb318.png"></li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生物信息 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 转录组学 </tag>
+            
+            <tag> RNA-seq </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Butterfly主题界面</title>
+      <link href="/2024/07/19/Butterfly%E4%B8%BB%E9%A2%98%E9%A1%B5%E9%9D%A2/"/>
+      <url>/2024/07/19/Butterfly%E4%B8%BB%E9%A2%98%E9%A1%B5%E9%9D%A2/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p><a href="https://www.bilibili.com/video/BV1Ko4y1S7mv/?p=11">https://www.bilibili.com/video/BV1Ko4y1S7mv/?p=11</a><br>hexo clean<br>hexo g<br>hexo d</p></blockquote><h1 id="主题界面"><a href="#主题界面" class="headerlink" title="主题界面"></a>主题界面</h1><p><a href="https://butterfly.js.org/posts/dc584b87/">Butterfly主题页面</a></p><ul><li>标签页</li></ul><blockquote><p>hexo new page tags</p></blockquote><ul><li>分类页</li></ul><blockquote><p>hexo new page categories</p></blockquote><ul><li>友情链接<ul><li>创建并修改yml文件内容，添加想要关联到的链接</li><li><strong>source&#x2F;_data    link.yml</strong></li></ul></li></ul><blockquote><p>hexo new page link</p></blockquote><ul><li>404页面<ul><li>根目录-&gt;node_modules-&gt;hexo-theme-butterfly-YML &gt;_config.yml</li><li>先找到这个文件，复制内容，在根目录下创建 _config.butterfly.yml，粘贴进去内容。</li><li>在其中找到404那块，把false改成true</li></ul></li></ul><h1 id="主题配置1"><a href="#主题配置1" class="headerlink" title="主题配置1"></a>主题配置1</h1><ul><li>导航菜单<ul><li>menu<ul><li><img src="https://pic.imgdb.cn/item/669a30d6d9c307b7e9e0850f.png"></li></ul></li><li>路径是自动匹配source文件夹里的路径的</li><li>配置成功就会出现导航栏</li></ul></li><li>代码块<ul><li>4.1. 代碼高亮主題<br>4.2. 代碼複製<br>4.3. 代碼框展開&#x2F;關閉<br>4.4. 代碼換行<br>4.5. 代碼高度限制</li></ul></li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">highlight_theme: mac light #  darker / pale night / light / ocean / mac / mac light / false</span><br><span class="line">highlight_copy: true # copy button</span><br><span class="line">highlight_lang: true # show the code language</span><br><span class="line">highlight_shrink: false # true: shrink the code blocks / false: expand the code blocks | none: expand code blocks and hide the button</span><br><span class="line">highlight_height_limit: false # unit: px</span><br><span class="line">code_word_wrap: false</span><br></pre></td></tr></table></figure><ul><li><p>社交图标</p><ul><li><p>Butterfly支持 <a href="https://fontawesome.com/icons?from=io">font-awesome v6</a> 圖標.</p></li><li><p>在这个网站上我们可以搜索到想要的图标，然后获得图标名字，放在代码的这个位置上就行了，后面加上链接<img src="https://pic.imgdb.cn/item/669a3508d9c307b7e9e38ee7.png"></p></li></ul></li><li><p>主页文章自动节选</p></li><li><p>顶部图</p><ul><li>首页 分类页上面最大的那个图 可以分别单独设置</li><li>disable_top_img先改成false</li><li>图片的加载除了<strong>在线链接</strong>之外，还可以是<strong>本地添加</strong></li><li><img src="https://pic.imgdb.cn/item/669a3b4bd9c307b7e9ea9f3d.png"></li><li>更多图片类型等待设置<ul><li><img src="https://pic.imgdb.cn/item/669a41fcd9c307b7e9f09b2d.png"></li></ul></li><li>tag页和cate页的图片是需要单独去md文件里配置的<ul><li><img src="https://pic.imgdb.cn/item/669a42cbd9c307b7e9f133dd.png"></li></ul></li></ul></li><li><p>置顶文章</p><ul><li><img src="https://pic.imgdb.cn/item/669a46ddd9c307b7e9f54d5b.png"></li></ul></li><li><p>文章封面</p><ul><li><p>butterfly里统一设置</p><ul><li><p>cover:</p><ul><li>后面进行一系列配置</li></ul></li><li><p>default_cover</p><ul><li>可以设置多张默认封面，如果文章没有单独设置封面则会进行随机选择</li></ul></li></ul></li><li><blockquote><p>文章封面的獲取順序 Front-matter 的 cover &gt; 配置文件的 default_cover &gt; false</p></blockquote></li><li><p>每个文章在开头单独设置cover</p></li></ul></li><li><p>版权</p><ul><li>统一设置<ul><li>主题配置文章里打开Copyright</li></ul></li><li>文章单独设置<ul><li>每个文章开头可以单独设置，比如这篇是转载的，就可以把copyright关起来</li></ul></li></ul></li><li><p>目录</p><ul><li>toc</li><li><img src="https://pic.imgdb.cn/item/669b3e59d9c307b7e9f9e2a7.png"></li><li>同样也是可以单独设置文章<ul><li>在你的文章md文件的頭部，加入toc_number和toc，並配置true或者false即可。</li></ul></li></ul></li><li><p>相关文章推荐</p><ul><li>related_post</li><li>根据tag推荐</li></ul></li><li><p>头像</p><ul><li>avatar</li></ul></li><li><p>阅读模式 夜间模式</p></li><li><p>图片文字描述</p></li><li><p>footer 页脚定义文件</p></li></ul><p>之后更多的请参考官方文档，懒得记了</p><h1 id="待定的"><a href="#待定的" class="headerlink" title="待定的"></a>待定的</h1><ul><li>网站图标</li><li>域名 配置</li><li>dns转换到中国</li><li>部署到服务器上</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hexo教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 页面配置 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>第二篇博客</title>
+      <link href="/2024/07/19/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+      <url>/2024/07/19/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p>1234</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> test </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> None </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>第一篇博客</title>
+      <link href="/2024/07/19/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+      <url>/2024/07/19/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><p>第一篇博客记录一下hexo搭建过程中的bug</p><ul><li>原本在hexo d之后的报错</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(base) xuan@wangzixuandeMacBook-Pro BlogFile % hexo d</span><br><span class="line">（省略。。）</span><br><span class="line">Username for &#x27;https://github.com&#x27;: wanziw</span><br><span class="line">Password for &#x27;https://wanziw@github.com&#x27;: </span><br><span class="line">remote: Support for password authentication was removed on August 13, 2021.</span><br><span class="line">remote: Please see https://docs.github.com/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.</span><br><span class="line">fatal: Authentication failed for &#x27;https://github.com/wanziw/wanziw.github.io.git/&#x27;</span><br><span class="line">FATAL Something&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br></pre></td></tr></table></figure><p>根据问题发现是要创建令牌（token），在输入密码的部分要输入token</p><p><a href="https://blog.csdn.net/weixin_45844049/article/details/123733065">Git The requested URL returned error: 403，Token authentication requirements for Git operations</a></p><ul><li>结果创建完之后报错如下</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wanziw/wanziw.github.io.git/&#x27;: The requested URL returned error: 403</span><br><span class="line">FATAL Something&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>解决方案：</p><p>发现创建错了，我创建成上面那个Fine-grained的了，其实应该创建下面那个</p><p><img src="https://pic.imgdb.cn/item/669a0b5ad9c307b7e9bb84bc.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> test </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> None </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2024/07/19/hello-world/"/>
+      <url>/2024/07/19/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> test </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> None </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
