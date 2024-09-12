@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>Sctail论文阅读</title>
+      <link href="/2024/09/12/Sctail%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+      <url>/2024/09/12/Sctail%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</url>
+      
+        <content type="html"><![CDATA[<p>论文链接:<a href="https://www.biorxiv.org/content/10.1101/2024.07.05.602174v1.full.pdf">scTail: precise polyadenylation site detection and its alternative usage analysis from<br>reads 1 preserved 3’ scRNA-seq data</a></p><h1>Sctail</h1><ul><li><p>使用read1 5‘端测序，来识别PAS</p></li><li><p>然后使用read2 3’端来量化表达量</p></li><li><p>APA</p><ul><li>单个基因选择的PAS位点，就是添加polyA的位点可以不同</li></ul></li><li><p>目前的识别PAS的方法</p><ul><li>实验直接测得，所谓的PAS-seq<ul><li>PolyA-seq、PAS-seq、3’READS和QuantSeq REV</li></ul></li><li>通过单细胞RNA-seq，再结合生物信息分析得到<ul><li>scAPA、Sierra、scDaPars、MAAPER、scAPAtrap、SCAPTURE、SCAPE和Infernape</li></ul></li></ul></li><li></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文阅读 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> PAS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>蛋白质组学</title>
+      <link href="/2024/09/11/%E8%9B%8B%E7%99%BD%E8%B4%A8%E7%BB%84%E5%AD%A6/"/>
+      <url>/2024/09/11/%E8%9B%8B%E7%99%BD%E8%B4%A8%E7%BB%84%E5%AD%A6/</url>
+      
+        <content type="html"><![CDATA[<h1>蛋白质组学</h1><p>“multi_match_nonutr”, “multi_match_utr”</p><p>“multi_unmatch_nonutr”, “multi_unmatch_utr”</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 上课笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> None </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>bedtools使用记录</title>
       <link href="/2024/09/09/bedtools/"/>
       <url>/2024/09/09/bedtools/</url>
