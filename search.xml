@@ -116,19 +116,19 @@
       <link href="/2024/11/21/%E6%A4%8D%E7%89%A9%E5%8D%95%E7%BB%86%E8%83%9E%E5%A4%9A%E7%BB%84%E5%AD%A6%E6%96%87%E7%AB%A0/"/>
       <url>/2024/11/21/%E6%A4%8D%E7%89%A9%E5%8D%95%E7%BB%86%E8%83%9E%E5%A4%9A%E7%BB%84%E5%AD%A6%E6%96%87%E7%AB%A0/</url>
       
-        <content type="html"><![CDATA[<h1>园艺 和 单细胞多组学</h1><h1>Application of single-cell multi-omics approaches in horticulture research</h1><h2 id="introduction">introduction</h2><ul><li>Cell heterogeneity  controls<ul><li>plant cell differentiation 细胞分化</li><li>metabolic partitioning 代谢分配</li><li>environmental response 环境相应</li></ul></li></ul><p>这些控制都是在single-cell resolution（分辨率）下characterize的</p><p>现在的tech可以让多组学对 isolated single plant cells进行analyze 来dissect intercellular regulatory mechanisms</p><p>这些单细胞多组学技术适合 <strong>clarify the development of horticultural plants</strong>和<strong>uncover intercellular regulatory mechanisms</strong></p><h2 id="单细胞多组学发展">单细胞多组学发展</h2><ul><li><p>Table1 总结了很多plant中的单细胞多组学研究文章</p><ul><li>先根据不同的omics分</li><li>然后根据使用的测序的protocol分</li><li>再列出其中研究过的物种、器官/组织<ul><li>Arabidopsis 拟南芥</li><li>Maize 玉米</li><li>Medicago 苜蓿</li><li>Soybean 大豆</li><li>Brassica rapa   芜菁（白菜的一种）</li><li>Litchi 荔枝</li></ul></li></ul></li><li><p>转录组学</p><ul><li>因为细胞壁的存在导致单个植物细胞难以分离，scRNA-seq不好用</li><li>所以是snRNA-seq（single-nucleus RNA sequencing）提供了办法，提取细胞核中的RNA</li></ul></li><li><p>表观遗传组学</p><ul><li>DNA methylation, chromatin accessibility, histone modifications, and 3D genome structure</li><li>介绍了一些不同的技术</li></ul></li><li><p>蛋白质组学</p><ul><li>对蛋白质组和翻译后修饰post-translational modifications (PTM) 进行解析</li></ul></li><li></li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="园艺-和-单细胞多组学">园艺 和 单细胞多组学</h1><h1 id="application-of-single-cell-multi-omics-approaches-in-horticulture-research">Application of single-cell multi-omics approaches in horticulture research</h1><h2 id="introduction">introduction</h2><ul><li>Cell heterogeneity controls<ul><li>plant cell differentiation 细胞分化</li><li>metabolic partitioning 代谢分配</li><li>environmental response 环境相应</li></ul></li></ul><p>这些控制都是在single-cell resolution（分辨率）下characterize的</p><p>现在的tech可以让多组学对 isolated single plant cells进行analyze 来dissect intercellular regulatory mechanisms</p><p>这些单细胞多组学技术适合 <strong>clarify the development of horticultural plants</strong>和<strong>uncover intercellular regulatory mechanisms</strong></p><h2 id="单细胞多组学发展">单细胞多组学发展</h2><ul><li>Table1 总结了很多plant中的单细胞多组学研究文章<ul><li>先根据不同的omics分</li><li>然后根据使用的测序的protocol分</li><li>再列出其中研究过的物种、器官/组织<ul><li>Arabidopsis 拟南芥</li><li>Maize 玉米</li><li>Medicago 苜蓿</li><li>Soybean 大豆</li><li>Brassica rapa 芜菁（白菜的一种）</li><li>Litchi 荔枝</li></ul></li></ul></li><li>转录组学<ul><li>因为细胞壁的存在导致单个植物细胞难以分离，scRNA-seq不好用</li><li>所以是snRNA-seq（single-nucleus RNA sequencing）提供了办法，提取细胞核中的RNA</li></ul></li><li>表观遗传组学<ul><li>DNA methylation, chromatin accessibility, histone modifications, and 3D genome structure</li><li>介绍了一些不同的技术</li></ul></li><li>蛋白质组学<ul><li>对蛋白质组和翻译后修饰post-translational modifications (PTM) 进行解析</li></ul></li><li></li></ul>]]></content>
       
       
       <categories>
           
-          <category> 单细胞多组学 </category>
+          <category> 生物信息 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> None </tag>
+            <tag> 单细胞多组学 </tag>
             
         </tags>
       
@@ -225,11 +225,11 @@
     
     
     <entry>
-      <title>配置CUDA</title>
-      <link href="/2024/09/26/%E9%85%8D%E7%BD%AECUDA/"/>
-      <url>/2024/09/26/%E9%85%8D%E7%BD%AECUDA/</url>
+      <title>【Debug】配置CUDA</title>
+      <link href="/2024/09/26/%E3%80%90Debug%E3%80%91%E9%85%8D%E7%BD%AECUDA/"/>
+      <url>/2024/09/26/%E3%80%90Debug%E3%80%91%E9%85%8D%E7%BD%AECUDA/</url>
       
-        <content type="html"><![CDATA[<h1>配置CUDA</h1><p>cuda版本 根据pytorch选择</p><p><a href="https://pytorch.org/get-started/locally/">https://pytorch.org/get-started/locally/</a></p><p><a href="https://pytorch.org/get-started/previous-versions/">https://pytorch.org/get-started/previous-versions/</a></p><p><a href="https://blog.csdn.net/lvyuanj/article/details/139257068">torch cuda 环境检测失败</a></p><p>debug过程中遇到了一个弱智的错误，就是第一个有结果，后面两个都没有结果torch.version.cuda返回None，网上一般的说法是因为pytorch安装的是cpu版本，需要重新安装GPU版本。但是我分不清是我重新下载解决的这个bug，还是因为vscode里没有重启解决的，所以还是记录一下吧</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(torch.__version__) <span class="comment"># 查看torch版本</span></span><br><span class="line"><span class="built_in">print</span>(torch.cuda.is_available()) torch</span><br><span class="line"><span class="built_in">print</span>(torch.version.cuda)</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="配置cuda">配置CUDA</h1><p>cuda版本 根据pytorch选择</p><p>https://pytorch.org/get-started/locally/</p><p>https://pytorch.org/get-started/previous-versions/</p><p><a href="https://blog.csdn.net/lvyuanj/article/details/139257068">torch cuda 环境检测失败</a></p><p>debug过程中遇到了一个弱智的错误，就是第一个有结果，后面两个都没有结果torch.version.cuda返回None，网上一般的说法是因为pytorch安装的是cpu版本，需要重新安装GPU版本。但是我分不清是我重新下载解决的这个bug，还是因为vscode里没有重启解决的，所以还是记录一下吧</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(torch.__version__) <span class="comment"># 查看torch版本</span></span><br><span class="line"><span class="built_in">print</span>(torch.cuda.is_available()) torch</span><br><span class="line"><span class="built_in">print</span>(torch.version.cuda)</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -241,7 +241,7 @@
       
         <tags>
             
-            <tag> None </tag>
+            <tag> 深度学习 </tag>
             
         </tags>
       
@@ -377,9 +377,9 @@
     
     
     <entry>
-      <title>hexo-github令牌认证bug</title>
-      <link href="/2024/07/19/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
-      <url>/2024/07/19/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+      <title>【Debug】hexo-github令牌认证</title>
+      <link href="/2024/07/19/%E3%80%90Debug%E3%80%91hexo-github%E4%BB%A4%E7%89%8C%E8%AE%A4%E8%AF%81/"/>
+      <url>/2024/07/19/%E3%80%90Debug%E3%80%91hexo-github%E4%BB%A4%E7%89%8C%E8%AE%A4%E8%AF%81/</url>
       
         <content type="html"><![CDATA[<h1 id="第一章">第一章</h1><p>第一篇博客记录一下hexo搭建过程中的bug</p><ul><li>原本在hexo d之后的报错</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(base) xuan@wangzixuandeMacBook-Pro BlogFile % hexo d</span><br><span class="line">（省略。。）</span><br><span class="line">Username for &#x27;https://github.com&#x27;: wanziw</span><br><span class="line">Password for &#x27;https://wanziw@github.com&#x27;: </span><br><span class="line">remote: Support for password authentication was removed on August 13, 2021.</span><br><span class="line">remote: Please see https://docs.github.com/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.</span><br><span class="line">fatal: Authentication failed for &#x27;https://github.com/wanziw/wanziw.github.io.git/&#x27;</span><br><span class="line">FATAL Something&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br></pre></td></tr></table></figure><p>根据问题发现是要创建令牌（token），在输入密码的部分要输入token</p><p><a href="https://blog.csdn.net/weixin_45844049/article/details/123733065">Git The requested URL returned error: 403，Token authentication requirements for Git operations</a></p><ul><li>结果创建完之后报错如下</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fatal: unable to access &#x27;https://github.com/wanziw/wanziw.github.io.git/&#x27;: The requested URL returned error: 403</span><br><span class="line">FATAL Something&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>解决方案：</p><p>发现创建错了，我创建成上面那个Fine-grained的了，其实应该创建下面那个</p><p><img src="https://pic.imgdb.cn/item/669a0b5ad9c307b7e9bb84bc.png" /></p><p>这玩意过期expired也会报这个bug 参考链接：https://www.jianshu.com/p/d5f2e04a332f</p>]]></content>
       
@@ -390,12 +390,6 @@
           
       </categories>
       
-      
-        <tags>
-            
-            <tag> None </tag>
-            
-        </tags>
       
     </entry>
     
@@ -415,12 +409,6 @@
           
       </categories>
       
-      
-        <tags>
-            
-            <tag> None </tag>
-            
-        </tags>
       
     </entry>
     
