@@ -101,9 +101,9 @@
       
         <tags>
             
-            <tag> 多组学分析 </tag>
-            
             <tag> 代谢组学 </tag>
+            
+            <tag> 多组学 </tag>
             
         </tags>
       
@@ -330,6 +330,8 @@
             
             <tag> 表观基因组学 </tag>
             
+            <tag> 多组学 </tag>
+            
         </tags>
       
     </entry>
@@ -355,7 +357,7 @@
             
             <tag> 转录组学 </tag>
             
-            <tag> RNA-seq </tag>
+            <tag> 多组学 </tag>
             
         </tags>
       
