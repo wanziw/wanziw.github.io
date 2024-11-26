@@ -275,31 +275,6 @@
     
     
     <entry>
-      <title>蛋白质组学</title>
-      <link href="/2024/09/11/%E8%9B%8B%E7%99%BD%E8%B4%A8%E7%BB%84%E5%AD%A6/"/>
-      <url>/2024/09/11/%E8%9B%8B%E7%99%BD%E8%B4%A8%E7%BB%84%E5%AD%A6/</url>
-      
-        <content type="html"><![CDATA[<h1>蛋白质组学</h1><p>“multi_match_nonutr”, “multi_match_utr”</p><p>“multi_unmatch_nonutr”, “multi_unmatch_utr”</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 上课笔记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> None </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>bedtools使用记录</title>
       <link href="/2024/09/09/bedtools/"/>
       <url>/2024/09/09/bedtools/</url>
@@ -402,32 +377,7 @@
     
     
     <entry>
-      <title>第二篇博客</title>
-      <link href="/2024/07/19/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
-      <url>/2024/07/19/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-      
-        <content type="html"><![CDATA[<h2 id="quick-start">Quick Start</h2><p>1234</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> test </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> None </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>第一篇博客</title>
+      <title>hexo-github令牌认证bug</title>
       <link href="/2024/07/19/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
       <url>/2024/07/19/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
       
@@ -461,7 +411,7 @@
       
       <categories>
           
-          <category> test </category>
+          <category> Hexo教程 </category>
           
       </categories>
       
