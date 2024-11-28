@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>代谢组学</title>
+      <link href="/2024/11/28/%5B%E7%94%9F%E4%BF%A1%E7%AC%94%E8%AE%B0%5D%E4%BB%A3%E8%B0%A2%E7%BB%84%E5%AD%A6/"/>
+      <url>/2024/11/28/%5B%E7%94%9F%E4%BF%A1%E7%AC%94%E8%AE%B0%5D%E4%BB%A3%E8%B0%A2%E7%BB%84%E5%AD%A6/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://pic.imgdb.cn/item/673c6ea3d29ded1a8cd197df.jpg" /></p><h1 id="第二节课">第二节课</h1><h2 id="检测技术">检测技术</h2><p><img src="https://pic.imgdb.cn/item/673c6ea1d29ded1a8cd1969f.jpg" /></p><p>主要是用来分离</p><ul><li>检测技术：核磁共振技术（NMR）、气相色谱质谱联用技术（GC-MS）和液相色谱质谱联用技术（LC-MS）</li></ul><ol type="1"><li><p>GC-MS（气相色谱）是代谢组学研究的经典技术，具有技术成熟稳定、分辨率高等特点，同时，由于具有相对完善的数据库，使得定性也更为准确，缺点则主要表现在样品处理复杂，并且对于不易衍生化的物质定性和定量较困难，影响了该技术在更大范围内的应用。</p></li><li><p>LC-MS（液相色谱）优势主要表现在样品制备和前处理简单、实验重复性好，分辨率高，分离和分析范围广，缺点则主要表现在数据库完善程度不够，定性相对困难。</p></li></ol><h2 id="质谱">质谱</h2><p>相当于扫描仪</p><p><strong>TOF-MS</strong>：是一种高效的“扫描仪”，可以与GC或LC结合，提供快速、精确的质量测量，适合需要高分辨率和快速分析的复杂样品。</p><p>而TOF（飞行时间质谱，Time-of-Flight Mass Spectrometry）是一种<strong>质谱分析器</strong>，用于测量离子的质量-电荷比（m/z）。</p><p><img src="https://pic.imgdb.cn/item/673c71bcd29ded1a8cd65160.webp" /></p><h2 id="质谱成像">质谱成像</h2><p>Mass Spectrometry Imaging，简称MSI</p><p>质谱成像结合了质谱分析与成像技术，通过逐点扫描样品表面，获取每个点的质谱数据，从而构建出分子在样品表面上的空间分布图像。</p><p>可以跟空间转录组一起分析</p><p>待看论文:Accurate detection of acute sleep deprivation using ametabolomic biomarker—A machine learning approach</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生信笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 代谢组学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo博客在多个设备同步</title>
       <link href="/2024/11/28/%5BHexo%5DHexo%E5%8D%9A%E5%AE%A2%E5%9C%A8%E5%A4%9A%E4%B8%AA%E8%AE%BE%E5%A4%87%E5%90%8C%E6%AD%A5/"/>
       <url>/2024/11/28/%5BHexo%5DHexo%E5%8D%9A%E5%AE%A2%E5%9C%A8%E5%A4%9A%E4%B8%AA%E8%AE%BE%E5%A4%87%E5%90%8C%E6%AD%A5/</url>
