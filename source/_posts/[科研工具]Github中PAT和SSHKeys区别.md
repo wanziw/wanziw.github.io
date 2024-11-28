@@ -4,7 +4,7 @@ date: 2024-11-28 18:02:27
 categories: 科研工具
 description: "今天研究两台设备共同运行Github项目的问题，关于一般项目配置个人访问令牌和SSHkeys的问题"
 tags: Github使用
-cover: /img/cover2.jpg
+cover: /img/cover12.jpg
 ---
 
 
