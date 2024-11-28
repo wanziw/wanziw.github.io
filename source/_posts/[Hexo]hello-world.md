@@ -1,5 +1,6 @@
 ---
 title: Hello World
+date: 2024-07-17 18:44:50
 cover: https://pic.imgdb.cn/item/669b38ebd9c307b7e9f3e62b.jpg
 categories: Hexo教程
 ---
