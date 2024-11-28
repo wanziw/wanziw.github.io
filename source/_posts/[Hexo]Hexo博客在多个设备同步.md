@@ -2,6 +2,8 @@
 title: 'Hexo博客在多个设备同步'
 date: 2024-11-28 19:08:08
 categories: Hexo教程
+cover: /img/cover4.jpg
+description: '实现Hexo博客在不同的设备上都可以使用和上传'
 ---
 
 博客链接1 ：[Hexo搭建博客的多终端同步问题](https://zhuanlan.zhihu.com/p/476603074)
