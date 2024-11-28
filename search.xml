@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>《Delineating yeast cleavage and polyadenylation signals using deep learning》</title>
+      <link href="/2024/11/28/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DDelineating%20yeast%20cleavage%20and%20polyadenylation%20signals%20using%20deep%20learning/"/>
+      <url>/2024/11/28/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DDelineating%20yeast%20cleavage%20and%20polyadenylation%20signals%20using%20deep%20learning/</url>
+      
+        <content type="html"><![CDATA[<h1 id="delineating-yeast-cleavage-and-polyadenylation-signals-using-deep-learning">Delineating yeast cleavage and polyadenylation signals using deep learning</h1><blockquote><p>代码：</p><p>分离预处理存储数据和训练的代码</p><p>修改神经网络让他输出概率而不是简单的0 1</p><p>分布</p></blockquote><h2 id="abstract">Abstract</h2><blockquote><p>yeast 酵母</p><p>mammals哺乳动物</p><p>mediate</p><p>depletion 损耗</p></blockquote><p>这项研究聚焦于酵母菌中mRNA 3′端的加工过程，特别是切割和加聚腺苷酸化（polyadenylation），这是mRNA成熟的关键步骤。在真核生物中，加聚腺苷酸化不仅影响mRNA的稳定性，还参与调控基因表达。然而，与哺乳动物中加聚信号明确不同，酵母菌中的加聚信号较为退化，变异性大，特征尚不清楚。</p><p>为了深入理解酵母菌中的加聚信号，研究人员开发了深度学习模型。这些模型能够<strong>解析复杂且多变的顺式调控元件</strong>（即基因附近的DNA序列，调控基因表达），并评估这些元件在<strong>加聚位点形成、切割位置的多样性（异质性）以及加聚信号强度中的作用</strong>。</p><p>具体来说，在酿酒酵母（<em>S. cerevisiae</em>）中，研究发现：</p><ol type="1"><li><strong>切割异质性</strong>：加聚位点周围U-rich（富含尿嘧啶）的序列减少，以及上游存在多个UA-rich（富含尿嘧啶-腺嘌呤）的序列，都会增加切割位置的多样性。这意味着mRNA在不同位置被切割，导致加聚位点的不确定性。</li><li><strong>信号强度</strong>：加聚信号的强度与切割异质性呈负相关。<strong>高异质性的加聚位点通常具有较低的信号强度</strong>，表明这些位点在加工过程中不如信号强的位点稳定或有效。</li><li><strong>选择性加聚腺苷酸化（APA）</strong>：在双相应激条件下，加聚信号的强度和串联位点之间的距离会调控APA，即mRNA可以选择不同的加聚位点进行加工，从而产生不同的mRNA变体，适应环境变化。</li></ol><p>此外，研究团队还将深度学习模型应用于<strong>裂殖酵母（<em>S. pombe</em>）</strong>，发现其加聚位点的调控基序配置与<strong>酿酒酵母</strong>不同，导致其加聚过程更加精确。这表明，即使在不同的酵母物种之间，加聚信号也存在显著差异</p><h1 id="introduction">Introduction</h1><p>mRNA 3‘端两步生成 ： 切割 ployA添加</p><p>根据motif将加工因子招募到PAS（polyA）附近</p><ul><li><p>哺乳动物</p><ul><li>基本的motifs<ul><li>CPSF结合位点（AAUAAA或接近的变体），通常位于切割位点上游约20 bp</li><li>CSTF结合位点（U/GU-rich基序），约位于下游20bp。</li><li>额外的motif可以发挥辅助调控作用</li></ul></li></ul></li><li><p>酵母</p><ul><li><p>顺式元件（影响切割位点的选择和polyadenylation的效率）</p><ul><li><strong>UA-rich 元件</strong>：位于上游40个核苷酸处，称为效率元件，由CF1B结合。</li><li><strong>A-rich 基序</strong>：位于上游20个核苷酸处，称为定位元件，由CF1A结合。</li><li><strong>U-rich 元件</strong>：围绕切割位点，由CPF复合物结合。</li></ul></li><li><p>PAS本身序列组成也可以影响切割位点的选择</p></li><li><p>然而，一些结合基序（例如UA-rich和A-rich元件）可能高度退化</p><ul><li><blockquote><p>highly degenerate指的是这些motif在不同的基因和位置多样性，不保守。有相似的作用但是序列有很大不同</p><p>所以需要深度学习去学习一下</p></blockquote></li></ul></li></ul></li><li><p><strong>切割异质性与APA</strong>：</p><ul><li></li><li><p>在酿酒酵母中，切割异质性表现为一个切割区域跨越多个核苷酸，与哺乳动物相比更为广泛。这种异质性可能是由于poly(A)位点的<strong>微异质性</strong>或使用了不同的替代poly(A)位点（<strong>APA</strong>）。</p><ul><li><blockquote><p>这两个概念比较容易搞混</p><p>Microheterogeneity:一个<strong>poly(A)位点附近</strong>多个切割点接近，导致添加位置有微笑的差异，一般涉及少数几个<strong>核苷酸</strong></p><p>APA（Alternative Polyadenylation）:同一个<strong>基因的不同位置</strong>存在多个独立的poly(A)位点，mRNA可以在不同的位点来切割和添加polyA，这样就会产生不同的mRNA异构体，每个异构体有不同长度的3′ UTR</p></blockquote></li></ul></li><li><p>APA能够生成具有不同3′ UTR的mRNA异构体，进而影响mRNA的亚细胞定位、翻译效率和稳定性。这在细胞应激反应期间尤为重要，因为它通过调控mRNA的半衰期来维持稳态。</p></li></ul></li><li><p><strong>不同酵母物种间的差异</strong>：</p><ul><li>另一种酵母菌物种<em>Schizosaccharomyces pombe</em>的poly(A)位点序列组成与酿酒酵母不同，且其polyadenylation过程比酿酒酵母更为精确。这表明即使在近缘物种间，poly(A)信号和加工机制也存在显著差异。</li></ul></li><li><p>表征酵母poly A信号</p><ul><li>深度学习可以捕捉顺式调控基序之间的动态相互作用并解析序列复杂性。</li></ul></li></ul><blockquote><p><strong>回答：</strong></p><p><strong>高异质性（高切割异质性）</strong>和<strong>高度退化（高度退化的结合基序）</strong>在酵母菌的poly(A)位点形成中存在关联，但它们并不完全等同。</p><ul><li><strong>高切割异质性</strong>指的是在poly(A)位点附近，RNA链被切割的位置分布在一个较宽的区域内，而不是一个精确的点。这意味着在不同的mRNA分子中，poly(A)尾的添加位置会有一定的变动，导致3′端的多样性增加。</li><li><strong>高度退化的结合基序</strong>则指的是在poly(A)位点周围的调控序列（如UA-rich和A-rich元件）缺乏严格保守的序列模式，呈现出高度的序列多样性和变异性。这种序列的多样性使得这些基序在不同基因或不同位置上表现出不同的序列特征。</li></ul><p><strong>关联性：</strong></p><ul><li><strong>高度退化的结合基序</strong>导致了poly(A)位点识别过程的不确定性和灵活性，从而促进了<strong>高切割异质性</strong>的发生。由于调控序列的多样性，内切酶在不同的切割点之间选择的概率变得更高，导致切割位置的分布范围扩大，增加了切割的异质性。</li></ul></blockquote><h1 id="表征sc里的ploya位点的深度学习模型">表征sc里的ploya位点的深度学习模型</h1><h2 id="data">Data</h2><ul><li><p>已发表的3′区域提取和深度测序reads</p><ul><li><p>122.4百万条3′reads</p></li><li><p>选择了47.6万条支持poly(A)位点的PASS reads</p><ul><li>原始的质量控制</li><li>识别3'端特异性特征</li></ul></li><li><p>将这些PASS reads比对到参考基因组,就可以确定<strong>基因组范围内的cleavage sites</strong></p></li><li><p>通过分析这些位点的读段丰度，识别在编码蛋白基因中高度表达的poly(A)加尾位点</p><ul><li><blockquote><p>高丰度的reads在某个位点堆积，说明这个位点频繁被转录终止和加尾</p></blockquote></li></ul></li><li><p>由于酵母菌3′端存在广泛的切割异质性（Moqtaderi等，2013），我们采用迭代方法，选择了5491个基因中表达量最高的40,453个切割位点作为代表</p><ul><li>这些位点的核苷酸分布符合已知特征：总体上富含A/U，A-rich峰位于切割位点上游10–30个核苷酸处，切割位点周围富含U</li><li><img src="https://pic.imgdb.cn/item/67470997d0e0a243d4d235d9.png" /></li></ul></li></ul></li></ul><h2 id="polyaclassifier">PolyaClassifier</h2><ul><li>PolyaClassifier</li><li>数据分割<ul><li>上述定义的切割位点周围的序列被用作模型训练的正例</li><li>我们使用相同数量的随机基因组序列或打乱的核苷酸序列作为负例</li><li>详细见方法</li></ul></li><li><strong>one-hot embedded</strong>序列作为输入<ul><li>一层卷积、一个双向LSTM，捕捉motifs之间的相互作用，和切割位点分类</li></ul></li><li>网格搜索最佳超参数</li><li>为了<strong>应对大量可能的负序列</strong>，我们采用了<strong>bagging</strong>方法，通过三个并行训练的模型取平均预测概率</li></ul><h2 id="polyacleavage">PolyaCleavage</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文阅读 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> PAS </tag>
+            
+            <tag> 深度学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>代谢组学</title>
       <link href="/2024/11/28/%5B%E7%94%9F%E4%BF%A1%E7%AC%94%E8%AE%B0%5D%E4%BB%A3%E8%B0%A2%E7%BB%84%E5%AD%A6/"/>
       <url>/2024/11/28/%5B%E7%94%9F%E4%BF%A1%E7%AC%94%E8%AE%B0%5D%E4%BB%A3%E8%B0%A2%E7%BB%84%E5%AD%A6/</url>
