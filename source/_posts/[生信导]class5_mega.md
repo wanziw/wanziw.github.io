@@ -111,24 +111,39 @@ MEGA的全称为Molecular Evolutionary Genetics Analysis，也就是专门用于
 
 
 - 建树
+  - 最大似然法
+  - 邻接法
+
 
 ![](https://pic.imgdb.cn/item/67457679d0e0a243d4d125f5.png)
 
+- 参数选择
+
+> 参数意义知识补充拓展
+
+![](https://pic.imgdb.cn/item/6749af34d0e0a243d4db41c9.png)
 
 
 
+- 树的风格调整
+
+iTols
+
+学习一些论文的系统发育树的作图
+
+https://bilibili.com/video/BV1S14y127Aj/?spm_id_from=333.337.search-card.all.click&vd_source=4d6c487ceff97b879f0278219a0b8f7d
+
+http://www.360doc.com/content/24/1111/17/85252588_1139077070.shtml
+
+https://blog.csdn.net/qazplm12_3/article/details/143021316
 
 
 
+- 导出
 
+Image 导出各种样子的
 
-
-
-
-
-
-
-
+# R语言绘制系统发育树
 
 
 
