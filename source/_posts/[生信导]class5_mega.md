@@ -11,6 +11,10 @@ description: "生物信息学导论第五节课基本内容 mega软件使用 多
 
 生物信息学导论第五节课基本内容 mega软件使用 多序列比对 系统进化树
 
+[toc]
+
+
+
 [常用生物学软件的安装与应用（四）—MEGA](https://zhuanlan.zhihu.com/p/337236253)
 
 # 软件安装
@@ -60,6 +64,8 @@ MEGA的全称为Molecular Evolutionary Genetics Analysis，也就是专门用于
 
 > **多序列比对(Multiple Sequence Alignment)**：多序列比对是一种基于序列比对的方法，它用于确定一组蛋白质序列或者核酸序列之间的相似性。通过比对多个序列，我们可以找出共享的进化保守区域，即那些在进化过程中保持不变的区域。这些保守区域通常对于蛋白质的功能和结构至关重要。
 
+
+
 ![](https://pic.imgdb.cn/item/67456667d0e0a243d4d1138a.png)
 
 发现序列的长短不一，说明这只是初步的比对，还没有进行多序列对比的调整
@@ -70,6 +76,8 @@ MEGA的全称为Molecular Evolutionary Genetics Analysis，也就是专门用于
   - 需要填写一些参数，一般默认就行
   - 我们选择ClustalW进行比对
   - 可以看到进行了gap的填补，序列比对成功
+  
+- > ClustalW和MUSCLE，ClustalW首先对序列做两两比对，根据该两两比对计算两两[距离矩阵](https://zhida.zhihu.com/search?content_id=245454596&content_type=Article&match_order=1&q=距离矩阵&zhida_source=entity)，是一种经典的比对方法，比对速度慢但精确度较高，使用范围也比较广泛。Muscle的功能仅限于多序列比对，速度快，序列数很多的话建议选Muscle，但精确度不如ClustalW。这里我们选ClustalW，参数默认即可。
 
 > 关于原理：
 >
@@ -93,7 +101,8 @@ MEGA的全称为Molecular Evolutionary Genetics Analysis，也就是专门用于
 
 ![](https://pic.imgdb.cn/item/674573a9d0e0a243d4d124ef.png)
 
-
+> 由于上课内容的时间限制，这里真正做的时候还需要大家对序列名字重新命名，不然乱乱的
+> 可以参考这篇[**序列预处理**](https://zhuanlan.zhihu.com/p/342713574)
 
 # 构建分子进化树
 
@@ -103,8 +112,7 @@ MEGA的全称为Molecular Evolutionary Genetics Analysis，也就是专门用于
 
 - C 保守的区域标黄
 - V 不保守的区域标黄
-
-
+  - 可以对不保守的区域进行手动删除
 
 ![](https://pic.imgdb.cn/item/67457634d0e0a243d4d125a8.png)
 
@@ -113,19 +121,30 @@ MEGA的全称为Molecular Evolutionary Genetics Analysis，也就是专门用于
 - 建树
   - 最大似然法
   - 邻接法
+  
+- > 这里有三种方法，分别是最大似然法 (Maximum Likelihood)、邻接法 (Neighbor-Joining) 和最小进化法 (Minimum Evolution)。【这三种方法我就不在这里介绍了，大家可以去查查，常用**邻近法**】
 
 
 ![](https://pic.imgdb.cn/item/67457679d0e0a243d4d125f5.png)
 
 - 参数选择
 
-> 参数意义知识补充拓展
+> 参数意义
+>
+> 检验方法一般采用Bootstrap 进行检验。也叫自举法检验，用来验证每个分支的可靠性，后面可以展示在分支处，次数至少1000次。
 
 ![](https://pic.imgdb.cn/item/6749af34d0e0a243d4db41c9.png)
 
 
 
+# 简单调整树
+
+- 三种树的形状
+  - 上面一排有两个树形的按钮，可用于改变进化树的形状，包括矩形、辐射形和圆圈形（下图从左到右），也可以调整序列名称是否对齐
+
 - 树的风格调整
+  - 一般数量大我们会选择调成圆形
+
 
 iTols
 
@@ -137,13 +156,51 @@ http://www.360doc.com/content/24/1111/17/85252588_1139077070.shtml
 
 https://blog.csdn.net/qazplm12_3/article/details/143021316
 
+https://zhuanlan.zhihu.com/p/342713574
+
+
+
 
 
 - 导出
+  - Image 导出各种样子的
+  - 如果后续还需要没话，在FILE中寻找newick模式
+    - <img src="https://pic.imgdb.cn/item/674c7194d0e0a243d4dba736.png" style="zoom:25%;" />
 
-Image 导出各种样子的
+# iTOL绘制系统发育树
 
-# R语言绘制系统发育树
+MEGA的基础修改可能不满足我们，我们导出newick模式的树文件，在iTOL中上传
 
+- 网站：[itol](http://itol.embl.de/)
 
+![](https://pic.imgdb.cn/item/674c7090d0e0a243d4dba706.png)
 
+- 上传之后点击文件就可以进入编辑界面
+  - 左侧是进化树文件，右侧是工具栏。ITOL中提供了各种美化进化树的方法，工具栏中可以调整字体、颜色、分支长度等参数，用鼠标右键点击序列名称也可以调整字体。
+  - 鼠标滚轮可以放大缩小，左键按住可以拖动。
+  - ![](https://pic.imgdb.cn/item/674c729ed0e0a243d4dba766.png)
+- 树的形状“Mode”
+  - 网站默认的竖直的树为”Rectangular”，也就是矩形树，可以点击旁边的“Circular”变成圆形或“Unrooted”变成无根树。“Invert tree”是翻转树，点击后会把每条支的Label放在里面，树结构放外面。
+- 标签的格式“Label options”
+  - 可以更改字体样式，下面“Alignment”是设置字体往哪里对齐；“Branch options”是设置支的形状，“Line style”可以设置粗细，后面的图案是改变支类型。下面的“Dashed lines”是设置支末端伸出虚线的样式。都设置完成后就完成了第一步
+
+- 一些别的参数
+  - 大家可以自己试试调整就会发现是调什么的
+  - ![](https://pic.imgdb.cn/item/674c73bcd0e0a243d4dba7a4.png)
+- 设置标签颜色
+  - 下一步就需要设置标签颜色。我们在研究过程中，总会有几个关注的物种或分支，这时候为了进化树更加直观明了，就需要用把我们关注的支和标签突出显示
+  - “Color Range”可以对这个支标注一个背景色块，点击之后，创建一个色块并命名，这样标注好了，旁边的“Clade”和“Full”可以选择背景色块的区域大小。
+  - 另外，还可以通过“Branches”设置支颜色，“Labels”设置标签颜色，大家可以自己探索一下。
+
+![](https://pic.imgdb.cn/item/674c7719d0e0a243d4dba813.png)
+
+![](https://pic.imgdb.cn/item/674c7734d0e0a243d4dba819.png)
+
+- 至此，关于系统进化树的构建和美化的基本内容已经讲完了，让大家有个基本的概念，在论文中看到了这样的图知道是干什么的和怎么做出来的。
+- 未来大家如果需要在论文中作图的话，需要自己再多去了解一些美化，比如配色方案、物种的分类注释的内容
+
+> 更多参考链接：
+>
+> [iTOL快速绘制颜值最高的进化树！](https://blog.csdn.net/qazplm12_3/article/details/143021316)
+>
+> [系统发育树的美化（iTOL）](https://blog.csdn.net/qq_45735120/article/details/131121748)
