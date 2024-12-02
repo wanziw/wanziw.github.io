@@ -6,6 +6,7 @@ cover: /img/cover7.jpg
 tags:
   - 多序列比对
   - 系统进化树
+sticky: 1
 description: "生物信息学导论第五节课基本内容 mega软件使用 多序列比对 系统进化树"
 ---
 
@@ -90,7 +91,9 @@ MEGA的全称为Molecular Evolutionary Genetics Analysis，也就是专门用于
 >
 > - [多序列比对MSA](https://www.jianshu.com/p/a7a96ff355a7)
 >
-> 这些资料并不是最好理解的，可以自己去看更多的视频
+> 这些资料并不一定是最好理解的，可以自己去看更多的视频
+
+- 这里可以先修剪 上面有个小剪刀标志 修剪两段多余的序列
 
 ![](https://pic.imgdb.cn/item/67456ea5d0e0a243d4d12313.png)
 
@@ -113,6 +116,9 @@ MEGA的全称为Molecular Evolutionary Genetics Analysis，也就是专门用于
 - C 保守的区域标黄
 - V 不保守的区域标黄
   - 可以对不保守的区域进行手动删除
+- 分组
+  - 可以1
+
 
 ![](https://pic.imgdb.cn/item/67457634d0e0a243d4d125a8.png)
 
@@ -144,23 +150,6 @@ MEGA的全称为Molecular Evolutionary Genetics Analysis，也就是专门用于
 
 - 树的风格调整
   - 一般数量大我们会选择调成圆形
-
-
-iTols
-
-学习一些论文的系统发育树的作图
-
-https://bilibili.com/video/BV1S14y127Aj/?spm_id_from=333.337.search-card.all.click&vd_source=4d6c487ceff97b879f0278219a0b8f7d
-
-http://www.360doc.com/content/24/1111/17/85252588_1139077070.shtml
-
-https://blog.csdn.net/qazplm12_3/article/details/143021316
-
-https://zhuanlan.zhihu.com/p/342713574
-
-
-
-
 
 - 导出
   - Image 导出各种样子的

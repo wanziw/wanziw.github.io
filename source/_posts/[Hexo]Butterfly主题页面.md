@@ -4,7 +4,6 @@ date: 2024-07-19 18:44:50
 cover: https://pic.imgdb.cn/item/669a4645d9c307b7e9f4ce5f.png
 categories: Hexo教程
 tags: 页面配置
-sticky: 1
 description: butterfly设置记录
 Copyright: true
 copyright_author: wanzi
