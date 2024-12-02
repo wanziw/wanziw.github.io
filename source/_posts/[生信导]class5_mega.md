@@ -16,7 +16,40 @@ description: "生物信息学导论第五节课基本内容 mega软件使用 多
 
 
 
-[常用生物学软件的安装与应用（四）—MEGA](https://zhuanlan.zhihu.com/p/337236253)
+# 概念介绍
+
+## 多序列比对
+
+多序列比对（multiple alignment），对两条以上的生物序列进行全局比对
+
+![](https://picx.zhimg.com/v2-ccbc7d76d3c6d0f835de7d4e78508b0d_1440w.jpg)
+
+- 注意事项
+
+一般10-15条序列，两两间序列相似度30%-90%，序列差不多长，没有重复域
+
+![](https://picx.zhimg.com/v2-d75f290e82b639a1307e1bd342d54965_1440w.jpg)
+
+## 系统进化树
+
+系统进化树是对多序列比对（MSA）结果以树形图形式的一个呈现，对于研究进化关系有很大的帮助，通过进化树分析我们也可以关键功能基因和蛋白得出一些假说
+
+![](https://i-blog.csdnimg.cn/blog_migrate/4609a84cb75d0d68a1f9a81ad1d2d66c.jpeg)
+
+上图很好的反映了进化树构建的依据：
+
+1. 随着物种进化的演绎，进化水平越相近的物种他们的序列越接近
+2. 如果是由同一个物种演化过来的，分化出来的不同物种会保留共同祖先的印记，这是区别于其他的祖先的。
+
+![](https://upload-images.jianshu.io/upload_images/26457016-94154539a558da58.png?imageMogr2/auto-orient/strip|imageView2/2/w/555/format/webp)
+
+
+
+
+
+
+
+
 
 # 软件安装
 
@@ -94,6 +127,9 @@ MEGA的全称为Molecular Evolutionary Genetics Analysis，也就是专门用于
 > 这些资料并不一定是最好理解的，可以自己去看更多的视频
 
 - 这里可以先修剪 上面有个小剪刀标志 修剪两段多余的序列
+  - 两端对齐 减少相似性低的部分，可以增加进化树构建成功的概率
+  - 选择区域然后右键 delete也是一样的效果
+
 
 ![](https://pic.imgdb.cn/item/67456ea5d0e0a243d4d12313.png)
 
@@ -129,6 +165,9 @@ MEGA的全称为Molecular Evolutionary Genetics Analysis，也就是专门用于
   - 邻接法
   
 - > 这里有三种方法，分别是最大似然法 (Maximum Likelihood)、邻接法 (Neighbor-Joining) 和最小进化法 (Minimum Evolution)。【这三种方法我就不在这里介绍了，大家可以去查查，常用**邻近法**】
+  >
+  > 补充：
+  > 一般情况下，若有合适的分子进化模型可供选择，用最大似然法构树获得的结果较好；对于近缘物种序列，通常情况下使用最大简约法；而对于远缘物种序列，一般使用邻接法或最大似然法。对于相似度很低的序列，邻接法往往出现长枝吸引(branch attraction)现象，有时严重干扰进化树的构建。对于各种方法重建进化树的准确性，Hall (2005)认为贝叶斯法最好，其次是最大似然法，然后是最大简约法。其实如果序列的相似性较高，各种方法都会得到不错的结果，模型间的差别也不大。邻接法和最大似然法是需要选择模型的。蛋白质序列和DNA序列的模型选择是不同的。蛋白质序列的构树模型一般选择Poissoncorrection(泊松修正)，而核酸序列的构树模型一般选择Kimura2-parameter (Kimura一2参数)。如果对各种模型的理解并不深入，最好不要使用其他复杂的模型。参数的设置推荐使用缺省的参数。
 
 
 ![](https://pic.imgdb.cn/item/67457679d0e0a243d4d125f5.png)
@@ -158,7 +197,9 @@ MEGA的全称为Molecular Evolutionary Genetics Analysis，也就是专门用于
 
 # iTOL绘制系统发育树
 
-MEGA的基础修改可能不满足我们，我们导出newick模式的树文件，在iTOL中上传
+> 获得nwk格式的进化树后，需要对其进行展示，以便从直观上判断材料间的聚类关系，界面版的MEGA自带简单的展示功能，可以对进化树进行展示，但其功能较为简单，无法满足着色、添加额外信息等较为个性化的要求。从功能的丰富度来说，iTOL(https://itol.embl.de/)、EvolView(http://www.evolgenius.info/evolview/)、ggtree(https://github.com/GuangchuangYu/ggtree)应当是功能较为齐全的软件，其中，ggtree是R软件包，可以在本地操作，但需要编写代码，使用起来并不十分方便。三款软件中，从操作的简易度，效果的美观程度来看，iTOL都是最佳的选择，下面将以iTOL为例子，说明对进化树结果的展示方法。
+
+我们导出newick模式的树文件，在iTOL中上传
 
 - 网站：[itol](http://itol.embl.de/)
 
