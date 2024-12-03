@@ -6,7 +6,7 @@ cover: /img/cover13.jpg
 tags:
   - numpy
   - pandas
-sticky: 2
+sticky: 1
 description: "生物信息学导论第六节课基本内容 numpy和pandas的基本使用 以及一些案例"
 ---
 

@@ -6,7 +6,6 @@ cover: /img/cover7.jpg
 tags:
   - 多序列比对
   - 系统进化树
-sticky: 1
 description: "生物信息学导论第五节课基本内容 mega软件使用 多序列比对 系统进化树"
 ---
 
