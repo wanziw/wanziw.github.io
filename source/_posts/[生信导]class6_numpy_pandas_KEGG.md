@@ -2,7 +2,7 @@
 title: 生信Class6 numpy/pandas/KEGG
 date: 2024-12-02 16:57:33
 categories: 生物信息导论实验课
-cover: /img/cover13.jpg
+cover: /img/cover16.jpg
 tags:
   - numpy
   - pandas

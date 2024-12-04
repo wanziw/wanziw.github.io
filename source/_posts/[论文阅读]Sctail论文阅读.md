@@ -12,7 +12,7 @@ copyright_author_href: https://github.com/wanziw
 copyright_url: https://wanziw.github.io/2024/09/12/%5B论文阅读%5DSctail论文阅读/
 copyright_info: 此文章版權歸wanzi所有，如有轉載，請註明來自原作者
 ---
-
+这篇文章有点乱搞，不看了
 
 
 论文链接:[c](https://www.biorxiv.org/content/10.1101/2024.07.05.602174v1.full.pdf)
