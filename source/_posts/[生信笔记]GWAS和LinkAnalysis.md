@@ -6,7 +6,7 @@ categories: 生信笔记
 tags: 
   - GWAS 
   - 多组学
-description: 表观基因组学小记
+description: GWAS、LinkAnalysis、QTL
 ---
 > 之前写过的一片博客[【Human Genetics】Link analysis、GWAS](https://blog.csdn.net/weixin_57345774/article/details/136054887)
 >
