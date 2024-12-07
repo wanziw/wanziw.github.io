@@ -10,6 +10,10 @@ sticky: 1
 description: "生物信息学导论第六节课基本内容 numpy和pandas的基本使用 以及一些案例"
 ---
 
+[toc]
+
+
+
 # Numpy 和pandas使用
 
 ## 创建conda环境
@@ -168,9 +172,25 @@ python -m ipykernel install --user --name bioinformatics --display-name "bioinfo
 
 
 
-# KEGG
+# GSEA
+
+## 理论部分
+
+GSEA需要表达量的数据，GO/KEGG不需要
+
+Ten years of pathway analysis: current approaches and outstanding challenges
+
+
+
+
+
+## 实战部分
 
 - 安装gseapy包
+
+> [GSEApy-github](https://github.com/zqfang/GSEApy)
+>
+> [GSEAPY官方文档](https://gseapy.readthedocs.io/en/latest/introduction.html)
 
 ```python
 # 使用 conda 安装（仅限 MacOS_x86-64 和 Linux）
@@ -179,6 +199,218 @@ conda install -c bioconda gseapy
 # 使用 pip 安装
 pip install gseapy
 ```
+
+
+
+## 数据集结构
+
+差异表达基因
+
+里面有10813个基因
+
+![](https://pic.imgdb.cn/item/6754439dd0e0a243d4dfc719.png)
+
+
+
+| 列名               | 说明                                                         |
+| ------------------ | ------------------------------------------------------------ |
+| **Unnamed: 0**     | **基因的 Ensembl ID**（例如 ENSG00000160072）。通常用于唯一标识基因。 |
+| **baseMean**       | 所有样本中该基因的**平均表达量**。基于原始计数（如 RNA-Seq 数据）计算得出。 |
+| **log2FoldChange** | 两个条件之间的基因表达变化的对数2倍数。正值表示上调，负值表示下调。 |
+| **lfcSE**          | log2FoldChange 的标准误差，反映了测量的不确定性。            |
+| **stat**           | 差异表达统计量（如 Wald 统计量）。                           |
+| **pvalue**         | **原始 p 值**，表示观察到的基因表达变化在零假设下出现的概率。 |
+| **padj**           | **调整后的 p 值**（通常使用 Benjamini-Hochberg 方法），用于控制多重比较问题后的**错误发现率（false discovery rate,FDR）**。 |
+| **Gene**           | 基因名称（如 ATAD3B）。                                      |
+
+
+
+## 排序
+
+新给大家的txt那个文件的数据集的Z值就是跟这个一样的**算好的**，用来排序，所以以下的内容当做原理参考一下就行
+
+```python
+df['Rank'] = -np.log10(df.padj)*df.log2FoldChange
+
+df = df.sort_values('Rank', ascending = False).reset_index(drop = True)
+
+df
+```
+
+- -np.log10(df.padj)：
+  - np.log10(df.padj)：取调整p 值的以10为底的对数。
+    - 由于 p 值通常是小数，取对数后数值变为负数，且越小的 p 值（越显著）对应的对数绝对值越大。
+  - -np.log10(df.padj)：通过取负号，将对数后的 p 值转换为正值。这样，**较小的 p 值（更显著）对应的数值更大。**
+
+- df.log2FoldChange：这是**基因表达变化**的对数2倍数。正值表示基因上调，负值表示基因下调。
+- 二者相乘的结果，综合考虑基因的统计显著性和表达变化方向及幅度。因此当作Rank排序
+- df.sort_values('Rank', ascending = False).reset_index(drop = True)
+  - sort_values是排序函数，把表格按照'Rank'列
+  - ascending = False表示降序排列
+  - reset_index(drop = True) 因为排序后每一行都变了，所以索引要重新设置，并且丢弃掉原来的索引index
+- 查看gene和rank两列
+
+![](https://pic.imgdb.cn/item/675446a5d0e0a243d4dfc7a7.png)
+
+至此完成了基本的预处理，也就是得到了后续分析的输入
+
+## GSEA分析
+
+GSEA（Gene Set Enrichment Analysis，基因集富集分析）
+
+gseapy这个包已经有了一些library
+
+```python
+gp.get_library_name()
+```
+
+> 用于基因集富集分析（GSEA）的库（libraries）。这些库通常包含特定的基因集、路径（pathways）、基因-疾病关联等信息，用于帮助研究人员从大量基因数据中识别出具有生物学意义的模式。挑几个看看：
+>
+> **1. KEGG_2021_Human**
+>
+> **来源**：**KEGG（Kyoto Encyclopedia of Genes and Genomes）**
+>
+> **内容**：KEGG 是一个综合性的数据库，包含了大量的生物路径（**pathways**）、疾病信息、药物信息等。KEGG_2021_Human 特指2021年版本的人类KEGG路径集。
+>
+> **作用**：用于识别和分析基因在已知生物路径中的富集情况，帮助理解基因在细胞过程、信号传导、代谢途径等中的作用。
+>
+> **2. GO_Biological_Process_2021**
+>
+> **来源**：**Gene Ontology（GO）**
+>
+> **内容**：GO 提供了一套统一的术语来描述基因和基因产物的功能，分为三个主要类别：生物过程（Biological Process）、分子功能（Molecular Function）和细胞组分（Cellular Component）。GO_Biological_Process_2021 指的是2021年版本的生物过程类基因集。
+>
+> **作用**：用于分析基因在不同生物过程中（如细胞周期、信号传导、代谢过程等）的富集情况，帮助揭示基因在特定生物学功能中的角色。
+>
+> **3. ChEA_2015**
+>
+> **来源**：**ChEA（ChIP-X Enrichment Analysis）**
+>
+> **内容**：ChEA 包含了大量的转录因子（Transcription Factors, TFs）与其靶基因的关联信息，基于ChIP-seq等实验数据构建。
+>
+> **作用**：用于识别和分析基因在特定转录因子调控下的富集情况，帮助理解基因调控网络和转录因子的作用。
+>
+> **4. Human_Phenotype_Ontology**
+>
+> **来源**：**Human Phenotype Ontology（HPO）**
+>
+> **内容**：HPO 提供了对人类疾病和表型特征的标准化描述，涵盖了各种临床表型和疾病特征。
+>
+> **作用**：用于分析基因与特定人类表型或疾病特征的关联情况，帮助在基因表达数据中识别与临床表型相关的基因集。
+
+- ger the GESA results
+
+```python
+pre_res = gp.prerank(rnk = ranking, gene_sets = 'GO_Biological_Process_2021', seed = 6, permutation_num = 100)
+```
+
+
+
+
+
+- 先简单查看一下结果
+
+```python
+# 2. 打印 GSEA 结果的第一个键
+print(list(pre_res.results.keys())[0])
+
+# 3. 打印 GSEA 结果的第一个值
+print(list(pre_res.results.values())[0])
+```
+
+结果展示一部分,这里的第一个并不代表是最富集的，因为还要看fdr和pvalue
+
+```
+regulation of cellular localization (GO:0060341)
+{'name': 'prerank', 'es': -0.6650458489873552, 'nes': -1.0809540343472221, 'pval': 0.4166666666666667, 'fdr': 0.6882871982831866, 'fwerp': 1.0, 'tag %': '4/35', 'gene %': '6.83%', 'lead_genes': 'SPAG5;PARP1;KDM1A;HSP90AA1', 'matched_genes': 'LYN;WWC1;REEP6;PINK1;GSN;STXBP2;PARD6G;REEP5;LRP5;NR1D1;TRIM46;LRRK2;CAMK2D;BRSK1;DVL3;DYNC1H1;MAP2;KIAA1614;GOSR1;NUMA1;FER;CSNK1E;PPM1F;TTL;FES;CDK16;STXBP4;EFNA5;DVL1;EPHA5;HSP90AB1;HSP90AA1;KDM1A;PARP1;SPAG5', 'hits': [401, 530, 717, 1233, 1242, 1304, 1421, 1947, 1982, 1998, 2091, 2165, 2749, 2945, 3506, 3850, 4853, 5226, 5445, 5656, 6508, 6521, 6625, 7374, 7792, 7853, 8143, 8276, 8307, 8467, 9270, 10076, 10089, 10503, 10771], 'RES':
+```
+
+> - **Term**：基因集名称（如GO生物过程中的某个特定过程）
+>   - regulation of cellular localization (GO:0060341):进行富集分析的特定基因集名称，属于Gene Ontology（GO）中的一个生物过程类别
+> - **fdr**：错误发现率，表示该基因集富集结果的显著性。fdr值越小，越显著。
+>   - 多重检验校正。**最重要的参数之一**。通常，fdr < 0.05 被认为是显著的富集结果，表示结果可靠性高
+> - **es**：富集得分，表示基因集在基因列表中的富集程度。
+>   - 衡量该基因集在基因排序列表中的富集程度。正值表示基因集在列表顶部（上调基因）富集，负值表示在列表底部（下调基因）富集。
+> - **pval**
+>   - p值越小，结果越显著
+> - **nes**：标准化**Normalized**的富集得分，方便不同基因集之间的比较。
+> - **lead_genes（关键基因）**
+>   - SPAG5;PARP1;KDM1A;HSP90AA1
+>   - 该基因集富集的关键基因、帮助识别哪些基因在富集中起主要作用
+> - **hits（命中位置）**
+>   - 数字表示匹配基因在基因排序列表中的具体位置
+
+```python
+# 提取结果转换成dataframe
+out = []
+
+for term in list(pre_res.results):
+    out.append([term,
+               pre_res.results[term]['fdr'],
+               pre_res.results[term]['es'],
+               pre_res.results[term]['nes']])
+
+out_df = pd.DataFrame(out, columns = ['Term','fdr', 'es', 'nes']).sort_values('fdr').reset_index(drop = True)
+out_df
+```
+
+# GO富集
+
+
+
+# K-mer
+
+bionumpy
+
+
+
+Rand, K.D., Grytten, I., Pavlović, M. et al. BioNumPy: array programming for biology. Nat Methods 21, 2198–2199 (2024). https://doi.org/10.1038/s41592-024-02483-4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
