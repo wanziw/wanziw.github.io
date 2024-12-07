@@ -165,3 +165,20 @@ python -m ipykernel install --user --name bioinformatics --display-name "bioinfo
 - 用jupyter跑
   - [https://github.com/zmzhouXJTU/Python-Data-Analysis/tree/master](https://github.com/zmzhouXJTU/Python-Data-Analysis/tree/master)
   - ![](https://pic.imgdb.cn/item/674d71f4d0e0a243d4dbe51e.png)
+
+
+
+# KEGG
+
+- 安装gseapy包
+
+```python
+# 使用 conda 安装（仅限 MacOS_x86-64 和 Linux）
+conda install -c bioconda gseapy
+ 
+# 使用 pip 安装
+pip install gseapy
+```
+
+
+
