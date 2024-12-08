@@ -3082,7 +3082,7 @@ Challenge</a></p>
 <ul>
 <li>第一代：ORA 方法要求输入是差异表达基因的列表
 <ul>
-<li>设定阈值 传统的KEGG富集</li>
+<li>设定阈值 传统的GO/KEGG富集</li>
 </ul></li>
 <li>第二代： FCS 方法使用整个数据矩阵作为输入。
 <ul>
@@ -3170,17 +3170,14 @@ Enrichment Score (NES)。</li>
 href="https://gseapy.readthedocs.io/en/latest/introduction.html">GSEAPY官方文档</a></p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用 conda 安装（仅限 MacOS_x86-64 和 Linux）</span></span><br><span class="line">conda install -c bioconda gseapy</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 使用 pip 安装</span></span><br><span class="line">pip install gseapy</span><br></pre></td></tr></table></figure>
-<h3 id="数据集结构">数据集结构</h3>
 <blockquote>
 <p>给大家准备了两个ipynb文件和两份数据</p>
-<p>其中 <a
-href="../../../../../../Users/wangzixuan/Documents/浙大/助教/241209_class6/KEGG/GSEA_in_python.ipynb">GSEA_in_python.ipynb</a>
-对应的是'DE_results.csv'数据</p>
-<p><a
-href="../../../../../../Users/wangzixuan/Documents/浙大/助教/241209_class6/KEGG/GESA_analysis.ipynb">GESA_analysis.ipynb</a>
-对应的是'PRMT5_DMSO_differential.txt'数据</p>
-<p>因为数据里面有些列名的不同，所以准备了两个，本质上是一样的东西，代码脚本中可能有些变量名命名的不太一样</p>
+<p>其中 GSEA_in_python.ipynb 对应的是'DE_results.csv'数据</p>
+<p>GESA_analysis.ipynb对应的是'PRMT5_DMSO_differential.txt'数据</p>
+<p>因为数据里面有些列名的不同，所以准备了两个，本质上是一样的东西，代码脚本中可能有些变量名命名的不太一样。</p>
+<p>上课我们讲的是GESA_analysis.ipynb</p>
 </blockquote>
+<h3 id="数据集结构">数据集结构</h3>
 <p>差异表达基因</p>
 <p>里面有1118个基因</p>
 <p>设计的两个实验条件</p>
@@ -3356,8 +3353,24 @@ src="https://pic.imgdb.cn/item/67553f08d0e0a243d4dfe31a.png" /></p>
 <p>参考官方文档的画图部分</p>
 <p>https://gseapy.readthedocs.io/en/latest/gseapy_example.html#Prerank-example</p>
 <p>有单个term展现的、多个term同时展现、气泡图</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>单个
+<ul>
+<li>第一种是简单的方法，快速展现</li>
+<li>第二种是可以更加灵活调节的方法</li>
+</ul></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> gseapy.plot <span class="keyword">import</span> gseaplot</span><br><span class="line"><span class="comment"># 方法1</span></span><br><span class="line"><span class="comment"># terms = gsea_res.res2d.Term</span></span><br><span class="line"><span class="comment"># axs = gsea_res.plot(terms=terms[1])</span></span><br><span class="line"><span class="comment"># 方法2</span></span><br><span class="line">term_to_plot = df_out[<span class="string">&#x27;Term&#x27;</span>][<span class="number">0</span>]</span><br><span class="line">gseaplot(rank_metric=gsea_res.ranking, term=term_to_plot, **gsea_res.results[term_to_plot])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>多个term</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">terms = gsea_res.res2d.Term</span><br><span class="line">axs = gsea_res.plot(terms=terms[1:5],</span><br><span class="line">                   # legend_kws=&#123;&#x27;loc&#x27;: (1.2, 0)&#125;, # set the legend loc</span><br><span class="line">                   show_ranking=True, # whether to show the second yaxis</span><br><span class="line">                   figsize=(3,4)</span><br><span class="line">                  )</span><br></pre></td></tr></table></figure>
+<ul>
+<li>气泡图展示富集的通路</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> gseapy <span class="keyword">import</span> dotplot</span><br><span class="line"><span class="comment"># to save your figure, make sure that ``ofname`` is not None</span></span><br><span class="line">ax = dotplot(gsea_res.res2d,</span><br><span class="line">             column=<span class="string">&quot;FDR q-val&quot;</span>,</span><br><span class="line">             title=<span class="string">&#x27;GO_Biological_Process_2021&#x27;</span>,</span><br><span class="line">             cmap=plt.cm.viridis,</span><br><span class="line">             size=<span class="number">6</span>, <span class="comment"># adjust dot size</span></span><br><span class="line">             figsize=(<span class="number">4</span>,<span class="number">5</span>), cutoff=<span class="number">0.5</span>, show_ring=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
 <h1 id="go富集">GO富集</h1>
+<p><a href="https://geneontology.org/">geneontology</a></p>
 <h1 id="k-mer">K-mer</h1>
 <p>bionumpy</p>
 <p>Rand, K.D., Grytten, I., Pavlović, M. et al. BioNumPy: array
