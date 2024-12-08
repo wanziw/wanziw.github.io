@@ -69,7 +69,7 @@ https://wanziw.club/
 
 博客：[Anaconda安装（2024最新版）](https://blog.csdn.net/m0_66047447/article/details/141110995)
 
-[anaconda官网]()
+[anaconda官网](https://www.anaconda.com/)
 
 [anaconda官网清华镜像](https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/)
 
