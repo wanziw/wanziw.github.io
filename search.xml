@@ -489,123 +489,131 @@ src="https://pic.imgdb.cn/item/669b3e59d9c307b7e9f9e2a7.png" /></li>
   <entry>
     <title>生信Class1 anaconda、pycharm安装和配置</title>
     <url>/2024/11/04/%5B%E7%94%9F%E4%BF%A1%E5%AF%BC%5Dclass1_python%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p><a href="https://wanziw.club/">https://wanziw.club/</a></p>
-<h1 id="课程介绍"><a href="#课程介绍" class="headerlink" title="课程介绍"></a>课程介绍</h1><ul>
+    <content><![CDATA[<p>https://wanziw.club/</p>
+<h1 id="课程介绍">课程介绍</h1>
+<ul>
 <li><p>助教：</p>
 <ul>
 <li>王子轩</li>
 <li>谢璐瑶</li>
-</ul>
-</li>
+</ul></li>
 <li><blockquote>
 <p>课程内容（不全版）</p>
-<ol>
+<ol type="1">
 <li>R和python基础</li>
 <li>使用R语言中的DESeq2包做基因差异表达分析，ggplot2绘制火山图、热图</li>
 <li>使用MEGA构建不同物种的系统发育树</li>
 <li>使用pyMol可视化蛋白质结构，分析结构和功能的关系</li>
 <li>kmer法探究基因kmer分布，获得序列向量进行聚类和分类</li>
 </ol>
-</blockquote>
-</li>
+</blockquote></li>
 <li><p>本人的一些链接</p>
 <ul>
 <li><a href="https://wanziw.club">个人博客</a></li>
-<li><p><a href="https://blog.csdn.net/weixin_57345774">csdn</a></p>
+<li><a href="https://blog.csdn.net/weixin_57345774">csdn</a>
 <ul>
-<li>对于编程比较感兴趣/记忆力不太好的同学推荐使用博客记录自己学习内容<ul>
+<li>对于编程比较感兴趣/记忆力不太好的同学推荐使用博客记录自己学习内容
+<ul>
 <li>csdn/简书/自己搭网站</li>
+</ul></li>
+</ul></li>
+<li><a href="https://github.com/wanziw">github</a></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-<li><p><a href="https://github.com/wanziw">github</a></p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h1><ul>
-<li>python<ul>
+<h1 id="基础概念">基础概念</h1>
+<ul>
+<li>python
+<ul>
 <li>编程语言</li>
 <li>解释器，用来发挥</li>
-</ul>
-</li>
-<li>pycharm/vscode<ul>
+</ul></li>
+<li>pycharm/vscode
+<ul>
 <li>编辑器，开发工具，提供敲代码的界面</li>
-</ul>
-</li>
-<li>python包<ul>
+</ul></li>
+<li>python包
+<ul>
 <li>numpy pandas pytorch</li>
 <li>第三方包</li>
-</ul>
-</li>
-<li>anaconda/conda <ul>
-<li>包管理工具，管理不同的项目和环境</li>
-</ul>
-</li>
-</ul>
-<h1 id="环境的配置"><a href="#环境的配置" class="headerlink" title="环境的配置"></a>环境的配置</h1><p>对于不同的项目，我们一般在<strong>命令行</strong>使用<strong>conda</strong>配置不同项目的环境，这样python解释器的版本和第三方包的版本就是相互独立的</p>
-<p>然后再使用开发工具开发</p>
-<p><img src="https://pic.imgdb.cn/item/67289739d29ded1a8ca92c45.png" alt=""></p>
-<p><img src="https://pic.imgdb.cn/item/6728978cd29ded1a8ca9a92d.png" alt=""></p>
-<p><img src="https://pic.imgdb.cn/item/672897dcd29ded1a8caa1adc.png" alt=""></p>
-<h1 id="安装anaconda"><a href="#安装anaconda" class="headerlink" title="安装anaconda"></a>安装anaconda</h1><p>博客：<a href="https://blog.csdn.net/m0_66047447/article/details/141110995">Anaconda安装（2024最新版）</a></p>
-<p><a href="">anaconda官网</a></p>
-<p><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/">anaconda官网清华镜像</a></p>
+</ul></li>
+<li>anaconda/conda
 <ul>
-<li><p>安装步骤</p>
-<ol>
+<li>包管理工具，管理不同的项目和环境</li>
+</ul></li>
+</ul>
+<h1 id="环境的配置">环境的配置</h1>
+<p>对于不同的项目，我们一般在<strong>命令行</strong>使用<strong>conda</strong>配置不同项目的环境，这样python解释器的版本和第三方包的版本就是相互独立的</p>
+<p>然后再使用开发工具开发</p>
+<p><img
+src="https://pic.imgdb.cn/item/67289739d29ded1a8ca92c45.png" /></p>
+<p><img
+src="https://pic.imgdb.cn/item/6728978cd29ded1a8ca9a92d.png" /></p>
+<p><img
+src="https://pic.imgdb.cn/item/672897dcd29ded1a8caa1adc.png" /></p>
+<h1 id="安装anaconda">安装anaconda</h1>
+<p>博客：<a
+href="https://blog.csdn.net/m0_66047447/article/details/141110995">Anaconda安装（2024最新版）</a></p>
+<p><a href="https://www.anaconda.com/">anaconda官网</a></p>
+<p><a
+href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/">anaconda官网清华镜像</a></p>
+<ul>
+<li>安装步骤
+<ol type="1">
 <li>一路next</li>
-<li>安装路径最好是写d盘（默认c盘）<ol>
-<li>d盘创建一个文件夹 D:/anaconda3    or   D:/software/Anaconda3 <ol>
+<li>安装路径最好是写d盘（默认c盘）
+<ol type="1">
+<li>d盘创建一个文件夹 D:/anaconda3 or D:/software/Anaconda3
+<ol type="1">
 <li>按自己习惯</li>
 <li>路径上最好不要有中文</li>
-</ol>
-</li>
+</ol></li>
 <li>这样好找且不浪费c盘空间</li>
-</ol>
-</li>
-<li>勾选上第二个默认安装一个python版本3.11/3.12<img src="https://pic.imgdb.cn/item/67289aa3d29ded1a8cae3736.png" alt=""></li>
-</ol>
-</li>
-<li><p>等待一段时间</p>
-</li>
+</ol></li>
+<li>勾选上第二个默认安装一个python版本3.11/3.12<img
+src="https://pic.imgdb.cn/item/67289aa3d29ded1a8cae3736.png" /></li>
+</ol></li>
+<li>等待一段时间</li>
 </ul>
-<h1 id="配置anaconda环境"><a href="#配置anaconda环境" class="headerlink" title="配置anaconda环境"></a>配置anaconda环境</h1><ul>
-<li>更改系统环境变量<ul>
-<li>电脑搜索“环境变量”/“查看高级系统设置”  -&gt; “环境变量”</li>
+<h1 id="配置anaconda环境">配置anaconda环境</h1>
+<ul>
+<li>更改系统环境变量
+<ul>
+<li>电脑搜索“环境变量”/“查看高级系统设置” -&gt; “环境变量”</li>
 <li>Path-&gt;编辑-&gt;新建</li>
 <li>要根据自己的安装路径来</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">D:\Anaconda3</span><br><span class="line">D:\Anaconda3\Scripts</span><br><span class="line">D:\Anaconda3\Library\bin</span><br><span class="line">D:\Anaconda3\Library\mingw-w64\bin</span><br><span class="line">D:\Anaconda3\Library\usr\bin</span><br></pre></td></tr></table></figure>
-<p><img src="https://pic.imgdb.cn/item/67289d1fd29ded1a8cb21072.png" alt=""></p>
+<p><img
+src="https://pic.imgdb.cn/item/67289d1fd29ded1a8cb21072.png" /></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda --version # 查看conda版本</span><br><span class="line">python # 打开python环境</span><br><span class="line">print(&quot;hello world&quot;)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>anaconda换源</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/</span><br><span class="line"> </span><br><span class="line">//设置搜索时显示通道地址</span><br><span class="line">conda config --set show_channel_urls yes</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
 <ul>
-<li>修改默认虚拟环境安装位置，以后配置conda环境好找<ul>
-<li>“D:\software\anaconda\envs”这部分根据自己的来</li>
-</ul>
-</li>
+<li>修改默认虚拟环境安装位置，以后配置conda环境好找
+<ul>
+<li>"D:"这部分根据自己的来</li>
+</ul></li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda config --add envs_dirs D:\software\anaconda\envs</span><br></pre></td></tr></table></figure>
 <ul>
-<li>可能出现的问题，出现文件权限的问题的时候<ul>
-<li><img src="https://pic.imgdb.cn/item/67289f49d29ded1a8cb45890.png" alt=""></li>
+<li>可能出现的问题，出现文件权限的问题的时候
+<ul>
+<li><img
+src="https://pic.imgdb.cn/item/67289f49d29ded1a8cb45890.png" /></li>
 <li>全部钩上允许</li>
-<li><img src="https://pic.imgdb.cn/item/67289f9cd29ded1a8cb49ee4.png" alt=""></li>
+<li><img
+src="https://pic.imgdb.cn/item/67289f9cd29ded1a8cb49ee4.png" /></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h1 id="conda常用命令"><a href="#conda常用命令" class="headerlink" title="conda常用命令"></a>conda常用命令</h1><p>D:\software\anaconda\envs</p>
-<p>​    1.查看当前conda版本</p>
+<h1 id="conda常用命令">conda常用命令</h1>
+<p>D:</p>
+<p>​ 1.查看当前conda版本</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">conda -V</span><br><span class="line">conda --version</span><br></pre></td></tr></table></figure>
 <p>conda对虚拟环境的管理</p>
-<ol>
+<ol type="1">
 <li>查看已有的虚拟环境列表</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">conda info --envs</span><br><span class="line">conda info -e</span><br><span class="line">conda env <span class="built_in">list</span></span><br><span class="line"><span class="number">123</span></span><br></pre></td></tr></table></figure>
@@ -615,36 +623,48 @@ src="https://pic.imgdb.cn/item/669b3e59d9c307b7e9f9e2a7.png" /></li>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">conda activate test</span><br></pre></td></tr></table></figure>
 <p>4.退出虚拟环境</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure>
-<h1 id="安装pycharm"><a href="#安装pycharm" class="headerlink" title="安装pycharm"></a>安装pycharm</h1><p><a href="https://blog.csdn.net/jackson_lingua/article/details/135860415">2024最新版PyCharm安装使用指南</a></p>
+<h1 id="安装pycharm">安装pycharm</h1>
+<p><a
+href="https://blog.csdn.net/jackson_lingua/article/details/135860415">2024最新版PyCharm安装使用指南</a></p>
 <p><a href="https://www.jetbrains.com/">pycharm官网</a></p>
 <p>安装社区版</p>
 <p>下载在d盘上面</p>
 <p>创建项目</p>
 <p>配置python解释器</p>
-<h1 id="安装vscode"><a href="#安装vscode" class="headerlink" title="安装vscode"></a>安装vscode</h1><p>d盘创建一个vscode</p>
-<h1 id="课后总结"><a href="#课后总结" class="headerlink" title="课后总结"></a>课后总结</h1><blockquote>
-<ol>
+<h1 id="安装vscode">安装vscode</h1>
+<p>d盘创建一个vscode</p>
+<h1 id="课后总结">课后总结</h1>
+<blockquote>
+<ol type="1">
 <li>编程这块大家有问题<strong>多百度</strong>，<strong>报错</strong>是很正常的，不用怕。</li>
 <li>今天上课的内容对0基础的大家来说其实难度很大了，能按流程做下来的同学已经很厉害了，这一套下来一般自己瞎鼓捣得一个礼拜，我自己也是编程了一年多后才能慢慢理清这些。</li>
 <li>学会了这块之后，后面进行python生信分析。对每一个项目，<strong>创建好项目文件夹，创建好conda环境</strong>，就可以用pycharm打开文件夹开始运行代码了</li>
 <li>因为课程时间限制，我们对python的基础就只有这一节课的时间讲。用vscode的同学、对python的数据分析和语法感兴趣的同学可以去<strong>b站</strong>找视频看。计算机不像生化环材，技术迭代块，学校里一般教的比较落后，我本科都是靠自学，网上开源的教程质量都很不错。</li>
 <li>写博客的语法是<strong>markdown</strong>，生物信息专业的同学推荐学习一下，学会了还可以用来水98</li>
-<li>我们先前打开的anaconda prompt和vscode里面打开的终端是一个东西，mac里叫命令行，windows叫cmd。<ol>
+<li>我们先前打开的anaconda
+prompt和vscode里面打开的终端是一个东西，mac里叫命令行，windows叫cmd。
+<ol type="1">
 <li>在这里可以创建conda环境，安装新的包。</li>
 <li>安装新的包也可以在pycharm里点点添加，后续会讲</li>
-</ol>
-</li>
+</ol></li>
 <li>对编程、机器学习、深度学习感兴趣的同学有问题可以私信找我或者➕v</li>
 </ol>
 </blockquote>
 <p>接下来给大家列了大家问的问题，有相同的问题的同学可以照着解决一下</p>
-<h2 id="问题1-conda-envs-scripts里面没有conda-exe"><a href="#问题1-conda-envs-scripts里面没有conda-exe" class="headerlink" title="问题1 conda-envs-scripts里面没有conda.exe"></a>问题1 conda-envs-scripts里面没有conda.exe</h2><p>课后有个同学也问了这个问题当时我没整出来</p>
-<p>就是这个conda.exe不是在anaconda3\envs\scripts这个目录下而是在anaconda3\scripts这个目录下，那我们就选择这个anaconda3\scripts\conda.exe，然后选完后点<strong>加载环境</strong>，<strong>使用现有环境</strong>里面选择自己创建的的环境就好了</p>
-<p><img src="https://pic.imgdb.cn/item/6728e1a0d29ded1a8cf5c6ec.png" alt=""><br><img src="https://pic.imgdb.cn/item/6728e1a1d29ded1a8cf5c822.png" alt=""></p>
-<h2 id="问题二-CondaError-Run-‘conda-init’-before’-conda-activate"><a href="#问题二-CondaError-Run-‘conda-init’-before’-conda-activate" class="headerlink" title="问题二 CondaError: Run ‘conda init’ before’ conda activate"></a>问题二 CondaError: Run ‘conda init’ before’ conda activate</h2><p>命令行里没能激活conda环境的</p>
-<p><img src="https://pic.imgdb.cn/item/6728e19ed29ded1a8cf5c5d5.png" alt=""></p>
+<h2 id="问题1-conda-envs-scripts里面没有conda.exe">问题1
+conda-envs-scripts里面没有conda.exe</h2>
+<p>课后有个同学也问了这个问题当时我没整出来</p>
+<p>就是这个conda.exe不是在anaconda3，那我们就选择这个anaconda3.exe，然后选完后点<strong>加载环境</strong>，<strong>使用现有环境</strong>里面选择自己创建的的环境就好了</p>
+<p><img src="https://pic.imgdb.cn/item/6728e1a0d29ded1a8cf5c6ec.png" />
+<img src="https://pic.imgdb.cn/item/6728e1a1d29ded1a8cf5c822.png" /></p>
+<h2 id="问题二-condaerror-run-conda-init-before-conda-activate">问题二
+CondaError: Run 'conda init' before' conda activate</h2>
+<p>命令行里没能激活conda环境的</p>
+<p><img
+src="https://pic.imgdb.cn/item/6728e19ed29ded1a8cf5c5d5.png" /></p>
 <p>使用管理员身份打开cmd</p>
-<p><img src="https://pic.imgdb.cn/item/6728e1e4d29ded1a8cf5ff0c.png" alt=""></p>
+<p><img
+src="https://pic.imgdb.cn/item/6728e1e4d29ded1a8cf5ff0c.png" /></p>
 ]]></content>
       <categories>
         <category>生物信息导论实验课</category>
@@ -2561,15 +2581,14 @@ Loss）的预测结果，而不仅仅就是0和1</p>
     <title>生信Class6 numpy/pandas/KEGG</title>
     <url>/2024/12/02/%5B%E7%94%9F%E4%BF%A1%E5%AF%BC%5Dclass6_numpy_pandas_KEGG/</url>
     <content><![CDATA[<p>[toc]</p>
-<h1>Numpy 和pandas使用</h1>
+<h1 id="numpy-和pandas使用">Numpy 和pandas使用</h1>
 <h2 id="创建conda环境">创建conda环境</h2>
 <ul>
 <li>在终端中创建一个python环境
 <ul>
 <li>名字为bioinformatics，可以替换为自己喜欢的别的名字，一般是根据项目来</li>
 <li>版本为3.11，别的版本当然也行</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda create --name bioinformatics python=3.11</span><br></pre></td></tr></table></figure>
 <ul>
@@ -2592,28 +2611,23 @@ Loss）的预测结果，而不仅仅就是0和1</p>
 <li>pycharm里添加上这个环境</li>
 </ul>
 <h2 id="初识numpy-pandas等第三方库">初识numpy pandas等第三方库</h2>
-<h3 id="NumPy">NumPy</h3>
-<p>NumPy（Numerical Python的简称）是Python科学计算的基础包。本书大部分内容都基于NumPy以及构建于其上的库。它提供了以下功能（不限于此）：</p>
+<h3 id="numpy">NumPy</h3>
+<p>NumPy（Numerical
+Python的简称）是Python科学计算的基础包。本书大部分内容都基于NumPy以及构建于其上的库。它提供了以下功能（不限于此）：</p>
 <ul>
-<li>
-<p>快速高效的多维数组对象ndarray。</p>
-</li>
-<li>
-<p>用于对数组执行元素级计算以及直接对数组执行数学运算的函数。</p>
-</li>
-<li>
-<p>用于读写硬盘上基于数组的数据集的工具。</p>
-</li>
-<li>
-<p>线性代数运算、傅里叶变换，以及随机数生成。</p>
-<p>-成熟的C API， 用于Python插件和原生C、C++、Fortran代码访问NumPy的数据结构和计算工具。</p>
-</li>
+<li><p>快速高效的多维数组对象ndarray。</p></li>
+<li><p>用于对数组执行元素级计算以及直接对数组执行数学运算的函数。</p></li>
+<li><p>用于读写硬盘上基于数组的数据集的工具。</p></li>
+<li><p>线性代数运算、傅里叶变换，以及随机数生成。</p>
+<p>-成熟的C API，
+用于Python插件和原生C、C++、Fortran代码访问NumPy的数据结构和计算工具。</p></li>
 </ul>
 <p>除了为Python提供快速的数组处理能力，NumPy在数据分析方面还有另外一个主要作用，即作为在算法和库之间传递数据的容器。对于数值型数据，NumPy数组在存储和处理数据时要比内置的Python数据结构高效得多。此外，由低级语言（比如C和Fortran）编写的库可以直接操作NumPy数组中的数据，无需进行任何数据复制工作。因此，许多Python的数值计算工具要么使用NumPy数组作为主要的数据结构，要么可以与NumPy进行无缝交互操作。</p>
 <h3 id="pandas">pandas</h3>
 <p>pandas提供了快速便捷处理结构化数据的大量数据结构和函数。自从2010年出现以来，它助使Python成为强大而高效的数据分析环境。本书用得最多的pandas对象是DataFrame，它是一个面向列（column-oriented）的二维表结构，另一个是Series，一个一维的标签化数组对象。</p>
 <p>pandas兼具NumPy高性能的数组计算功能以及电子表格和关系型数据库（如SQL）灵活的数据处理功能。它提供了复杂精细的索引功能，能更加便捷地完成重塑、切片和切块、聚合以及选取数据子集等操作。因为数据操作、准备、清洗是数据分析最重要的技能，pandas是本书的重点。</p>
-<p>作为背景，我是在2008年初开始开发pandas的，那时我任职于AQR Capital Management，一家量化投资管理公司，我有许多工作需求都不能用任何单一的工具解决：</p>
+<p>作为背景，我是在2008年初开始开发pandas的，那时我任职于AQR Capital
+Management，一家量化投资管理公司，我有许多工作需求都不能用任何单一的工具解决：</p>
 <ul>
 <li>有标签轴的数据结构，支持自动或清晰的数据对齐。这可以防止由于数据不对齐，或处理来源不同的索引不同的数据，所造成的错误。</li>
 <li>集成时间序列功能。</li>
@@ -2623,235 +2637,91 @@ Loss）的预测结果，而不仅仅就是0和1</p>
 <li>合并和其它流行数据库（例如基于SQL的数据库）的关系操作。</li>
 </ul>
 <p>我想只用一种工具就实现所有功能，并使用通用软件开发语言。Python是一个不错的候选语言，但是此时没有集成的数据结构和工具来实现。我一开始就是想把pandas设计为一款适用于金融和商业分析的工具，pandas专注于深度时间序列功能和工具，适用于时间索引化的数据。</p>
-<p>对于使用R语言进行统计计算的用户，肯定不会对DataFrame这个名字感到陌生，因为它源自于R的data.frame对象。但与Python不同，data frames是构建于R和它的标准库。因此，pandas的许多功能不属于R或它的扩展包。</p>
-<p>pandas这个名字源于panel data（面板数据，这是多维结构化数据集在计量经济学中的术语）以及Python data analysis（Python数据分析）。</p>
+<p>对于使用R语言进行统计计算的用户，肯定不会对DataFrame这个名字感到陌生，因为它源自于R的data.frame对象。但与Python不同，data
+frames是构建于R和它的标准库。因此，pandas的许多功能不属于R或它的扩展包。</p>
+<p>pandas这个名字源于panel
+data（面板数据，这是多维结构化数据集在计量经济学中的术语）以及Python
+data analysis（Python数据分析）。</p>
 <h3 id="matplotlib">matplotlib</h3>
-<p>matplotlib是最流行的用于绘制图表和其它二维数据可视化的Python库。它最初由John D.Hunter（JDH）创建，目前由一个庞大的开发团队维护。它非常适合创建出版物上用的图表。虽然还有其它的Python可视化库，matplotlib却是使用最广泛的，并且它和其它生态工具配合也非常完美。我认为，可以使用它作为默认的可视化工具。</p>
-<h3 id="IPython和Jupyter">IPython和Jupyter</h3>
-<p>IPython项目起初是Fernando Pérez在2001年的一个用以加强和Python交互的子项目。在随后的16年中，它成为了Python数据栈最重要的工具之一。虽然IPython本身没有提供计算和数据分析的工具，它却可以大大提高交互式计算和软件开发的生产率。IPython鼓励“执行-探索”的工作流，区别于其它编程软件的“编辑-编译-运行”的工作流。它还可以方便地访问系统的shell和文件系统。因为大部分的数据分析代码包括探索、试错和重复，IPython可以使工作更快。</p>
-<p>2014年，Fernando和IPython团队宣布了Jupyter项目，一个更宽泛的多语言交互计算工具的计划。IPython web notebook变成了Jupyter notebook，现在支持40种编程语言。IPython现在可以作为Jupyter使用Python的内核（一种编程语言模式）。</p>
-<p>IPython变成了Jupyter庞大开源项目（一个交互和探索式计算的高效环境）中的一个组件。它最老也是最简单的模式，现在是一个用于编写、测试、调试Python代码的强化shell。你还可以使用通过Jupyter Notebook，一个支持多种语言的交互式网络代码“笔记本”，来使用IPython。IPython shell 和Jupyter notebooks特别适合进行数据探索和可视化。</p>
-<p>Jupyter notebooks还可以编写Markdown和HTML内容，它提供了一种创建代码和文本的富文本方法。其它编程语言也在Jupyter中植入了内核，好让在Jupyter中可以使用Python以外的语言。</p>
+<p>matplotlib是最流行的用于绘制图表和其它二维数据可视化的Python库。它最初由John
+D.Hunter（JDH）创建，目前由一个庞大的开发团队维护。它非常适合创建出版物上用的图表。虽然还有其它的Python可视化库，matplotlib却是使用最广泛的，并且它和其它生态工具配合也非常完美。我认为，可以使用它作为默认的可视化工具。</p>
+<h3 id="ipython和jupyter">IPython和Jupyter</h3>
+<p>IPython项目起初是Fernando
+Pérez在2001年的一个用以加强和Python交互的子项目。在随后的16年中，它成为了Python数据栈最重要的工具之一。虽然IPython本身没有提供计算和数据分析的工具，它却可以大大提高交互式计算和软件开发的生产率。IPython鼓励“执行-探索”的工作流，区别于其它编程软件的“编辑-编译-运行”的工作流。它还可以方便地访问系统的shell和文件系统。因为大部分的数据分析代码包括探索、试错和重复，IPython可以使工作更快。</p>
+<p>2014年，Fernando和IPython团队宣布了Jupyter项目，一个更宽泛的多语言交互计算工具的计划。IPython
+web notebook变成了Jupyter
+notebook，现在支持40种编程语言。IPython现在可以作为Jupyter使用Python的内核（一种编程语言模式）。</p>
+<p>IPython变成了Jupyter庞大开源项目（一个交互和探索式计算的高效环境）中的一个组件。它最老也是最简单的模式，现在是一个用于编写、测试、调试Python代码的强化shell。你还可以使用通过Jupyter
+Notebook，一个支持多种语言的交互式网络代码“笔记本”，来使用IPython。IPython
+shell 和Jupyter notebooks特别适合进行数据探索和可视化。</p>
+<p>Jupyter
+notebooks还可以编写Markdown和HTML内容，它提供了一种创建代码和文本的富文本方法。其它编程语言也在Jupyter中植入了内核，好让在Jupyter中可以使用Python以外的语言。</p>
 <h2 id="使用jupyter">使用jupyter</h2>
 <p>激活环境，下载jupyter</p>
 <blockquote>
-<p>Jupyter Notebook（此前被称为 IPython notebook）是一个交互式笔记本，支持运行 40 多种编程语言。它的本质是一个 Web 应用程序，便于创建和共享文学化程序文档，支持实时代码，数学方程，可视化和 markdown。 用途包括：数据清理和转换，数值模拟，统计建模，<a href="https://edu.csdn.net/cloud/sd_summit?utm_source=glcblog&amp;spm=1001.2101.3001.7020">机器学习</a>等等 ，非常适合我们这里的数据分析</p>
-<p>jupyter 除了在专门的Jupyter Notebook中使用，也可以在pycharm和vscode中使用</p>
+<p>Jupyter Notebook（此前被称为 IPython
+notebook）是一个交互式笔记本，支持运行 40 多种编程语言。它的本质是一个
+Web
+应用程序，便于创建和共享文学化程序文档，支持实时代码，数学方程，可视化和
+markdown。 用途包括：数据清理和转换，数值模拟，统计建模，<a
+href="https://edu.csdn.net/cloud/sd_summit?utm_source=glcblog&amp;spm=1001.2101.3001.7020">机器学习</a>等等
+，非常适合我们这里的数据分析</p>
+<p>jupyter 除了在专门的Jupyter
+Notebook中使用，也可以在pycharm和vscode中使用</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install jupyter</span><br></pre></td></tr></table></figure>
 <p>将新的 Conda 环境添加到 Jupyter 核心中，可以通过以下步骤实现：</p>
-<ol>
+<ol type="1">
 <li>激活环境</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda activate bioinformatics</span><br></pre></td></tr></table></figure>
-<ol start="2">
+<ol start="2" type="1">
 <li><strong>安装 <code>ipykernel</code> 包</strong></li>
 </ol>
-<p>在激活的 Conda 环境中，安装 <code>ipykernel</code> 包，这样 Jupyter 才能识别并使用该环境。</p>
+<p>在激活的 Conda 环境中，安装 <code>ipykernel</code> 包，这样 Jupyter
+才能识别并使用该环境。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install ipykernel</span><br></pre></td></tr></table></figure>
-<ol start="3">
+<ol start="3" type="1">
 <li><strong>将环境添加到 Jupyter 核心</strong></li>
 </ol>
-<p>使用 <code>ipykernel</code> 命令将当前环境添加为 Jupyter 核心。你可以指定一个自定义的内核名称（比如 <code>myenv_kernel</code>），或者使用环境名称：</p>
+<p>使用 <code>ipykernel</code> 命令将当前环境添加为 Jupyter
+核心。你可以指定一个自定义的内核名称（比如
+<code>myenv_kernel</code>），或者使用环境名称：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python -m ipykernel install --user --name bioinformatics --display-name <span class="string">&quot;bioinformatics&quot;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><code>--name xxx</code> 是内核的名称（通常与 Conda 环境名称一致）。</li>
-<li><code>--display-name &quot;xxx&quot;</code> 是显示在 Jupyter 中的内核名称，用户可以选择该名称来启动内核。</li>
+<li><code>--name xxx</code> 是内核的名称（通常与 Conda
+环境名称一致）。</li>
+<li><code>--display-name "xxx"</code> 是显示在 Jupyter
+中的内核名称，用户可以选择该名称来启动内核。</li>
 </ul>
-<ol start="4">
+<ol start="4" type="1">
 <li>使用pycharm/vscode 需要这里点击添加一下这个环境</li>
 </ol>
-<p><img src="https://pic.imgdb.cn/item/674d71bbd0e0a243d4dbe4fb.png" alt=""></p>
+<p><img
+src="https://pic.imgdb.cn/item/674d71bbd0e0a243d4dbe4fb.png" /></p>
 <h2 id="练习">练习</h2>
 <p>跑代码</p>
 <ul>
 <li>直接用python脚本跑
 <ul>
-<li><img src="https://pic.imgdb.cn/item/674d762dd0e0a243d4dbe6fe.png" alt=""></li>
-</ul>
-</li>
+<li><img
+src="https://pic.imgdb.cn/item/674d762dd0e0a243d4dbe6fe.png" /></li>
+</ul></li>
 <li>用jupyter跑
 <ul>
-<li><a href="https://github.com/zmzhouXJTU/Python-Data-Analysis/tree/master">https://github.com/zmzhouXJTU/Python-Data-Analysis/tree/master</a></li>
-<li><img src="https://pic.imgdb.cn/item/674d71f4d0e0a243d4dbe51e.png" alt=""></li>
+<li><a
+href="https://github.com/zmzhouXJTU/Python-Data-Analysis/tree/master">https://github.com/zmzhouXJTU/Python-Data-Analysis/tree/master</a></li>
+<li><img
+src="https://pic.imgdb.cn/item/674d71f4d0e0a243d4dbe51e.png" /></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h1>GSEA</h1>
-<h2 id="理论部分">理论部分</h2>
-<p>GSEA需要表达量的数据，GO/KEGG不需要</p>
-<p>Ten years of pathway analysis: current approaches and outstanding challenges</p>
-<h2 id="实战部分">实战部分</h2>
-<ul>
-<li>安装gseapy包</li>
-</ul>
-<blockquote>
-<p><a href="https://github.com/zqfang/GSEApy">GSEApy-github</a></p>
-<p><a href="https://gseapy.readthedocs.io/en/latest/introduction.html">GSEAPY官方文档</a></p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用 conda 安装（仅限 MacOS_x86-64 和 Linux）</span></span><br><span class="line">conda install -c bioconda gseapy</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 使用 pip 安装</span></span><br><span class="line">pip install gseapy</span><br></pre></td></tr></table></figure>
-<h2 id="数据集结构">数据集结构</h2>
-<p>差异表达基因</p>
-<p>里面有10813个基因</p>
-<p><img src="https://pic.imgdb.cn/item/6754439dd0e0a243d4dfc719.png" alt=""></p>
-<table>
-<thead>
-<tr>
-<th>列名</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Unnamed: 0</strong></td>
-<td><strong>基因的 Ensembl ID</strong>（例如 ENSG00000160072）。通常用于唯一标识基因。</td>
-</tr>
-<tr>
-<td><strong>baseMean</strong></td>
-<td>所有样本中该基因的<strong>平均表达量</strong>。基于原始计数（如 RNA-Seq 数据）计算得出。</td>
-</tr>
-<tr>
-<td><strong>log2FoldChange</strong></td>
-<td>两个条件之间的基因表达变化的对数2倍数。正值表示上调，负值表示下调。</td>
-</tr>
-<tr>
-<td><strong>lfcSE</strong></td>
-<td>log2FoldChange 的标准误差，反映了测量的不确定性。</td>
-</tr>
-<tr>
-<td><strong>stat</strong></td>
-<td>差异表达统计量（如 Wald 统计量）。</td>
-</tr>
-<tr>
-<td><strong>pvalue</strong></td>
-<td><strong>原始 p 值</strong>，表示观察到的基因表达变化在零假设下出现的概率。</td>
-</tr>
-<tr>
-<td><strong>padj</strong></td>
-<td><strong>调整后的 p 值</strong>（通常使用 Benjamini-Hochberg 方法），用于控制多重比较问题后的<strong>错误发现率（false discovery rate,FDR）</strong>。</td>
-</tr>
-<tr>
-<td><strong>Gene</strong></td>
-<td>基因名称（如 ATAD3B）。</td>
-</tr>
-</tbody>
-</table>
-<h2 id="排序">排序</h2>
-<p>新给大家的txt那个文件的数据集的Z值就是跟这个一样的<strong>算好的</strong>，用来排序，所以以下的内容当做原理参考一下就行</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[<span class="string">&#x27;Rank&#x27;</span>] = -np.log10(df.padj)*df.log2FoldChange</span><br><span class="line"></span><br><span class="line">df = df.sort_values(<span class="string">&#x27;Rank&#x27;</span>, ascending = <span class="literal">False</span>).reset_index(drop = <span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">df</span><br></pre></td></tr></table></figure>
-<ul>
-<li>
-<p>-np.log10(df.padj)：</p>
-<ul>
-<li>np.log10(df.padj)：取调整p 值的以10为底的对数。
-<ul>
-<li>由于 p 值通常是小数，取对数后数值变为负数，且越小的 p 值（越显著）对应的对数绝对值越大。</li>
-</ul>
-</li>
-<li>-np.log10(df.padj)：通过取负号，将对数后的 p 值转换为正值。这样，<strong>较小的 p 值（更显著）对应的数值更大。</strong></li>
-</ul>
-</li>
-<li>
-<p>df.log2FoldChange：这是<strong>基因表达变化</strong>的对数2倍数。正值表示基因上调，负值表示基因下调。</p>
-</li>
-<li>
-<p>二者相乘的结果，综合考虑基因的统计显著性和表达变化方向及幅度。因此当作Rank排序</p>
-</li>
-<li>
-<p>df.sort_values(‘Rank’, ascending = False).reset_index(drop = True)</p>
-<ul>
-<li>sort_values是排序函数，把表格按照’Rank’列</li>
-<li>ascending = False表示降序排列</li>
-<li>reset_index(drop = True) 因为排序后每一行都变了，所以索引要重新设置，并且丢弃掉原来的索引index</li>
-</ul>
-</li>
-<li>
-<p>查看gene和rank两列</p>
-</li>
-</ul>
-<p><img src="https://pic.imgdb.cn/item/675446a5d0e0a243d4dfc7a7.png" alt=""></p>
-<p>至此完成了基本的预处理，也就是得到了后续分析的输入</p>
-<h2 id="GSEA分析">GSEA分析</h2>
-<p>GSEA（Gene Set Enrichment Analysis，基因集富集分析）</p>
-<p>gseapy这个包已经有了一些library</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gp.get_library_name()</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>用于基因集富集分析（GSEA）的库（libraries）。这些库通常包含特定的基因集、路径（pathways）、基因-疾病关联等信息，用于帮助研究人员从大量基因数据中识别出具有生物学意义的模式。挑几个看看：</p>
-<p><strong>1. KEGG_2021_Human</strong></p>
-<p><strong>来源</strong>：<strong>KEGG（Kyoto Encyclopedia of Genes and Genomes）</strong></p>
-<p><strong>内容</strong>：KEGG 是一个综合性的数据库，包含了大量的生物路径（<strong>pathways</strong>）、疾病信息、药物信息等。KEGG_2021_Human 特指2021年版本的人类KEGG路径集。</p>
-<p><strong>作用</strong>：用于识别和分析基因在已知生物路径中的富集情况，帮助理解基因在细胞过程、信号传导、代谢途径等中的作用。</p>
-<p><strong>2. GO_Biological_Process_2021</strong></p>
-<p><strong>来源</strong>：<strong>Gene Ontology（GO）</strong></p>
-<p><strong>内容</strong>：GO 提供了一套统一的术语来描述基因和基因产物的功能，分为三个主要类别：生物过程（Biological Process）、分子功能（Molecular Function）和细胞组分（Cellular Component）。GO_Biological_Process_2021 指的是2021年版本的生物过程类基因集。</p>
-<p><strong>作用</strong>：用于分析基因在不同生物过程中（如细胞周期、信号传导、代谢过程等）的富集情况，帮助揭示基因在特定生物学功能中的角色。</p>
-<p><strong>3. ChEA_2015</strong></p>
-<p><strong>来源</strong>：<strong>ChEA（ChIP-X Enrichment Analysis）</strong></p>
-<p><strong>内容</strong>：ChEA 包含了大量的转录因子（Transcription Factors, TFs）与其靶基因的关联信息，基于ChIP-seq等实验数据构建。</p>
-<p><strong>作用</strong>：用于识别和分析基因在特定转录因子调控下的富集情况，帮助理解基因调控网络和转录因子的作用。</p>
-<p><strong>4. Human_Phenotype_Ontology</strong></p>
-<p><strong>来源</strong>：<strong>Human Phenotype Ontology（HPO）</strong></p>
-<p><strong>内容</strong>：HPO 提供了对人类疾病和表型特征的标准化描述，涵盖了各种临床表型和疾病特征。</p>
-<p><strong>作用</strong>：用于分析基因与特定人类表型或疾病特征的关联情况，帮助在基因表达数据中识别与临床表型相关的基因集。</p>
-</blockquote>
-<ul>
-<li>ger the GESA results</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pre_res = gp.prerank(rnk = ranking, gene_sets = <span class="string">&#x27;GO_Biological_Process_2021&#x27;</span>, seed = <span class="number">6</span>, permutation_num = <span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>先简单查看一下结果</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 2. 打印 GSEA 结果的第一个键</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(pre_res.results.keys())[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 打印 GSEA 结果的第一个值</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(pre_res.results.values())[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-<p>结果展示一部分,这里的第一个并不代表是最富集的，因为还要看fdr和pvalue</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">regulation of cellular localization (GO:0060341)</span><br><span class="line">&#123;&#x27;name&#x27;: &#x27;prerank&#x27;, &#x27;es&#x27;: -0.6650458489873552, &#x27;nes&#x27;: -1.0809540343472221, &#x27;pval&#x27;: 0.4166666666666667, &#x27;fdr&#x27;: 0.6882871982831866, &#x27;fwerp&#x27;: 1.0, &#x27;tag %&#x27;: &#x27;4/35&#x27;, &#x27;gene %&#x27;: &#x27;6.83%&#x27;, &#x27;lead_genes&#x27;: &#x27;SPAG5;PARP1;KDM1A;HSP90AA1&#x27;, &#x27;matched_genes&#x27;: &#x27;LYN;WWC1;REEP6;PINK1;GSN;STXBP2;PARD6G;REEP5;LRP5;NR1D1;TRIM46;LRRK2;CAMK2D;BRSK1;DVL3;DYNC1H1;MAP2;KIAA1614;GOSR1;NUMA1;FER;CSNK1E;PPM1F;TTL;FES;CDK16;STXBP4;EFNA5;DVL1;EPHA5;HSP90AB1;HSP90AA1;KDM1A;PARP1;SPAG5&#x27;, &#x27;hits&#x27;: [401, 530, 717, 1233, 1242, 1304, 1421, 1947, 1982, 1998, 2091, 2165, 2749, 2945, 3506, 3850, 4853, 5226, 5445, 5656, 6508, 6521, 6625, 7374, 7792, 7853, 8143, 8276, 8307, 8467, 9270, 10076, 10089, 10503, 10771], &#x27;RES&#x27;:</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li><strong>Term</strong>：基因集名称（如GO生物过程中的某个特定过程）
-<ul>
-<li>regulation of cellular localization (GO:0060341):进行富集分析的特定基因集名称，属于Gene Ontology（GO）中的一个生物过程类别</li>
-</ul>
-</li>
-<li><strong>fdr</strong>：错误发现率，表示该基因集富集结果的显著性。fdr值越小，越显著。
-<ul>
-<li>多重检验校正。<strong>最重要的参数之一</strong>。通常，fdr &lt; 0.05 被认为是显著的富集结果，表示结果可靠性高</li>
-</ul>
-</li>
-<li><strong>es</strong>：富集得分，表示基因集在基因列表中的富集程度。
-<ul>
-<li>衡量该基因集在基因排序列表中的富集程度。正值表示基因集在列表顶部（上调基因）富集，负值表示在列表底部（下调基因）富集。</li>
-</ul>
-</li>
-<li><strong>pval</strong>
-<ul>
-<li>p值越小，结果越显著</li>
-</ul>
-</li>
-<li><strong>nes</strong>：标准化<strong>Normalized</strong>的富集得分，方便不同基因集之间的比较。</li>
-<li><strong>lead_genes（关键基因）</strong>
-<ul>
-<li>SPAG5;PARP1;KDM1A;HSP90AA1</li>
-<li>该基因集富集的关键基因、帮助识别哪些基因在富集中起主要作用</li>
-</ul>
-</li>
-<li><strong>hits（命中位置）</strong>
-<ul>
-<li>数字表示匹配基因在基因排序列表中的具体位置</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 提取结果转换成dataframe</span></span><br><span class="line">out = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> term <span class="keyword">in</span> <span class="built_in">list</span>(pre_res.results):</span><br><span class="line">    out.append([term,</span><br><span class="line">               pre_res.results[term][<span class="string">&#x27;fdr&#x27;</span>],</span><br><span class="line">               pre_res.results[term][<span class="string">&#x27;es&#x27;</span>],</span><br><span class="line">               pre_res.results[term][<span class="string">&#x27;nes&#x27;</span>]])</span><br><span class="line"></span><br><span class="line">out_df = pd.DataFrame(out, columns = [<span class="string">&#x27;Term&#x27;</span>,<span class="string">&#x27;fdr&#x27;</span>, <span class="string">&#x27;es&#x27;</span>, <span class="string">&#x27;nes&#x27;</span>]).sort_values(<span class="string">&#x27;fdr&#x27;</span>).reset_index(drop = <span class="literal">True</span>)</span><br><span class="line">out_df</span><br></pre></td></tr></table></figure>
-<h1>GO富集</h1>
-<h1>K-mer</h1>
-<p>bionumpy</p>
-<p>Rand, K.D., Grytten, I., Pavlović, M. et al. BioNumPy: array programming for biology. Nat Methods 21, 2198–2199 (2024). <a href="https://doi.org/10.1038/s41592-024-02483-4">https://doi.org/10.1038/s41592-024-02483-4</a></p>
 ]]></content>
       <categories>
         <category>生物信息导论实验课</category>
       </categories>
       <tags>
-        <tag>numpy</tag>
-        <tag>pandas</tag>
+        <tag>python</tag>
+        <tag>数据分析</tag>
       </tags>
   </entry>
   <entry>
@@ -3344,6 +3214,309 @@ Loss）的预测结果，而不仅仅就是0和1</p>
       <tags>
         <tag>T2T</tag>
         <tag>GWAS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>class6_GSEA</title>
+    <url>/2024/12/08/%5B%E7%94%9F%E4%BF%A1%E5%AF%BC%5Dclass6_GSEA/</url>
+    <content><![CDATA[<h1 id="gsea">GSEA</h1>
+<p><img
+src="https://pic.imgdb.cn/item/67552be3d0e0a243d4dfded6.png" /></p>
+<p>一篇综述：<a
+href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002375">Ten
+Years of Pathway Analysis: Current Approaches and Outstanding
+Challenge</a></p>
+<ul>
+<li>第一代：ORA 方法要求输入是差异表达基因的列表
+<ul>
+<li>设定阈值 传统的KEGG富集</li>
+</ul></li>
+<li>第二代： FCS 方法使用整个数据矩阵作为输入。
+<ul>
+<li>GESA</li>
+</ul></li>
+<li>第三代：除了基因组的功能注释外，基于 PT
+的方法还利用基因产物之间相互作用的数量和类型</li>
+<li>三种方法的目标是一样的，都是做比如pathway的富集分析</li>
+</ul>
+<h2 id="理论部分">理论部分</h2>
+<p>GSEA论文：<a
+href="https://www.pnas.org/doi/10.1073/pnas.0506580102?url_ver=Z39.88-2003&amp;rfr_id=ori%3Arid%3Acrossref.org&amp;rfr_dat=cr_pub++0pubmed">Gene
+set enrichment analysis: A knowledge-based approach for interpreting
+genome-wide expression profiles</a></p>
+<p>GSEA官网：<a
+href="https://www.gsea-msigdb.org/gsea/index.jsp">GSEA</a></p>
+<ul>
+<li><p><strong>定义</strong>： 基因集富集分析(Gene Set Enrichment
+Analysis,
+GSEA)是一种计算方法，用来确定一组先验定义的基因集是否<strong>在两种生物状态</strong>之间显示出统计学上显著的、一致的差异。</p></li>
+<li><p><strong>基本原理</strong>：
+使用预定义的基因集（通常来自功能注释或先前实验的结果），将基因按照在两类样本中的差异表达程度排序，然后检验预先设定的基因集合是否在这个排序表的顶端或者底端富集。基因集合富集分析检测基因集合而不是单个基因的表达变化，因此可以包含这些细微的表达变化，预期得到更为理想的结果</p>
+<ul>
+<li>两个不同条件下筛选出一些差异表达的基因，是没有什么意义的。相反，我们可以将这些基因<strong>按其相关的生物过程或通路</strong>进行分组，这样可以简化分析的复杂性。通过使用现有的<strong>知识库</strong>（比如GO/KEGG/MSigDB），研究人员能够识别出在特定通路中起作用的基因和蛋白质。这不仅将成千上万的基因缩减到几百个通路，使得实验分析更加高效，还能更清晰地解释不同条件下活跃的生物通路，从而提供比单纯列出差异基因更有价值的见解。</li>
+</ul></li>
+<li><p>基因集富集分析（Gene set enrichment
+analysis,GSEA）方法无需预先设定显著差异基因，其对差异不显著但具有重要功能的基因具有独特优势</p>
+<ul>
+<li>GSEA需要表达量的数据，GO/KEGG不需要</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>这与之前讲述的GO/KEGG富集分析不同。GO/KEGG富集分析是先筛选差异基因，再判断差异基因在哪些注释的通路存在富集；这涉及到阈值的设定，存在一定主观性并且只能用于表达变化较大的基因，即我们定义的显著差异基因。而GSEA则不局限于差异基因，从基因集的富集角度出发，理论上更容易囊括细微但协调性的变化对生物通路的影响，尤其是差异倍数不太大的基因集</p>
+</blockquote>
+<p><img
+src="https://pic.imgdb.cn/item/6755252ed0e0a243d4dfdd79.png" /></p>
+<ul>
+<li>工作流程介绍</li>
+</ul>
+<blockquote>
+<p>基因集定义：首先，<strong>GSEA需要一个事先定义好的基因集合，这些基因通常按照其在特定生物学通路、功能类别或疾病过程中的作用进行组织</strong>。这些基因集可以来自公共数据库，如Gene
+Ontology、KEGG
+Pathway、Reactome，或者是研究者自己根据文献和领域知识构建的。</p>
+<p>基因表达数据：GSEA需要分析的基因表达数据，通常是从微阵列或RNA测序实验中获得的。这些数据包括不同条件或样本中基因的表达水平。</p>
+<p>排列(permutation)检验：GSEA的核心思想是通过对基因集的成员在整个基因表达数据中的排列来确定它们的富集程度。具体来说，GSEA将所有基因根据其在不同条件下的表达水平进行排序。然后，它从基因集的一端开始，计算该基因集中的基因在排序列表中的偏离程度。如果基因集中的基因在排序列表的某个位置中集中排列，说明该基因集富集在特定的生物学过程或通路中。这个过程通过构建一个富集分数（Enrichment
+Score）来量化。</p>
+<p>统计显著性：对于每个基因集，GSEA
+计算一个富集分数，并基于随机排列检验来估计其统计显著性。如果一个基因集的富集分数在随机排列中的分布表现出显著差异，那么就认为这个基因集在样本中富集。</p>
+<p>结果可视化：最后，GSEA
+会生成结果报告，其中包括富集分数、基因集的统计显著性以及相关通路或功能的信息。这些结果可视化为富集图谱，用于展示不同基因集的富集情况。</p>
+</blockquote>
+<ul>
+<li><p>基本概念</p>
+<ul>
+<li>ES（Enrichment Score）：富集得分
+<ul>
+<li>ES反应基因集成员s在排序列表L的两端富集的程度。</li>
+<li>计算方式是：从基因集L的第一个基因开始，计算一个累计统计值。当遇到一个落在s里面的基因，则增加统计值。遇到一个不在s里面的基因，则降低统计值。
+每一步统计值增加或减少的幅度与基因的<strong>表达变化程度</strong>（fold-change值）是相关的。</li>
+<li>富集得分ES最后定义为最大的峰值。正值ES表示基因集在列表的顶部富集，负值ES表示基因集在列表的底部富集</li>
+<li><strong>p-value</strong>用来评估富集得分(ES)的显著性，通过排列检验
+(permutation test)计算观察到的富集得分(ES)出现的可能性。</li>
+</ul></li>
+<li>NES (Normalized Enrichment Score)：标准化富集得分
+<ul>
+<li>每个基因子集s计算得到的ES根据基因集的大小进行标准化得到标准化富集得分Normalized
+Enrichment Score (NES)。</li>
+<li>随后会针对NES计算假阳性率FDR（<strong>在所有被判定为阳性/显著的结果中，实际上是错误（假阳性）的比例</strong>。）。</li>
+</ul></li>
+<li>Leading-edge subset：
+<ul>
+<li>并不是所有的基因集的所有成员通常都会参与生物过程</li>
+<li>领头基因亚集 对富集贡献最大的基因成员</li>
+</ul></li>
+</ul></li>
+<li><p>一般认为|NES|&gt;1，p-value&lt;0.05，FDR&lt;0.25的通路是显著富集的。</p></li>
+</ul>
+<h2 id="实战部分">实战部分</h2>
+<ul>
+<li>安装gseapy包,python中用来做GSEA分析的第三方库</li>
+</ul>
+<blockquote>
+<p><a href="https://github.com/zqfang/GSEApy">GSEApy-github</a></p>
+<p><a
+href="https://gseapy.readthedocs.io/en/latest/introduction.html">GSEAPY官方文档</a></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用 conda 安装（仅限 MacOS_x86-64 和 Linux）</span></span><br><span class="line">conda install -c bioconda gseapy</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 使用 pip 安装</span></span><br><span class="line">pip install gseapy</span><br></pre></td></tr></table></figure>
+<h3 id="数据集结构">数据集结构</h3>
+<blockquote>
+<p>给大家准备了两个ipynb文件和两份数据</p>
+<p>其中 <a
+href="../../../../../../Users/wangzixuan/Documents/浙大/助教/241209_class6/KEGG/GSEA_in_python.ipynb">GSEA_in_python.ipynb</a>
+对应的是'DE_results.csv'数据</p>
+<p><a
+href="../../../../../../Users/wangzixuan/Documents/浙大/助教/241209_class6/KEGG/GESA_analysis.ipynb">GESA_analysis.ipynb</a>
+对应的是'PRMT5_DMSO_differential.txt'数据</p>
+<p>因为数据里面有些列名的不同，所以准备了两个，本质上是一样的东西，代码脚本中可能有些变量名命名的不太一样</p>
+</blockquote>
+<p>差异表达基因</p>
+<p>里面有1118个基因</p>
+<p>设计的两个实验条件</p>
+<ol type="1">
+<li><strong>PRMT5</strong>：涉及PRMT5（蛋白精氨酸甲基转移酶5）的处理条件。</li>
+<li><strong>DMSO</strong>：使用DMSO（二甲基亚砜）作为对照处理条件，DMSO通常作为溶剂对照。</li>
+</ol>
+<p><img
+src="https://pic.imgdb.cn/item/67553c25d0e0a243d4dfe234.png" /></p>
+<ul>
+<li>这里的参数不重要，只要有基因标识和用来排序的数据就行（gene-level
+statistics）</li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 49%" />
+<col style="width: 12%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr>
+<th>Gene</th>
+<th>表示基因名称或标识符。</th>
+<th>FDR(+)</th>
+<th>正效应方向的假发现率。</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Category</td>
+<td>指定基因的分类或功能类别。</td>
+<td>P(+)</td>
+<td>正效应方向的p值。</td>
+</tr>
+<tr>
+<td>PRMT5_biased</td>
+<td>表示与PRMT5相关的基因偏向性。</td>
+<td>FDR(replicates)</td>
+<td>基于重复实验的假发现率。</td>
+</tr>
+<tr>
+<td>DMSO_biased</td>
+<td>表示与DMSO相关的基因偏向性。</td>
+<td>P(replicates)</td>
+<td>基于重复实验的p值。</td>
+</tr>
+<tr>
+<td>PRMT5</td>
+<td>PRMT5条件下的值，例如表达量或信号强度。</td>
+<td>P(sgRNAs)</td>
+<td>基于sgRNA结果的p值。</td>
+</tr>
+<tr>
+<td>DMSO</td>
+<td>DMSO条件下的值，例如表达量或信号强度。</td>
+<td>FDR(sgRNAs)</td>
+<td>基于sgRNA结果的假发现率。</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Z分数，表示标准化的效应值。Z值表示某个基因的表达差异与总体数据的平均差异相比，有多少个标准差。换句话说，Z值告诉我们一个基因的变化有多异常或显著。</td>
+<td>FDR(-)</td>
+<td>负效应方向的假发现率。</td>
+</tr>
+<tr>
+<td>P(-)</td>
+<td>负效应方向的p值。</td>
+<td>Rank</td>
+<td>基因在特定指标或综合结果下的排名。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="排序">排序</h3>
+<p>Z值用来排序</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[<span class="string">&#x27;Rank&#x27;</span>] = df.Z</span><br><span class="line"></span><br><span class="line">df.sort_values(by=<span class="string">&#x27;Rank&#x27;</span>,inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看gene和rank两列</li>
+</ul>
+<p><img
+src="https://pic.imgdb.cn/item/67553cd4d0e0a243d4dfe28b.png" /></p>
+<p>至此完成了基本的预处理，也就是得到了后续分析的输入</p>
+<h3 id="gsea分析">GSEA分析</h3>
+<p>GSEA（Gene Set Enrichment Analysis，基因集富集分析）</p>
+<p>gseapy这个包已经有了一些library</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gp.get_library_name()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>用于基因集富集分析（GSEA）的库（libraries）。这些库通常包含特定的基因集、路径（pathways）、基因-疾病关联等信息，用于帮助研究人员从大量基因数据中识别出具有生物学意义的模式。挑几个看看：</p>
+<p><strong>1. KEGG_2021_Human</strong></p>
+<p><strong>来源</strong>：<strong>KEGG（Kyoto Encyclopedia of Genes and
+Genomes）</strong></p>
+<p><strong>内容</strong>：KEGG
+是一个综合性的数据库，包含了大量的生物路径（<strong>pathways</strong>）、疾病信息、药物信息等。KEGG_2021_Human
+特指2021年版本的人类KEGG路径集。</p>
+<p><strong>作用</strong>：用于识别和分析基因在已知生物路径中的富集情况，帮助理解基因在细胞过程、信号传导、代谢途径等中的作用。</p>
+<p><strong>2. GO_Biological_Process_2021</strong></p>
+<p><strong>来源</strong>：<strong>Gene Ontology（GO）</strong></p>
+<p><strong>内容</strong>：GO
+提供了一套统一的术语来描述基因和基因产物的功能，分为三个主要类别：生物过程（Biological
+Process）、分子功能（Molecular Function）和细胞组分（Cellular
+Component）。GO_Biological_Process_2021
+指的是2021年版本的生物过程类基因集。</p>
+<p><strong>作用</strong>：用于分析基因在不同生物过程中（如细胞周期、信号传导、代谢过程等）的富集情况，帮助揭示基因在特定生物学功能中的角色。</p>
+<p><strong>3. ChEA_2015</strong></p>
+<p><strong>来源</strong>：<strong>ChEA（ChIP-X Enrichment
+Analysis）</strong></p>
+<p><strong>内容</strong>：ChEA 包含了大量的转录因子（Transcription
+Factors, TFs）与其靶基因的关联信息，基于ChIP-seq等实验数据构建。</p>
+<p><strong>作用</strong>：用于识别和分析基因在特定转录因子调控下的富集情况，帮助理解基因调控网络和转录因子的作用。</p>
+<p><strong>4. Human_Phenotype_Ontology</strong></p>
+<p><strong>来源</strong>：<strong>Human Phenotype
+Ontology（HPO）</strong></p>
+<p><strong>内容</strong>：HPO
+提供了对人类疾病和表型特征的标准化描述，涵盖了各种临床表型和疾病特征。</p>
+<p><strong>作用</strong>：用于分析基因与特定人类表型或疾病特征的关联情况，帮助在基因表达数据中识别与临床表型相关的基因集。</p>
+</blockquote>
+<ul>
+<li>ger the GESA results
+<ul>
+<li>参数rnk：传入dataframe类型，包含基因及其对应的排名分数。通常，这个分数基于基因在不同条件下的表达差异（如log2
+fold
+change）。预排序GSEA需要一个排序好的基因列表，df_rank就是这个排序好的基因列表。</li>
+<li>参数gene_sets：用于富集分析的基因集，可以选择GO啊或者KEGG啊。可以从前面的library_name中寻找到</li>
+<li>执行gp里的prerank方法进行分析，结果存储在变量gsea_res中</li>
+</ul></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gsea_res = gp.prerank(rnk = df_rank, gene_sets=<span class="string">&#x27;GO_Biological_Process_2021&#x27;</span>, seed = <span class="number">1024</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>先简单查看一下结果</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">## The results of GSEA stores as a dictionary</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(gsea_res.results.keys())[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(gsea_res.results.values())[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<p>结果展示一部分,这里的第一个并不代表是最富集的，因为还要看fdr和pvalue</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">regulation of cellular localization (GO:0060341)</span><br><span class="line">&#123;&#x27;name&#x27;: &#x27;prerank&#x27;, &#x27;es&#x27;: -0.6650458489873552, &#x27;nes&#x27;: -1.0809540343472221, &#x27;pval&#x27;: 0.4166666666666667, &#x27;fdr&#x27;: 0.6882871982831866, &#x27;fwerp&#x27;: 1.0, &#x27;tag %&#x27;: &#x27;4/35&#x27;, &#x27;gene %&#x27;: &#x27;6.83%&#x27;, &#x27;lead_genes&#x27;: &#x27;SPAG5;PARP1;KDM1A;HSP90AA1&#x27;, &#x27;matched_genes&#x27;: &#x27;LYN;WWC1;REEP6;PINK1;GSN;STXBP2;PARD6G;REEP5;LRP5;NR1D1;TRIM46;LRRK2;CAMK2D;BRSK1;DVL3;DYNC1H1;MAP2;KIAA1614;GOSR1;NUMA1;FER;CSNK1E;PPM1F;TTL;FES;CDK16;STXBP4;EFNA5;DVL1;EPHA5;HSP90AB1;HSP90AA1;KDM1A;PARP1;SPAG5&#x27;, &#x27;hits&#x27;: [401, 530, 717, 1233, 1242, 1304, 1421, 1947, 1982, 1998, 2091, 2165, 2749, 2945, 3506, 3850, 4853, 5226, 5445, 5656, 6508, 6521, 6625, 7374, 7792, 7853, 8143, 8276, 8307, 8467, 9270, 10076, 10089, 10503, 10771], &#x27;RES&#x27;:</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li><strong>Term</strong>：gene
+set基因集名称（如GO生物过程中的某个特定过程）
+<ul>
+<li><strong>library中的一条，基因集就是term</strong></li>
+<li>regulation of cellular localization
+(GO:0060341):进行富集分析的特定基因集名称，属于Gene
+Ontology（GO）中的一个生物过程类别</li>
+</ul></li>
+<li><strong>fdr</strong>：错误发现率，表示该基因集富集结果的显著性。fdr值越小，越显著。
+<ul>
+<li>多重检验校正。<strong>最重要的参数之一</strong>。通常，fdr &lt; 0.05
+被认为是显著的富集结果，表示结果可靠性高</li>
+</ul></li>
+<li><strong>es</strong>：富集得分，表示基因集在基因列表中的富集程度。
+<ul>
+<li>衡量该基因集在基因排序列表中的富集程度。正值表示基因集在列表顶部（上调基因）富集，负值表示在列表底部（下调基因）富集。</li>
+</ul></li>
+<li><strong>pval</strong>
+<ul>
+<li>p值越小，结果越显著</li>
+</ul></li>
+<li><strong>nes</strong>：标准化<strong>Normalized</strong>的富集得分，方便不同基因集之间的比较。</li>
+<li><strong>lead_genes（关键基因）</strong>
+<ul>
+<li>SPAG5;PARP1;KDM1A;HSP90AA1</li>
+<li>该基因集富集的关键基因、帮助识别哪些基因在富集中起主要作用</li>
+</ul></li>
+<li><strong>hits（命中位置）</strong>
+<ul>
+<li>数字表示匹配基因在基因排序列表中的具体位置</li>
+</ul></li>
+</ul>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 提取结果转换成dataframe</span></span><br><span class="line">out_list = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> term <span class="keyword">in</span> gsea_res.results:</span><br><span class="line">    p = gsea_res.results[term][<span class="string">&#x27;pval&#x27;</span>]</span><br><span class="line">    fdr = gsea_res.results[term][<span class="string">&#x27;fdr&#x27;</span>]</span><br><span class="line">    nes = gsea_res.results[term][<span class="string">&#x27;nes&#x27;</span>]</span><br><span class="line">    es = gsea_res.results[term][<span class="string">&#x27;es&#x27;</span>]</span><br><span class="line">    gene = gsea_res.results[term][<span class="string">&#x27;lead_genes&#x27;</span>]</span><br><span class="line">    out_list.append([term, p, fdr, nes, es, gene])</span><br><span class="line"></span><br><span class="line">df_out = pd.DataFrame(out_list, columns = [<span class="string">&#x27;Term&#x27;</span>,<span class="string">&#x27;p_value&#x27;</span>,<span class="string">&#x27;fdr&#x27;</span>, <span class="string">&#x27;nes&#x27;</span>, <span class="string">&#x27;es&#x27;</span>,<span class="string">&#x27;gene&#x27;</span>]).sort_values(<span class="string">&#x27;fdr&#x27;</span>).reset_index(drop = <span class="literal">True</span>)</span><br><span class="line">df_out</span><br></pre></td></tr></table></figure>
+<p><img
+src="https://pic.imgdb.cn/item/67553f08d0e0a243d4dfe31a.png" /></p>
+<h3 id="画图">画图</h3>
+<p>参考官方文档的画图部分</p>
+<p>https://gseapy.readthedocs.io/en/latest/gseapy_example.html#Prerank-example</p>
+<p>有单个term展现的、多个term同时展现、气泡图</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="go富集">GO富集</h1>
+<h1 id="k-mer">K-mer</h1>
+<p>bionumpy</p>
+<p>Rand, K.D., Grytten, I., Pavlović, M. et al. BioNumPy: array
+programming for biology. Nat Methods 21, 2198–2199 (2024).
+https://doi.org/10.1038/s41592-024-02483-4</p>
+]]></content>
+      <categories>
+        <category>生物信息导论实验课</category>
+      </categories>
+      <tags>
+        <tag>GSEA</tag>
+        <tag>富集分析</tag>
       </tags>
   </entry>
 </search>
