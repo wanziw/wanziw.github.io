@@ -1,5 +1,5 @@
 ---
-title: class6_GSEA
+title: 生信Class6 GSEA
 date: 2024-12-08 16:26:54
 categories: 生物信息导论实验课
 cover: /img/cover7.jpg
@@ -16,7 +16,7 @@ description: "生物信息学导论第六节课内容 GSEA分析"
 一篇综述：[Ten Years of Pathway Analysis: Current Approaches and Outstanding Challenge](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002375)
 
 - 第一代：ORA 方法要求输入是差异表达基因的列表
-  - 设定阈值 传统的KEGG富集
+  - 设定阈值 传统的GO/KEGG富集
 
 - 第二代： FCS 方法使用整个数据矩阵作为输入。
   - GESA
@@ -87,17 +87,17 @@ conda install -c bioconda gseapy
 pip install gseapy
 ```
 
-### 数据集结构
-
 > 给大家准备了两个ipynb文件和两份数据
 >
-> 其中 [GSEA_in_python.ipynb](../../../../../../Users/wangzixuan/Documents/浙大/助教/241209_class6/KEGG/GSEA_in_python.ipynb)  对应的是'DE_results.csv'数据
+> 其中 GSEA_in_python.ipynb 对应的是'DE_results.csv'数据
 >
-> [GESA_analysis.ipynb](../../../../../../Users/wangzixuan/Documents/浙大/助教/241209_class6/KEGG/GESA_analysis.ipynb) 对应的是'PRMT5_DMSO_differential.txt'数据
+> GESA_analysis.ipynb对应的是'PRMT5_DMSO_differential.txt'数据
 >
-> 因为数据里面有些列名的不同，所以准备了两个，本质上是一样的东西，代码脚本中可能有些变量名命名的不太一样
+> 因为数据里面有些列名的不同，所以准备了两个，本质上是一样的东西，代码脚本中可能有些变量名命名的不太一样。
+>
+> 上课我们讲的是GESA_analysis.ipynb
 
-
+### 数据集结构
 
 差异表达基因
 
@@ -252,8 +252,42 @@ https://gseapy.readthedocs.io/en/latest/gseapy_example.html#Prerank-example
 
 有单个term展现的、多个term同时展现、气泡图
 
+- 单个
+  - 第一种是简单的方法，快速展现
+  - 第二种是可以更加灵活调节的方法
+
+```python
+from gseapy.plot import gseaplot
+# 方法1
+# terms = gsea_res.res2d.Term
+# axs = gsea_res.plot(terms=terms[1])
+# 方法2
+term_to_plot = df_out['Term'][0]
+gseaplot(rank_metric=gsea_res.ranking, term=term_to_plot, **gsea_res.results[term_to_plot])
 ```
 
+- 多个term
+
+```
+terms = gsea_res.res2d.Term
+axs = gsea_res.plot(terms=terms[1:5],
+                   # legend_kws={'loc': (1.2, 0)}, # set the legend loc
+                   show_ranking=True, # whether to show the second yaxis
+                   figsize=(3,4)
+                  )
+```
+
+- 气泡图展示富集的通路
+
+```python
+from gseapy import dotplot
+# to save your figure, make sure that ``ofname`` is not None
+ax = dotplot(gsea_res.res2d,
+             column="FDR q-val",
+             title='GO_Biological_Process_2021',
+             cmap=plt.cm.viridis,
+             size=6, # adjust dot size
+             figsize=(4,5), cutoff=0.5, show_ring=False)
 ```
 
 
@@ -262,7 +296,7 @@ https://gseapy.readthedocs.io/en/latest/gseapy_example.html#Prerank-example
 
 # GO富集
 
-
+[geneontology](https://geneontology.org/)
 
 
 
