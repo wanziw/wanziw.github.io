@@ -1,12 +1,13 @@
 ---
 title: 杨梅T2T论文阅读
 date: 2024-12-04 10:36:21
+date: 2024-12-04 10:36:21
 categories: 论文阅读
 cover: /img/cover10.jpg
 tags: 
   - T2T
   - GWAS
-description: "Horticulture Research杨梅的T2T组装和GWAS分析"
+description: "发表在《Horticulture Research》上关于杨梅的T2T基因组和GWAS研究"
 ---
 
 # 杨梅
