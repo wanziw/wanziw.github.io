@@ -300,13 +300,5 @@ ax = dotplot(gsea_res.res2d,
 
 
 
-# K-mer
-
-bionumpy
-
-
-
-Rand, K.D., Grytten, I., Pavlović, M. et al. BioNumPy: array programming for biology. Nat Methods 21, 2198–2199 (2024). https://doi.org/10.1038/s41592-024-02483-4
-
 
 
