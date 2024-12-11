@@ -3,7 +3,7 @@ title: 杨梅T2T论文阅读
 date: 2024-12-04 10:36:21
 date: 2024-12-04 10:36:21
 categories: 论文阅读
-cover: /img/cover10.jpg
+cover: /img/cover17.jpg
 tags: 
   - T2T
   - GWAS

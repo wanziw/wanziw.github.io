@@ -2,7 +2,7 @@
 title: 西瓜T2T论文阅读
 date: 2024-12-10 13:04:56
 categories: 论文阅读
-cover: /img/cover5.jpg
+cover: /img/cover18.jpg
 tags: 
   - T2T
   - SV
@@ -145,9 +145,20 @@ description: "NG关于西瓜"
 
 ## Watermelon super-pangenome construction and analysis
 
+![](https://pic.imgdb.cn/item/675931dcd0e0a243d4e1b212.png)
 
 
 
+（补充note2：除了27个基因组之外，还加入了一个原本传统的参考基因组G42。使用**Orthofinder2**工具，将来自28个接入样本的**686,583**个预测基因模型聚类成**32,513**个非冗余的泛基因家族）
+
+构建了泛基因组pangenome：一个物种内的基因组
+
+- **核心基因组（Core Genome）**：所有个体共有的基因。
+- **可变基因组（Dispensable Genome）**：仅部分个体拥有的基因。
+
+- 图A 
+  - 横坐标是不断添加
+  - closed
 
 
 
