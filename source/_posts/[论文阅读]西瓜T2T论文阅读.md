@@ -6,10 +6,27 @@ cover: /img/cover18.jpg
 tags: 
   - T2T
   - SV
+  - Pangenome
 description: "NG关于西瓜"
 ---
 
-> 一起分析27个T2T基因组，有些模块，比如比较Detection of the centromere locations at chromosomes没啥参考价值，没有27个有着丝粒区域的基因组比较
+> - 北大现代农学研究院
+>   - 22年的时候做了一篇Molecular Plant：A telomere-to-telomere gap-free reference genome of watermelon and its mutation library provide important resources for gene discovery and breeding 这里已经测了一个T2T基因组并且构建了数据库了
+>   - 24年发了一篇NG
+>
+> 一起分析27个T2T基因组，有些模块，比如比较Detection of the centromere locations at chromosomes可能没啥参考价值，没有27个有着丝粒区域的基因组比较
+>
+> 但是可以参考这篇文章的多个基因组一起进行比较、建立pangenome这块
+>
+> 分析了SV、染色体重排
+>
+> 这篇的配色都挺好看的，主要研究的7个品种全文的配色统一
+>
+> 并且开发了数据库[WaGMDB](http://www.watermelondb.cn/#/map)
+
+[toc]
+
+
 
 # Abstract
 
@@ -157,12 +174,105 @@ description: "NG关于西瓜"
 - **可变基因组（Dispensable Genome）**：仅部分个体拥有的基因。
 
 - 图A 
-  - 横坐标是不断添加
-  - closed
+  - 横坐标是不断添加，添加28个基因组，泛基因组基因家族数目的增长趋势，最后趋于稳定closed
+  - pangenome、core genome、dis genome
+- 图B
+  - 核心基因（core genes）：存在在**所有**基因组的基因家族中，与**基本的生物功能**相关
+  - 软核心基因（softcore genes）：**大多数**基因组中，与一些**次要功能**相关，或者在某些特定条件下发挥作用。
+  - 可变基因（dispensable genes）：导致不同物种或个体间表型多样化、分化的主要原因基因
+  - 私有基因（private genes）：**仅存在于一个**基因组或一个物种中的基因家族
+  - 四种基因在28个样本中的分布
+- 图c
+  - 28个样本各自的四种基因的比例
+- 图d
+  - presence–absence 存在-缺失景观
+
+> 对不同类型进行了一些计算和分析
+>
+> **InterPro结构域注释**
+>
+> **基因表达水平**
+>
+> **核苷酸多样性（π）**，区分是否保守
+
+## SV characterization and graph-based genome 
+
+- Nonredundant SV 
+  - 多个样本中都出现的SV只统计一次
+
+- 图A
+  - 将27个新基因组比对到G42参考基因组，将大于20 bp的SV分类为以下五类：
+  - 缺失deletion
+  - 插入insertion
+  - 重复duplication
+  - 倒位inversion
+  - 易位translocation
+
+> 验证SV识别的准确性，通过PCR扩增验证了57个平均长度为26,418 bp的大型SV，包括31个缺失和26个插入。
+
+- 图B：
+
+  - 通过映射所有组装变异及其与参考基因组的共线性，建立了全面的SV的landscape
+
+  - 基于**SyRI**（Synteny and Rearrangement Identifier）生成的比较基因组可视化图，显示了27个无缺口基因组与G42参考基因组之间的同线性（synteny）和重排（rearrangements）
+
+    - 这里是很多的基因组，要是只有一个就可以生成circos图
+
+  - 栽培西瓜的遗传多样性较窄，而野生西瓜的遗传变异显著更大
+
+  - **倒位“热点”**,
+
+    - > 还识别出了倒位“热点”（见补充图8c），其中在PKR6（*C. lanatus*）接入样本的染色体11上保留了来自*C. amarus*的两个大型倒位（4.8 Mb和2.5 Mb）。
+      >
+      > 这些**大型倒位**已被报道能够显著**减少重组频率**，并可能导致回交育种中意外表型的连锁拖拽。
+
+      -  **减少重组频率**：大型倒位会减少染色体上的交叉互换（crossing-over）频率，因为倒位区域的基因序列方向反转，重组时容易导致染色体配对错误。
+
+      - **连锁拖拽**：由于倒位区域内的基因难以重组，回交育种时引入的有益基因（如抗病基因）往往会与不需要的基因一起被转移到栽培种中
+
+  - 研究团队还在这些**大型倒位/易位区域内外**识别并注释了**相关基因**，发现这些基因主要与**纤维素合成**相关，并在特定的基因功能途径中有**显著富集**。理解SV的功能
+
+![](https://pic.imgdb.cn/item/675aa106d0e0a243d4e2be27.png)
+
+- 图c、d
+  - 西瓜中的结构变异（SV）倾向于富集在重复DNA区域以及缺失和插入类型的区域。与大豆的研究一样
+- 图e
+  - 平均有27.5%的SV与基因上游或下游的2kbp区域重叠。平均有7.5%的SV导致氨基酸编码发生变化
+    - 上下游2kbp可能会影响基因的调控
+    - 有部分直接导致氨基酸编码变化
+- 给整个物种规模的SV做了一个数据库
+  - 开发了一个基于图的泛基因组的网络数据库
+  - [WaGMDB](http://www.watermelondb.cn/#/map)
+
+## Divergence among species and the origin of watermelon 
+
+- 物种形成与染色体重排Chromosomal Rearrangements
+  - 并验证了三种主要的染色体重排
+  - 染色体结构的这些改变可能有助于生殖隔离，影响杂交生育能力并减少种间重组，最终导致瓜属物种的分化
+  - 这从哪看出来的三个主要的染色体重排
+
+> 在*C. colocynthis*中发现了涉及染色体1（chr01）和染色体4（chr04）的显著染色体间重排，与其他三个Citrullus物种（*C. lanatus*、*C. mucosospermus*和*C. amarus*）相比。这些染色体结构的改变可能有助于生殖隔离，影响杂交后代的生育能力，减少物种间的重组，最终导致Citrullus属物种的分化。
+
+![](https://pic.imgdb.cn/item/675aca78d0e0a243d4e2faa5.png)
 
 
 
-## SV characterization and graph-based genome
+- 结合原有文献进行一些分析：为了研究不同西瓜物种中三维基因组的保守性和变异性，我们使用50 kb分辨率矩阵识别了A和B区段。结果显示，A和B区段在西瓜物种间相对保守（见补充图9a）。已有研究报道，A和B区段的变异与基因组结构变异（SVs）密切相关。在不同类型的SVs中，我们观察到一个4.5 Mb的倒位变异，导致A和B区段的变化（见补充图9b）。
+
+- **三维基因组**指的是基因组在三维空间中的结构和组织方式，A和B区段是其重要组成部分：
+
+  - **A区段（A Compartments）**：通常富含活跃转录的基因，代表开放的染色质区域。
+
+  - **B区段（B Compartments）**：通常富含转录活性较低的基因，代表闭合的染色质区域。
+
+![](https://pic.imgdb.cn/item/675ada78d0e0a243d4e2fe18.png)
 
 
 
+## Gene gain and loss during watermelon domestication 西瓜驯化过程中的基因变化
+
+
+
+
+
+## Contribution of SV genes during evolution and domestication 进化过程中SV基因的贡献
