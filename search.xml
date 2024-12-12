@@ -2625,8 +2625,9 @@ Loss）的预测结果，而不仅仅就是0和1</p>
   <entry>
     <title>杨梅T2T论文阅读</title>
     <url>/2024/12/04/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E6%9D%A8%E6%A2%85T2T%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</url>
-    <content><![CDATA[<h1>杨梅</h1>
-<p><a href="https://academic.oup.com/hr/article/11/3/uhae033/7593780#443677756">论文链接</a></p>
+    <content><![CDATA[<h1 id="杨梅">杨梅</h1>
+<p><a
+href="https://academic.oup.com/hr/article/11/3/uhae033/7593780#443677756">论文链接</a></p>
 <p>发表在《Horticulture Research》上</p>
 <p>[toc]</p>
 <blockquote>
@@ -2635,212 +2636,210 @@ Loss）的预测结果，而不仅仅就是0和1</p>
 <p>群体分析那里最后也不知道为啥要把第五组单独拎出来</p>
 <p>与颜色相关的SNP那里本来只在研究<em>MrChr6G07650</em>和<em>MrChr6G07660</em>，突然加入了<em>MrChr6G07670</em>讲的很不清楚，</p>
 </blockquote>
-<h1>Abstract</h1>
-<p>这篇文章研究了中国杨梅（Myrica rubra或Morella rubra）的基因组及其与果实质量性状相关的遗传变异。具体工作包括：</p>
-<p>​	1.<strong>基因组组装</strong>：使用PacBio HiFi长读技术，为‘枣佳’品种组装了一个端粒到端粒（T2T）的无间隙参考基因组，大小为292.60 Mb，揭示了8个着丝粒区域、15个端粒和28,345个基因。这显著提升了中国杨梅基因组的连续性和完整性。</p>
-<p>​	2.<strong>基因型重测序</strong>：对173个样本进行重测序，鉴定出6,649,674个单核苷酸多态性（SNP）。</p>
-<p>​	3.<strong>表型分析与全基因组关联研究（GWAS）</strong>：分析了29个与果实质量相关的表型性状，进行了GWAS，发现1937个SNP和1039个基因与28个性状显著相关。</p>
-<p>​	4.<strong>果色相关基因的发现</strong>：在第6染色体的3407532至5153151 bp区域内发现了一个与果实颜色相关的SNP群，该区域包含两个MYB基因（MrChr6G07650和MrChr6G07660），在不同表型的转录组中表现出差异表达，关联于花青素合成。邻近的MrChr6G07670基因（MLP样蛋白）含有一个外显子错义变异，证明其能使烟草叶片中的花青素产量增加十倍。</p>
-<p>​	5.<strong>功能验证与应用</strong>：该SNP群可能作为一个数量性状基因座（QTL），共同调控杨梅果实颜色。研究最终提供了完整的参考基因组，揭示了与果实质量相关的一系列等位变异，并鉴定了可用于提升杨梅果实质量和育种效率的功能基因。</p>
-<h1>Introduction</h1>
+<h1 id="abstract">Abstract</h1>
+<p>这篇文章研究了中国杨梅（Myrica rubra或Morella
+rubra）的基因组及其与果实质量性状相关的遗传变异。具体工作包括：</p>
+<p>​ 1.<strong>基因组组装</strong>：使用PacBio
+HiFi长读技术，为‘枣佳’品种组装了一个端粒到端粒（T2T）的无间隙参考基因组，大小为292.60
+Mb，揭示了8个着丝粒区域、15个端粒和28,345个基因。这显著提升了中国杨梅基因组的连续性和完整性。</p>
+<p>​
+2.<strong>基因型重测序</strong>：对173个样本进行重测序，鉴定出6,649,674个单核苷酸多态性（SNP）。</p>
+<p>​
+3.<strong>表型分析与全基因组关联研究（GWAS）</strong>：分析了29个与果实质量相关的表型性状，进行了GWAS，发现1937个SNP和1039个基因与28个性状显著相关。</p>
+<p>​ 4.<strong>果色相关基因的发现</strong>：在第6染色体的3407532至5153151
+bp区域内发现了一个与果实颜色相关的SNP群，该区域包含两个MYB基因（MrChr6G07650和MrChr6G07660），在不同表型的转录组中表现出差异表达，关联于花青素合成。邻近的MrChr6G07670基因（MLP样蛋白）含有一个外显子错义变异，证明其能使烟草叶片中的花青素产量增加十倍。</p>
+<p>​
+5.<strong>功能验证与应用</strong>：该SNP群可能作为一个数量性状基因座（QTL），共同调控杨梅果实颜色。研究最终提供了完整的参考基因组，揭示了与果实质量相关的一系列等位变异，并鉴定了可用于提升杨梅果实质量和育种效率的功能基因。</p>
+<h1 id="introduction">Introduction</h1>
 <blockquote>
 <p><strong>Myrica L.</strong> 属包括大约55种植物</p>
-<p>中国杨梅（Myrica rubra）、木薯（Manihot esculenta）、矮杨梅（Myrica nana）、腺花杨梅（Myrica adenophora）、蜡杨梅（Myrica cerifera）、火山杨梅（Myrica faya）和里瓦斯杨梅（Myrica rivas-martinezii）</p>
+<p>中国杨梅（Myrica rubra）、木薯（Manihot esculenta）、矮杨梅（Myrica
+nana）、腺花杨梅（Myrica adenophora）、蜡杨梅（Myrica
+cerifera）、火山杨梅（Myrica faya）和里瓦斯杨梅（Myrica
+rivas-martinezii）</p>
 </blockquote>
 <p>ZW染色体</p>
 <blockquote>
-<p>GWAS 在位点检测和精确基因定位方面具有很高的效率。然而，迄今为止，尚未对可用的 <em>M. rubra</em> 种质资源进行大规模的重新测序。对其他具有重要经济意义的作物（如番茄、葡萄和枇杷）的类似GWAS有助于鉴定<strong>与果实颜色、大小、果肉质地、风味和营养/生物活性化合物</strong>含量相关的特定基因和突变</p>
+<p>GWAS
+在位点检测和精确基因定位方面具有很高的效率。然而，迄今为止，尚未对可用的
+<em>M. rubra</em>
+种质资源进行大规模的重新测序。对其他具有重要经济意义的作物（如番茄、葡萄和枇杷）的类似GWAS有助于鉴定<strong>与果实颜色、大小、果肉质地、风味和营养/生物活性化合物</strong>含量相关的特定基因和突变</p>
 <ul>
 <li>果实质量：多基因形状
 <ul>
 <li>果实质量由多种参数决定，包括外观质量性状（如形状、大小、颜色）和内在质量性状（如糖分、酸度和氨基酸水平）。</li>
 <li>寻找创新育种的靶基因</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 </blockquote>
 <ul>
-<li>
-<p>依旧是讲了一下需要一个完整组装作为参考基因组的重要性，以此说明自己T2T组装的重要性</p>
-</li>
-<li>
-<p>还是常规的展示了一下circos图、Hi-C的染色体交互图，还有 K-mer 分布 （17-mer） 光谱展示基因组大小</p>
-</li>
+<li><p>依旧是讲了一下需要一个完整组装作为参考基因组的重要性，以此说明自己T2T组装的重要性</p></li>
+<li><p>还是常规的展示了一下circos图、Hi-C的染色体交互图，还有 K-mer 分布
+（17-mer） 光谱展示基因组大小</p></li>
 </ul>
-<p><img src="https://pic.imgdb.cn/item/674f058ad0e0a243d4dcdb03.png" alt=""></p>
-<p>目前GWAS研究已经在西红柿、葡萄和枇杷等经济重要作物中发挥了重要作用，帮助识别与果色、果大、果肉质地、风味及营养/生物活性化合物含量相关的特定基因和突变。还没有在杨梅M. rubra种质资源进行，还没有大规模的重测序过</p>
+<p><img
+src="https://pic.imgdb.cn/item/674f058ad0e0a243d4dcdb03.png" /></p>
+<p>目前GWAS研究已经在西红柿、葡萄和枇杷等经济重要作物中发挥了重要作用，帮助识别与果色、果大、果肉质地、风味及营养/生物活性化合物含量相关的特定基因和突变。还没有在杨梅M.
+rubra种质资源进行，还没有大规模的重测序过</p>
 <ul>
 <li>167 cultivated germplasm resources and six interspecific resources.
 <ul>
 <li>167个不同的栽培品种/品系</li>
 <li>6个物种间资源（不同物种杂交）</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h1>Results</h1>
-<h2 id="Assembly-of-a-highly-contiguous-genome-of-M-Rubra">Assembly of a highly contiguous genome of <em>M. Rubra</em></h2>
+<h1 id="results">Results</h1>
+<h2 id="assembly-of-a-highly-contiguous-genome-of-m.-rubra">Assembly of
+a highly contiguous genome of <em>M. Rubra</em></h2>
 <ul>
-<li>
-<p>给了一个表介绍了一下T2T的组装</p>
+<li><p>给了一个表介绍了一下T2T的组装</p>
 <ul>
-<li>
-<p>K-mer 分析估计 <em>M. rubra</em> 基因组大小为 282.20 Mb，杂合率为 0.85%</p>
-</li>
-<li>
-<p>最终产生了 292.60 Mb 的基因组组装，其重叠群 N50 大小为 36.50 Mb</p>
-</li>
-<li>
-<p>（BUSCO） 数据库评估组装的完整性</p>
-</li>
-</ul>
-</li>
-<li>
-<p>8个着丝粒区域、7个碱基端粒重复序列鉴定15个端粒</p>
+<li><p>K-mer 分析估计 <em>M. rubra</em> 基因组大小为 282.20 Mb，杂合率为
+0.85%</p></li>
+<li><p>最终产生了 292.60 Mb 的基因组组装，其重叠群 N50 大小为 36.50
+Mb</p></li>
+<li><p>（BUSCO） 数据库评估组装的完整性</p></li>
+</ul></li>
+<li><p>8个着丝粒区域、7个碱基端粒重复序列鉴定15个端粒</p>
 <ul>
 <li>长末端重复 （LTR） 组装指数 （LAI）</li>
-</ul>
-</li>
-<li>
-<p>预测注释了28 345 genes and 33 502 mRNAs</p>
+</ul></li>
+<li><p>预测注释了28 345 genes and 33 502 mRNAs</p>
 <ul>
-<li>Repeat sequences：串联重复序列、穿插重复序列和转座因子 （TE）占43.43%。有助于鉴定，</li>
+<li>Repeat sequences：串联重复序列、穿插重复序列和转座因子
+（TE）占43.43%。有助于鉴定，</li>
 <li>T2T的一个优势就是长读长鉴定重复序列的，所以这里提了</li>
-</ul>
-</li>
-<li>
-<p>和原本参考基因组的比较，优势巴拉巴拉</p>
-</li>
-<li>
-<p>系统发育树</p>
+</ul></li>
+<li><p>和原本参考基因组的比较，优势巴拉巴拉</p></li>
+<li><p>系统发育树</p>
 <ul>
 <li>植物间的进化关系，涵盖了<strong>水果作物</strong>（如苹果、杨梅、猕猴桃）、<strong>坚果作物</strong>（如核桃）、<strong>粮食作物</strong>（如水稻）以及<strong>木本植物</strong>（如木麻黄和单蕊花）</li>
-<li>基于<strong>蛋白质同源物</strong>（protein homologs）和<strong>基因家族扩展与收缩</strong>（gene family expansions and contractions）来构建的
+<li>基于<strong>蛋白质同源物</strong>（protein
+homologs）和<strong>基因家族扩展与收缩</strong>（gene family expansions
+and contractions）来构建的
 <ul>
-<li><strong>OrthoFinder</strong> 用于识别不同物种之间的<strong>同源基因</strong>（orthogroups，OGs）。同源基因是指从共同祖先基因衍生出来的基因</li>
-<li>在<strong>Myrica rubra（杨梅）**中，有1014个基因家族扩展，4258个基因家族收缩。这些变化与**叶绿体发育、果实成熟、抗逆性功能</strong>等相关。</li>
+<li><strong>OrthoFinder</strong>
+用于识别不同物种之间的<strong>同源基因</strong>（orthogroups，OGs）。同源基因是指从共同祖先基因衍生出来的基因</li>
+<li>在<strong>Myrica
+rubra（杨梅）*<em>中，有1014个基因家族扩展，4258个基因家族收缩。这些变化与*</em>叶绿体发育、果实成熟、抗逆性功能</strong>等相关。</li>
 <li>杨梅与其他植物（如胡桃 Juglans regia）的分歧时间为6600万年</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Population-structure-analyses">Population structure analyses</h2>
+<h2 id="population-structure-analyses">Population structure
+analyses</h2>
 <p>种群结构分析</p>
 <p>通过测了173个品种、与T2T比对，鉴定六百多万个SNP</p>
 <p>使用KASP（一种湿实验）进行了一下验证</p>
-<p><img src="https://pic.imgdb.cn/item/674f21fbd0e0a243d4dce10e.png" alt=""></p>
+<p><img
+src="https://pic.imgdb.cn/item/674f21fbd0e0a243d4dce10e.png" /></p>
 <ul>
-<li>
-<p><strong>使用PCA把这些品种分为6组</strong>（图2A、2B），结合表型的特征(表)和图(2C、2D、2E)一起分析</p>
+<li><p><strong>使用PCA把这些品种分为6组</strong>（图2A、2B），结合表型的特征(表)和图(2C、2D、2E)一起分析</p>
 <ul>
 <li>根据PCA的结果进行了详细的<strong>生物分析</strong>，这里简单说一下</li>
-<li><strong>第一组</strong>是 interspecific germplasm resources种间资源，与别的5组种内表现出很强的genetic divergence（2D）</li>
-<li><strong>第二组</strong>，Linkage disequilibrium (LD)  <strong>decay rates排名最高</strong>，连锁不平衡衰减率最快(也不进一步说明意义)
+<li><strong>第一组</strong>是 interspecific germplasm
+resources种间资源，与别的5组种内表现出很强的genetic
+divergence（2D）</li>
+<li><strong>第二组</strong>，Linkage disequilibrium (LD) <strong>decay
+rates排名最高</strong>，连锁不平衡衰减率最快(也不进一步说明意义)
 <ul>
 <li>18份主要来自贵州和湖南</li>
-<li>表观上总可溶性固形物 （ average total soluble solid ,TSS） 含量 （12.21%） 和可滴定酸 （ titratable acid ,TA） 含量 （1.02%） 最高</li>
+<li>表观上总可溶性固形物 （ average total soluble solid ,TSS） 含量
+（12.21%） 和可滴定酸 （ titratable acid ,TA） 含量 （1.02%） 最高</li>
 <li>表现出与<strong>果实品质</strong>相关<strong>的独特遗传多样性和表型性状</strong></li>
-</ul>
-</li>
+</ul></li>
 <li><strong>第三组</strong>
 <ul>
-<li>来自福建和广东，具有最高水平的风味相关氨基酸，包括天冬氨酸 和谷氨酸</li>
-</ul>
-</li>
+<li>来自福建和广东，具有最高水平的风味相关氨基酸，包括天冬氨酸
+和谷氨酸</li>
+</ul></li>
 <li><strong>第四组</strong>
 <ul>
-<li>来自江苏，平均果实重量 最高，但是TSS含量最低，可能存在negative association, requiring further investigation</li>
-</ul>
-</li>
+<li>来自江苏，平均果实重量 最高，但是TSS含量最低，可能存在negative
+association, requiring further investigation</li>
+</ul></li>
 <li><strong>第五组</strong>
 <ul>
-<li>主要是浙江北部，20 个种质的<strong>核苷酸多样性水平最低</strong>。因为是manually-selected varieties ，<strong>人工培育</strong>的，但是average lightness (L*) and red-green (a*) color values颜色值很高</li>
-</ul>
-</li>
+<li>主要是浙江北部，20
+个种质的<strong>核苷酸多样性水平最低</strong>。因为是manually-selected
+varieties ，<strong>人工培育</strong>的，但是average lightness (L<em>)
+and red-green (a</em>) color values颜色值很高</li>
+</ul></li>
 <li><strong>第六组</strong>
 <ul>
-<li>主要分布在浙江中部和南部，现出最高的杂合性和多态性。 respective average total sugar (TS) and acid-sugar ratio (AS）最高，说明口味sweet/sour flavor。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>解释一下图</p>
+<li>主要分布在浙江中部和南部，现出最高的杂合性和多态性。 respective
+average total sugar (TS) and acid-sugar ratio
+(AS）最高，说明口味sweet/sour flavor。</li>
+</ul></li>
+</ul></li>
+<li><p>解释一下图</p>
 <ul>
-<li>
-<p>A：这里系统发育树展示了173个品种之间的发育树，但是没写怎么来的，我思考了一下<a href="https://taoyan.netlify.app/post/2020-07-15.%E4%BD%BF%E7%94%A8snphylo%E5%9F%BA%E4%BA%8Esnp%E6%9E%84%E5%BB%BA%E7%BE%A4%E4%BD%93%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%82%B2%E6%A0%91/">使用SNPhylo基于SNP构建群体系统发育树</a></p>
+<li><p>A：这里系统发育树展示了173个品种之间的发育树，但是没写怎么来的，我思考了一下<a
+href="https://taoyan.netlify.app/post/2020-07-15.%E4%BD%BF%E7%94%A8snphylo%E5%9F%BA%E4%BA%8Esnp%E6%9E%84%E5%BB%BA%E7%BE%A4%E4%BD%93%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%82%B2%E6%A0%91/">使用SNPhylo基于SNP构建群体系统发育树</a></p>
 <ul>
 <li>（我猜的）可能是通过SNP数据来做的，可以达到全基因组水平，另外通过了一些方法比如连锁不平衡减少了SNP的冗余</li>
 <li>也有可能是根据上面同源家族来做的</li>
-</ul>
-</li>
-<li>
-<p>B：PCA图，展示了两个成分，按照补充表13做的</p>
+</ul></li>
+<li><p>B：PCA图，展示了两个成分，按照补充表13做的</p>
 <ul>
 <li>PCA的使用的特征，也不是全部的基因数据</li>
-<li>SampleID  Data (Gb)  Depth(X)  Mapping Rate (%)  Number of SNP  Transitions   Transversions   Ts/Tv   Reference   Heterozygous loci  Homozygous loci  Missing   Region</li>
-</ul>
-</li>
-<li>
-<p>C：每组的LD decay rate</p>
+<li>SampleID Data (Gb) Depth(X) Mapping Rate (%) Number of SNP
+Transitions Transversions Ts/Tv Reference Heterozygous loci Homozygous
+loci Missing Region</li>
+</ul></li>
+<li><p>C：每组的LD decay rate</p>
 <ul>
-<li>
-<p>LD是判断SNPs间的关联程度</p>
-</li>
-<li>
-<blockquote>
+<li><p>LD是判断SNPs间的关联程度</p></li>
+<li><blockquote>
 <p><strong>连锁不平衡粗俗的说就是：这几个基因耍流氓，喜欢抱团遗传，不再随机。而连锁不平衡衰减是指在基因组上，随着物理距离的增大，两个连锁的的等位基因的连锁程度不断减小</strong></p>
-<p><a href="https://www.jianshu.com/p/cd806ebe7d36">连锁不平衡以及连锁不平衡衰减</a></p>
-</blockquote>
-</li>
-<li>
-<p><strong>遗传背景不同，LD衰减速度也存在很大的差异</strong>：经过驯化和选择，遗传多样性会下降，位点间的连锁关联性就会增强，进而衰减的速度就慢</p>
-</li>
-</ul>
-</li>
-<li>
-<p>D：Nucleotide diversity (π) and population divergence (FST)</p>
+<p><a
+href="https://www.jianshu.com/p/cd806ebe7d36">连锁不平衡以及连锁不平衡衰减</a></p>
+</blockquote></li>
+<li><p><strong>遗传背景不同，LD衰减速度也存在很大的差异</strong>：经过驯化和选择，遗传多样性会下降，位点间的连锁关联性就会增强，进而衰减的速度就慢</p></li>
+</ul></li>
+<li><p>D：Nucleotide diversity (π) and population divergence (FST)</p>
 <ul>
-<li>
-<blockquote>
+<li><blockquote>
 <ul>
-<li>
-<p><strong>Pi指的是核苷酸多样性</strong>，Pi值越大说明核苷酸多样性越高。通常用于衡量群体内的核苷酸多样性，也可以用来推演进化关系，可以理解成先在群体内两两求Pi，再计算群体的均值</p>
-</li>
-<li>
-<p>Fst叫固定分化指数，用于估计亚群间平均多态性大小与整个种群平均多态性大小的差异，反映的是群体结构的变化。Fst的取值范围是[0,1]</p>
+<li><p><strong>Pi指的是核苷酸多样性</strong>，Pi值越大说明核苷酸多样性越高。通常用于衡量群体内的核苷酸多样性，也可以用来推演进化关系，可以理解成先在群体内两两求Pi，再计算群体的均值</p></li>
+<li><p>Fst叫固定分化指数，用于估计亚群间平均多态性大小与整个种群平均多态性大小的差异，反映的是群体结构的变化。Fst的取值范围是[0,1]</p>
 <ul>
 <li>当Fst=1时，表明亚群间有着明显的种群分化，值越高表示分化程度越高。在中性进化条件下，Fst的大小主要取决于遗传漂变和迁移等因素的影响。
 <ul>
 <li>假设种群中的某个等位基因对特定环境的适应度较高而经历适应性选择，那该基因的频率在种群中会升高，种群的分化水平增大，群体Fst升高。</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
+</blockquote></li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://pic.imgdb.cn/item/674ee719d0e0a243d4dcc57c.png" alt=""></p>
+<p><img
+src="https://pic.imgdb.cn/item/674ee719d0e0a243d4dcc57c.png" /></p>
 <ul>
-<li>E：基于 173 个杨梅种质中的 665 万个 SNPs，研究了从 2 到 8 的簇 （K） 的<strong>群体遗传结构图</strong>
+<li>E：基于 173 个杨梅种质中的 665 万个 SNPs，研究了从 2 到 8 的簇 （K）
+的<strong>群体遗传结构图</strong>
 <ul>
 <li>k=7 除了组1，别的组的遗传背景都比较丰富</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <blockquote>
-<p>在进行Structure分析时我们只是获得了样本的基因型，并不知道这个群体实际包含几个亚群。把群体的亚群数称为K值，可以先预设群体亚群数等于1~n，即K=1~n，然后模拟在K=x的情况下，通过贝叶斯算法推算群体是如何分群以及每个个体的祖先来源。最后再根据每次模拟的最大似然值，找出划分这个群体的最佳K值。</p>
+<p>在进行Structure分析时我们只是获得了样本的基因型，并不知道这个群体实际包含几个亚群。把群体的亚群数称为K值，可以先预设群体亚群数等于1<sub>n，即K=1</sub>n，然后模拟在K=x的情况下，通过贝叶斯算法推算群体是如何分群以及每个个体的祖先来源。最后再根据每次模拟的最大似然值，找出划分这个群体的最佳K值。</p>
 </blockquote>
-<p><a href="http://www.personalbio.cn/AboutUs_NewsCenterDetail.aspx?id=520">看完就能实战群体进化之Structure分析 | 含画图代码和实战数据</a></p>
-<p>（有点莫名其妙的为什么）数据里面使用FST 分析来分析第五组和别的组的区别，识别前 1% 的显著差异基因座和相关基因，说一些具体的差别基因是干什么的</p>
-<h2 id="Phenotypic-data-analysis">Phenotypic data analysis</h2>
+<p><a
+href="http://www.personalbio.cn/AboutUs_NewsCenterDetail.aspx?id=520">看完就能实战群体进化之Structure分析
+| 含画图代码和实战数据</a></p>
+<p>（有点莫名其妙的为什么）数据里面使用FST
+分析来分析第五组和别的组的区别，识别前 1%
+的显著差异基因座和相关基因，说一些具体的差别基因是干什么的</p>
+<h2 id="phenotypic-data-analysis">Phenotypic data analysis</h2>
 <p>对29个表型做了相关性分析。详细分析了一下哪些正相关强，哪些负相关强</p>
 <table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 19%" />
+<col style="width: 58%" />
+</colgroup>
 <thead>
 <tr>
 <th><strong>分类</strong></th>
@@ -2997,15 +2996,19 @@ Loss）的预测结果，而不仅仅就是0和1</p>
 </tbody>
 </table>
 <p>GWAS前表型数据要符合正态分布，这里做了检验</p>
-<h2 id="GWAS-analyses-of-bayberry-fruit-related-traits">GWAS analyses of bayberry fruit-related traits</h2>
-<p>EMMAX 分析了 6 64万个SNPs与29个性状之间的关系，其中1937 个与 28 个性状相关的显著 SNP 信号。</p>
+<h2 id="gwas-analyses-of-bayberry-fruit-related-traits">GWAS analyses of
+bayberry fruit-related traits</h2>
+<p>EMMAX 分析了 6 64万个SNPs与29个性状之间的关系，其中1937 个与 28
+个性状相关的显著 SNP 信号。</p>
 <p>L*值与最多的SNP相关</p>
 <p>外观：961个SNP 与果实大小和颜色有关，大部分在4和6染色体</p>
-<p>内在性质intrinsic quality traits：976个SNP与糖和酸相关性状和氨基酸含量</p>
-<h2 id="颜色相关SNP">颜色相关SNP</h2>
-<p><img src="https://pic.imgdb.cn/item/67513e27d0e0a243d4ddfe87.png" alt=""></p>
+<p>内在性质intrinsic quality
+traits：976个SNP与糖和酸相关性状和氨基酸含量</p>
+<h2 id="颜色相关snp">颜色相关SNP</h2>
+<p><img
+src="https://pic.imgdb.cn/item/67513e27d0e0a243d4ddfe87.png" /></p>
 <p>染色体上跟L*性状相关的GWAS，发现在Chr6上的一个SNP簇,该区域的两个基因，MrChr6G07650和MrChr6G07660，</p>
-<ol>
+<ol type="1">
 <li>文献验证：这两个基因编码MYB转录因子，已知与水果颜色相关，特别是调控花青素生物合成。</li>
 <li>同时使用了转录组差异表达验证了这一结果</li>
 </ol>
@@ -3017,20 +3020,24 @@ Loss）的预测结果，而不仅仅就是0和1</p>
 <p>所以这先是讲了<em>MrChr6G07650</em>和<em>MrChr6G07660</em>共同编码MYB的转录因子，与花青素合成有关</p>
 <p>然后再通过这些图，表示在边上<em>MrChr6G07670</em>的外显子里面的一个变异A-&gt;T，导致了L*值的变化，然后做了实验去验证，比如AA、AT、TT的不同基因型</p>
 </blockquote>
-<p>最后证明由 <em>MrChr6G07650</em>、<em>MrChr6G07660</em>、<em>MrChr6G07670</em> 和其他基因组成的 SNP 簇是一个 QTL，共同决定了杨梅果实的颜色。</p>
-<h2 id="另外的分析各种SNPs">另外的分析各种SNPs</h2>
+<p>最后证明由
+<em>MrChr6G07650</em>、<em>MrChr6G07660</em>、<em>MrChr6G07670</em>
+和其他基因组成的 SNP 簇是一个 QTL，共同决定了杨梅果实的颜色。</p>
+<h2 id="另外的分析各种snps">另外的分析各种SNPs</h2>
 <p>类似的方法分析了别性状相关的的SNP</p>
 <p>Fruit size-associated SNPs</p>
 <p>Fruit sugar and acid-associated SNPs</p>
 <p>Amino acid-associated SNPs</p>
-<h2 id="Co-expression-network-and-pathway-analysis">Co-expression network and pathway analysis</h2>
+<h2 id="co-expression-network-and-pathway-analysis">Co-expression
+network and pathway analysis</h2>
 <p>进一步了解性状和基因表达之间的关系</p>
 <p>使用 23 470 个基因进行了加权基因相关网络分析 （WGCNA）</p>
 <p>鉴定出27个共表达模块</p>
-<p><img src="https://pic.imgdb.cn/item/67514836d0e0a243d4de0114.png" alt=""></p>
+<p><img
+src="https://pic.imgdb.cn/item/67514836d0e0a243d4de0114.png" /></p>
 <p>为深入探究杨梅果实质量性状与基因表达之间的关系，研究使用了加权基因共表达网络分析（WGCNA），涉及23,470个基因。通过分析，共识别出27个共表达模块，其中<strong>Turquoise模块</strong>包含最多的基因（8992个），<strong>Blue模块</strong>包含2466个基因。在模块与性状关系的热图中，<strong>Blue模块</strong>与果实质量性状（如氨基酸、果重（FW）、果实密度（BD）、果实酸度（AS）、可溶性固形物（TSS）等）表现出最强的关联，因此被选择用于进一步分析。</p>
 <p>对BLUE模块进行，GO和KEGG富集分析表明，Blue模块中的基因主要参与了肽合成、代谢过程及酰胺合成代谢过程。KEGG分析显示，相关基因富集于<strong>酚丙烷类、酪氨酸和色氨酸合成</strong>、<strong>酪氨酸代谢</strong>及<strong>黄酮生物合成</strong>等通路。研究结果表明，Blue模块中的基因主要参与氨基酸和黄酮类化合物的合成与代谢调控，协同参与果实大小、果实酸度、TSS等特性形成，从而影响果实质量。</p>
-<h1>Methods</h1>
+<h1 id="methods">Methods</h1>
 <p>methods里面给出了所有分析使用的方法和软件、参数</p>
 ]]></content>
       <categories>
@@ -3482,133 +3489,122 @@ src="https://pic.imgdb.cn/item/674d71f4d0e0a243d4dbe51e.png" /></li>
     <title>西瓜T2T论文阅读</title>
     <url>/2024/12/10/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E8%A5%BF%E7%93%9CT2T%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</url>
     <content><![CDATA[<blockquote>
-<p>一起分析27个T2T基因组，有些模块，比如比较Detection of the centromere locations at chromosomes没啥参考价值，没有27个有着丝粒区域的基因组比较</p>
+<p>一起分析27个T2T基因组，有些模块，比如比较Detection of the centromere
+locations at
+chromosomes可能没啥参考价值，没有27个有着丝粒区域的基因组比较</p>
+<p>但是可以参考这篇文章的多个基因组一起进行比较、建立pangenome这块，还有SV这块</p>
 </blockquote>
-<h1>Abstract</h1>
+<p>[toc]</p>
+<h1 id="abstract">Abstract</h1>
 <ul>
-<li>
-<p><strong>Citrullus属</strong></p>
+<li><p><strong>Citrullus属</strong></p>
 <ul>
-<li>
-<p>包含西瓜及其近缘的其他物种。</p>
-</li>
-<li>
-<p>**西瓜（Citrullus lanatus）**是Citrullus属中最具经济价值和研究价值的物种。</p>
-</li>
-</ul>
-</li>
-<li>
-<p>研究涵盖了7个物种、27个基因型</p>
+<li><p>包含西瓜及其近缘的其他物种。</p></li>
+<li><p><strong>西瓜（Citrullus
+lanatus）</strong>是Citrullus属中最具经济价值和研究价值的物种。</p></li>
+</ul></li>
+<li><p>研究涵盖了7个物种、27个基因型</p>
 <ul>
 <li>创建了一个<strong>T2T超级Pangenomes</strong>，扩充了原有的基因组</li>
-</ul>
-</li>
-<li>
-<p>通过比较分析，发现了大量的<strong>基因变异</strong>和<strong>结构变异（SVs）</strong>，这些变异有助于理解西瓜的进化和驯化过程。</p>
+</ul></li>
+<li><p>通过比较分析，发现了大量的<strong>基因变异</strong>和<strong>结构变异（SVs）</strong>，这些变异有助于理解西瓜的进化和驯化过程。</p>
 <ul>
 <li>这些变异解释了西瓜在驯化过程中苦味和糖分等特性的增强，以及抗病能力的降低。</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h1>Main</h1>
-<p>西瓜虽然种植的geographical regions很多，但是 exhibit low genetic diversity。结果就是对bottleneck 阻碍了 impeding watermelon improvement</p>
+<h1 id="main">Main</h1>
+<p>西瓜虽然种植的geographical regions很多，但是 exhibit low genetic
+diversity。结果就是对bottleneck 阻碍了 impeding watermelon
+improvement</p>
 <ul>
-<li>
-<p><strong>Citrullus属</strong>包含<strong>七个物种</strong>，别的作物野生亲缘种<strong>crop wild relatives (CWRs)</strong>，包括：</p>
+<li><strong>Citrullus属</strong>包含<strong>七个物种</strong>，别的作物野生亲缘种<strong>crop
+wild relatives (CWRs)</strong>，包括：
 <ul>
 <li>Citrullus lanatus（栽培西瓜）</li>
-<li>Citrullus amarus 和 Citrullus mucosospermus：半野生，主要用于食用其果肉或种子。</li>
-<li>*<strong>其他四个物种</strong>（*C. ecirrhosus, <em>C. naudinianus</em>, <em>C. rehmii</em>, <em>C. colocynthis</em>）：具有独特的适应性特征，对基因改良和理解西瓜进化具有重要意义。</li>
+<li>Citrullus amarus 和 Citrullus
+mucosospermus：半野生，主要用于食用其果肉或种子。</li>
+<li><em><strong>其他四个物种</strong>（</em>C. ecirrhosus, <em>C.
+naudinianus</em>, <em>C. rehmii</em>, <em>C.
+colocynthis</em>）：具有独特的适应性特征，对基因改良和理解西瓜进化具有重要意义。</li>
 <li><strong>地理分布</strong>：
 <ul>
-<li><strong>C. amarus,</strong> C. ecirrhosus, C. naudinianus,C. rehmii：原产于纳米布-卡拉哈里地区。</li>
-<li>C. mucosospermus**：来自西非。**</li>
+<li><strong>C. amarus,</strong> C. ecirrhosus, C. naudinianus,C.
+rehmii：原产于纳米布-卡拉哈里地区。</li>
+<li>C. mucosospermus<strong>：来自西非。</strong></li>
 <li>C. colocynthis：来自北非及其他地区。</li>
-</ul>
-</li>
-<li>育种应用**：**
+</ul></li>
+<li>育种应用<strong>：</strong>
 <ul>
-<li>基因引入**：<em>C. colocynthis</em>, <em>C. amarus</em>, 和 <em>C. mucosospermus</em> 已被用于育种项目，以扩大 C. lanatus的遗传基础。**</li>
-<li>研究资源有：<em>C. rehmii</em>, <em>C. ecirrhosus</em>, <em>C. naudinianus</em>, 和 <em>C. lanatus subsp. cordophanus</em> 的研究用植物资源较少，增加这些野生种的资源有助于发现新的抗病基因、抗逆性基因及对人类健康有益的化合物基因。</li>
+<li>基因引入<strong>：<em>C. colocynthis</em>, <em>C. amarus</em>, 和
+<em>C. mucosospermus</em> 已被用于育种项目，以扩大 C.
+lanatus的遗传基础。</strong></li>
+<li>研究资源有：<em>C. rehmii</em>, <em>C. ecirrhosus</em>, <em>C.
+naudinianus</em>, 和 <em>C. lanatus subsp. cordophanus</em>
+的研究用植物资源较少，增加这些野生种的资源有助于发现新的抗病基因、抗逆性基因及对人类健康有益的化合物基因。</li>
+</ul></li>
+</ul></li>
+<li><strong>超级泛基因组</strong>：27个基因组，其中一个T2T基因组，涵盖所有物种，新增399.2Mb和11,225基因。</li>
+<li><strong>基因变异与结构变异</strong>：理解西瓜进化和驯化，识别抗病和抗逆基因。</li>
+<li><strong>育种应用</strong>：引入野生种基因，提升栽培西瓜的性状。</li>
 </ul>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>超级泛基因组</strong>：27个基因组，其中一个T2T基因组，涵盖所有物种，新增399.2Mb和11,225基因。</p>
-</li>
-<li>
-<p><strong>基因变异与结构变异</strong>：理解西瓜进化和驯化，识别抗病和抗逆基因。</p>
-</li>
-<li>
-<p><strong>育种应用</strong>：引入野生种基因，提升栽培西瓜的性状。</p>
-</li>
-</ul>
-<h1>Results</h1>
-<h2 id="T2T-assemblies-of-27-diverse-accessions-from-seven-species">T2T assemblies of 27 diverse accessions from seven species</h2>
-<p><img src="https://pic.imgdb.cn/item/6757e71bd0e0a243d4e0f8e7.png" alt=""></p>
+<h1 id="results">Results</h1>
+<h2 id="t2t-assemblies-of-27-diverse-accessions-from-seven-species">T2T
+assemblies of 27 diverse accessions from seven species</h2>
+<p><img
+src="https://pic.imgdb.cn/item/6757e71bd0e0a243d4e0f8e7.png" /></p>
 <ul>
-<li>
-<p>a、b、c是果实/种子的表型</p>
+<li>a、b、c是果实/种子的表型
 <ul>
 <li>a是整个水果、b是longitudinal section of fruit纵切面、c是种子
 <ul>
 <li>27个品种包括七种西瓜物种和种间杂交种</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>d图</p>
+</ul></li>
+</ul></li>
+<li>d图
 <ul>
 <li>从genome-wide SNPs通过 Neighbor-joining推断出的系统发育树</li>
-<li>这里总共有<strong>429个accessions</strong>（<strong>样本</strong>），实际上自己组装的就27个品种，27个<strong>de novo组装的accessions</strong>用*标识。别的402个样本是从先前研究或者别的公共数据库中获取的</li>
+<li>这里总共有<strong>429个accessions</strong>（<strong>样本</strong>），实际上自己组装的就27个品种，27个<strong>de
+novo组装的accessions</strong>用*标识。别的402个样本是从先前研究或者别的公共数据库中获取的</li>
 <li>图注里面标识了一下后面的哪些图采用一样的<strong>颜色编码</strong></li>
-</ul>
-</li>
-<li>
-<p>e图</p>
+</ul></li>
+<li>e图
 <ul>
-<li><strong>七组</strong>基因组中不同转座子（TE，Transposable Elements）家族的类型及其百分比</li>
+<li><strong>七组</strong>基因组中不同转座子（TE，Transposable
+Elements）家族的类型及其百分比</li>
 <li><strong>主要转座子家族</strong>：
 <ul>
 <li><strong>长末端重复序列（LTR，Long Terminal Repeat）</strong>：
 <ul>
 <li><strong>Gypsy</strong>：平均占比33.45%</li>
 <li><strong>Copia</strong>：平均占比7.73%</li>
-</ul>
-</li>
+</ul></li>
 <li><strong>hAT家族</strong>（一种多功能转座子，DNA/DTA类型）</li>
-</ul>
-</li>
+</ul></li>
 <li><strong>解释</strong>：
 <ul>
-<li><strong>LTR转座子</strong>在Citrullus属的基因组中占据了较高比例，尤其是Gypsy和Copia家族，这些转座子在基因组的**着丝粒区域（centromere region）**中频率较高。</li>
+<li><strong>LTR转座子</strong>在Citrullus属的基因组中占据了较高比例，尤其是Gypsy和Copia家族，这些转座子在基因组的<strong>着丝粒区域（centromere
+region）</strong>中频率较高。</li>
 <li>转座子的多样性和分布对于理解基因组结构、功能以及基因组进化具有重要意义。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>f图（这个图第一次见）</p>
+</ul></li>
+</ul></li>
+<li>f图（这个图第一次见）
 <ul>
 <li><strong>使用每个26个西瓜accessions的前八个单体（monomers）构建的邻接法系统发育树</strong>
 <ul>
 <li>monomers是指<strong>串联重复序列的基本单位</strong></li>
 <li>每个基因组里面按出现频率排序的前八种串联重复序列虎v恶霸大包围u</li>
-</ul>
-</li>
-<li><strong>颜色编码</strong>：不同的分支颜色表示不同的群组，树中的<strong>四个簇（Clusters 1-4）<strong>代表了</strong>相似单体</strong>的聚类
+</ul></li>
+<li><strong>颜色编码</strong>：不同的分支颜色表示不同的群组，树中的<strong>四个簇（Clusters
+1-4）</strong>代表了<strong>相似单体</strong>的聚类
 <ul>
 <li><strong>四个主要簇</strong>表明在27个样本中存在四种主要的单体类型</li>
-<li><strong>C. colocynthis、C. rehmii和C. naudinianus</strong>的单体在聚类中表现出独特的模式，说明这些物种在**着丝粒串联重复序列（centromeric tandem repeats）**上与其他物种存在差异。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>组装了27个品种的T2T基因组，组装的一些不同角度的数据对比，基本上都是supplemental tables里面</p>
-</li>
+<li><strong>C. colocynthis、C. rehmii和C.
+naudinianus</strong>的单体在聚类中表现出独特的模式，说明这些物种在<strong>着丝粒串联重复序列（centromeric
+tandem repeats）</strong>上与其他物种存在差异。</li>
+</ul></li>
+</ul></li>
+<li>组装了27个品种的T2T基因组，组装的一些不同角度的数据对比，基本上都是supplemental
+tables里面</li>
 </ul>
 <blockquote>
 <p><strong>测序技术</strong>：</p>
@@ -3624,69 +3620,97 @@ src="https://pic.imgdb.cn/item/674d71f4d0e0a243d4dbe51e.png" /></li>
 <p><strong>端粒组装</strong>：使用七碱基重复序列CCCTAAA，提升端粒完整性。</p>
 <p><strong>附加基因组</strong>：叶绿体（平均156.9 kb）和线粒体（平均622.2 kb）基因组组装完成。</p>
 </blockquote>
-<h2 id="Detection-of-the-centromere-locations-at-chromosomes-检测染色体上的着丝粒位置">Detection of the centromere locations at chromosomes 检测染色体上的着丝粒位置</h2>
+<h2
+id="detection-of-the-centromere-locations-at-chromosomes-检测染色体上的着丝粒位置">Detection
+of the centromere locations at chromosomes 检测染色体上的着丝粒位置</h2>
 <p>主要是分析一下27个品种的的着丝粒区域，Hi-C热图</p>
 <p>然后根据这个分析一下不同物种的亲缘关系</p>
 <p>主要是结合1e、1f的图分析，没啥参考价值</p>
 <ul>
-<li>
-<p><strong>着丝粒区域</strong>：</p>
+<li><strong>着丝粒区域</strong>：
 <ul>
 <li>27个样本的所有染色体上候选着丝粒区域已识别并通过Hi-C确认。</li>
-</ul>
-</li>
-<li>
-<p><strong>系统发育关系</strong>：分别从全基因组水平上判断和着丝粒序列上判断</p>
+</ul></li>
+<li><strong>系统发育关系</strong>：分别从全基因组水平上判断和着丝粒序列上判断
 <ul>
-<li><em>C. naudinianus</em>在着丝粒序列上更接近* C. lanatus*，但全基因组水平上关系较远。*</li>
-<li>C. amarus<em>全基因组上与</em> C. lanatus<em>更近，着丝粒序列上</em>C. colocynthis<em>与</em> C. lanatus*更接近。</li>
-</ul>
-</li>
-<li>
-<p><strong>转座子组成</strong>：</p>
+<li><em>C. naudinianus</em>在着丝粒序列上更接近* C.
+lanatus<em>，但全基因组水平上关系较远。</em></li>
+<li>C. amarus<em>全基因组上与</em> C.
+lanatus<em>更近，着丝粒序列上</em>C. colocynthis<em>与</em> C.
+lanatus*更接近。</li>
+</ul></li>
+<li><strong>转座子组成</strong>：
 <ul>
 <li>染色体2、3、4和6的TE组成不同，主要是LTR（Gypsy和Copia）和hAT家族。</li>
-</ul>
-</li>
-<li>
-<p><strong>串联重复序列聚类</strong>：</p>
+</ul></li>
+<li><strong>串联重复序列聚类</strong>：
 <ul>
-<li>四个主要簇，<em>C. colocynthis</em>、<em>C. rehmii</em>和* C. naudinianus*展现出独特模式。</li>
-</ul>
-</li>
-<li>
-<p><strong>主要串联重复序列</strong>：</p>
+<li>四个主要簇，<em>C. colocynthis</em>、<em>C. rehmii</em>和* C.
+naudinianus*展现出独特模式。</li>
+</ul></li>
+<li><strong>主要串联重复序列</strong>：
 <ul>
-<li>Cluster 1为Cr2，除PKR6、PI 652554和PI 537300外在所有样本中最丰裕。</li>
-</ul>
-</li>
-<li>
-<p><strong>TE频率</strong>：</p>
+<li>Cluster 1为Cr2，除PKR6、PI 652554和PI
+537300外在所有样本中最丰裕。</li>
+</ul></li>
+<li><strong>TE频率</strong>：
 <ul>
 <li>LTR占56.6%，Gypsy 33.45%，Copia 7.73%。</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Watermelon-super-pangenome-construction-and-analysis">Watermelon super-pangenome construction and analysis</h2>
-<p><img src="https://pic.imgdb.cn/item/675931dcd0e0a243d4e1b212.png" alt=""></p>
+<h2 id="watermelon-super-pangenome-construction-and-analysis">Watermelon
+super-pangenome construction and analysis</h2>
+<p><img
+src="https://pic.imgdb.cn/item/675931dcd0e0a243d4e1b212.png" /></p>
 <p>（补充note2：除了27个基因组之外，还加入了一个原本传统的参考基因组G42。使用<strong>Orthofinder2</strong>工具，将来自28个接入样本的<strong>686,583</strong>个预测基因模型聚类成<strong>32,513</strong>个非冗余的泛基因家族）</p>
 <p>构建了泛基因组pangenome：一个物种内的基因组</p>
 <ul>
-<li>
-<p><strong>核心基因组（Core Genome）</strong>：所有个体共有的基因。</p>
-</li>
-<li>
-<p><strong>可变基因组（Dispensable Genome）</strong>：仅部分个体拥有的基因。</p>
-</li>
-<li>
-<p>图A</p>
+<li><p><strong>核心基因组（Core
+Genome）</strong>：所有个体共有的基因。</p></li>
+<li><p><strong>可变基因组（Dispensable
+Genome）</strong>：仅部分个体拥有的基因。</p></li>
+<li><p>图A</p>
 <ul>
-<li>横坐标是不断添加</li>
-<li>closed</li>
+<li>横坐标是不断添加，添加28个基因组，泛基因组基因家族数目的增长趋势，最后趋于稳定closed</li>
+<li>pangenome、core genome、dis genome</li>
+</ul></li>
+<li><p>图B</p>
+<ul>
+<li>核心基因（core
+genes）：存在在<strong>所有</strong>基因组的基因家族中，与<strong>基本的生物功能</strong>相关</li>
+<li>软核心基因（softcore
+genes）：<strong>大多数</strong>基因组中，与一些<strong>次要功能</strong>相关，或者在某些特定条件下发挥作用。</li>
+<li>可变基因（dispensable
+genes）：导致不同物种或个体间表型多样化、分化的主要原因基因</li>
+<li>私有基因（private
+genes）：<strong>仅存在于一个</strong>基因组或一个物种中的基因家族</li>
+<li>四种基因在28个样本中的分布</li>
+</ul></li>
+<li><p>图c</p>
+<ul>
+<li>28个样本各自的四种基因的比例</li>
+</ul></li>
+<li><p>图d</p>
+<ul>
+<li>presence–absence 存在-缺失景观</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="SV-characterization-and-graph-based-genome">SV characterization and graph-based genome</h2>
+<blockquote>
+<p>对不同类型进行了一些计算和分析</p>
+<p><strong>InterPro结构域注释</strong></p>
+<p><strong>基因表达水平</strong></p>
+<p><strong>核苷酸多样性（π）</strong>，区分是否保守</p>
+</blockquote>
+<h2 id="sv-characterization-and-graph-based-genome">SV characterization
+and graph-based genome</h2>
+<h2
+id="gene-gain-and-loss-during-watermelon-domestication-西瓜驯化过程中的基因变化">Gene
+gain and loss during watermelon domestication
+西瓜驯化过程中的基因变化</h2>
+<h2
+id="contribution-of-sv-genes-during-evolution-and-domestication-进化过程中sv基因的贡献">Contribution
+of SV genes during evolution and domestication
+进化过程中SV基因的贡献</h2>
 ]]></content>
       <categories>
         <category>论文阅读</category>
@@ -3694,6 +3718,7 @@ src="https://pic.imgdb.cn/item/674d71f4d0e0a243d4dbe51e.png" /></li>
       <tags>
         <tag>T2T</tag>
         <tag>SV</tag>
+        <tag>Pangenome</tag>
       </tags>
   </entry>
 </search>
