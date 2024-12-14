@@ -18,7 +18,7 @@ description: "NG关于西瓜"
 >
 > 但是可以参考这篇文章的多个基因组一起进行比较、建立pangenome这块
 >
-> 分析了SV、染色体重排
+> 使用**syri**软件分析了SV、染色体重排
 >
 > 这篇的配色都挺好看的，主要研究的7个品种全文的配色统一
 >
@@ -29,6 +29,10 @@ description: "NG关于西瓜"
 
 
 # Abstract
+
+
+
+> 根据429分材料的系统发育关系和地理分布，选择了27个具有代表性的种质，均组装至T2T水平，并与一个现有的T2T基因组共同构建了西瓜的属级超级泛基因组。SV对基因组多态性和功能基因变异的影响大于SNP，将27个新基因组与G42参考基因组（也是一种栽培西瓜）比对，共鉴定了461,987个非冗余SV。西瓜的SVs倾向于富集在DNA重复区域和缺失与插入，平均27.5%的SVs与基因上游或下游2 kbp区域重叠，平均7.5%的SVs引起了氨基酸编码的变化，这可能会导致基因功能的多样性。这些结果表明，超级泛基因组中的SVs反映了栽培西瓜及其相关物种进化过程中发生的巨大结构变化，加深了对西瓜属进化的基因组和表型变化的认识。
 
 - **Citrullus属**
 
@@ -68,7 +72,49 @@ description: "NG关于西瓜"
 
 ## T2T assemblies of 27 diverse accessions from seven species
 
+7个species 里面27个品种
 
+> - *Citrullus lanatus*  种植最广泛的西瓜
+>
+> - **野生近缘种（CWRs）** ：
+>   - 半野生：*Citrullus amarus*、*Citrullus mucosospermus*
+>   - 完全野生（资源较少）：*Citrullus ecirrhosus*、*Citrullus naudinianus*、*Citrullus rehmii* 和 Citrullus colocynthis
+>
+> 还有一个栽培西瓜的亚种被认为(*Citrullus lanatus* subsp. *cordophanus*) 被认为是栽培西瓜的可能祖先，来自苏丹东北非地区。
+
+- 研究大概的目的
+  - 利用这些野生近缘种，可以拓宽栽培西瓜的遗传基础，发现与抗病性、抗逆性以及促进人类健康的化合物（如苦瓜甙和瓜氨酸）相关的新等位基因。
+  - 构建属级超级泛基因组（super-pangenome）有助于识别和利用这些野生种中的遗传多样性，推动栽培西瓜的基因改良和进化研究。
+
+| Entry# | Accession        | Taxonomy            |                                 |
+| ------ | ---------------- | ------------------- | ------------------------------- |
+| 1      | PI 596694 (male) | C. naudinianus      |                                 |
+| 2      | PI 525081        | C. colocynthis      |                                 |
+| 3      | PI 632755        | C. colocynthis      |                                 |
+| 4      | PI 652554        | C. colocynthis      |                                 |
+| 5      | PI 537300        | C. colocynthis      |                                 |
+| 6      | PI 670011        | C. rehmii           |                                 |
+| 7      | PI 673135        | C. ecirrhosus       |                                 |
+| 8      | PI 482276        | C. amarus           |                                 |
+| 9      | PI 296341-FR     | C. amarus           | 分析栽培过程中基因变化用到      |
+| 10     | PI 271769        | C. amarus           |                                 |
+| 11     | PI 189225        | C. amarus           |                                 |
+| 12     | RCAT 055816      | C. amarus           |                                 |
+| 13     | PI 532732        | C. mucosospermus    |                                 |
+| 14     | PI 595203        | C. mucosospermus    | 分析栽培过程中基因变化用到      |
+| 15     | PI 254622        | C. lanatus landrace |                                 |
+| 16     | HeiShanRen       | C. lanatus landrace |                                 |
+| 17     | PI 381740        | C. lanatus landrace |                                 |
+| 18     | DaBanHongZiGua   | C. lanatus landrace |                                 |
+| 19     | PI 288522        | C. lanatus landrace |                                 |
+| 20     | SanBaiGua        | C. lanatus landrace |                                 |
+| 21     | ShiHong No.2     | C. lanatus cultivar |                                 |
+| 22     | Sugarlee         | C. lanatus cultivar |                                 |
+| 23     | Charleston Gray  | C. lanatus cultivar |                                 |
+| 24     | Calhoun Gray     | C. lanatus cultivar |                                 |
+| 25     | Allsugar         | C. lanatus cultivar |                                 |
+| 26     | **G42**          | C. lanatus cultivar | 这篇T2T构建之前的主要参考基因组 |
+| 27     | **PKR6**         | C. lanatus cultivar | 分析栽培过程中基因变化用到      |
 
 ![](https://pic.imgdb.cn/item/6757e71bd0e0a243d4e0f8e7.png)
 
@@ -246,33 +292,164 @@ description: "NG关于西瓜"
 
 ## Divergence among species and the origin of watermelon 
 
+### 品种间的差异
+
+染色体重排对物种形成很关键
+
 - 物种形成与染色体重排Chromosomal Rearrangements
   - 并验证了三种主要的染色体重排
+  
   - 染色体结构的这些改变可能有助于生殖隔离，影响杂交生育能力并减少种间重组，最终导致瓜属物种的分化
-  - 这从哪看出来的三个主要的染色体重排
+  
+  - 这从哪看出来的三个主要的染色体重排：
+  
+    - 下面7个品种染色体按照1-11从左到右进行排序的
+  
+    - **彩色的线是gene block 一般是多个基因组成的共线性区域**
+  
+      
 
 > 在*C. colocynthis*中发现了涉及染色体1（chr01）和染色体4（chr04）的显著染色体间重排，与其他三个Citrullus物种（*C. lanatus*、*C. mucosospermus*和*C. amarus*）相比。这些染色体结构的改变可能有助于生殖隔离，影响杂交后代的生育能力，减少物种间的重组，最终导致Citrullus属物种的分化。
 
-![](https://pic.imgdb.cn/item/675aca78d0e0a243d4e2faa5.png)
+![](https://pic.imgdb.cn/item/675d3b35d0e0a243d4e3dbff.png)
 
 
 
 - 结合原有文献进行一些分析：为了研究不同西瓜物种中三维基因组的保守性和变异性，我们使用50 kb分辨率矩阵识别了A和B区段。结果显示，A和B区段在西瓜物种间相对保守（见补充图9a）。已有研究报道，A和B区段的变异与基因组结构变异（SVs）密切相关。在不同类型的SVs中，我们观察到一个4.5 Mb的倒位变异，导致A和B区段的变化（见补充图9b）。
 
-- **三维基因组**指的是基因组在三维空间中的结构和组织方式，A和B区段是其重要组成部分：
+>  **三维基因组**指的是基因组在三维空间中的结构和组织方式，A和B区段是其重要组成部分：
+>
+> - **A区段（A Compartments）**：通常富含活跃转录的基因，代表开放的染色质区域。
+>
+> - **B区段（B Compartments）**：通常富含转录活性较低的基因，代表闭合的染色质区域。
+>
+>
+> 使用PCA做一下大部分A/B compartments 是保守的，说明这表明这些基因组区域的三维结构变化不大，是同个祖先。
+>
+> 然后发现一些结构变异（如染色体倒位）会导致局部A/B compartments 的变化。比如chr11上的4.5 Mb倒位使得A和B compartments 在倒位区域内发生了切换，这可能会导致基因表达模式的改变。
 
-  - **A区段（A Compartments）**：通常富含活跃转录的基因，代表开放的染色质区域。
 
-  - **B区段（B Compartments）**：通常富含转录活性较低的基因，代表闭合的染色质区域。
 
 ![](https://pic.imgdb.cn/item/675ada78d0e0a243d4e2fe18.png)
 
+### 栽培种西瓜的祖先
 
+- 以前的报告说*C. lanatus* subsp. *cordophanus*这个亚种可能是栽培西瓜的祖先
+  - 接下来的内容都是在证明除了cordophanus可能是祖先之外，*C. mucosospermus*这个野生种也有可能是栽培种西瓜的祖先
+- 通过图3a可以看出野生西瓜 （*C. amarus*） 和栽培西瓜 （*C. lanatus*） 之间的 SV 呈爆炸性增加。但是其中*C. mucosospermus*这个野生西瓜跟 lanatus栽培西瓜之间SV没有太明显的差异
+
+![](https://pic.imgdb.cn/item/675d3b52d0e0a243d4e3dc07.png)
+
+- 图C，维恩图，栽培西瓜 （*C. lanatus*）中识别出了362个SVs
+  - 33个来自C. mucosospermus
+  - 68个来自于亚种cordophanus
+  - 200个SVs在C. mucosospermus和cordophanus中共有
+- 图D：这里列举了三个特定基因的SVs
+  - **ClG42_07g0080600**：通过选择性扫荡（selective sweeps）识别出来，表明该基因区域在驯化过程中经历了强烈的选择压力。
+  - **ClG42_01g0030700**：与果实大小相关的数量性状基因座（QTLs）有关，意味着该基因的变异可能影响西瓜果实的尺寸。
+  - **ClG42_03g0058200**：与种子外壳颜色相关的QTLs有关，表明该基因的变异可能影响西瓜种子的颜色。
+  - 其中*C. lanatus*（G42） 和 *C. mucosospermus* 具有相同的单倍型，与之前研究中的*C. lanatus* 亚种 *cordophanus*不同。**说明了*C. mucosospermus* 也有可能是*C. lanatus*的祖先，而不仅仅是之前研究中的cordophanus就是祖先了**
+- 图e：进一步展示了基因组中的Large inversion倒置，包括*C. lanatus*和可能的两个祖先
+  - 除了都inherit的inversion，单独把inherit自cordophanus用紫框框出来，把C.mucosospermus用黄框框出来，可以看出黄框的挺多
+  - 然后补充的表20里面通过实验手段对检测到的倒位（Inversion）进行了验证
+  - 结合补充图10（对表20的可视化，Sanger sequencing validation of inversions listed in Table S20）
+  - 图11一些特定基因的SNPs（SNP的分布模式可以揭示不同西瓜品种的进化历史和适应性特征）
+  - 进一步证明了*C. mucosospermus*也有可能是祖先
 
 ## Gene gain and loss during watermelon domestication 西瓜驯化过程中的基因变化
+
+
+
+- 西瓜在培育育种、domestication的过程中，基因有gain也有loss。
+  - 会影响disease resistance, sugar accumulation and fruit flesh coloration（果肉着色）这些性状
+
+![](https://pic.imgdb.cn/item/675d53cdd0e0a243d4e3f535.png)
+
+> **Cucurbit 科**：包括西瓜（*Citrullus* 属）、黄瓜（*Cucumis* 属）、甜瓜（*Cucumis melo*）、南瓜（*Cucurbita* 属）等多个属。
+
+- 系统发育树
+  - 比较分析single-copy orthologous genes（但不同物种之间只存在一个的拷贝同源基因） 构建了*Citrullus*和相关的cucurbit物种之间的系统发育树
+  - 发现了最近的分化事件是*C. lanatus* 和 *C. mucosospermus*
+    - 进一步论证了上一part的观点
+  - 进化的过程中基因家族的丢失大于获得的基因
+- 然后给了一个抗病Lox基因的分布
+
+![](https://pic.imgdb.cn/item/675d622fd0e0a243d4e3fcf6.png)
+
+分析了PKR6（一个近交系的栽培西瓜，其多种疾病抗性是通过不同种间杂交积累而成的）
+
+- C：基因组信息
+  - 浅蓝色区域表示来自 PI 296341-FR (*C. amarus*)的纯合片段，紫色区域表示来自 PI 595203 (C. mucosospermus)的纯合片段，深蓝色表示与两个种质一致的区域
+    - 大部分是跟PI 296341-FR 颜色一样
+  - （**不知道咋根据图C鉴定出来的**）鉴定出了一个QTL叫做*Qfon1.1*，对于Fon race 1有良好的抗性
+    - 通过与G42基因组（易感）比对，QTL缩小到364 kb区域，**缩小之后更好鉴定是什么基因**
+- D：展示了G42、PI 296341-FR 和 PKR6被Fon race 2感染的表型
+  - 说明G42易于感染，但是同样作为栽培种的 PKR6不容易被感染，然后野生种PI 296341-FR也不会被感染
+  - PKR6比CWRs野生种更适合作为改良的选择
+  - 补充表15检测到了PKR6chr11上面来自的**连锁拖拽序列**，说明利用当前的基因组信息，可以将丢失的抗性基因有目的地整合到精英细胞系中。
+- 未来的工作可能集中在别的野生种（ *C. naudinianus*、*C. ecirrhosus* 和 *C. rehmii* ）的抗性基因渗入优良西瓜系。
+
+![](https://pic.imgdb.cn/item/675d678fd0e0a243d4e3fdbe.png)
+
+cultivated watermelon 栽培种主要是改变了sweetness甜度和flesh color果肉的颜色
+
+- 图e flesh color的GWAS
+  - LCYB的碱基变化导致西瓜的果肉颜色变化
+
+> landrace: *landrace地方品种，相对于育成品种和野生资源而言*。在19世纪系统育种以前世界上种植的都是landrace。
+
+图f、g就是比较了40多个品种的这个表型，并且每个品种都标注了LCYB的SNP是什么（第一个SNP是G/T、第二个SNP是G/A）还有TST2是1copy还是2copy，然后画了统计图
+
+- 图f 
+  - brix是糖的浓度 比较了brix跟 *TST2*基因 表达和 *TST2* 基因的CNV（1copy和2copy）的比较
+  - 发现*TST2* 基因的扩增导致糖分的增加
+
+- 图g
+  - 发现了（*TST2*  2copy与 *LCYB-GG*）和（*TST2* 1copy与 *LCYB-TA*）有很强的相关性，说明这两个基因是同时在驯化的
+- 简单还讲了一下T2T2基因拷贝数的变异导致果肉和糖分变化的相关蛋白和通路
+
+> 研究还发现，**色素体磷酸转运蛋白ClPHT4;*TST2*中的2**（ClG42_10g0214700）的高水平表达对于果肉颜色的形成是必需的。在栽培西瓜中，糖和植物激素信号传导途径的独特模型调控了 **ClPHT4;2** 的转录，与野生种相比表现出明显不同。这表明，**TST2基因的拷贝数** 可能通过调节糖信号通路，进而影响 **ClPHT4;2** 的表达，促进了西瓜糖分积累和果肉颜色的共同选择。
+
+
+
+总结：重新引入丢失的抗性基因并了解糖积累和果肉着色的共同进化对于有效的西瓜育种计划至关重要。
 
 
 
 
 
 ## Contribution of SV genes during evolution and domestication 进化过程中SV基因的贡献
+
+多个表型：bitterness, sugar content, flesh color, shape, ripening成熟度 and seed size
+
+为了探讨与这些性状相关的基因是否受到环境选择和/或人为选择的影响
+
+1.  扫描了*C. colocynthis*、*C. amarus*、*C. mucosospermus* 和 *C. lanatus* 的**启动子和 CDS**（Coding Sequence，编码序列） 中的 **SVs**
+
+> 通过比较野生西瓜和栽培西瓜，进行了选择性扫荡（selective sweeps）分析，可能影响性状多样性的携带SVs的新候选基因
+>
+> - 选择性扫荡：
+>   - **基因扫描**：通过比较野生西瓜和栽培西瓜，识别出在选择性扫荡过程中受到选择的基因。
+>   - **候选基因识别**：在1,750个通过选择性扫荡检测到的基因中，有79个基因的编码区存在SVs（详见补充表28）。
+>   - **功能注释**：利用Swiss-Prot数据库和转录组数据分析，进一步筛选出可能与其他重要功能相关的候选基因（详见补充表29）。
+
+
+
+![](https://pic.imgdb.cn/item/675d70fbd0e0a243d4e3fef2.png)
+
+- 图左边
+  - 扫描之后的结果发现，这些功能基因的SV主要是存在在*C. colocynthis* 和 *C. amarus* 中，而不在*C. mucosospermus* 和 *C. lanatus*中，说明驯化的过程被淘汰了，一般是位于其实密码子的上游、少数在编码区
+
+- 图右边，不同性状相关的基因在不同品种的果实和叶子里面的表达量大小
+  - 与果实甜味、苦味和果色相关的基因的 SVs 与不同种质果实中的表达模式一致
+- 进一步进行了分析苦味的丧失
+  - **西瓜果实的一个关键驯化特征是苦味的丧失 具体进行了原因分析，比如相关的化合物、其合成与什么调节因子（基因）有关，这个基因在不同品种间的表达量怎么样，是什么原因导致的这个表达量的变化，是否跟SV相关**
+
+- 分析了糖和色素积累相关的化合物
+
+- 讲了一下果形、种子大小和果实成熟度在不同物种间表现出多样性
+
+> 与苦味、糖含量和果肉颜色在驯化过程中呈现出下降或上升趋势不同，果形、种子大小和果实成熟度在不同物种间表现出多样性。在驯化过程中，果形由小变大后又略微变小，种子大小也存在变化。虽然已有研究表明基因表达模式与果形和种子大小性状相关，但这些表达模式与结构变异（SV）的出现并不一致。与果实成熟相关的两个基因在*C. colocynthis*和*C. amarus*中存在结构变异，但这些变异在四个物种中的基因表达并不一致。驯化过程复杂，结构变异只是影响*Citrullus*属物种间性状变异的众多因素之一。
+
+# Methods和peer review
+
