@@ -19,30 +19,77 @@ description: "Pyhonweb开发django学习笔记"
 
 # 一、初步了解Django
 
+django 默认没有异步 会阻塞 实在不够可以项目部署的时候多开线程
+
+flask 小而精
+
+
+
 ## 1.1 创建项目
 
 - 命令行
-- Pycharm创建项目
-  - 在标准的基础上默认给我们增加了点东西
-  - 创建了一个templates目录（删除）
-  - setting文件中，选中的部分要删除掉![](https://pic.imgdb.cn/item/63c2cba9be43e0d30edb73fa.png)
+  - 创建一个项目环境/虚拟环境
+  - 然后安装django
+
+
+```
+pip install django==3
+```
+
+- 创建项目
+
+  - 命令行创建
+    - 参考[Django笔记——使用Anaconda创建虚拟环境并搭建Django项目](https://blog.csdn.net/VirusLL/article/details/79437755)
+
+  - Pycharm创建项目
+    - 在标准的基础上默认给我们增加了点东西
+    - 创建了一个templates目录（删除）,因为我们以后要放到别的地方
+    - setting文件中，选中的部分要删除掉![](https://pic.imgdb.cn/item/63c2cba9be43e0d30edb73fa.png)
 
 ## 1.2 文件介绍
 
 ```shell
 web
-├── manage.py			# 项目的管理,包括: 启动项目,创建app, 数据管理【不要动】【很重要】
+├── manage.py			# 项目的管理,包括: 启动项目,创建app, 数据管理（类自动生成数据表）【不要动】【很重要】
 └── web
-    ├── asgi.py			# 接收网络请求【不要动】
+    ├── asgi.py			# 异步接收网络请求【不要动】
     ├── __init__.py
     ├── settings.py		# 项目配置(模板配置,数据库配置,注册app)【常常操作】
-    ├── urls.py			# url和函数的对应关系，路径【常常操作】
-    └── wsgi.py			# 接收网络请求【不要动】
+    ├── urls.py			# 根路由、url和函数的对应关系，路径【常常操作】
+    └── wsgi.py			# 同步接收网络请求【不要动】
 ```
 
 
 
+最先是wsgi和asgi先接受和处理请求
+
+![](https://pic.imgdb.cn/item/67610fc4d0e0a243d4e51542.png)
+
+- 运行项目
+
+  - 命令行
+
+    - 进入根目录 可以看到manage.py
+
+    - 打开环境
+
+    - ```bash
+      python manage.py runserver
+      ```
+
+    - 后面也可以指定ip和端口
+
+    - ```python
+      python manage.py runserver 127.0.0.1:8000
+      ```
+
+  - pycharm里直接运行manage.py
+
 ## 1.3 APP的创建和说明
+
+在app中编写我们具体的业务，然后把函数写在里面，路径跟函数对应关联写在urls里面
+
+一般项目大的时候，可以拆分不同的模块和功能到不同的app里面
 
 ### 添加新的app
 
@@ -53,7 +100,7 @@ web
 ```bash
 app01/
 ├── admin.py [固定，不用动]
-├── apps.py [固定，不用动]
+├── apps.py [app名字、固定，不用动]
 ├── __init__.py
 ├── migrations [固定，不用动]
 │   └── __init__.py
@@ -66,11 +113,29 @@ app01/
 应用【blog】中各个目录作用：
 
 - **migrations:** 用于记录models中数据的变更。
+  - 迁移记录不用动、自动生成
+
 - **admin.py:** 映射models中的数据到Django自带的admin后台。
+  - 不用他，也不用动
+
 - **apps.py:** 在新的Django版本中新增，用于应用程序的配置。
+  - app名字，不用
+
 - **models.py:** 创建应用程序数据表模型（对应数据库的相关操作)。
+  - 数据库，类->SQL语句(ORM)，经常使用
+
 - **test.py:** 创建Django测试。
+  - 一般也不用
+
 - **views.py:** 控制向前端显示那些数据
+  - 视图函数
+
+
+所以会改变的就是view和model
+
+
+
+
 
 ### 注册app
 
@@ -82,9 +147,9 @@ app01/
 
 ![](https://pic.imgdb.cn/item/63c3842fbe43e0d30e0b1aa5.jpg)
 
+## 1.4 初识view
 
-
-### 创建页面
+### 创建视图页面view
 
 编辑`views.py`里的 视图函数
 
@@ -94,11 +159,49 @@ def index(request):
     return HttpResponse('welcome to Django blog!')
 ```
 
-编辑的`urls.py` 来指定访问路由
+> request是什么？
+>
+> 包含请求相关的所有数据
+>
+> 用户访问的url，包含前面的路径加上参数
+>
+> 以后可以在request中获取用户提交的数据信息，包括cookie、get/post的方式
+>
+> - 中间进行业务逻辑操作
+>
+> - 返回值
+>
+>   - 返回的体现用户浏览器的行为不同
+>
+>   - ```python
+>     return HttpResponse("登录页面")
+>     return render(request, "login.html")
+>     return redirect("https://www.baidu.com")
+>     ```
 
-前面放访问路径，后面放函数[建立路径与函数的映射关系，以后访问路径就会执行这个函数]
+- 第二种`return render(request, "login.html")`用的最常见
+  - 如果是在根目录下面找templates
+    - settings.py里面TEMPLATES = 里面这里就指定了login.html会去哪里寻找html模版
 
-记得import view文件
+> ```
+> TEMPLATES = [
+>     {
+>         'DIRS': [
+>             os.path.join( BASE_DIR, 'templates' ),
+>         ],
+> ]
+> ```
+
+
+
+- 但是我们一般是在app下面创建templates文件夹，可以看下面一小节的内容。每个app涉及的html页面放到app里面
+
+---
+
+- 编辑的`urls.py` 来指定访问路由
+  - 前面放访问路径，后面放函数[建立路径与函数的映射关系，以后访问路径就会执行这个函数]
+
+- 记得import view文件
 
 ```python
 from django.urls import path
@@ -146,22 +249,42 @@ urlpatterns = [
 
 > 总结：就是先在url里创建映射关系，然后去views里写视图函数
 
-## 1.4 templates模板
+## 1.5 templates模板
 
 > 为了使用HTML,这里开始引入templates模板
 
 **注意:** 可以在app下创建`templates`目录,也可以在主目录下创建`templates`目录
 
-- 1.优先去项目的根目录下寻找
-- 2.根据app的注册顺序去app的目录下templates下寻找
+- django会去两个地方寻找templates
+
+  - 1.优先去项目的根目录下寻找
+
+  - 2.根据app的注册顺序去app的目录下templates下寻找
+
 
 - 所以我们把刚开始配置的根目录下的templates文件夹删掉了
 
+我们最好是在app下面创建templates
 
+需要注册app（前面写了）
+
+> django的设计，不同的业务有不同的app，每个业务/app单独的模版就放在app里面的templates，有些templates可能是公用的，这样放在根目录的templates中，这样就都可以找到
 
 ### templates语法
 
 >  如果说我们从数据库中取到了数据,如何在`html`页面中进行展示呢,这里需要用到templates的基本语法
+
+假设说我们在做从view.py获取用户列表，并且用render(request,"1.html")的形式返回界面
+
+经历的过程
+
+1. 数据库中获取用户列表
+2. 打开文件并读取内容
+3. 模版的渲染->文本替换
+
+在render后面加上第三个参数，字典格式写上变量名和值
+
+
 
 #### 单一变量
 
@@ -349,7 +472,7 @@ def tpl(request):
 
 ![](https://pic.imgdb.cn/item/63c39047be43e0d30e235ca4.jpg)
 
-## 1.5 请求和响应
+## 1.6 请求和响应
 
 **重定向:** 浏览器向某个网站发送请求,网站返回给浏览器一个新的URL,浏览器去访问这个新的URL地址
 
@@ -377,7 +500,9 @@ def something(request):
 
 ### 案例：用户管理
 
-修改`views.py`,新增`login`函数
+修改`views.py`,新增`login`函数 
+
+post请求要用name作为字典的键
 
 ```python
 def login(request):
@@ -426,9 +551,17 @@ path('login/', views.login),
 
 ```
 
+### csrf错误
+
+- 第一种解决办法
+  - 出现这种错误要在form表单里面第一行加上
+    - `{% csrf_token %}`
+    - 用来校验是不是我这个网页发过来的请求<img src="https://pic.imgdb.cn/item/63c3c501be43e0d30e8d2ec4.jpg" style="zoom:33%;" />
 
 
-- 出现这种错误要在form表单中加上`{% csrf_token %}`，用来校验是不是我这个网页发过来的请求<img src="https://pic.imgdb.cn/item/63c3c501be43e0d30e8d2ec4.jpg" style="zoom:33%;" />
+- 第二种解决办法
+  - 直接settings里面注释掉这部分
+
 
 # 二、数据库操作
 
@@ -507,3 +640,96 @@ create table app01_userInfo(
 
 - 然后就可以看到数据库中有很多表（有我们自己创的userinfo，还有其他django默认配置的）
 - <img src="https://pic.imgdb.cn/item/63c41ee9be43e0d30e3ebcc7.jpg" style="zoom:33%;" />
+
+
+
+
+
+# 三、静态文件处理
+
+## 初步
+
+图片、css、js等
+
+django中会进行统一处理，可以找到他们的位置  
+
+app里面创建static目录
+
+同样找静态文件也是先去根目录中找，然后去app中找
+
+这时候我们就可以把bootstrap文件直接放在static下面
+
+然后再
+
+```html
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>号码列表</h1>
+        <table class="table table-bordered">
+            <!-- 表格内容放在这里 -->
+        </table>
+    </div>
+    
+    <!-- 引入 JavaScript 文件 -->
+    <script src="/static/jquery-3.6.0.min.js"></script>
+    <script src="/static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+
+
+
+
+## 专业版
+
+django里面特殊的写法
+
+在html第一行写上
+
+```html
+{% load static %}
+```
+
+然后就可以使用
+
+```html
+<link rel="stylesheet" href="{% static 'bootstrap-3.4.1/css/bootstrap.min.css' %}">
+```
+
+
+
+本质就是可以调用settings里面的static_url，自动拼接到里面去
+
+这样的好处就是后面想改动静态文件的路径，就只需要在setting里面改，统一了
+
+
+
+# 四、项目运行
+
+两个不同的项目运行的时候，要先把第一个停了，不然就端口会冲突
+
+
+
+- 创建项目基本流程
+  - 创建环境、创建项目、创建app、注册app、创建app里的templates、创建app里的static并倒入静态文件
+
+- 写一个页面流程
+  - 创建html
+    - 开头`{% load static%}`
+  
+  - view中写函数
+  - url里面添加路径映射
+  
+  - html里面使用bootstrap
+    - 比如写一个表单/导航条的时候，直接去bootstrap里面找表单的html代码
+    - 分别倒入css、jquery和js
+
