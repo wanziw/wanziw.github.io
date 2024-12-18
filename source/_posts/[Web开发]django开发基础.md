@@ -641,7 +641,11 @@ create table app01_userInfo(
 - 然后就可以看到数据库中有很多表（有我们自己创的userinfo，还有其他django默认配置的）
 - <img src="https://pic.imgdb.cn/item/63c41ee9be43e0d30e3ebcc7.jpg" style="zoom:33%;" />
 
+## 2.4 ORM类和对象
 
+在model里面定义的类就是表
+
+类实例化的对象就是数据
 
 
 
@@ -732,4 +736,8 @@ django里面特殊的写法
   - html里面使用bootstrap
     - 比如写一个表单/导航条的时候，直接去bootstrap里面找表单的html代码
     - 分别倒入css、jquery和js
+
+
+
+
 
