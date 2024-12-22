@@ -5,7 +5,7 @@ categories: 生物信息导论实验课
 cover: /img/cover13.jpg
 tags:
   - 序列比对
-sticky: 3
+sticky: 1
 description: "生物信息学导论第八节课补充内容 序列比对基础算法"
 ---
 # 序列比较

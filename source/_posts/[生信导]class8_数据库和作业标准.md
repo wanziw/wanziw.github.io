@@ -2,9 +2,9 @@
 title: 生信Class8_核酸/蛋白质数据库和作业标准
 date: 2024-12-16 19:55:32
 categories: 生物信息导论实验课
-cover: /img/cover4.jpg
+cover: /img/cover8.jpg
 tags: 生物信息数据库
-sticky: 1
+sticky: 3
 description: "生物信息学导论第八节课 NCBI、uniprot、PDB等数据库介绍"
 ---
 [toc]
