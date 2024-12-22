@@ -6,7 +6,6 @@ cover: /img/cover7.jpg
 tags:
   - GSEA
   - 富集分析
-sticky: 1
 description: "生物信息学导论第六节课内容 GSEA分析"
 ---
 # GSEA

@@ -6,7 +6,6 @@ cover: /img/cover16.jpg
 tags:
   - python
   - 数据分析
-sticky: 1
 description: "生物信息学导论第六节课铺垫内容 numpy和pandas的基本使用"
 ---
 
