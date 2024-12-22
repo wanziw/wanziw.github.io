@@ -36,6 +36,8 @@ description: "生物信息学导论第八节课 NCBI、uniprot、PDB等数据库
 |        |                                                              |                                                              |                                                              |                                                              |
 |        |                                                              |                                                              |                                                              |                                                              |
 
+
+
 # 生物信息数据库概述
 
 数据库
@@ -51,15 +53,29 @@ description: "生物信息学导论第八节课 NCBI、uniprot、PDB等数据库
 - 专用数据库
   - 文献数据库PubMed
 
+
+
+- 参考链接
+
+> [ncbi找某个基因的不同序列](https://m.baidu.com/bh/m/detail/ar_9093005812027917570)
+
 # 核酸数据库
+
+> NCBI，全称为美国国家生物技术信息中心（NCBI, National Center for Biotechnology Information），是美国国立卫生研究院（NIH, National Institutes of Health）的一个部门。
+>
+> NCBI提供多种数据库和工具，用于研究遗传学、分子生物学和生物信息学等领域。其中最著名的数据库包括GenBank（一个公开的核酸序列数据库）、PubMed（一个医学文献数据库）、Protein（蛋白质序列数据库）和SNP（单核苷酸多态性数据库）等。还提供了比如BLAST的工具。
 
 - 一级核酸数据库
 
   - NCBI GenBank：美国国家生物技术信息中心
-  - ENA
-  - DDBJ
-  - 这三合并为INSDC：国级核酸序列数据库合作联盟
-
+    - 由美国国家生物技术信息中心（NCBI）维护的一个公共数据库
+  
+  - ENA(European Nucleotide Archive，欧洲核酸档案)
+    - 由欧洲生物信息学研究所（EBI）维护的核酸序列数据库
+  
+  - DDBJ(DNA Data Bank of Japan)
+  - 这三合并为INSDC（International Nucleotide Sequence Database Collaboration)：国际核酸序列数据库合作联盟
+  
   
 
 ##  1 一级核酸数据库：GenBank
