@@ -55,15 +55,13 @@ description: "生物信息学导论第八节课 NCBI、uniprot、PDB等数据库
 
 
 
-- 参考链接
 
-> [ncbi找某个基因的不同序列](https://m.baidu.com/bh/m/detail/ar_9093005812027917570)
 
 # 核酸数据库
 
 > NCBI，全称为美国国家生物技术信息中心（NCBI, National Center for Biotechnology Information），是美国国立卫生研究院（NIH, National Institutes of Health）的一个部门。
 >
-> NCBI提供多种数据库和工具，用于研究遗传学、分子生物学和生物信息学等领域。其中最著名的数据库包括GenBank（一个公开的核酸序列数据库）、PubMed（一个医学文献数据库）、Protein（蛋白质序列数据库）和SNP（单核苷酸多态性数据库）等。还提供了比如BLAST的工具。
+> NCBI提供多种数据库和工具，用于研究遗传学、分子生物学和生物信息学等领域。其中最著名的数据库包括GenBank（一个公开的核酸序列数据库）、PubMed（一个医学文献数据库）、Protein（蛋白质序列数据库）和SNP（单核苷酸多态性数据库）等，还提供了比如BLAST的工具。
 
 - 一级核酸数据库
 
@@ -82,9 +80,10 @@ description: "生物信息学导论第八节课 NCBI、uniprot、PDB等数据库
 
 ### 1.1 原核生物核酸序列
 
-- 原核生物没有内含子<img src="https://pic.imgdb.cn/item/64a2ea0c1ddac507cc8b78a9.jpg" style="zoom:25%;" />
+- 原核生物没有内含子
+  - <img src="https://pic.imgdb.cn/item/64a2ea0c1ddac507cc8b78a9.jpg" style="zoom:25%;" />
 
-- 原核生物序列的一个基因序列，举例，同一个基因的名字是一样的，但是在不同数据库的检索号不同![](https://pic.imgdb.cn/item/64a2ec1c1ddac507cc931e4a.jpg)
+- 原核生物序列的一个基因序列。举例，同一个基因的名字是一样的，但是在不同数据库的检索号不同![](https://pic.imgdb.cn/item/64a2ec1c1ddac507cc931e4a.jpg)
 
 - LOCUS ACCESSION VERSION GI
 
@@ -208,6 +207,7 @@ description: "生物信息学导论第八节课 NCBI、uniprot、PDB等数据库
 - 微生物研究计划之一HMP
 
   - 人们不知道微生物跟人的具体关系是什么，相互之间如何影响。
+  - 肠道菌群、土壤微生物
 
 
   - WGS全基因组鸟枪法测序项目数据库
@@ -227,14 +227,22 @@ description: "生物信息学导论第八节课 NCBI、uniprot、PDB等数据库
 
 一级数据库是直接实验得出的数据，二级数据库是经过处理、注释、分析的序列数据
 
+- 参考链接
 
+> [ncbi找某个基因的不同序列](https://m.baidu.com/bh/m/detail/ar_9093005812027917570)
+>
+> https://zhuanlan.zhihu.com/p/427084094
 
 - 二级核酸数据库（举例）
   - **RefSeg数据库**：参考序列数据库，是通过自动及人工精选出的非冗余数据库，包括基因组序列、转录序列和蛋白质序列。
   - **dbEST数据库**：表达序列标签数据库，包含来源于不同物种的表达序列标签 (EST)
   - **Gene数据库**：为用户提供基因序列注释和检索服务，收录了来自5300多个物种的430万条基因记录
-  - 非编码RNA数据库：ncRNAdb，其不编码蛋白质，但在细胞中起调节作用
-  - microRNA数据库：miRBase，可以获得microRNA在基因组中的定位，挖掘microRNA序列之间的关系
+  - **非编码RNA数据库**：**ncRNAdb**，其不编码蛋白质，但在细胞中起调节作用
+  - microRNA数据库：**miRBase**，可以获得microRNA在基因组中的定位，挖掘microRNA序列之间的关系
+
+> genbank是一个开放的数据库，对每个基因都含有许多序列。很多研究者或者公司都可以自己提交序列，另外这个数据库每天都要和EMBL和DDBJ交换数据。genbank的数据可能重复或者不准。
+>
+> 而RefSeq数据库被设计成每个人类位点挑出一个代表序列来减少重复，是NCB提供的校正的序列数据和相关的信息。数据库包括构建的基因组contig、mRNA、蛋白和整个染色体。refseq序列是NCBI筛选过的非冗余数据库，一般可信度比较高。
 
 # 蛋白质数据库
 
@@ -441,7 +449,7 @@ PDB在线的查看只能看，没有分析功能，具体会在第六章介绍
 
 在Pfam平台（现已停用）查找该蛋白相关结构域
 
-
+现在整合到了InterPro里面了
 
 ![](https://pic.imgdb.cn/item/65f550149f345e8d0332eb01.png)
 
