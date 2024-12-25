@@ -1,0 +1,511 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>生信Class6 GSEA | 丸子Blog</title><meta name="author" content="wanzi"><meta name="copyright" content="wanzi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="生物信息学导论第六节课内容 GSEA分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="生信Class6 GSEA">
+<meta property="og:url" content="http://example.com/2024/12/08/[%E7%94%9F%E4%BF%A1%E5%AF%BC]class6_GSEA/index.html">
+<meta property="og:site_name" content="丸子Blog">
+<meta property="og:description" content="生物信息学导论第六节课内容 GSEA分析">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/cover7.jpg">
+<meta property="article:published_time" content="2024-12-08T08:26:54.000Z">
+<meta property="article:modified_time" content="2024-12-25T08:16:49.860Z">
+<meta property="article:author" content="wanzi">
+<meta property="article:tag" content="GSEA">
+<meta property="article:tag" content="富集分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/cover7.jpg"><link rel="shortcut icon" href="/./img/favicon1.png"><link rel="canonical" href="http://example.com/2024/12/08/[%E7%94%9F%E4%BF%A1%E5%AF%BC]class6_GSEA/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '生信Class6 GSEA',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-12-25 16:16:49'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="丸子Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover7.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="丸子Blog"><span class="site-name">丸子Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">生信Class6 GSEA</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-12-08T08:26:54.000Z" title="发表于 2024-12-08 16:26:54">2024-12-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-25T08:16:49.860Z" title="更新于 2024-12-25 16:16:49">2024-12-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AF%BC%E8%AE%BA%E5%AE%9E%E9%AA%8C%E8%AF%BE/">生物信息导论实验课</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="生信Class6 GSEA"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="GSEA"><a href="#GSEA" class="headerlink" title="GSEA"></a>GSEA</h1><p><img src="https://pic.imgdb.cn/item/67552be3d0e0a243d4dfded6.png" alt=""></p>
+<p>一篇综述：<a target="_blank" rel="noopener" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002375">Ten Years of Pathway Analysis: Current Approaches and Outstanding Challenge</a></p>
+<ul>
+<li><p>第一代：ORA 方法要求输入是差异表达基因的列表</p>
+<ul>
+<li>设定阈值 传统的GO/KEGG富集</li>
+</ul>
+</li>
+<li><p>第二代： FCS 方法使用整个数据矩阵作为输入。</p>
+<ul>
+<li>GESA</li>
+</ul>
+</li>
+<li>第三代：除了基因组的功能注释外，基于 PT 的方法还利用基因产物之间相互作用的数量和类型</li>
+<li>三种方法的目标是一样的，都是做比如pathway的富集分析</li>
+</ul>
+<h2 id="理论部分"><a href="#理论部分" class="headerlink" title="理论部分"></a>理论部分</h2><p>GSEA论文：<a target="_blank" rel="noopener" href="https://www.pnas.org/doi/10.1073/pnas.0506580102?url_ver=Z39.88-2003&amp;rfr_id=ori%3Arid%3Acrossref.org&amp;rfr_dat=cr_pub++0pubmed">Gene set enrichment analysis: A knowledge-based approach for interpreting genome-wide expression profiles</a></p>
+<p>GSEA官网：<a target="_blank" rel="noopener" href="https://www.gsea-msigdb.org/gsea/index.jsp">GSEA</a></p>
+<ul>
+<li><p><strong>定义</strong>： 基因集富集分析(Gene Set Enrichment Analysis, GSEA)是一种计算方法，用来确定一组先验定义的基因集是否<strong>在两种生物状态</strong>之间显示出统计学上显著的、一致的差异。</p>
+</li>
+<li><p><strong>基本原理</strong>： 使用预定义的基因集（通常来自功能注释或先前实验的结果），将基因按照在两类样本中的差异表达程度排序，然后检验预先设定的基因集合是否在这个排序表的顶端或者底端富集。基因集合富集分析检测基因集合而不是单个基因的表达变化，因此可以包含这些细微的表达变化，预期得到更为理想的结果</p>
+<ul>
+<li>两个不同条件下筛选出一些差异表达的基因，是没有什么意义的。相反，我们可以将这些基因<strong>按其相关的生物过程或通路</strong>进行分组，这样可以简化分析的复杂性。通过使用现有的<strong>知识库</strong>（比如GO/KEGG/MSigDB），研究人员能够识别出在特定通路中起作用的基因和蛋白质。这不仅将成千上万的基因缩减到几百个通路，使得实验分析更加高效，还能更清晰地解释不同条件下活跃的生物通路，从而提供比单纯列出差异基因更有价值的见解。</li>
+</ul>
+</li>
+<li><p>基因集富集分析（Gene set enrichment analysis,GSEA）方法无需预先设定显著差异基因，其对差异不显著但具有重要功能的基因具有独特优势</p>
+<ul>
+<li>GSEA需要表达量的数据，GO/KEGG不需要</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>这与之前讲述的GO/KEGG富集分析不同。GO/KEGG富集分析是先筛选差异基因，再判断差异基因在哪些注释的通路存在富集；这涉及到阈值的设定，存在一定主观性并且只能用于表达变化较大的基因，即我们定义的显著差异基因。而GSEA则不局限于差异基因，从基因集的富集角度出发，理论上更容易囊括细微但协调性的变化对生物通路的影响，尤其是差异倍数不太大的基因集</p>
+</blockquote>
+<p><img src="https://pic.imgdb.cn/item/6755252ed0e0a243d4dfdd79.png" alt=""></p>
+<ul>
+<li>工作流程介绍</li>
+</ul>
+<blockquote>
+<p>基因集定义：首先，<strong>GSEA需要一个事先定义好的基因集合，这些基因通常按照其在特定生物学通路、功能类别或疾病过程中的作用进行组织</strong>。这些基因集可以来自公共数据库，如Gene Ontology、KEGG Pathway、Reactome，或者是研究者自己根据文献和领域知识构建的。</p>
+<p>基因表达数据：GSEA需要分析的基因表达数据，通常是从微阵列或RNA测序实验中获得的。这些数据包括不同条件或样本中基因的表达水平。</p>
+<p>排列(permutation)检验：GSEA的核心思想是通过对基因集的成员在整个基因表达数据中的排列来确定它们的富集程度。具体来说，GSEA将所有基因根据其在不同条件下的表达水平进行排序。然后，它从基因集的一端开始，计算该基因集中的基因在排序列表中的偏离程度。如果基因集中的基因在排序列表的某个位置中集中排列，说明该基因集富集在特定的生物学过程或通路中。这个过程通过构建一个富集分数（Enrichment Score）来量化。</p>
+<p>统计显著性：对于每个基因集，GSEA 计算一个富集分数，并基于随机排列检验来估计其统计显著性。如果一个基因集的富集分数在随机排列中的分布表现出显著差异，那么就认为这个基因集在样本中富集。</p>
+<p>结果可视化：最后，GSEA 会生成结果报告，其中包括富集分数、基因集的统计显著性以及相关通路或功能的信息。这些结果可视化为富集图谱，用于展示不同基因集的富集情况。</p>
+</blockquote>
+<ul>
+<li><p>基本概念</p>
+<ul>
+<li>ES（Enrichment Score）：富集得分 <ul>
+<li>ES反应基因集成员s在排序列表L的两端富集的程度。</li>
+<li>计算方式是：从基因集L的第一个基因开始，计算一个累计统计值。当遇到一个落在s里面的基因，则增加统计值。遇到一个不在s里面的基因，则降低统计值。 每一步统计值增加或减少的幅度与基因的<strong>表达变化程度</strong>（fold-change值）是相关的。</li>
+<li>富集得分ES最后定义为最大的峰值。正值ES表示基因集在列表的顶部富集，负值ES表示基因集在列表的底部富集</li>
+<li><strong>p-value</strong>用来评估富集得分(ES)的显著性，通过排列检验 (permutation test)计算观察到的富集得分(ES)出现的可能性。</li>
+</ul>
+</li>
+<li>NES (Normalized Enrichment Score)：标准化富集得分 <ul>
+<li>每个基因子集s计算得到的ES根据基因集的大小进行标准化得到标准化富集得分Normalized Enrichment Score (NES)。</li>
+<li>随后会针对NES计算假阳性率FDR（<strong>在所有被判定为阳性/显著的结果中，实际上是错误（假阳性）的比例</strong>。）。</li>
+</ul>
+</li>
+<li>Leading-edge subset：<ul>
+<li>并不是所有的基因集的所有成员通常都会参与生物过程</li>
+<li>领头基因亚集 对富集贡献最大的基因成员</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>一般认为|NES|&gt;1，p-value&lt;0.05，FDR&lt;0.25的通路是显著富集的。 </p>
+</li>
+</ul>
+<h2 id="实战部分"><a href="#实战部分" class="headerlink" title="实战部分"></a>实战部分</h2><ul>
+<li>安装gseapy包,python中用来做GSEA分析的第三方库</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/zqfang/GSEApy">GSEApy-github</a></p>
+<p><a target="_blank" rel="noopener" href="https://gseapy.readthedocs.io/en/latest/introduction.html">GSEAPY官方文档</a></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 conda 安装（仅限 MacOS_x86-64 和 Linux）</span></span><br><span class="line">conda install -c bioconda gseapy</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 使用 pip 安装</span></span><br><span class="line">pip install gseapy</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>给大家准备了两个ipynb文件和两份数据</p>
+<p>其中 GSEA_in_python.ipynb 对应的是’DE_results.csv’数据</p>
+<p>GESA_analysis.ipynb对应的是’PRMT5_DMSO_differential.txt’数据</p>
+<p>因为数据里面有些列名的不同，所以准备了两个，本质上是一样的东西，代码脚本中可能有些变量名命名的不太一样。</p>
+<p>上课我们讲的是GESA_analysis.ipynb</p>
+</blockquote>
+<h3 id="数据集结构"><a href="#数据集结构" class="headerlink" title="数据集结构"></a>数据集结构</h3><p>差异表达基因</p>
+<p>里面有1118个基因</p>
+<p>设计的两个实验条件</p>
+<ol>
+<li><strong>PRMT5</strong>：涉及PRMT5（蛋白精氨酸甲基转移酶5）的处理条件。</li>
+<li><strong>DMSO</strong>：使用DMSO（二甲基亚砜）作为对照处理条件，DMSO通常作为溶剂对照。</li>
+</ol>
+<p><img src="https://pic.imgdb.cn/item/67553c25d0e0a243d4dfe234.png" alt=""></p>
+<ul>
+<li>这里的参数不重要，只要有基因标识和用来排序的数据就行（gene-level statistics）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Gene</th>
+<th>表示基因名称或标识符。</th>
+<th>FDR(+)</th>
+<th>正效应方向的假发现率。</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Category</td>
+<td>指定基因的分类或功能类别。</td>
+<td>P(+)</td>
+<td>正效应方向的p值。</td>
+</tr>
+<tr>
+<td>PRMT5_biased</td>
+<td>表示与PRMT5相关的基因偏向性。</td>
+<td>FDR(replicates)</td>
+<td>基于重复实验的假发现率。</td>
+</tr>
+<tr>
+<td>DMSO_biased</td>
+<td>表示与DMSO相关的基因偏向性。</td>
+<td>P(replicates)</td>
+<td>基于重复实验的p值。</td>
+</tr>
+<tr>
+<td>PRMT5</td>
+<td>PRMT5条件下的值，例如表达量或信号强度。</td>
+<td>P(sgRNAs)</td>
+<td>基于sgRNA结果的p值。</td>
+</tr>
+<tr>
+<td>DMSO</td>
+<td>DMSO条件下的值，例如表达量或信号强度。</td>
+<td>FDR(sgRNAs)</td>
+<td>基于sgRNA结果的假发现率。</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Z分数，表示标准化的效应值。Z值表示某个基因的表达差异与总体数据的平均差异相比，有多少个标准差。换句话说，Z值告诉我们一个基因的变化有多异常或显著。</td>
+<td>FDR(-)</td>
+<td>负效应方向的假发现率。</td>
+</tr>
+<tr>
+<td>P(-)</td>
+<td>负效应方向的p值。</td>
+<td>Rank</td>
+<td>基因在特定指标或综合结果下的排名。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p>Z值用来排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&#x27;Rank&#x27;</span>] = df.Z</span><br><span class="line"></span><br><span class="line">df.sort_values(by=<span class="string">&#x27;Rank&#x27;</span>,inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看gene和rank两列</li>
+</ul>
+<p><img src="https://pic.imgdb.cn/item/67553cd4d0e0a243d4dfe28b.png" alt=""></p>
+<p>至此完成了基本的预处理，也就是得到了后续分析的输入</p>
+<h3 id="GSEA分析"><a href="#GSEA分析" class="headerlink" title="GSEA分析"></a>GSEA分析</h3><p>GSEA（Gene Set Enrichment Analysis，基因集富集分析）</p>
+<p>gseapy这个包已经有了一些library</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gp.get_library_name()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>用于基因集富集分析（GSEA）的库（libraries）。这些库通常包含特定的基因集、路径（pathways）、基因-疾病关联等信息，用于帮助研究人员从大量基因数据中识别出具有生物学意义的模式。挑几个看看：</p>
+<p><strong>1. KEGG_2021_Human</strong></p>
+<p><strong>来源</strong>：<strong>KEGG（Kyoto Encyclopedia of Genes and Genomes）</strong></p>
+<p><strong>内容</strong>：KEGG 是一个综合性的数据库，包含了大量的生物路径（<strong>pathways</strong>）、疾病信息、药物信息等。KEGG_2021_Human 特指2021年版本的人类KEGG路径集。</p>
+<p><strong>作用</strong>：用于识别和分析基因在已知生物路径中的富集情况，帮助理解基因在细胞过程、信号传导、代谢途径等中的作用。</p>
+<p><strong>2. GO_Biological_Process_2021</strong></p>
+<p><strong>来源</strong>：<strong>Gene Ontology（GO）</strong></p>
+<p><strong>内容</strong>：GO 提供了一套统一的术语来描述基因和基因产物的功能，分为三个主要类别：生物过程（Biological Process）、分子功能（Molecular Function）和细胞组分（Cellular Component）。GO_Biological_Process_2021 指的是2021年版本的生物过程类基因集。</p>
+<p><strong>作用</strong>：用于分析基因在不同生物过程中（如细胞周期、信号传导、代谢过程等）的富集情况，帮助揭示基因在特定生物学功能中的角色。</p>
+<p><strong>3. ChEA_2015</strong></p>
+<p><strong>来源</strong>：<strong>ChEA（ChIP-X Enrichment Analysis）</strong></p>
+<p><strong>内容</strong>：ChEA 包含了大量的转录因子（Transcription Factors, TFs）与其靶基因的关联信息，基于ChIP-seq等实验数据构建。</p>
+<p><strong>作用</strong>：用于识别和分析基因在特定转录因子调控下的富集情况，帮助理解基因调控网络和转录因子的作用。</p>
+<p><strong>4. Human_Phenotype_Ontology</strong></p>
+<p><strong>来源</strong>：<strong>Human Phenotype Ontology（HPO）</strong></p>
+<p><strong>内容</strong>：HPO 提供了对人类疾病和表型特征的标准化描述，涵盖了各种临床表型和疾病特征。</p>
+<p><strong>作用</strong>：用于分析基因与特定人类表型或疾病特征的关联情况，帮助在基因表达数据中识别与临床表型相关的基因集。</p>
+</blockquote>
+<ul>
+<li>ger the GESA results<ul>
+<li>参数rnk：传入dataframe类型，包含基因及其对应的排名分数。通常，这个分数基于基因在不同条件下的表达差异（如log2 fold change）。预排序GSEA需要一个排序好的基因列表，df_rank就是这个排序好的基因列表。</li>
+<li>参数gene_sets：用于富集分析的基因集，可以选择GO啊或者KEGG啊。可以从前面的library_name中寻找到</li>
+<li>执行gp里的prerank方法进行分析，结果存储在变量gsea_res中</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gsea_res = gp.prerank(rnk = df_rank, gene_sets=<span class="string">&#x27;GO_Biological_Process_2021&#x27;</span>, seed = <span class="number">1024</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>先简单查看一下结果</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## The results of GSEA stores as a dictionary</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(gsea_res.results.keys())[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(gsea_res.results.values())[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<p>结果展示一部分,这里的第一个并不代表是最富集的，因为还要看fdr和pvalue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">regulation of cellular localization (GO:0060341)</span><br><span class="line">&#123;&#x27;name&#x27;: &#x27;prerank&#x27;, &#x27;es&#x27;: -0.6650458489873552, &#x27;nes&#x27;: -1.0809540343472221, &#x27;pval&#x27;: 0.4166666666666667, &#x27;fdr&#x27;: 0.6882871982831866, &#x27;fwerp&#x27;: 1.0, &#x27;tag %&#x27;: &#x27;4/35&#x27;, &#x27;gene %&#x27;: &#x27;6.83%&#x27;, &#x27;lead_genes&#x27;: &#x27;SPAG5;PARP1;KDM1A;HSP90AA1&#x27;, &#x27;matched_genes&#x27;: &#x27;LYN;WWC1;REEP6;PINK1;GSN;STXBP2;PARD6G;REEP5;LRP5;NR1D1;TRIM46;LRRK2;CAMK2D;BRSK1;DVL3;DYNC1H1;MAP2;KIAA1614;GOSR1;NUMA1;FER;CSNK1E;PPM1F;TTL;FES;CDK16;STXBP4;EFNA5;DVL1;EPHA5;HSP90AB1;HSP90AA1;KDM1A;PARP1;SPAG5&#x27;, &#x27;hits&#x27;: [401, 530, 717, 1233, 1242, 1304, 1421, 1947, 1982, 1998, 2091, 2165, 2749, 2945, 3506, 3850, 4853, 5226, 5445, 5656, 6508, 6521, 6625, 7374, 7792, 7853, 8143, 8276, 8307, 8467, 9270, 10076, 10089, 10503, 10771], &#x27;RES&#x27;:</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li><strong>Term</strong>：gene set基因集名称（如GO生物过程中的某个特定过程）<ul>
+<li><strong>library中的一条，基因集就是term</strong></li>
+<li>regulation of cellular localization (GO:0060341):进行富集分析的特定基因集名称，属于Gene Ontology（GO）中的一个生物过程类别</li>
+</ul>
+</li>
+<li><strong>fdr</strong>：错误发现率，表示该基因集富集结果的显著性。fdr值越小，越显著。<ul>
+<li>多重检验校正。<strong>最重要的参数之一</strong>。通常，fdr &lt; 0.05 被认为是显著的富集结果，表示结果可靠性高</li>
+</ul>
+</li>
+<li><strong>es</strong>：富集得分，表示基因集在基因列表中的富集程度。<ul>
+<li>衡量该基因集在基因排序列表中的富集程度。正值表示基因集在列表顶部（上调基因）富集，负值表示在列表底部（下调基因）富集。</li>
+</ul>
+</li>
+<li><strong>pval</strong><ul>
+<li>p值越小，结果越显著</li>
+</ul>
+</li>
+<li><strong>nes</strong>：标准化<strong>Normalized</strong>的富集得分，方便不同基因集之间的比较。</li>
+<li><strong>lead_genes（关键基因）</strong><ul>
+<li>SPAG5;PARP1;KDM1A;HSP90AA1</li>
+<li>该基因集富集的关键基因、帮助识别哪些基因在富集中起主要作用</li>
+</ul>
+</li>
+<li><strong>hits（命中位置）</strong><ul>
+<li>数字表示匹配基因在基因排序列表中的具体位置</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 提取结果转换成dataframe</span></span><br><span class="line">out_list = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> term <span class="keyword">in</span> gsea_res.results:</span><br><span class="line">    p = gsea_res.results[term][<span class="string">&#x27;pval&#x27;</span>]</span><br><span class="line">    fdr = gsea_res.results[term][<span class="string">&#x27;fdr&#x27;</span>]</span><br><span class="line">    nes = gsea_res.results[term][<span class="string">&#x27;nes&#x27;</span>]</span><br><span class="line">    es = gsea_res.results[term][<span class="string">&#x27;es&#x27;</span>]</span><br><span class="line">    gene = gsea_res.results[term][<span class="string">&#x27;lead_genes&#x27;</span>]</span><br><span class="line">    out_list.append([term, p, fdr, nes, es, gene])</span><br><span class="line"></span><br><span class="line">df_out = pd.DataFrame(out_list, columns = [<span class="string">&#x27;Term&#x27;</span>,<span class="string">&#x27;p_value&#x27;</span>,<span class="string">&#x27;fdr&#x27;</span>, <span class="string">&#x27;nes&#x27;</span>, <span class="string">&#x27;es&#x27;</span>,<span class="string">&#x27;gene&#x27;</span>]).sort_values(<span class="string">&#x27;fdr&#x27;</span>).reset_index(drop = <span class="literal">True</span>)</span><br><span class="line">df_out</span><br></pre></td></tr></table></figure>
+<p><img src="https://pic.imgdb.cn/item/67553f08d0e0a243d4dfe31a.png" alt=""></p>
+<h3 id="画图"><a href="#画图" class="headerlink" title="画图"></a>画图</h3><p>参考官方文档的画图部分</p>
+<p><a target="_blank" rel="noopener" href="https://gseapy.readthedocs.io/en/latest/gseapy_example.html#Prerank-example">https://gseapy.readthedocs.io/en/latest/gseapy_example.html#Prerank-example</a></p>
+<p>有单个term展现的、多个term同时展现、气泡图</p>
+<ul>
+<li>单个<ul>
+<li>第一种是简单的方法，快速展现</li>
+<li>第二种是可以更加灵活调节的方法</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> gseapy.plot <span class="keyword">import</span> gseaplot</span><br><span class="line"><span class="comment"># 方法1</span></span><br><span class="line"><span class="comment"># terms = gsea_res.res2d.Term</span></span><br><span class="line"><span class="comment"># axs = gsea_res.plot(terms=terms[1])</span></span><br><span class="line"><span class="comment"># 方法2</span></span><br><span class="line">term_to_plot = df_out[<span class="string">&#x27;Term&#x27;</span>][<span class="number">0</span>]</span><br><span class="line">gseaplot(rank_metric=gsea_res.ranking, term=term_to_plot, **gsea_res.results[term_to_plot])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>多个term</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">terms = gsea_res.res2d.Term</span><br><span class="line">axs = gsea_res.plot(terms=terms[1:5],</span><br><span class="line">                   # legend_kws=&#123;&#x27;loc&#x27;: (1.2, 0)&#125;, # set the legend loc</span><br><span class="line">                   show_ranking=True, # whether to show the second yaxis</span><br><span class="line">                   figsize=(3,4)</span><br><span class="line">                  )</span><br></pre></td></tr></table></figure>
+<ul>
+<li>气泡图展示富集的通路</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> gseapy <span class="keyword">import</span> dotplot</span><br><span class="line"><span class="comment"># to save your figure, make sure that ``ofname`` is not None</span></span><br><span class="line">ax = dotplot(gsea_res.res2d,</span><br><span class="line">             column=<span class="string">&quot;FDR q-val&quot;</span>,</span><br><span class="line">             title=<span class="string">&#x27;GO_Biological_Process_2021&#x27;</span>,</span><br><span class="line">             cmap=plt.cm.viridis,</span><br><span class="line">             size=<span class="number">6</span>, <span class="comment"># adjust dot size</span></span><br><span class="line">             figsize=(<span class="number">4</span>,<span class="number">5</span>), cutoff=<span class="number">0.5</span>, show_ring=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="GO富集"><a href="#GO富集" class="headerlink" title="GO富集"></a>GO富集</h1><p><a target="_blank" rel="noopener" href="https://geneontology.org/">geneontology</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">wanzi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/12/08/[%E7%94%9F%E4%BF%A1%E5%AF%BC]class6_GSEA/">http://example.com/2024/12/08/[%E7%94%9F%E4%BF%A1%E5%AF%BC]class6_GSEA/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">丸子Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/GSEA/">GSEA</a><a class="post-meta__tags" href="/tags/%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90/">富集分析</a></div><div class="post_share"><div class="social-share" data-image="/img/cover7.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/12/10/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E8%A5%BF%E7%93%9CT2T%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" title="西瓜T2T论文阅读"><img class="cover" src="/img/cover18.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">西瓜T2T论文阅读</div></div></a></div><div class="next-post pull-right"><a href="/2024/12/04/%5B%E7%94%9F%E4%BF%A1%E7%AC%94%E8%AE%B0%5DGWAS%E5%92%8CLinkAnalysis/" title="GWAS和LinkAnalysis"><img class="cover" src="/img/cover11.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">GWAS和LinkAnalysis</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC82MDAwNC8zNjQ2Nw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">wanzi</div><div class="author-info__description">一个人类</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/wanziw"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wanziw" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1530502197@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://blog.csdn.net/weixin_57345774" target="_blank" title="博客"><i class="fas fa-blog"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">许多东西,我曾经放下,但奇迹般地重新捡了起来</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GSEA"><span class="toc-text">GSEA</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E8%AE%BA%E9%83%A8%E5%88%86"><span class="toc-text">理论部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%E9%83%A8%E5%88%86"><span class="toc-text">实战部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E7%BB%93%E6%9E%84"><span class="toc-text">数据集结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F"><span class="toc-text">排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GSEA%E5%88%86%E6%9E%90"><span class="toc-text">GSEA分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%BB%E5%9B%BE"><span class="toc-text">画图</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GO%E5%AF%8C%E9%9B%86"><span class="toc-text">GO富集</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/22/%5B%E7%94%9F%E4%BF%A1%E5%AF%BC%5Dclass8_KEGG%E3%80%81GO%E6%95%B0%E6%8D%AE%E5%BA%93/" title="生信Class8_KEGG、GO数据库"><img src="/img/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="生信Class8_KEGG、GO数据库"/></a><div class="content"><a class="title" href="/2024/12/22/%5B%E7%94%9F%E4%BF%A1%E5%AF%BC%5Dclass8_KEGG%E3%80%81GO%E6%95%B0%E6%8D%AE%E5%BA%93/" title="生信Class8_KEGG、GO数据库">生信Class8_KEGG、GO数据库</a><time datetime="2024-12-22T06:09:19.000Z" title="发表于 2024-12-22 14:09:19">2024-12-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/22/%5B%E7%94%9F%E4%BF%A1%E5%AF%BC%5Dclass8_%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9%E3%80%81%E8%9B%8B%E7%99%BD%E8%B4%A8%E7%BB%93%E6%9E%84%E3%80%81%E6%B5%8B%E5%BA%8F/" title="生信Class8_序列比对/蛋白质结构/测序"><img src="/img/cover13.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="生信Class8_序列比对/蛋白质结构/测序"/></a><div class="content"><a class="title" href="/2024/12/22/%5B%E7%94%9F%E4%BF%A1%E5%AF%BC%5Dclass8_%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9%E3%80%81%E8%9B%8B%E7%99%BD%E8%B4%A8%E7%BB%93%E6%9E%84%E3%80%81%E6%B5%8B%E5%BA%8F/" title="生信Class8_序列比对/蛋白质结构/测序">生信Class8_序列比对/蛋白质结构/测序</a><time datetime="2024-12-22T06:05:34.000Z" title="发表于 2024-12-22 14:05:34">2024-12-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/21/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DSpatial%20transcriptomic%20clocks%20reveal%20cell%20proximity%20effects%20in%20brain%20ageing/" title="《Spatial transcriptomic clocks reveal cell proximity effects in brain ageing》论文阅读"><img src="/img/cover8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《Spatial transcriptomic clocks reveal cell proximity effects in brain ageing》论文阅读"/></a><div class="content"><a class="title" href="/2024/12/21/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DSpatial%20transcriptomic%20clocks%20reveal%20cell%20proximity%20effects%20in%20brain%20ageing/" title="《Spatial transcriptomic clocks reveal cell proximity effects in brain ageing》论文阅读">《Spatial transcriptomic clocks reveal cell proximity effects in brain ageing》论文阅读</a><time datetime="2024-12-21T07:44:04.000Z" title="发表于 2024-12-21 15:44:04">2024-12-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/17/%5BWeb%E5%BC%80%E5%8F%91%5Ddjango%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" title="django开发基础"><img src="/img/cover12.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="django开发基础"/></a><div class="content"><a class="title" href="/2024/12/17/%5BWeb%E5%BC%80%E5%8F%91%5Ddjango%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" title="django开发基础">django开发基础</a><time datetime="2024-12-17T05:07:46.000Z" title="发表于 2024-12-17 13:07:46">2024-12-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/16/%5B%E7%94%9F%E4%BF%A1%E5%AF%BC%5Dclass8_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E4%BD%9C%E4%B8%9A%E6%A0%87%E5%87%86/" title="生信Class8_核酸/蛋白质数据库和作业标准"><img src="/img/cover8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="生信Class8_核酸/蛋白质数据库和作业标准"/></a><div class="content"><a class="title" href="/2024/12/16/%5B%E7%94%9F%E4%BF%A1%E5%AF%BC%5Dclass8_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E4%BD%9C%E4%B8%9A%E6%A0%87%E5%87%86/" title="生信Class8_核酸/蛋白质数据库和作业标准">生信Class8_核酸/蛋白质数据库和作业标准</a><time datetime="2024-12-16T11:55:32.000Z" title="发表于 2024-12-16 19:55:32">2024-12-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By wanzi</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">很高心认识你！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(()=>{
+  const loadLivere = () => {
+    if (typeof LivereTower === 'object') window.LivereTower.init()
+    else {
+      (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+          if (typeof LivereTower === 'function') { return; }
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+          e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    }
+  }
+
+  if ('Livere' === 'Livere' || !false) {
+    if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+    else loadLivere()
+  } else {
+    window.loadOtherComment = loadLivere
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>

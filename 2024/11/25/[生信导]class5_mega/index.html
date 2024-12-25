@@ -1,0 +1,471 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>生信Class5 MEGA分析 | 丸子Blog</title><meta name="author" content="wanzi"><meta name="copyright" content="wanzi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="生物信息学导论第五节课基本内容 mega软件使用 多序列比对 系统进化树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="生信Class5 MEGA分析">
+<meta property="og:url" content="http://example.com/2024/11/25/[%E7%94%9F%E4%BF%A1%E5%AF%BC]class5_mega/index.html">
+<meta property="og:site_name" content="丸子Blog">
+<meta property="og:description" content="生物信息学导论第五节课基本内容 mega软件使用 多序列比对 系统进化树">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/cover7.jpg">
+<meta property="article:published_time" content="2024-11-25T14:02:17.000Z">
+<meta property="article:modified_time" content="2024-12-25T08:16:49.860Z">
+<meta property="article:author" content="wanzi">
+<meta property="article:tag" content="多序列比对">
+<meta property="article:tag" content="系统进化树">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/cover7.jpg"><link rel="shortcut icon" href="/./img/favicon1.png"><link rel="canonical" href="http://example.com/2024/11/25/[%E7%94%9F%E4%BF%A1%E5%AF%BC]class5_mega/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '生信Class5 MEGA分析',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-12-25 16:16:49'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="丸子Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover7.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="丸子Blog"><span class="site-name">丸子Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">生信Class5 MEGA分析</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-25T14:02:17.000Z" title="发表于 2024-11-25 22:02:17">2024-11-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-25T08:16:49.860Z" title="更新于 2024-12-25 16:16:49">2024-12-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AF%BC%E8%AE%BA%E5%AE%9E%E9%AA%8C%E8%AF%BE/">生物信息导论实验课</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="生信Class5 MEGA分析"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>生物信息学导论第五节课基本内容 mega软件使用 多序列比对 系统进化树</p>
+<p>[toc]</p>
+<h1 id="概念介绍"><a href="#概念介绍" class="headerlink" title="概念介绍"></a>概念介绍</h1><h2 id="多序列比对"><a href="#多序列比对" class="headerlink" title="多序列比对"></a>多序列比对</h2><p>多序列比对（multiple alignment），对两条以上的生物序列进行全局比对</p>
+<p><img src="https://picx.zhimg.com/v2-ccbc7d76d3c6d0f835de7d4e78508b0d_1440w.jpg" alt=""></p>
+<ul>
+<li>注意事项</li>
+</ul>
+<p>一般10-15条序列，两两间序列相似度30%-90%，序列差不多长，没有重复域</p>
+<p><img src="https://picx.zhimg.com/v2-d75f290e82b639a1307e1bd342d54965_1440w.jpg" alt=""></p>
+<h2 id="系统进化树"><a href="#系统进化树" class="headerlink" title="系统进化树"></a>系统进化树</h2><p>系统进化树是对多序列比对（MSA）结果以树形图形式的一个呈现，对于研究进化关系有很大的帮助，通过进化树分析我们也可以关键功能基因和蛋白得出一些假说</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/4609a84cb75d0d68a1f9a81ad1d2d66c.jpeg" alt=""></p>
+<p>上图很好的反映了进化树构建的依据：</p>
+<ol>
+<li>随着物种进化的演绎，进化水平越相近的物种他们的序列越接近</li>
+<li>如果是由同一个物种演化过来的，分化出来的不同物种会保留共同祖先的印记，这是区别于其他的祖先的。</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/26457016-94154539a558da58.png?imageMogr2/auto-orient/strip|imageView2/2/w/555/format/webp" alt=""></p>
+<h1 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h1><p><a target="_blank" rel="noopener" href="https://www.megasoftware.net/">https://www.megasoftware.net/</a></p>
+<p>MEGA的全称为Molecular Evolutionary Genetics Analysis，也就是专门用于<strong>分子进化遗传分析</strong>的一款软件。</p>
+<p>软件是完全免费的，目前已更新到MEGA11，在官网就能直接下载安装。</p>
+<p>下载时注意选择软件版本，包括Window/Mac/Linux三种，并根据电脑选择32/64位版本下载安装。网站也提供了详细的说明文档，在右上角菜单→【tutorial】→【walk through】目录下，有关于MEGA的详细操作说明。</p>
+<p><img src="https://pic.imgdb.cn/item/67456222d0e0a243d4d10c9f.png" alt=""></p>
+<h1 id="下载-序列数据"><a href="#下载-序列数据" class="headerlink" title="下载 序列数据"></a>下载 序列数据</h1><ul>
+<li>NCBI中进行序列数据的下载，包括<strong>基因/蛋白质</strong>的<ul>
+<li>链接：<a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/">NCBI</a></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>我们这里作为例子，使用syp蛋白和其同源序列进行练习</p>
+<p>SYP（Synaptophysin，突触素）是一种重要的膜糖蛋白，主要存在于神经元的突触小泡中。</p>
+</blockquote>
+<ul>
+<li>下载数据<ul>
+<li>勾个十几个就行</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://pic.imgdb.cn/item/6745651dd0e0a243d4d110f5.png" alt=""></p>
+<blockquote>
+<p>补充知识，关于fasta\fastq格式</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/624d9536d185">全基因组测序（WGS）数据分析：第2节 FASTA和FASTQ</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/48826465">[数据格式]（1）FASTQ和FASTA，SAM与BAM</a></p>
+</blockquote>
+<ul>
+<li>下载完成之后在MEGA中打开一下，当然自己也可以选择记事本看</li>
+</ul>
+<p><img src="https://pic.imgdb.cn/item/674565a2d0e0a243d4d111cf.png" alt=""></p>
+<ul>
+<li>会问是否进行比对<ul>
+<li>点击align</li>
+</ul>
+</li>
+</ul>
+<h2 id="多序列比对-1"><a href="#多序列比对-1" class="headerlink" title="多序列比对"></a>多序列比对</h2><blockquote>
+<p><strong>多序列比对(Multiple Sequence Alignment)</strong>：多序列比对是一种基于序列比对的方法，它用于确定一组蛋白质序列或者核酸序列之间的相似性。通过比对多个序列，我们可以找出共享的进化保守区域，即那些在进化过程中保持不变的区域。这些保守区域通常对于蛋白质的功能和结构至关重要。</p>
+</blockquote>
+<p><img src="https://pic.imgdb.cn/item/67456667d0e0a243d4d1138a.png" alt=""></p>
+<p>发现序列的长短不一，说明这只是初步的比对，还没有进行多序列对比的调整</p>
+<p><img src="https://pic.imgdb.cn/item/67456d06d0e0a243d4d12296.png" alt=""></p>
+<ul>
+<li><p>提供了两种比对方式 ClustalW和MUSCLE</p>
+<ul>
+<li>需要填写一些参数，一般默认就行</li>
+<li>我们选择ClustalW进行比对</li>
+<li>可以看到进行了gap的填补，序列比对成功</li>
+</ul>
+</li>
+<li><blockquote>
+<p>ClustalW和MUSCLE，ClustalW首先对序列做两两比对，根据该两两比对计算两两<a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=245454596&amp;content_type=Article&amp;match_order=1&amp;q=距离矩阵&amp;zhida_source=entity">距离矩阵</a>，是一种经典的比对方法，比对速度慢但精确度较高，使用范围也比较广泛。Muscle的功能仅限于多序列比对，速度快，序列数很多的话建议选Muscle，但精确度不如ClustalW。这里我们选ClustalW，参数默认即可。</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>关于原理：</p>
+<p>序列比对(两条)：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/571468890">「一文搞定序列比对算法」Global以及Local Alignment序列比对算法的实现</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1cU4y1T7CG/">b站序列比对动态规划矩阵生物信息学</a></li>
+</ul>
+<p>多序列比对:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a7a96ff355a7">多序列比对MSA</a></li>
+</ul>
+<p>这些资料并不一定是最好理解的，可以自己去看更多的视频</p>
+</blockquote>
+<ul>
+<li>这里可以先修剪 上面有个小剪刀标志 修剪两段多余的序列<ul>
+<li>两端对齐 减少相似性低的部分，可以增加进化树构建成功的概率</li>
+<li>选择区域然后右键 delete也是一样的效果</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://pic.imgdb.cn/item/67456ea5d0e0a243d4d12313.png" alt=""></p>
+<ul>
+<li>输出序列比对结果<ul>
+<li>Data-&gt;export-&gt;选择MEGA格式</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://pic.imgdb.cn/item/674573a9d0e0a243d4d124ef.png" alt=""></p>
+<blockquote>
+<p>由于上课内容的时间限制，这里真正做的时候还需要大家对序列名字重新命名，不然乱乱的<br>可以参考这篇<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/342713574"><strong>序列预处理</strong></a></p>
+</blockquote>
+<h1 id="构建分子进化树"><a href="#构建分子进化树" class="headerlink" title="构建分子进化树"></a>构建分子进化树</h1><p>导入刚才生成的多序列比对结果: data里面选择</p>
+<ul>
+<li>C 保守的区域标黄</li>
+<li>V 不保守的区域标黄<ul>
+<li>可以对不保守的区域进行手动删除</li>
+</ul>
+</li>
+<li>分组<ul>
+<li>可以1</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://pic.imgdb.cn/item/67457634d0e0a243d4d125a8.png" alt=""></p>
+<ul>
+<li><p>建树</p>
+<ul>
+<li>最大似然法</li>
+<li>邻接法</li>
+</ul>
+</li>
+<li><blockquote>
+<p>这里有三种方法，分别是最大似然法 (Maximum Likelihood)、邻接法 (Neighbor-Joining) 和最小进化法 (Minimum Evolution)。【这三种方法我就不在这里介绍了，大家可以去查查，常用<strong>邻近法</strong>】</p>
+<p>补充：<br>一般情况下，若有合适的分子进化模型可供选择，用最大似然法构树获得的结果较好；对于近缘物种序列，通常情况下使用最大简约法；而对于远缘物种序列，一般使用邻接法或最大似然法。对于相似度很低的序列，邻接法往往出现长枝吸引(branch attraction)现象，有时严重干扰进化树的构建。对于各种方法重建进化树的准确性，Hall (2005)认为贝叶斯法最好，其次是最大似然法，然后是最大简约法。其实如果序列的相似性较高，各种方法都会得到不错的结果，模型间的差别也不大。邻接法和最大似然法是需要选择模型的。蛋白质序列和DNA序列的模型选择是不同的。蛋白质序列的构树模型一般选择Poissoncorrection(泊松修正)，而核酸序列的构树模型一般选择Kimura2-parameter (Kimura一2参数)。如果对各种模型的理解并不深入，最好不要使用其他复杂的模型。参数的设置推荐使用缺省的参数。</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://pic.imgdb.cn/item/67457679d0e0a243d4d125f5.png" alt=""></p>
+<ul>
+<li>参数选择</li>
+</ul>
+<blockquote>
+<p>参数意义</p>
+<p>检验方法一般采用Bootstrap 进行检验。也叫自举法检验，用来验证每个分支的可靠性，后面可以展示在分支处，次数至少1000次。</p>
+</blockquote>
+<p><img src="https://pic.imgdb.cn/item/6749af34d0e0a243d4db41c9.png" alt=""></p>
+<h1 id="简单调整树"><a href="#简单调整树" class="headerlink" title="简单调整树"></a>简单调整树</h1><ul>
+<li><p>三种树的形状</p>
+<ul>
+<li>上面一排有两个树形的按钮，可用于改变进化树的形状，包括矩形、辐射形和圆圈形（下图从左到右），也可以调整序列名称是否对齐</li>
+</ul>
+</li>
+<li><p>树的风格调整</p>
+<ul>
+<li>一般数量大我们会选择调成圆形</li>
+</ul>
+</li>
+<li><p>导出</p>
+<ul>
+<li>Image 导出各种样子的</li>
+<li>如果后续还需要没话，在FILE中寻找newick模式<ul>
+<li><img src="https://pic.imgdb.cn/item/674c7194d0e0a243d4dba736.png" style="zoom:25%;" /></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="iTOL绘制系统发育树"><a href="#iTOL绘制系统发育树" class="headerlink" title="iTOL绘制系统发育树"></a>iTOL绘制系统发育树</h1><blockquote>
+<p>获得nwk格式的进化树后，需要对其进行展示，以便从直观上判断材料间的聚类关系，界面版的MEGA自带简单的展示功能，可以对进化树进行展示，但其功能较为简单，无法满足着色、添加额外信息等较为个性化的要求。从功能的丰富度来说，iTOL(<a target="_blank" rel="noopener" href="https://itol.embl.de/)、EvolView(http://www.evolgenius.info/evolview/)、ggtree(https://github.com/GuangchuangYu/ggtree)应当是功能较为齐全的软件，其中，ggtree是R软件包，可以在本地操作，但需要编写代码，使用起来并不十分方便。三款软件中，从操作的简易度，效果的美观程度来看，iTOL都是最佳的选择，下面将以iTOL为例子，说明对进化树结果的展示方法。">https://itol.embl.de/)、EvolView(http://www.evolgenius.info/evolview/)、ggtree(https://github.com/GuangchuangYu/ggtree)应当是功能较为齐全的软件，其中，ggtree是R软件包，可以在本地操作，但需要编写代码，使用起来并不十分方便。三款软件中，从操作的简易度，效果的美观程度来看，iTOL都是最佳的选择，下面将以iTOL为例子，说明对进化树结果的展示方法。</a></p>
+</blockquote>
+<p>我们导出newick模式的树文件，在iTOL中上传</p>
+<ul>
+<li>网站：<a target="_blank" rel="noopener" href="http://itol.embl.de/">itol</a></li>
+</ul>
+<p><img src="https://pic.imgdb.cn/item/674c7090d0e0a243d4dba706.png" alt=""></p>
+<ul>
+<li>上传之后点击文件就可以进入编辑界面<ul>
+<li>左侧是进化树文件，右侧是工具栏。ITOL中提供了各种美化进化树的方法，工具栏中可以调整字体、颜色、分支长度等参数，用鼠标右键点击序列名称也可以调整字体。</li>
+<li>鼠标滚轮可以放大缩小，左键按住可以拖动。</li>
+<li><img src="https://pic.imgdb.cn/item/674c729ed0e0a243d4dba766.png" alt=""></li>
+</ul>
+</li>
+<li>树的形状“Mode”<ul>
+<li>网站默认的竖直的树为”Rectangular”，也就是矩形树，可以点击旁边的“Circular”变成圆形或“Unrooted”变成无根树。“Invert tree”是翻转树，点击后会把每条支的Label放在里面，树结构放外面。</li>
+</ul>
+</li>
+<li><p>标签的格式“Label options”</p>
+<ul>
+<li>可以更改字体样式，下面“Alignment”是设置字体往哪里对齐；“Branch options”是设置支的形状，“Line style”可以设置粗细，后面的图案是改变支类型。下面的“Dashed lines”是设置支末端伸出虚线的样式。都设置完成后就完成了第一步</li>
+</ul>
+</li>
+<li><p>一些别的参数</p>
+<ul>
+<li>大家可以自己试试调整就会发现是调什么的</li>
+<li><img src="https://pic.imgdb.cn/item/674c73bcd0e0a243d4dba7a4.png" alt=""></li>
+</ul>
+</li>
+<li>设置标签颜色<ul>
+<li>下一步就需要设置标签颜色。我们在研究过程中，总会有几个关注的物种或分支，这时候为了进化树更加直观明了，就需要用把我们关注的支和标签突出显示</li>
+<li>“Color Range”可以对这个支标注一个背景色块，点击之后，创建一个色块并命名，这样标注好了，旁边的“Clade”和“Full”可以选择背景色块的区域大小。</li>
+<li>另外，还可以通过“Branches”设置支颜色，“Labels”设置标签颜色，大家可以自己探索一下。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://pic.imgdb.cn/item/674c7719d0e0a243d4dba813.png" alt=""></p>
+<p><img src="https://pic.imgdb.cn/item/674c7734d0e0a243d4dba819.png" alt=""></p>
+<ul>
+<li>至此，关于系统进化树的构建和美化的基本内容已经讲完了，让大家有个基本的概念，在论文中看到了这样的图知道是干什么的和怎么做出来的。</li>
+<li>未来大家如果需要在论文中作图的话，需要自己再多去了解一些美化，比如配色方案、物种的分类注释的内容</li>
+</ul>
+<blockquote>
+<p>更多参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qazplm12_3/article/details/143021316">iTOL快速绘制颜值最高的进化树！</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45735120/article/details/131121748">系统发育树的美化（iTOL）</a></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">wanzi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/11/25/[%E7%94%9F%E4%BF%A1%E5%AF%BC]class5_mega/">http://example.com/2024/11/25/[%E7%94%9F%E4%BF%A1%E5%AF%BC]class5_mega/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">丸子Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%A4%9A%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9/">多序列比对</a><a class="post-meta__tags" href="/tags/%E7%B3%BB%E7%BB%9F%E8%BF%9B%E5%8C%96%E6%A0%91/">系统进化树</a></div><div class="post_share"><div class="social-share" data-image="/img/cover7.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/11/28/%5B%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7%5DGithub%E4%B8%ADPAT%E5%92%8CSSHKeys%E5%8C%BA%E5%88%AB/" title="Github中PAT和SSHKeys区别"><img class="cover" src="/img/cover12.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Github中PAT和SSHKeys区别</div></div></a></div><div class="next-post pull-right"><a href="/2024/11/25/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E7%8E%AB%E7%91%B0%E8%8C%B6%E9%A6%99%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" title="《Multi-omics analyzes of Rosa gigantea illuminate tea scent biosynthesis and release mechanisms》论文精读"><img class="cover" src="/img/cover19.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">《Multi-omics analyzes of Rosa gigantea illuminate tea scent biosynthesis and release mechanisms》论文精读</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC82MDAwNC8zNjQ2Nw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">wanzi</div><div class="author-info__description">一个人类</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/wanziw"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wanziw" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1530502197@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://blog.csdn.net/weixin_57345774" target="_blank" title="博客"><i class="fas fa-blog"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">许多东西,我曾经放下,但奇迹般地重新捡了起来</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5%E4%BB%8B%E7%BB%8D"><span class="toc-text">概念介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9"><span class="toc-text">多序列比对</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%BF%9B%E5%8C%96%E6%A0%91"><span class="toc-text">系统进化树</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-text">软件安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD-%E5%BA%8F%E5%88%97%E6%95%B0%E6%8D%AE"><span class="toc-text">下载 序列数据</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9-1"><span class="toc-text">多序列比对</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E5%88%86%E5%AD%90%E8%BF%9B%E5%8C%96%E6%A0%91"><span class="toc-text">构建分子进化树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E8%B0%83%E6%95%B4%E6%A0%91"><span class="toc-text">简单调整树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#iTOL%E7%BB%98%E5%88%B6%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%82%B2%E6%A0%91"><span class="toc-text">iTOL绘制系统发育树</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/22/%5B%E7%94%9F%E4%BF%A1%E5%AF%BC%5Dclass8_KEGG%E3%80%81GO%E6%95%B0%E6%8D%AE%E5%BA%93/" title="生信Class8_KEGG、GO数据库"><img src="/img/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="生信Class8_KEGG、GO数据库"/></a><div class="content"><a class="title" href="/2024/12/22/%5B%E7%94%9F%E4%BF%A1%E5%AF%BC%5Dclass8_KEGG%E3%80%81GO%E6%95%B0%E6%8D%AE%E5%BA%93/" title="生信Class8_KEGG、GO数据库">生信Class8_KEGG、GO数据库</a><time datetime="2024-12-22T06:09:19.000Z" title="发表于 2024-12-22 14:09:19">2024-12-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/22/%5B%E7%94%9F%E4%BF%A1%E5%AF%BC%5Dclass8_%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9%E3%80%81%E8%9B%8B%E7%99%BD%E8%B4%A8%E7%BB%93%E6%9E%84%E3%80%81%E6%B5%8B%E5%BA%8F/" title="生信Class8_序列比对/蛋白质结构/测序"><img src="/img/cover13.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="生信Class8_序列比对/蛋白质结构/测序"/></a><div class="content"><a class="title" href="/2024/12/22/%5B%E7%94%9F%E4%BF%A1%E5%AF%BC%5Dclass8_%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9%E3%80%81%E8%9B%8B%E7%99%BD%E8%B4%A8%E7%BB%93%E6%9E%84%E3%80%81%E6%B5%8B%E5%BA%8F/" title="生信Class8_序列比对/蛋白质结构/测序">生信Class8_序列比对/蛋白质结构/测序</a><time datetime="2024-12-22T06:05:34.000Z" title="发表于 2024-12-22 14:05:34">2024-12-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/21/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DSpatial%20transcriptomic%20clocks%20reveal%20cell%20proximity%20effects%20in%20brain%20ageing/" title="《Spatial transcriptomic clocks reveal cell proximity effects in brain ageing》论文阅读"><img src="/img/cover8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《Spatial transcriptomic clocks reveal cell proximity effects in brain ageing》论文阅读"/></a><div class="content"><a class="title" href="/2024/12/21/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DSpatial%20transcriptomic%20clocks%20reveal%20cell%20proximity%20effects%20in%20brain%20ageing/" title="《Spatial transcriptomic clocks reveal cell proximity effects in brain ageing》论文阅读">《Spatial transcriptomic clocks reveal cell proximity effects in brain ageing》论文阅读</a><time datetime="2024-12-21T07:44:04.000Z" title="发表于 2024-12-21 15:44:04">2024-12-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/17/%5BWeb%E5%BC%80%E5%8F%91%5Ddjango%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" title="django开发基础"><img src="/img/cover12.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="django开发基础"/></a><div class="content"><a class="title" href="/2024/12/17/%5BWeb%E5%BC%80%E5%8F%91%5Ddjango%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" title="django开发基础">django开发基础</a><time datetime="2024-12-17T05:07:46.000Z" title="发表于 2024-12-17 13:07:46">2024-12-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/16/%5B%E7%94%9F%E4%BF%A1%E5%AF%BC%5Dclass8_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E4%BD%9C%E4%B8%9A%E6%A0%87%E5%87%86/" title="生信Class8_核酸/蛋白质数据库和作业标准"><img src="/img/cover8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="生信Class8_核酸/蛋白质数据库和作业标准"/></a><div class="content"><a class="title" href="/2024/12/16/%5B%E7%94%9F%E4%BF%A1%E5%AF%BC%5Dclass8_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E4%BD%9C%E4%B8%9A%E6%A0%87%E5%87%86/" title="生信Class8_核酸/蛋白质数据库和作业标准">生信Class8_核酸/蛋白质数据库和作业标准</a><time datetime="2024-12-16T11:55:32.000Z" title="发表于 2024-12-16 19:55:32">2024-12-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By wanzi</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">很高心认识你！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(()=>{
+  const loadLivere = () => {
+    if (typeof LivereTower === 'object') window.LivereTower.init()
+    else {
+      (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+          if (typeof LivereTower === 'function') { return; }
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+          e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    }
+  }
+
+  if ('Livere' === 'Livere' || !false) {
+    if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+    else loadLivere()
+  } else {
+    window.loadOtherComment = loadLivere
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
