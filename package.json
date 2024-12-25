@@ -24,7 +24,7 @@
     "hexo-generator-index": "^4.0.0",
     "hexo-generator-search": "^2.4.3",
     "hexo-generator-searchdb": "^1.4.1",
-    "hexo-generator-sitemap": "^1.2.0",
+    "hexo-generator-sitemap": "^3.0.1",
     "hexo-generator-tag": "^2.0.0",
     "hexo-renderer-ejs": "^2.0.0",
     "hexo-renderer-markdown-it": "^7.1.1",
