@@ -4,7 +4,6 @@ date: 2024-12-22 14:09:19
 categories: 生物信息导论实验课
 cover: /img/cover2.jpg
 tags: 生物信息数据库
-sticky: 2
 description: "生物信息学导论第八节课 KEGG、GO数据库介绍"
 ---
 # 基因本体论

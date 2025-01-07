@@ -4,7 +4,6 @@ date: 2024-12-16 19:55:32
 categories: 生物信息导论实验课
 cover: /img/cover8.jpg
 tags: 生物信息数据库
-sticky: 3
 description: "生物信息学导论第八节课 NCBI、uniprot、PDB等数据库介绍"
 ---
 [toc]
