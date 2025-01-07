@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-12-27T10:14:15.990Z</updated>
+  <updated>2025-01-07T11:32:40.030Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>sepsis论文阅读</title>
+    <link href="http://example.com/2025/01/07/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]sepsiswarnin%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    <id>http://example.com/2025/01/07/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]sepsiswarnin%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</id>
+    <published>2025-01-07T05:04:56.000Z</published>
+    <updated>2025-01-07T11:32:40.030Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="脓毒症"><a href="#脓毒症" class="headerlink" title="脓毒症"></a>脓毒症</h1><ul><li><a href="https://onlinelibrary.wiley.com/doi/10.1111/iwj.14652">Developing an early warning system for detecting sepsis in patients with trauma</a></li></ul><p>2024的这篇文章，就用了一个多元逻辑回归，然后病人的数据基本都是已经比较问题大的病人了，采用的一些指标普通病人也没有，</p><ul><li><a href="https://academic.oup.com/burnstrauma/article/doi/10.1093/burnst/tkac050/6987826?login=true"><strong>Prospective study and validation of early warning marker discovery based on integrating multi-omics analysis in severe burn patients with sepsis</strong></a></li></ul><p>这篇做了一个多组学的烧伤病人脓毒症预测，其实还有点意思，但是一般病人也不会测组学数据，更多的可能偏向机理研究，找一些靶点</p><ul><li><p><a href="https://www.sciencedirect.com/science/article/pii/S2666634022003634">Lessons in machine learning model deployment learned from sepsis</a></p></li><li><p><a href="https://www.nature.com/articles/s41598-021-87595-z">Development and validation of an early warning tool for sepsis and decompensation in children during emergency department triage</a></p></li></ul><p>儿童脓毒症预警</p><ul><li><p><a href="">Sepsis Screening: Combining Early Warning Scores and SIRS Criteria</a></p></li><li><p>Low serum thyroid-stimulating hormone levels may be an early predictor of sepsis</p><ul><li>血清促甲状腺激素水平低可能是脓毒症的早期预测指标</li></ul></li><li><p>Comparison of early warning scores for sepsis early identification and prediction in the general ward setting</p><ul><li><a href="https://journals.sagepub.com/doi/10.1177/1054773818823334">https://journals.sagepub.com/doi/10.1177/1054773818823334</a></li></ul></li><li><p><a href="">The Sepsis Score Dilemma: Balancing Precision and Utility</a></p><ul><li>脓毒症评分困境：平衡精度和效用</li></ul></li><li><p>A sepsis early warning system is associated with improved patient outcomes</p><ul><li>脓毒症早期预警系统与改善患者预后相关</li></ul></li></ul>]]></content>
+    
+    
+    <summary type="html">脓毒症预警系统相关论文</summary>
+    
+    
+    
+    <category term="论文阅读" scheme="http://example.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
+    
+    <category term="sepsis" scheme="http://example.com/tags/sepsis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AI画图学习</title>
+    <link href="http://example.com/2025/01/05/[%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7]AI%E7%94%BB%E5%9B%BE%E4%BD%BF%E7%94%A8/"/>
+    <id>http://example.com/2025/01/05/[%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7]AI%E7%94%BB%E5%9B%BE%E4%BD%BF%E7%94%A8/</id>
+    <published>2025-01-05T12:14:30.000Z</published>
+    <updated>2025-01-07T11:33:49.690Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="AI"><a href="#AI" class="headerlink" title="AI"></a>AI</h1><p>视频链接：b站搜索生信师兄</p><h1 id="1-基础操作"><a href="#1-基础操作" class="headerlink" title="1 基础操作"></a>1 基础操作</h1><h2 id="1-1-直线、箭头还有快速复制和对齐"><a href="#1-1-直线、箭头还有快速复制和对齐" class="headerlink" title="1.1 直线、箭头还有快速复制和对齐"></a>1.1 直线、箭头还有快速复制和对齐</h2><ul><li><p>画一个横向或者箭头</p><ul><li>选择“直线段“然后拉就是线</li><li>按住shift拉 就是<strong>竖直</strong>或者<strong>水平</strong>的线</li><li>描边调粗细</li></ul></li><li><p>想复制一个一样的箭头</p><ul><li>切换成选择</li><li>按住option 拖动 松开就得到了复制的内容</li></ul></li><li><p>可以在最上面的<strong>窗口</strong>中选择要有的哪些工具</p></li><li>还有很多对齐工作</li></ul><h2 id="1-2-椭圆工具"><a href="#1-2-椭圆工具" class="headerlink" title="1.2 椭圆工具"></a>1.2 椭圆工具</h2><p>左边矩形工具 右键可以找到椭圆工具</p><p>按住shift就只能画椭圆</p><p>右键一个东西可以给他切换上下的图层</p><h2 id="1-3-螺旋线"><a href="#1-3-螺旋线" class="headerlink" title="1.3 螺旋线"></a>1.3 螺旋线</h2><p>直线工具右键可以切换成螺旋线</p><p>选中螺旋线，然后按住上、下可以开始螺旋</p><h2 id="1-4-剪刀工具"><a href="#1-4-剪刀工具" class="headerlink" title="1.4 剪刀工具"></a>1.4 剪刀工具</h2><p>橡皮擦工具右键可以选择剪刀工具</p><p>就可以给圆、线添加锚点，之后再进行选择就是指选择锚点之间的部分</p><h1 id="2-基因相关结构的绘制"><a href="#2-基因相关结构的绘制" class="headerlink" title="2 基因相关结构的绘制"></a>2 基因相关结构的绘制</h1><ul><li>目标：绘制可变剪切、染色体、质粒图</li></ul><ol><li><strong>渐变工具的使用</strong>绘制渐变颜色的基因。<ol><li>渐变就是填充中的一种</li><li>有一些点可以调节</li><li>然后用吸管可以吸画布上有的颜色</li><li>竖着和直的渐变可以拉</li><li><img src="https://pic1.imgdb.cn/item/677a2a25d0e0a243d4ef1e1d.png" alt=""></li></ol></li><li><strong>钢笔工具的使用</strong><ol><li>绘制折线、虚线。</li><li>选取锚点，左键按一下就是折线</li><li>后续可以取消填充还有添加箭头等操作</li><li>画的过程中按cmd可以临时切换 点一下空白处就可以不继续画了</li><li>这个工具刚开始用又一点难</li><li><img src="https://pic1.imgdb.cn/item/677a2c12d0e0a243d4ef1e7b.png" alt=""></li><li>这俩工具一个是选择对象，一个是选择锚点</li></ol></li><li>染色体的绘制<ol><li>先画一个圆角矩形然后修改半径，半径为宽的二分之一</li></ol></li><li><strong>快速重新着色图稿的使用</strong><ol><li>重点介绍快速重新着色图稿的方法。</li><li>修改染色体上面的颜色</li></ol></li><li><strong>编组以及轮廓化描边的使用</strong> <ol><li>路径查找器</li></ol></li><li><strong>质粒绘制思路</strong><ul><li>首先绘制两个正圆轮廓，修改描边颜色和粗细；</li><li>使用剪刀工具，修剪掉不需要的部分；</li><li>添加箭头，改变部分箭头的方向；</li><li>使用轮廓化描边。</li></ul></li><li><strong>快捷键总结</strong><ul><li><strong>切换临时选择工具</strong>：按住 <strong>Ctrl/Cmd</strong> 键不放；</li><li><strong>临时切换快速复制</strong>：按住 <strong>Ctrl/Cmd + Alt/Option</strong> 键，同时鼠标左键并拖动；</li><li><strong>快速切换选择工具</strong>：按 <strong>V</strong> 键；</li><li><strong>撤回上一步操作</strong>：按 <strong>Ctrl/Cmd + Z</strong> 键。</li></ul></li></ol>]]></content>
+    
+    
+    <summary type="html">Adobe Illustrator绘制科研图片</summary>
+    
+    
+    
+    <category term="科研工具" scheme="http://example.com/categories/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="画图" scheme="http://example.com/tags/%E7%94%BB%E5%9B%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>基因组-代谢组mGWAS联合分析综述</title>
@@ -414,53 +456,6 @@
     
     
     <category term="T2T" scheme="http://example.com/tags/T2T/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《Genomic and metabolomic insights into the selection and differentiation of bioactive compounds in citrus》论文精读</title>
-    <link href="http://example.com/2024/11/21/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]Genomic%20and%20metabolomic%20insights%20into%20the%20selection%20and%20differentiation%20of%20bioactive%20compounds%20in%20citrus/"/>
-    <id>http://example.com/2024/11/21/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]Genomic%20and%20metabolomic%20insights%20into%20the%20selection%20and%20differentiation%20of%20bioactive%20compounds%20in%20citrus/</id>
-    <published>2024-11-21T09:21:37.000Z</published>
-    <updated>2024-12-28T10:54:18.490Z</updated>
-    
-    <content type="html"><![CDATA[<p>[toc]</p><h1>Genomic and metabolomic insights into the selection and differentiation of bioactive compounds in citrus</h1><p>使用299个柑橘物种</p><h1>Introduction</h1><ul><li>初级代谢物、次级代谢物<ul><li>初级代谢物和次级代谢物在植物代谢网络中相互关联。初级代谢物的合成途径为次级代谢物的生成提供基础前体和能量。例如，糖类代谢产物可以作为次级代谢物合成的前体，脂质代谢产物则可能参与次级代谢物的修饰和功能发挥。</li></ul></li><li>初级代谢物<ul><li><strong>糖类（糖）：</strong> 作为能量的主要来源，参与光合作用和呼吸作用，构成植物细胞的结构成分（如纤维素）。</li><li><strong>脂质：</strong> 组成细胞膜，储存能量，并在信号传导中发挥作用。</li><li><strong>蛋白质：</strong> 执行各种生物功能，包括催化反应（酶）、结构支持和运输等。</li><li><strong>核酸：</strong> 包括DNA和RNA，负责遗传信息的存储和传递。</li><li><strong>维生素：</strong> 作为辅酶或抗氧化剂，参与多种代谢反应，维持植物和人类的正常生理功能。</li></ul></li><li>次级代谢物<ul><li><strong>酚酸（Phenolic Acids）：</strong> 具有抗氧化和抗菌特性，参与植物防御机制。</li><li><strong>类黄酮（Flavonoids）：</strong> 赋予植物颜色，具有抗炎、抗氧化和抗癌等生物活性。</li><li><strong>香豆素（Coumarins）：</strong> 参与植物对病原体的防御，具有抗凝血和抗菌作用。</li><li><strong>生物碱（Alkaloids）：</strong> 具有强烈的生物活性，如抗癌、抗菌和镇痛作用。</li><li><strong>萜类化合物（Terpenoids）：</strong> 参与植物香气的形成，具有抗菌、抗炎和抗氧化特性。</li></ul></li></ul><p>对299个品种进行了genome resequencing和代谢组，提供了柑橘种群遗传变异和代谢概况的全球景观</p><p>结果揭示了柑橘种群分化过程中苯丙烷途径差异选择的遗传基础，这可能导致不同生物活性化合物的特征合成。</p><p>通过 mGWAS，我们鉴定了与柑橘中重要的生物活性化合物类黄酮和香豆素合成相关的候选基因。</p><p>我们使用大规模生物活性评估验证了突出的生物活性与生物活性化合物之间的关系，并阐明了生物活性随柑橘种群进化的变化路线。这些结果将为柑橘中生物活性化合物的富集和利用提供多组学见解，有助于具有较高营养价值的柑橘品种的设计选育。</p><h2 id="MGWAS">MGWAS</h2><p>柑橘自然进化过程中生物活性化合物的变异和基因组基础</p><p>基于代谢物的全基因组关联研究 （mGWAS） 为剖析群体代谢多样性的基因组基础提供了一个强大的工具包</p><p>柑橘 类黄酮 香豆素 酚酸、类胡萝卜素、萜烯、生物碱、膳食纤维、柠檬苦素</p><p>之前的研究 ： 生物活性代谢物的进化相关变化和通过 mGWAS 合成柚子代谢物相关的关键基因</p><p>尚未研究整个柑橘种群的生物活性代谢变化。此外，使用多组学工具和功能性生物活性评估探索具有显著生物活性的柑橘品种，</p><h1>Results</h1><h2 id="Phylogenomic-and-metabolomic-relationships-among-citrus-species-柑橘物种之间的系统发育和代谢组学关系">Phylogenomic and metabolomic relationships among citrus species 柑橘物种之间的系统发育和代谢组学关系</h2><ol><li><strong>数据收集和基因组分析</strong>：从不同国家和地区收集了299个柑橘品种，包括104个橙子、45个柚子、6个佛手柑等。通过基因组重测序，生成了164Tb的清洁基因组数据，获得了654,929个高质量的SNP，进一步用于后续分析。</li><li><strong>群体结构与进化树</strong>：构建了基于最大似然法的进化树，分析了柑橘物种的群体结构。根据SNP数据，柑橘群体被分为五大类：柠檬类（G-C）、柚类（G-P）、橙类（G-S）、橘类（G-M）和其他柑橘类（G-O）。这些群体之间存在明显的遗传分化。</li><li><strong>代谢组学分析</strong>：使用液相色谱-串联质谱技术（LC-MS/MS）分析了柑橘果皮（特别是外果皮）中的代谢物，发现包括黄酮类、木脂素、香豆素、氨基酸、脂质、类胡萝卜素等在内的3858种代谢物，其中61%为次级代谢物，黄酮类占38%。代谢组的主成分分析（PCA）显示，柑橘物种的代谢特征与其基因组分群一致。</li><li><strong>次级代谢物的群体差异</strong>：在次级代谢物方面，特别是黄酮类和香豆素，在不同群体之间表现出明显的差异。G-S和G-M群体黄酮类物质积累较高，而G-P群体则积累了大量的香豆素。进一步的代谢通路分析表明，柑橘物种的早期分化可能影响了不同群体在香豆素和黄酮的合成分支上的选择性积累。</li></ol><h2 id="Genomic-basis-of-the-differentiation-of-bioactive-compounds-in-citrus-柑橘中生物活性化合物分化的基因组基础">Genomic basis of the differentiation of bioactive compounds in citrus 柑橘中生物活性化合物分化的基因组基础</h2><ol><li><strong>基因选择性分析</strong>：通过选择性扫荡分析**（Fst分析和XP-CLR分析**），研究发现G-M和G-P-1群体在香豆素和黄酮的合成相关基因上存在显著的遗传差异。对关键结构基因如C2′H2、FNS2、FNS3等的表达水平分析发现，基因启动子区的变异可能导致基因表达的不同，从而影响这些代谢物的积累偏好。</li><li><strong>G-S和G-P-2群体的杂交积累模式</strong>：G-S和G-P-2为G-M和G-P-1的杂交后代，它们在香豆素/黄酮的积累偏好上，G-S更像G-M，而G-P-2则更像G-P-1。通过基因组SNP密度偏好分析，确定了与香豆素和黄酮合成相关的基因区域，并提出这些积累偏好与其父本的基因组贡献比例有关。</li></ol><h2 id="Landscape-of-metabolite-associated-loci-determined-by-mGWAS-mGWAS-测定的代谢物相关基因座的景观">Landscape of metabolite-associated loci determined by mGWAS mGWAS 测定的代谢物相关基因座的景观</h2><p>为了探索与柑橘类群代谢差异相关的功能基因，共选择了 279 个柑橘种质 （去除了 20 个同质性高的甜橙） 使用混合线性模型进行 mGWAS</p><p>为了探索与柑橘类群代谢差异相关的功能基因，共选择了 279 个柑橘种质 （去除了 20 个同质性高的甜橙） 使用混合线性模型进行 mGWAS。我们共鉴定出 423 330 个高质量双等位基因 SNP，次要等位基因频率≥ 0.05，缺失见电频率≤ 0.01，以供进一步分析。在 3858 种代谢物中，3514 种至少有 1 个重要的关联位点。这产生了来自 3514 种代谢物的总共 58 293 个非重复的重要 SNP 位点 （<em>p</em> ≤ 1.24e-06），每个代谢物平均有 16 个重要位点。此外，从 653 个注释代谢物中共获得 19 829 个非重复的重要 SNP 位点。各种代谢物显著关联位点的鉴定和统计为筛选潜在候选基因和探索柑橘物种内代谢物自然变异的遗传基础提供了参考。</p><h2 id="总结">总结</h2><blockquote><p>在这项研究中，我们对现存柑橘物种的 <strong>299</strong> 个代表性种质进行了基因组重测序和代谢组学，提供了柑橘种群遗传变异和代谢概况的全球景观。</p><p>结果揭示了柑<strong>橘种群分化过程</strong>中<strong>苯丙烷途径差异选择</strong>的遗传基础，这可能导致不同生物活性化合物的特征合成。</p><p>通过 mGWAS，我们鉴定了与柑橘中重要的生物活性化合物<strong>类黄酮和香豆素合成相关的候选基因</strong>。我们使用大规模生物活性评估验证了突出的生物活性与生物活性化合物之间的关系，并阐明了<strong>生物活性随柑橘种群进化</strong>的<strong>变化</strong>路线</p><p>这些结果将为柑橘中生物活性化合物的富集和利用提供多组学见解，有助于具有较高营养价值的柑橘品种的设计选育。</p></blockquote><p><strong>苯丙烷途径</strong>是类黄酮合成的基础途径，二者在植物的次级代谢网络中紧密相连。研究中的发现揭示了苯丙烷途径在柑橘种群分化和生物活性化合物合成中的关键作用，进一步阐明了基因变异如何影响类黄酮等次级代谢物的生成。</p>]]></content>
-    
-    
-    <summary type="html">MP论文精读，关于柑橘</summary>
-    
-    
-    
-    <category term="论文阅读" scheme="http://example.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
-    
-    
-    <category term="代谢组学" scheme="http://example.com/tags/%E4%BB%A3%E8%B0%A2%E7%BB%84%E5%AD%A6/"/>
-    
-    <category term="多组学" scheme="http://example.com/tags/%E5%A4%9A%E7%BB%84%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>园艺单细胞多组学</title>
-    <link href="http://example.com/2024/11/21/[%E7%94%9F%E4%BF%A1%E7%AC%94%E8%AE%B0]%E6%A4%8D%E7%89%A9%E5%8D%95%E7%BB%86%E8%83%9E%E5%A4%9A%E7%BB%84%E5%AD%A6%E6%96%87%E7%AB%A0/"/>
-    <id>http://example.com/2024/11/21/[%E7%94%9F%E4%BF%A1%E7%AC%94%E8%AE%B0]%E6%A4%8D%E7%89%A9%E5%8D%95%E7%BB%86%E8%83%9E%E5%A4%9A%E7%BB%84%E5%AD%A6%E6%96%87%E7%AB%A0/</id>
-    <published>2024-11-21T06:40:54.000Z</published>
-    <updated>2024-12-25T08:16:49.860Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="园艺-和-单细胞多组学"><a href="#园艺-和-单细胞多组学" class="headerlink" title="园艺 和 单细胞多组学"></a>园艺 和 单细胞多组学</h1><h1 id="Application-of-single-cell-multi-omics-approaches-in-horticulture-research"><a href="#Application-of-single-cell-multi-omics-approaches-in-horticulture-research" class="headerlink" title="Application of single-cell multi-omics approaches in horticulture research"></a>Application of single-cell multi-omics approaches in horticulture research</h1><h2 id="introduction"><a href="#introduction" class="headerlink" title="introduction"></a>introduction</h2><ul><li>Cell heterogeneity  controls<ul><li>plant cell differentiation 细胞分化</li><li>metabolic partitioning 代谢分配</li><li>environmental response 环境相应</li></ul></li></ul><p>这些控制都是在single-cell resolution（分辨率）下characterize的</p><p>现在的tech可以让多组学对 isolated single plant cells进行analyze 来dissect intercellular regulatory mechanisms</p><p>这些单细胞多组学技术适合 <strong>clarify the development of horticultural plants</strong>和<strong>uncover intercellular regulatory mechanisms</strong></p><h2 id="单细胞多组学发展"><a href="#单细胞多组学发展" class="headerlink" title="单细胞多组学发展"></a>单细胞多组学发展</h2><ul><li><p>Table1 总结了很多plant中的单细胞多组学研究文章</p><ul><li>先根据不同的omics分</li><li>然后根据使用的测序的protocol分</li><li>再列出其中研究过的物种、器官/组织<ul><li>Arabidopsis 拟南芥</li><li>Maize 玉米</li><li>Medicago 苜蓿</li><li>Soybean 大豆</li><li>Brassica rapa   芜菁（白菜的一种）</li><li>Litchi 荔枝</li></ul></li></ul></li><li><p>转录组学</p><ul><li>因为细胞壁的存在导致单个植物细胞难以分离，scRNA-seq不好用</li><li>所以是snRNA-seq（single-nucleus RNA sequencing）提供了办法，提取细胞核中的RNA</li></ul></li><li>表观遗传组学<ul><li>DNA methylation, chromatin accessibility, histone modifications, and 3D genome structure</li><li>介绍了一些不同的技术</li></ul></li><li>蛋白质组学<ul><li>对蛋白质组和翻译后修饰post-translational modifications (PTM) 进行解析</li></ul></li><li></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;园艺-和-单细胞多组学&quot;&gt;&lt;a href=&quot;#园艺-和-单细胞多组学&quot; class=&quot;headerlink&quot; title=&quot;园艺 和 单细胞多组学&quot;&gt;&lt;/a&gt;园艺 和 单细胞多组学&lt;/h1&gt;&lt;h1 id=&quot;Application-of-single-cell-mu</summary>
-      
-    
-    
-    
-    <category term="生信笔记" scheme="http://example.com/categories/%E7%94%9F%E4%BF%A1%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="单细胞多组学" scheme="http://example.com/tags/%E5%8D%95%E7%BB%86%E8%83%9E%E5%A4%9A%E7%BB%84%E5%AD%A6/"/>
     
   </entry>
   

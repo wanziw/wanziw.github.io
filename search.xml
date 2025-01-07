@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>sepsis论文阅读</title>
+      <link href="/2025/01/07/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5Dsepsiswarnin%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+      <url>/2025/01/07/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5Dsepsiswarnin%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</url>
+      
+        <content type="html"><![CDATA[<h1 id="脓毒症"><a href="#脓毒症" class="headerlink" title="脓毒症"></a>脓毒症</h1><ul><li><a href="https://onlinelibrary.wiley.com/doi/10.1111/iwj.14652">Developing an early warning system for detecting sepsis in patients with trauma</a></li></ul><p>2024的这篇文章，就用了一个多元逻辑回归，然后病人的数据基本都是已经比较问题大的病人了，采用的一些指标普通病人也没有，</p><ul><li><a href="https://academic.oup.com/burnstrauma/article/doi/10.1093/burnst/tkac050/6987826?login=true"><strong>Prospective study and validation of early warning marker discovery based on integrating multi-omics analysis in severe burn patients with sepsis</strong></a></li></ul><p>这篇做了一个多组学的烧伤病人脓毒症预测，其实还有点意思，但是一般病人也不会测组学数据，更多的可能偏向机理研究，找一些靶点</p><ul><li><p><a href="https://www.sciencedirect.com/science/article/pii/S2666634022003634">Lessons in machine learning model deployment learned from sepsis</a></p></li><li><p><a href="https://www.nature.com/articles/s41598-021-87595-z">Development and validation of an early warning tool for sepsis and decompensation in children during emergency department triage</a></p></li></ul><p>儿童脓毒症预警</p><ul><li><p><a href="">Sepsis Screening: Combining Early Warning Scores and SIRS Criteria</a></p></li><li><p>Low serum thyroid-stimulating hormone levels may be an early predictor of sepsis</p><ul><li>血清促甲状腺激素水平低可能是脓毒症的早期预测指标</li></ul></li><li><p>Comparison of early warning scores for sepsis early identification and prediction in the general ward setting</p><ul><li><a href="https://journals.sagepub.com/doi/10.1177/1054773818823334">https://journals.sagepub.com/doi/10.1177/1054773818823334</a></li></ul></li><li><p><a href="">The Sepsis Score Dilemma: Balancing Precision and Utility</a></p><ul><li>脓毒症评分困境：平衡精度和效用</li></ul></li><li><p>A sepsis early warning system is associated with improved patient outcomes</p><ul><li>脓毒症早期预警系统与改善患者预后相关</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文阅读 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> sepsis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>AI画图学习</title>
+      <link href="/2025/01/05/%5B%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7%5DAI%E7%94%BB%E5%9B%BE%E4%BD%BF%E7%94%A8/"/>
+      <url>/2025/01/05/%5B%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7%5DAI%E7%94%BB%E5%9B%BE%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="AI"><a href="#AI" class="headerlink" title="AI"></a>AI</h1><p>视频链接：b站搜索生信师兄</p><h1 id="1-基础操作"><a href="#1-基础操作" class="headerlink" title="1 基础操作"></a>1 基础操作</h1><h2 id="1-1-直线、箭头还有快速复制和对齐"><a href="#1-1-直线、箭头还有快速复制和对齐" class="headerlink" title="1.1 直线、箭头还有快速复制和对齐"></a>1.1 直线、箭头还有快速复制和对齐</h2><ul><li><p>画一个横向或者箭头</p><ul><li>选择“直线段“然后拉就是线</li><li>按住shift拉 就是<strong>竖直</strong>或者<strong>水平</strong>的线</li><li>描边调粗细</li></ul></li><li><p>想复制一个一样的箭头</p><ul><li>切换成选择</li><li>按住option 拖动 松开就得到了复制的内容</li></ul></li><li><p>可以在最上面的<strong>窗口</strong>中选择要有的哪些工具</p></li><li>还有很多对齐工作</li></ul><h2 id="1-2-椭圆工具"><a href="#1-2-椭圆工具" class="headerlink" title="1.2 椭圆工具"></a>1.2 椭圆工具</h2><p>左边矩形工具 右键可以找到椭圆工具</p><p>按住shift就只能画椭圆</p><p>右键一个东西可以给他切换上下的图层</p><h2 id="1-3-螺旋线"><a href="#1-3-螺旋线" class="headerlink" title="1.3 螺旋线"></a>1.3 螺旋线</h2><p>直线工具右键可以切换成螺旋线</p><p>选中螺旋线，然后按住上、下可以开始螺旋</p><h2 id="1-4-剪刀工具"><a href="#1-4-剪刀工具" class="headerlink" title="1.4 剪刀工具"></a>1.4 剪刀工具</h2><p>橡皮擦工具右键可以选择剪刀工具</p><p>就可以给圆、线添加锚点，之后再进行选择就是指选择锚点之间的部分</p><h1 id="2-基因相关结构的绘制"><a href="#2-基因相关结构的绘制" class="headerlink" title="2 基因相关结构的绘制"></a>2 基因相关结构的绘制</h1><ul><li>目标：绘制可变剪切、染色体、质粒图</li></ul><ol><li><strong>渐变工具的使用</strong>绘制渐变颜色的基因。<ol><li>渐变就是填充中的一种</li><li>有一些点可以调节</li><li>然后用吸管可以吸画布上有的颜色</li><li>竖着和直的渐变可以拉</li><li><img src="https://pic1.imgdb.cn/item/677a2a25d0e0a243d4ef1e1d.png" alt=""></li></ol></li><li><strong>钢笔工具的使用</strong><ol><li>绘制折线、虚线。</li><li>选取锚点，左键按一下就是折线</li><li>后续可以取消填充还有添加箭头等操作</li><li>画的过程中按cmd可以临时切换 点一下空白处就可以不继续画了</li><li>这个工具刚开始用又一点难</li><li><img src="https://pic1.imgdb.cn/item/677a2c12d0e0a243d4ef1e7b.png" alt=""></li><li>这俩工具一个是选择对象，一个是选择锚点</li></ol></li><li>染色体的绘制<ol><li>先画一个圆角矩形然后修改半径，半径为宽的二分之一</li></ol></li><li><strong>快速重新着色图稿的使用</strong><ol><li>重点介绍快速重新着色图稿的方法。</li><li>修改染色体上面的颜色</li></ol></li><li><strong>编组以及轮廓化描边的使用</strong> <ol><li>路径查找器</li></ol></li><li><strong>质粒绘制思路</strong><ul><li>首先绘制两个正圆轮廓，修改描边颜色和粗细；</li><li>使用剪刀工具，修剪掉不需要的部分；</li><li>添加箭头，改变部分箭头的方向；</li><li>使用轮廓化描边。</li></ul></li><li><strong>快捷键总结</strong><ul><li><strong>切换临时选择工具</strong>：按住 <strong>Ctrl/Cmd</strong> 键不放；</li><li><strong>临时切换快速复制</strong>：按住 <strong>Ctrl/Cmd + Alt/Option</strong> 键，同时鼠标左键并拖动；</li><li><strong>快速切换选择工具</strong>：按 <strong>V</strong> 键；</li><li><strong>撤回上一步操作</strong>：按 <strong>Ctrl/Cmd + Z</strong> 键。</li></ul></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 科研工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 画图 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>基因组-代谢组mGWAS联合分析综述</title>
       <link href="/2024/12/24/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E5%9F%BA%E5%9B%A0%E7%BB%84-%E4%BB%A3%E8%B0%A2%E7%BB%84mGWAS%E7%BB%BC%E8%BF%B0/"/>
       <url>/2024/12/24/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E5%9F%BA%E5%9B%A0%E7%BB%84-%E4%BB%A3%E8%B0%A2%E7%BB%84mGWAS%E7%BB%BC%E8%BF%B0/</url>

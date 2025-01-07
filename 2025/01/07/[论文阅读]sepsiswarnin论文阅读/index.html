@@ -1,0 +1,301 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>sepsis论文阅读 | 丸子Blog</title><meta name="author" content="wanzi"><meta name="copyright" content="wanzi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="脓毒症预警系统相关论文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sepsis论文阅读">
+<meta property="og:url" content="http://example.com/2025/01/07/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]sepsiswarnin%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/index.html">
+<meta property="og:site_name" content="丸子Blog">
+<meta property="og:description" content="脓毒症预警系统相关论文">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/cover15.jpg">
+<meta property="article:published_time" content="2025-01-07T05:04:56.000Z">
+<meta property="article:modified_time" content="2025-01-07T11:32:40.030Z">
+<meta property="article:author" content="wanzi">
+<meta property="article:tag" content="sepsis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/cover15.jpg"><link rel="shortcut icon" href="/./img/favicon1.png"><link rel="canonical" href="http://example.com/2025/01/07/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]sepsiswarnin%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'sepsis论文阅读',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-01-07 19:32:40'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="丸子Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover15.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="丸子Blog"><span class="site-name">丸子Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">sepsis论文阅读</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-01-07T05:04:56.000Z" title="发表于 2025-01-07 13:04:56">2025-01-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-07T11:32:40.030Z" title="更新于 2025-01-07 19:32:40">2025-01-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">300</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="sepsis论文阅读"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="脓毒症"><a href="#脓毒症" class="headerlink" title="脓毒症"></a>脓毒症</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/10.1111/iwj.14652">Developing an early warning system for detecting sepsis in patients with trauma</a></li>
+</ul>
+<p>2024的这篇文章，就用了一个多元逻辑回归，然后病人的数据基本都是已经比较问题大的病人了，采用的一些指标普通病人也没有，</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://academic.oup.com/burnstrauma/article/doi/10.1093/burnst/tkac050/6987826?login=true"><strong>Prospective study and validation of early warning marker discovery based on integrating multi-omics analysis in severe burn patients with sepsis</strong></a></li>
+</ul>
+<p>这篇做了一个多组学的烧伤病人脓毒症预测，其实还有点意思，但是一般病人也不会测组学数据，更多的可能偏向机理研究，找一些靶点</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S2666634022003634">Lessons in machine learning model deployment learned from sepsis</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41598-021-87595-z">Development and validation of an early warning tool for sepsis and decompensation in children during emergency department triage</a></p>
+</li>
+</ul>
+<p>儿童脓毒症预警</p>
+<ul>
+<li><p><a href="">Sepsis Screening: Combining Early Warning Scores and SIRS Criteria</a></p>
+</li>
+<li><p>Low serum thyroid-stimulating hormone levels may be an early predictor of sepsis</p>
+<ul>
+<li>血清促甲状腺激素水平低可能是脓毒症的早期预测指标</li>
+</ul>
+</li>
+<li><p>Comparison of early warning scores for sepsis early identification and prediction in the general ward setting</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://journals.sagepub.com/doi/10.1177/1054773818823334">https://journals.sagepub.com/doi/10.1177/1054773818823334</a></li>
+</ul>
+</li>
+<li><p><a href="">The Sepsis Score Dilemma: Balancing Precision and Utility</a></p>
+<ul>
+<li>脓毒症评分困境：平衡精度和效用</li>
+</ul>
+</li>
+<li><p>A sepsis early warning system is associated with improved patient outcomes</p>
+<ul>
+<li>脓毒症早期预警系统与改善患者预后相关</li>
+</ul>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">wanzi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/01/07/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]sepsiswarnin%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">http://example.com/2025/01/07/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]sepsiswarnin%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">丸子Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/sepsis/">sepsis</a></div><div class="post_share"><div class="social-share" data-image="/img/cover15.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2025/01/05/%5B%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7%5DAI%E7%94%BB%E5%9B%BE%E4%BD%BF%E7%94%A8/" title="AI画图学习"><img class="cover" src="/img/cover19.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">AI画图学习</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC82MDAwNC8zNjQ2Nw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">wanzi</div><div class="author-info__description">一个人类</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/wanziw"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wanziw" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1530502197@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://blog.csdn.net/weixin_57345774" target="_blank" title="博客"><i class="fas fa-blog"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">许多东西,我曾经放下,但奇迹般地重新捡了起来</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%84%93%E6%AF%92%E7%97%87"><span class="toc-text">脓毒症</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/01/07/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5Dsepsiswarnin%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" title="sepsis论文阅读"><img src="/img/cover15.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="sepsis论文阅读"/></a><div class="content"><a class="title" href="/2025/01/07/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5Dsepsiswarnin%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" title="sepsis论文阅读">sepsis论文阅读</a><time datetime="2025-01-07T05:04:56.000Z" title="发表于 2025-01-07 13:04:56">2025-01-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/05/%5B%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7%5DAI%E7%94%BB%E5%9B%BE%E4%BD%BF%E7%94%A8/" title="AI画图学习"><img src="/img/cover19.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI画图学习"/></a><div class="content"><a class="title" href="/2025/01/05/%5B%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7%5DAI%E7%94%BB%E5%9B%BE%E4%BD%BF%E7%94%A8/" title="AI画图学习">AI画图学习</a><time datetime="2025-01-05T12:14:30.000Z" title="发表于 2025-01-05 20:14:30">2025-01-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/24/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E5%9F%BA%E5%9B%A0%E7%BB%84-%E4%BB%A3%E8%B0%A2%E7%BB%84mGWAS%E7%BB%BC%E8%BF%B0/" title="基因组-代谢组mGWAS联合分析综述"><img src="/img/cover6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基因组-代谢组mGWAS联合分析综述"/></a><div class="content"><a class="title" href="/2024/12/24/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E5%9F%BA%E5%9B%A0%E7%BB%84-%E4%BB%A3%E8%B0%A2%E7%BB%84mGWAS%E7%BB%BC%E8%BF%B0/" title="基因组-代谢组mGWAS联合分析综述">基因组-代谢组mGWAS联合分析综述</a><time datetime="2024-12-24T11:55:32.000Z" title="发表于 2024-12-24 19:55:32">2024-12-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/22/%5B%E7%94%9F%E4%BF%A1%E5%AF%BC%5Dclass8_KEGG%E3%80%81GO%E6%95%B0%E6%8D%AE%E5%BA%93/" title="生信Class8_KEGG、GO数据库"><img src="/img/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="生信Class8_KEGG、GO数据库"/></a><div class="content"><a class="title" href="/2024/12/22/%5B%E7%94%9F%E4%BF%A1%E5%AF%BC%5Dclass8_KEGG%E3%80%81GO%E6%95%B0%E6%8D%AE%E5%BA%93/" title="生信Class8_KEGG、GO数据库">生信Class8_KEGG、GO数据库</a><time datetime="2024-12-22T06:09:19.000Z" title="发表于 2024-12-22 14:09:19">2024-12-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/22/%5B%E7%94%9F%E4%BF%A1%E5%AF%BC%5Dclass8_%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9%E3%80%81%E8%9B%8B%E7%99%BD%E8%B4%A8%E7%BB%93%E6%9E%84%E3%80%81%E6%B5%8B%E5%BA%8F/" title="生信Class8_序列比对/蛋白质结构/测序"><img src="/img/cover13.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="生信Class8_序列比对/蛋白质结构/测序"/></a><div class="content"><a class="title" href="/2024/12/22/%5B%E7%94%9F%E4%BF%A1%E5%AF%BC%5Dclass8_%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9%E3%80%81%E8%9B%8B%E7%99%BD%E8%B4%A8%E7%BB%93%E6%9E%84%E3%80%81%E6%B5%8B%E5%BA%8F/" title="生信Class8_序列比对/蛋白质结构/测序">生信Class8_序列比对/蛋白质结构/测序</a><time datetime="2024-12-22T06:05:34.000Z" title="发表于 2024-12-22 14:05:34">2024-12-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2025 By wanzi</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">很高心认识你！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(()=>{
+  const loadLivere = () => {
+    if (typeof LivereTower === 'object') window.LivereTower.init()
+    else {
+      (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+          if (typeof LivereTower === 'function') { return; }
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+          e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    }
+  }
+
+  if ('Livere' === 'Livere' || !false) {
+    if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+    else loadLivere()
+  } else {
+    window.loadOtherComment = loadLivere
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
