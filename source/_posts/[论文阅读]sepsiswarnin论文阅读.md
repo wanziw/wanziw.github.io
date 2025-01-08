@@ -14,40 +14,57 @@ description: "脓毒症预警系统相关论文"
 
 # 脓毒症
 
+> 论文1提供了一个特征
+>
+> 论文2提供思路 先初步筛查然后再针对脓毒症特异性模型
+>
+> 论文3主要是讨论了PCT、NLR和CRP这三个特征
+>
+> 论文4研究意义很好，但是使用的文本数据也没啥用，作为一篇NC，讨论了大量的场景和技巧对比值得学习
+>
+> 论文5提供了多分类的一个思路，可以预测严重的患者和一般的患者
+>
+> 论文6没啥东西，主要就是在统计分析，参考指标可以看看这篇，模型非常简单，参考指标都是偏后期的了
+>
+> 论文7 之前的研究都是回顾性分析 这篇是前瞻性研究 对已经应用在医院里的用ML进行脓毒症早期预警系统的效果的总结  有较大参考价值
+
 - [Developing an early warning system for detecting sepsis in patients with trauma](https://onlinelibrary.wiley.com/doi/10.1111/iwj.14652)
-
-2024的这篇文章，就用了一个多元逻辑回归，然后病人的数据基本都是已经比较问题大的病人了，采用的一些指标普通病人也没有，
-
-- [**Prospective study and validation of early warning marker discovery based on integrating multi-omics analysis in severe burn patients with sepsis**](https://academic.oup.com/burnstrauma/article/doi/10.1093/burnst/tkac050/6987826?login=true)
-
-这篇做了一个多组学的烧伤病人脓毒症预测，其实还有点意思，但是一般病人也不会测组学数据，更多的可能偏向机理研究，找一些靶点
-
-- [Lessons in machine learning model deployment learned from sepsis](https://www.sciencedirect.com/science/article/pii/S2666634022003634)
+  - 2024的这篇文章，就用了一个多元逻辑回归，然后病人的数据基本都是已经比较问题大的病人了，采用的一些指标普通病人也没有，
+  - 已读
 
 - [Development and validation of an early warning tool for sepsis and decompensation in children during emergency department triage](https://www.nature.com/articles/s41598-021-87595-z)
-
-儿童脓毒症预警
-
-- [Sepsis Screening: Combining Early Warning Scores and SIRS Criteria]()
+  - 儿童脓毒症预警
+  - 已读
 
 - [Low serum thyroid-stimulating hormone levels may be an early predictor of sepsis](https://spcare.bmj.com/content/early/2022/12/07/spcare-2022-004027)
   - 血清促甲状腺激素水平低可能是脓毒症的早期预测指标
-
+  - 已读
 - Comparison of early warning scores for sepsis early identification and prediction in the general ward setting
   - https://journals.sagepub.com/doi/10.1177/1054773818823334
-
 - [The Sepsis Score Dilemma: Balancing Precision and Utility](cation/384478209_The_Sepsis_Score_Dilemma_Balancing_Precision_and_Utility)
   - 脓毒症评分困境：平衡精度和效用
-
-- A sepsis early warning system is associated with improved patient outcomes
-  - 脓毒症早期预警系统与改善患者预后相关
+  - 已读
 - [Early warning scores for sepsis identification and prediction of in-hospital mortality in adults with sepsis: A systematic review and meta-analysis](https://onlinelibrary.wiley.com/doi/10.1111/jocn.17061)
+  - 已读
 - [Artificial intelligence in sepsis early prediction and diagnosis using unstructured data in healthcare](https://nature.com/articles/s41467-021-20910-4)
   - 一篇NC
+  - 已读
+- [A sepsis early warning system is associated with improved patient outcomes](https://www.cell.com/cell-reports-medicine/fulltext/S2666-3791(22)00295-6)
+  - 脓毒症早期预警系统与改善患者预后相关
+  - 一篇spotlight
+  - 已读
+- [Prospective, multi-site study of patient outcomes after implementation of the TREWS machine learning-based early warning system for sepsis](https://www.nature.com/articles/s41591-022-01894-0)
+  - 点评的是这篇论文
+  - 没看
 
-- 
-
-
+- [Prospective study and validation of early warning marker discovery based on integrating multi-omics analysis in severe burn patients with sepsis](https://academic.oup.com/burnstrauma/article/doi/10.1093/burnst/tkac050/6987826?login=true)
+  - 这篇做了一个多组学的烧伤病人脓毒症预测，其实还有点意思，但是一般病人也不会测组学数据，更多的可能偏向机理研究，找一些靶点
+  - 没看
+- [Lessons in machine learning model deployment learned from sepsis](https://www.sciencedirect.com/science/article/pii/S2666634022003634)
+  - 从脓毒症中吸取的机器学习模型部署经验教训
+  - 这篇跟具体模型部署应用场景有关，应该挺有用的
+  - 没看
+- 论文4的refs有时间可以看一下
 
 # 论文1:血清促甲状腺激素可能是脓毒症的早期指标
 
@@ -88,6 +105,8 @@ description: "脓毒症预警系统相关论文"
 
 [Early warning scores for sepsis identification and prediction of in-hospital mortality in adults with sepsis: A systematic review and meta-analysis](https://onlinelibrary.wiley.com/doi/10.1111/jocn.17061)
 
+
+
 sepsisi-3定义，减少了对炎症反应（如SIRS）的依赖，因为研究发现SIRS缺乏特异性，容易导致误诊。
 
 **qSOFA**：作为替代，快速序贯器官衰竭评估（qSOFA）评分被提出。qSOFA使用三个简单的临床参数：收缩压、精神状态和呼吸频率，来评估患者是否可能发展为脓毒症。
@@ -108,6 +127,8 @@ sepsisi-3定义，减少了对炎症反应（如SIRS）的依赖，因为研究�
   - **结合其他风险因素或生物标志物**：
     - EWS可与其他临床风险因素或床旁生物标志物结合，提高筛查准确性。
 
+
+
 # 论文3:脓毒症评分困境-平衡精度和效用
 
 > PCT、NLR和CRP虽然在临床中常用，但并非理想的脓毒症生物标志物，尤其是CRP对全身炎症和脓毒症无法区分
@@ -116,7 +137,6 @@ sepsisi-3定义，减少了对炎症反应（如SIRS）的依赖，因为研究�
 >
 > 也不是早期识别
 >
-> 
 
 [The Sepsis Score Dilemma: Balancing Precision and Utility](cation/384478209_The_Sepsis_Score_Dilemma_Balancing_Precision_and_Utility)
 
@@ -241,5 +261,152 @@ sepsisi-3定义，减少了对炎症反应（如SIRS）的依赖，因为研究�
 
 # 论文5:儿童脓毒症预警
 
+> scientific reports
+>
+> 这篇论文特别是针对儿童进行了模型设计，最好就是在急症科进行预警。
+>
+> 是进行了一个**多分类**的任务，提供了一个多分类任务的参考，如果要做严重程度的这个预警，可以参考这个，其实也就相当于是换了一个指标y，然后特征x没变
+>
+> 这篇研究认为特异性被认为比敏感性更为重要，就是要减少假阳性，然后为了补充漏检，引入了**实验室确认的菌血症**作为一种额外的响应变量y
+
 [Development and validation of an early warning tool for sepsis and decompensation in children during emergency department triage](https://www.nature.com/articles/s41598-021-87595-z)
 
+- 537,837条数据
+  - 2013.3-2019.12的儿科数据
+  - 483 名患者患有严重脓毒症和/或死亡
+  - 1102 名患有非严重脓毒症
+  - 1103 名菌血症检测呈阳性
+  - 其余患者没有发生任何事件
+
+- 模型
+  -  multi-class的随机gradient boosting model 
+  - 识别与死亡、严重脓毒症、非严重脓毒症和菌血症相关的早期预警信号 
+  - 是个多分类的任务
+
+- 特征
+  - 生命体征、既往诊断、药物和指数 ED 就诊后 6 个月内的医疗保健使用情况
+- 模型发现的重要的特征
+  - 年龄、心率、既往住院时间、体温、收缩压和既往脓毒症
+
+- 研究意义
+  - 研究结果用于开发脓毒症的自动早期预警决策工具。在儿科急诊科实施该模型将允许在几秒钟的分诊后准确预测与脓毒症相关的严重失代偿。
+
+## Method
+
+每个患者是一个多类结果变量
+
+>  （1） 使用全因死亡率过期的患者;
+>
+> （2） 患有严重脓毒症的患者;
+>
+> （3） 非重度脓毒症患者;
+>
+> （4） 菌血症试验阳性但未诊断为脓毒症的患者;
+>
+> （5） 未经历上述 4 种事件的患者。诊断代码（ICD-9-CM 和 ICD-10-CM）用于识别脓毒症患者，这有助于自动识别脓毒症
+
+
+
+
+
+- 指标
+  - https://www.nature.com/articles/s41598-021-87595-z/tables/1
+  - https://www.nature.com/articles/s41598-021-87595-z/tables/2
+  - 还有一些交互指标
+    - 既往住院时间的最大值、脓毒症诊断、静脉注射药物、非局部抗生素和碳青霉烯类药物的病史。
+    - 平均计算效应和与其他变量的**交互作用**，有较长住院时间、脓毒症、非局部抗生素和碳青霉烯类药物病史的患者发生严重或脓毒症相关失代偿的风险增加。
+
+- 关于这个模型训练
+  - **逐步多类分类**：这里的逐步多类分类策略是通过将每个类别作为一对多分类问题来处理的，即对每个类别单独进行二分类，然后基于这些二分类结果来计算最终的预测结果。每个类别的阈值选择会影响最终分类的结果。
+  - **每个** y **的阈值不同**：每个 y（即每个类别）的预测阈值可能不同，特别是在类别不平衡的情况下。通过选择不同的概率阈值，可以优化模型的敏感性、特异性、阳性预测值等性能指标，并减少误分类的风险。这意味着，某些类别可能需要更高的特异性（减少假阳性），而其他类别可能更注重保持灵敏度（减少假阴性）。
+  - **例如：**
+    - 对“重度脓毒症”类别，可能选择较低的预测概率阈值，以确保不会漏掉任何重度脓毒症病例，保证较高的灵敏度。
+    - 对“普通脓毒症”类别，可能选择较高的阈值，以避免误分类为脓毒症病例，从而增加特异性。
+
+# 论文6：开发用于检测创伤患者脓毒症的早期预警系统
+
+> 进行了统计分析，统计分析部分可以参考一下
+
+[Developing an early warning system for detecting sepsis in patients with trauma](https://onlinelibrary.wiley.com/doi/10.1111/iwj.14652)
+
+中国河北医科大学第三医院急诊科急诊重症监护室
+
+
+
+
+
+# 论文7:脓毒症早期预警系统与改善患者预后相关
+
+> 2018年就开始应用了，收集了两年的数据
+>
+> 告诉我们想法是可行的，然后针对他们实践中的问题我们可以针对性优化
+>
+> 这篇是点评的论文8
+
+[A sepsis early warning system is associated with improved patient outcomes](https://www.cell.com/cell-reports-medicine/fulltext/S2666-3791(22)00295-6)
+[Human–machine teaming is key to AI adoption: clinicians’ experiences with a deployed machine learning system](https://www.nature.com/articles/s41746-022-00597-7)
+
+> - 关于具体实践
+>   - https://www.nature.com/articles/s41746-024-01094-9?fromPaywallRec=false
+>   - https://www.nature.com/articles/s41746-020-00367-3?fromPaywallRec=false
+
+对于一个已经在基于机器学习（ML）的脓毒症早期预警系统（EWS）实际应用中
+
+
+
+**1. 背景与问题**
+
+- 脓毒症是全球住院和死亡的主要原因，但针对脓毒症的有效干预措施很少。尽早识别脓毒症并及时给药有助于提高生存率。
+- 目前，脓毒症早期预警系统（EWS）作为一种干预工具，尤其在重症监护病房（ICU）中被广泛关注。
+- 尽管许多EWS模型在回顾性研究中得到了验证，但在临床环境中的前瞻性评估相对较少。
+
+
+
+**2. 研究设计与方法**
+
+- 研究是前瞻性、多中心、双臂队列研究，旨在评估基于机器学习的脓毒症警报系统（TREWS）对患者结果的影响
+- TREWS系统集成在电子健康记录（EHR）中，实时监测患者生命体征、实验室数据、药物医嘱和临床文档，从而生成脓毒症风险评分。
+- 警报触发后，提供者可以选择确认或忽略警报。
+- 研究纳入了2018年到2020年间五家医院590,736次住院就诊的记录，符合特定条件的6877例患者被纳入分析。
+
+
+
+**3. 主要发现**
+
+- **主要结局**：调整后的全因住院死亡率。研究发现，警报确认后3小时内的及时响应与较低的死亡率（14.6% vs 19.2%）相关，调整后的死亡风险差为-3.3%（p < 0.001）。
+- **次要结局**：警报后72小时内SOFA评分和住院时间。研究显示，确认警报后的患者在SOFA评分和住院时间上有显著改善。
+- SOFA评分的调整变化为-0.3分（p = 0.001）。
+- 幸存者的住院时间缩短了11.6小时（p = 0.001）。
+
+
+
+**4. 研究贡献与优势**
+
+- 这是第一项前瞻性研究，证明了基于机器学习的脓毒症警报系统可以提前识别脓毒症患者，并有效改善患者的临床结果。
+- 该研究具有多中心设计、较大样本量以及低监测偏倚风险等优势。
+
+**5. 存在的问题与挑战**
+
+- **提供者变异性**：虽然调整了患者层面的变异性，但提供者层面的变异性难以完全消除，可能影响警报响应和患者结果。
+- **警报疲劳问题**：尽管警报系统触发了42,089次，但仅有13,680次满足脓毒症标准。进一步的工作需要在警报使用上减少“警报疲劳”。
+- **技术扩展性**：虽然TREWS系统在五个站点成功实施，但在不同医院EHR系统中的实施仍存在挑战，需要进一步发展互操作性标准（如HL7和FHIR）来促进广泛应用。
+
+
+
+**6. 未来方向**
+
+- **随机化研究**：未来需要更多的随机化临床试验来进一步评估这种基于机器学习的系统。
+- **技术与人因学研究**：需要深入研究推动提供者使用和反应的因素，以优化EWS系统的使用。
+- **大规模实施**：随着EWS的普及，研究将聚焦于如何将其有效地部署到不同医院的EHR系统中，以确保其长期可行性。
+
+
+
+**总结：**
+
+**实时EWS**，如TREWS系统，通过实时监测患者状态并触发警报，有可能显著改善患者的预后，尤其是通过促进更早和更适当的临床干预。尽管存在一些技术和实施挑战，未来的工作将聚焦于进一步验证系统的效果，并克服这些挑战，以实现大规模的临床应用。
+
+
+
+# 论文8:实施基于 TREWS 机器学习的脓毒症早期预警系统后患者预后的前瞻性多中心研究
+
+[Prospective, multi-site study of patient outcomes after implementation of the TREWS machine learning-based early warning system for sepsis](https://www.nature.com/articles/s41591-022-01894-0)
