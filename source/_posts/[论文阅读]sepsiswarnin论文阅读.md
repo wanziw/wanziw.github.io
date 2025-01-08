@@ -409,4 +409,56 @@ sepsisi-3定义，减少了对炎症反应（如SIRS）的依赖，因为研究�
 
 # 论文8:实施基于 TREWS 机器学习的脓毒症早期预警系统后患者预后的前瞻性多中心研究
 
+> 模型用的比较简单、指标也比较简单
+>
+> 研究的比较早
+
 [Prospective, multi-site study of patient outcomes after implementation of the TREWS machine learning-based early warning system for sepsis](https://www.nature.com/articles/s41591-022-01894-0)
+
+取出了一个高危队列
+
+主要是使用了**Cox比例风险模型的混合模型**，用于解释患者群体的异质性
+
+用的模型是这两篇：
+
+A targeted real-time early warning score (TREWScore) for septic shock
+
+a targeted real-time early warning score (TREW score) for septic shock in a community hospital: global and subpopulation performance.
+
+> 跟别的方法对比们可以看到都是很早的方法
+>
+> 与现有的修改早期预警评分（MEWS）相比，TREWScore的AUC值更高（MEWS为0.73）。
+>
+> 常规筛查协议（基于SIRS标准、感染怀疑、低血压或高乳酸血症）在灵敏度和特异性方面表现较差，灵敏度仅为0.74。
+
+
+
+**Cox比例风险模型**
+
+该模型被用来预测脓毒症的风险。每个组内的Cox比例风险模型使用患者的历史数据（如生命体征、药物使用史等）来计算脓毒症的风险。多个Cox模型组合成一个专家混合模型（mixture of experts model），每个模型输出一个风险值，并根据患者所在组的分配权重计算最终的预测风险值。
+
+1. **模型训练和患者分组**
+
+   - **混合模型**：通过患者的人口统计信息和健康历史，将患者分到一个或多个组。每个组内的数据用于学习该组的特定Cox比例风险模型。模型训练是**迭代的**，旨在同时优化患者的分组和每个组内的预测模型参数。
+
+   - **分配和加权**：每个患者被分配到一个或多个模型，模型的输出结果（每个模型的风险值）会按照患者的分组权重进行加权平均，最终生成风险评分。
+
+2. **输入数据**
+
+   - TREWS使用的输入数据包括常规的实验室检测、生命体征、临床笔记、用药历史（不包括抗生素）、手术历史等。模型使用这些数据来训练Cox比例风险模型。与Henry等人报告的模型相比，TREWS模型做了几个扩展：
+
+   - **数据来源**：Henry等人的模型仅使用ICU（重症监护病房）的数据，并专注于预测脓毒症休克。而TREWS使用来自整个医院的数据，包括急诊科、观察病房、普通病房和ICU。
+
+   - **多模型组合**：TREWS不仅学习一个Cox比例风险模型，而是结合了多个模型，这通过混合模型来处理不同患者群体的异质性。
+
+   - **额外特征**：根据与临床医生的讨论，TREWS模型加入了一些额外的特征，如麻醉品血液检查、输血医嘱和镇静剂，这些因素被认为是脓毒症的常见混杂因素。
+
+
+
+## ref
+
+1. Giannini, H. M. et al. A machine learning algorithm to predict severe sepsis and septic shock: development, implementation, and impact on clinical practice. *Crit. Care Med.* **47**, 1485–1492 (2019).
+2. Desautels, T. et al. Prediction of sepsis in the intensive care unit with minimal electronic health record data: a machine learning approach. *JMIR Med. Inform.* **4**, 1–15 (2016).
+3. Shashikumar, S. P., Josef, C. S., Sharma, A. & Nemati, S. DeepAISE—an interpretable and recurrent neural survival model for early prediction of sepsis. *Artif. Intell. Med.* **113**, 102036
+4. Horng, S. et al. Creating an automated trigger for sepsis clinical decision support at emergency department triage using machine learning. *PLoS ONE* **12**, e0174708
+5. Bedoya, A. D. et al. Machine learning for early detection of sepsis: an internal and temporal validation study. *JAMIA Open* **3**, 252–260 (2020).
