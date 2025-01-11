@@ -462,3 +462,53 @@ a targeted real-time early warning score (TREW score) for septic shock in a comm
 3. Shashikumar, S. P., Josef, C. S., Sharma, A. & Nemati, S. DeepAISE—an interpretable and recurrent neural survival model for early prediction of sepsis. *Artif. Intell. Med.* **113**, 102036
 4. Horng, S. et al. Creating an automated trigger for sepsis clinical decision support at emergency department triage using machine learning. *PLoS ONE* **12**, e0174708
 5. Bedoya, A. D. et al. Machine learning for early detection of sepsis: an internal and temporal validation study. *JAMIA Open* **3**, 252–260 (2020).
+
+
+
+
+
+# 论文9:基于整合多组学分析的重度烧伤脓毒症患者早期预警标志物发现的前瞻性研究与验证
+
+>  从多组学的角度出发，拓展一下思维
+
+![](https://pic1.imgdb.cn/item/677fbbe9d0e0a243d4f2c8a8.png)
+
+**基因组学**: 对40例严重烧伤患者（NS组n=24，S组n=16）进行全外显子组测序（WES），筛选易感基因。
+
+**miRNA组学**: 分析血浆中的miRNA，筛选差异表达的miRNA作为预警标志物。
+
+**蛋白质组学**: 通过DIA和PRM技术筛选和验证差异蛋白。
+
+**单细胞转录组学**: 对中性粒细胞进行单细胞转录组测序，探讨其在脓毒症中的作用。
+
+**基因组学分析**:
+
+- 筛选出26个易感基因，其中7个基因（DNAH11, LAMA2, ABCA2, ZFAND4, CEP290, MUC20, ENTPD1）在S组中突变频率显著高于NS组，可能增加脓毒症风险。
+
+**miRNA组学分析**:
+
+- 发现四种miRNA（hsa-miR-16-5p, hsa-miR-185-5p, hsa-miR-451a, hsa-miR-423-5p）可能作为烧伤相关脓毒症的早期预警标志物。
+
+**蛋白质组学分析**:
+
+- 筛选出两种候选蛋白（S100A8和SERPINA10）作为早期预警标志物。
+- S100A8不仅是预警指标，还可能作为治疗靶点。
+
+**单细胞转录组学分析**:
+
+- 中性粒细胞在严重烧伤的发病机制中起重要作用，支持其在早期预警和治疗中的关键角色。
+
+**动物实验验证**:
+
+- 在小鼠烧伤模型中，S100A8显示出良好的早期预警能力和治疗效果。
+
+> 我们对严重烧伤患者进行了一项多中心、前瞻性多组学研究，以筛查严重烧伤患者并发脓毒症的预防和治疗生物标志物。在基因水平上，发现重度烧伤患者脓毒症的 7 个易感基因： DNAH11 、 LAMA2 、 ABCA2 、 ZFAND4 、 CEP290 、 MUC20 和 ENTPD1。此外，我们确定了四种 miRNA （hsa-miR-16-5p、hsa-miR-185-5p、hsa-miR-451a 和 hsa-miR-423-5p），它们可能作为烧伤相关脓毒症的警告指标。在蛋白水平上，发现蛋白 S100A8 和 SERPINA10 是脓毒症严重烧伤患者的生物标志物，scRNA-seq 结果也揭示了中性粒细胞在严重烧伤早期的重要作用。此外，我们证实了中性粒细胞相关蛋白 S100A8 在严重烧伤相关脓毒症的早期预警和治疗中的作用。我们的研究为严重烧伤相关脓毒症的早期预警提供了良好的生物标志物，并为严重烧伤的早期治疗提供了良好的潜在临床治疗靶点。
+
+
+
+
+
+
+
+
+
