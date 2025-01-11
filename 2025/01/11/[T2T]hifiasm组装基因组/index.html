@@ -1,0 +1,523 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>hifiasm基因组组装 | 丸子Blog</title><meta name="author" content="wanzi"><meta name="copyright" content="wanzi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="b站：CGM第423期-程昊宇-基因组从头组装算法hifiasm github:Hifiasm: a haplotype-resolved assembler for accurate Hifi reads 说明文档:Hifiasm  publication:  Cheng, H., Concepcion, G.T., Feng, X., Zhang, H., Li H. (2021) Haplo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hifiasm基因组组装">
+<meta property="og:url" content="http://example.com/2025/01/11/[T2T]hifiasm%E7%BB%84%E8%A3%85%E5%9F%BA%E5%9B%A0%E7%BB%84/index.html">
+<meta property="og:site_name" content="丸子Blog">
+<meta property="og:description" content="b站：CGM第423期-程昊宇-基因组从头组装算法hifiasm github:Hifiasm: a haplotype-resolved assembler for accurate Hifi reads 说明文档:Hifiasm  publication:  Cheng, H., Concepcion, G.T., Feng, X., Zhang, H., Li H. (2021) Haplo">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/cover2.jpg">
+<meta property="article:published_time" content="2025-01-11T03:21:37.000Z">
+<meta property="article:modified_time" content="2025-01-11T08:37:05.110Z">
+<meta property="article:author" content="wanzi">
+<meta property="article:tag" content="基因组组装">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/cover2.jpg"><link rel="shortcut icon" href="/./img/favicon1.png"><link rel="canonical" href="http://example.com/2025/01/11/[T2T]hifiasm%E7%BB%84%E8%A3%85%E5%9F%BA%E5%9B%A0%E7%BB%84/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'hifiasm基因组组装',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-01-11 16:37:05'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="丸子Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">35</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover2.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="丸子Blog"><span class="site-name">丸子Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">hifiasm基因组组装</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-01-11T03:21:37.000Z" title="发表于 2025-01-11 11:21:37">2025-01-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-11T08:37:05.110Z" title="更新于 2025-01-11 16:37:05">2025-01-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/T2T%E7%BB%84%E8%A3%85%E6%95%99%E7%A8%8B/">T2T组装教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="hifiasm基因组组装"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>b站：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1cx4y147x1/">CGM第423期-程昊宇-基因组从头组装算法hifiasm</a></p>
+<p>github:<a target="_blank" rel="noopener" href="https://github.com/chhylp123/hifiasm?tab=readme-ov-file">Hifiasm: a haplotype-resolved assembler for accurate Hifi reads</a></p>
+<p>说明文档:<a target="_blank" rel="noopener" href="https://hifiasm.readthedocs.io/en/latest/#">Hifiasm</a></p>
+<blockquote>
+<p>publication:</p>
+<blockquote>
+<p>Cheng, H., Concepcion, G.T., Feng, X., Zhang, H., Li H. (2021) Haplotype-resolved de novo assembly using phased assembly graphs with hifiasm. <em>Nat Methods</em>, <strong>18</strong>:170-175. <a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41592-020-01056-5">https://doi.org/10.1038/s41592-020-01056-5</a></p>
+</blockquote>
+<blockquote>
+<p>Cheng, H., Jarvis, E.D., Fedrigo, O., Koepfli, K.P., Urban, L., Gemmell, N.J., Li, H. (2022) Haplotype-resolved assembly of diploid genomes without parental data. <em>Nature Biotechnology</em>, <strong>40</strong>:1332–1335. <a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41587-022-01261-x">https://doi.org/10.1038/s41587-022-01261-x</a></p>
+</blockquote>
+<blockquote>
+<p>Cheng, H., Asri, M., Lucas, J., Koren, S., Li, H. (2024) Scalable telomere-to-telomere assembly for diploid and polyploid genomes with double graph. <em>Nat Methods</em>, <strong>21</strong>:967-970. <a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41592-024-02269-8">https://doi.org/10.1038/s41592-024-02269-8</a></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>知乎参考：</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/704627156">用Hifiasm基于HiFi数据组装基因组：（一）简介Hifiasm软件和HiFi数据</a></p>
+</blockquote>
+<p>组装基因组的方式</p>
+<p>有参考基因组的</p>
+<p>还有没有参考基因组的de nove组装</p>
+<p>有参考基因组也会有缺陷</p>
+<p><img src="https://pic1.imgdb.cn/item/677fc3b4d0e0a243d4f2ca71.png" alt=""></p>
+<ul>
+<li>测序数据
+<ul>
+<li>short</li>
+<li>long</li>
+</ul>
+</li>
+</ul>
+<h1>hifisam pipeline</h1>
+<p><img src="https://pic1.imgdb.cn/item/677fd8ddd0e0a243d4f2cf09.png" alt=""></p>
+<p>从reads组装成contigs的传统流程会有一些问题</p>
+<p>然后就开发了hifiasm</p>
+<p><img src="https://pic1.imgdb.cn/item/678204afd0e0a243d4f349e3.png" alt=""></p>
+<p>hifiasm的组装效率也很高</p>
+<h1>Motivation1</h1>
+<p><img src="https://pic1.imgdb.cn/item/678204afd0e0a243d4f349e3.png" alt=""></p>
+<ul>
+<li>
+<p><strong>问题</strong>：传统组装方法（随机相位组装）无法准确区分父母本的变异信息，影响组装质量。</p>
+</li>
+<li>
+<p><strong>解决方案</strong>：使用三体分组（Trio-binning），结合父母本信息进行单倍型解析组装。</p>
+</li>
+<li>
+<p><strong>局限性</strong>：三体分组对父母本信息的依赖性可能限制其应用场景。</p>
+</li>
+</ul>
+<p>HiFiAsm 的设计目标是通过这种方法实现更高质量的基因组组装，同时探索如何应对父母本信息缺乏的情况。</p>
+<p><img src="https://pic1.imgdb.cn/item/67821407d0e0a243d4f35522.png" alt=""></p>
+<p>Hi-C 的 <strong>长距离信息</strong> 是它解决基因组组装问题的关键。以下是具体原因和机制：</p>
+<p>1.<strong>解决单倍型（Haplotype）解析问题：</strong></p>
+<ul>
+<li>
+<p>在二倍体或多倍体基因组中，来自父本和母本的染色体序列高度相似，但又存在差异（变异位点），这使得组装过程难以准确区分父本和母本来源。</p>
+</li>
+<li>
+<p>Hi-C 的数据可以跨越多个变异位点（如图中红色和蓝色虚线），将同一单倍型上的变异点连接在一起，从而帮助解析父本和母本的单倍型。</p>
+</li>
+</ul>
+<ol start="2">
+<li><strong>辅助长序列组装（Long-Read Assembly）：</strong></li>
+</ol>
+<ul>
+<li>
+<p>虽然长读取技术（如 PacBio 和 Nanopore）可以提供高达 15-30 kb 的长读段，但它们在 <strong>更远距离的连接信息</strong> 上仍然有局限。</p>
+</li>
+<li>
+<p>Hi-C 数据可以提供高达 <strong>100 Mb</strong> 的远距离相互作用信息，弥补了长读取技术在长距离组装上的不足。</p>
+</li>
+</ul>
+<p><img src="https://pic1.imgdb.cn/item/6782156ed0e0a243d4f355a7.png" alt=""></p>
+<ol>
+<li><strong>整体流程：从原始读取（Raw reads）到最终组装（Final assembly）</strong>：</li>
+</ol>
+<ul>
+<li>
+<p><strong>Raw reads（原始读取）：</strong></p>
+<ul>
+<li>通过高通量测序技术得到的原始测序数据。</li>
+</ul>
+</li>
+<li>
+<p><strong>Corrected reads（修正读取）：</strong></p>
+<ul>
+<li>对原始读取进行质量控制和校正，消除测序误差。</li>
+</ul>
+</li>
+<li>
+<p><strong>Phased assembly graph（相位组装图）：</strong></p>
+<ul>
+<li>通过 Hi-C 数据的相位信息构建组装图，标注节点的同源性和单倍型信息。</li>
+</ul>
+</li>
+<li>
+<p><strong>Final assembly（最终组装）：</strong></p>
+<ul>
+<li>结合 Hi-C 提供的长距离联系信息，将相位组装图解析为实际的线性序列（例如 contigs）。</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>
+<p><strong>输入数据（Input）：</strong></p>
+<ul>
+<li>
+<p>**Heterozygous nodes（杂合节点，本地相位）：**表示存在变异的杂合区域，在相位组装中需要区分这些节点所属的单倍型。</p>
+</li>
+<li>
+<p><strong>Hi-C links among nodes（Hi-C 节点连接，全局相位）：</strong></p>
+<ul>
+<li>Hi-C 提供的长距离相互作用信息用于全局相位。</li>
+<li><strong>作用</strong>：将同一单倍型内的节点聚类（cluster nodes within the same haplotype）。</li>
+</ul>
+</li>
+<li>
+<p><strong>Homologous pairs（同源配对节点，本地相位）：</strong></p>
+<ul>
+<li>标记同源区域，表明某些节点属于不同单倍型。</li>
+<li><strong>作用</strong>：将这些节点分配到不同的单倍型（separate nodes to different haplotypes）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Hi-C 相位（Hi-C phasing）：</strong></p>
+<ul>
+<li>
+<p>Hi-C 数据在这里起到了关键作用：</p>
+</li>
+<li>
+<p>通过 Hi-C 数据中跨越多个节点的长距离信息，将同一单倍型内的片段聚类在一起（例如图中橙色和蓝色的连接线）。</p>
+</li>
+<li>
+<p>在构建相位组装图的基础上，进一步优化全局的单倍型解析。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>输出数据（Output）：</strong></p>
+</li>
+</ol>
+<ul>
+<li>
+<p><strong>最终线性序列（例如 contigs）：</strong></p>
+<ul>
+<li>HiFiAsm 利用 Hi-C 提供的节点联系信息，生成完整的线性组装序列。</li>
+<li>这些序列是按单倍型划分的，能够分别解析父本和母本的单倍型。</li>
+</ul>
+</li>
+<li>
+<p><strong>同源性区域（homology）：</strong></p>
+<ul>
+<li>图中展示了组装结果如何处理同源区域（黄色和蓝色块），通过 Hi-C 数据区分同源片段并进行正确连接。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://pic1.imgdb.cn/item/678216d9d0e0a243d4f355ff.png" alt=""></p>
+<p>将 <strong>单倍型解析（phasing）问题</strong> 转化为一个 <strong>最大切割问题（max-cut problem）</strong> 来解决</p>
+<h1>Motivation2</h1>
+<p><img src="https://pic1.imgdb.cn/item/67821aa2d0e0a243d4f357aa.png" alt=""></p>
+<ol>
+<li><strong>标题：长且准确的读段仍然不足以解决复杂基因组</strong>
+<ul>
+<li>虽然长读段（如 PacBio HiFi）提供了高质量和更长的读取，但在一些基因组复杂区域，长度仍不足以解决这些问题，导致组装中断。</li>
+</ul>
+</li>
+</ol>
+<p><strong>2. 左侧图：现有组装方法的失败案例</strong></p>
+<ul>
+<li>
+<p><strong>问题：SMN1/SMN2 基因的组装失败</strong>：</p>
+<ul>
+<li>
+<p><strong>SMN1/SMN2 基因</strong>：</p>
+</li>
+<li>
+<p>这是一个与 <strong>脊髓性肌萎缩症（Spinal Muscular Atrophy，SMA）</strong> 相关的基因。</p>
+</li>
+<li>
+<p>它位于一个高度复杂的基因组区域，具有高度同源性和重复序列。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>现象：组装图中断（Breaks in the assembly graph）</strong>：</p>
+<ul>
+<li>由于读取长度不足以跨越复杂区域，组装图（assembly graph）中出现多个断裂点，无法正确解析出完整的基因组序列。</li>
+</ul>
+</li>
+<li>
+<p><strong>HiFiAsm 的限制</strong>：</p>
+<ul>
+<li>尽管 HiFiAsm 是一个高效的组装工具，但当遇到像 SMN1/SMN2 这样复杂的区域时，现有 HiFi 读段长度可能不足，组装会失败。</li>
+</ul>
+</li>
+</ul>
+<p><strong>3. 右侧图：使用更长读取的改进</strong></p>
+<ul>
+<li>
+<p><strong>解决方法：使用更长的读段</strong>：</p>
+<ul>
+<li>通过采用更长的读取（如 Ultra-long Nanopore Reads 或进一步改进的 PacBio 读段），能够跨越复杂区域并正确解析这些重要的基因组区域。</li>
+</ul>
+</li>
+<li>
+<p><strong>效果：更完整的组装图</strong>：</p>
+<ul>
+<li>如图所示，使用更长的读段可以生成更加连贯的组装结果，完全覆盖复杂区域，解决组装图断裂的问题。</li>
+</ul>
+</li>
+<li>
+<p><strong>医学意义</strong>：</p>
+<ul>
+<li>解析出完整的 <strong>SMN1 和 SMN2 基因区域</strong> 对于脊髓性肌萎缩症的研究和诊断具有重要意义。</li>
+</ul>
+</li>
+</ul>
+<p><strong>4. SMN1 基因和 SMA 的背景信息</strong></p>
+<ul>
+<li>
+<p><strong>SMN1 基因</strong>：</p>
+<ul>
+<li>
+<p>SMN1 基因编码一种生存运动神经元蛋白，负责神经元的正常功能。</p>
+</li>
+<li>
+<p>其突变会导致 <strong>脊髓性肌萎缩症（SMA）</strong>，这是一种影响神经肌肉功能的遗传性疾病。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>SMN2 基因</strong>：</p>
+<ul>
+<li>
+<p>与 SMN1 基因高度同源，但功能性稍有不同。</p>
+</li>
+<li>
+<p>SMN1 和 SMN2 的复杂性在于它们的高相似度和重复序列，使得基因组组装极具挑战。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://pic1.imgdb.cn/item/67821cfbd0e0a243d4f3588f.png" alt=""></p>
+<p>结合 <strong>HiFi/duplex 读段</strong>（高准确度）和 <strong>超长读段（Ultra-long, UL reads）</strong>（大覆盖长度）以解决复杂基因组区域问题的策略</p>
+<p><strong>结合两种读段：</strong></p>
+<ul>
+<li>
+<p><strong>目标</strong>：利用 HiFi 读段的高准确性来校正 UL 读段的高错误率，同时利用 UL 读段的超长覆盖来补充 HiFi 读段在复杂区域中的不足。</p>
+</li>
+<li>
+<p><strong>策略</strong>：</p>
+<ul>
+<li><strong>HiFi reads 提供精确的碱基校正和本地解析</strong>。</li>
+<li><strong>UL reads 提供全局的长距离联系信息</strong>，解决重复和复杂区域问题。</li>
+</ul>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">wanzi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/01/11/[T2T]hifiasm%E7%BB%84%E8%A3%85%E5%9F%BA%E5%9B%A0%E7%BB%84/">http://example.com/2025/01/11/[T2T]hifiasm%E7%BB%84%E8%A3%85%E5%9F%BA%E5%9B%A0%E7%BB%84/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">丸子Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%BB%84%E8%A3%85/">基因组组装</a></div><div class="post_share"><div class="social-share" data-image="/img/cover2.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2025/01/07/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5Dsepsiswarnin%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" title="sepsis论文阅读"><img class="cover" src="/img/cover15.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">sepsis论文阅读</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC82MDAwNC8zNjQ2Nw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">wanzi</div><div class="author-info__description">一个人类</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">35</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/wanziw"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wanziw" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1530502197@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://blog.csdn.net/weixin_57345774" target="_blank" title="博客"><i class="fas fa-blog"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">许多东西,我曾经放下,但奇迹般地重新捡了起来</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">hifisam pipeline</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Motivation1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Motivation2</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/01/11/%5BT2T%5Dhifiasm%E7%BB%84%E8%A3%85%E5%9F%BA%E5%9B%A0%E7%BB%84/" title="hifiasm基因组组装"><img src="/img/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hifiasm基因组组装"/></a><div class="content"><a class="title" href="/2025/01/11/%5BT2T%5Dhifiasm%E7%BB%84%E8%A3%85%E5%9F%BA%E5%9B%A0%E7%BB%84/" title="hifiasm基因组组装">hifiasm基因组组装</a><time datetime="2025-01-11T03:21:37.000Z" title="发表于 2025-01-11 11:21:37">2025-01-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/07/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5Dsepsiswarnin%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" title="sepsis论文阅读"><img src="/img/cover15.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="sepsis论文阅读"/></a><div class="content"><a class="title" href="/2025/01/07/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5Dsepsiswarnin%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" title="sepsis论文阅读">sepsis论文阅读</a><time datetime="2025-01-07T05:04:56.000Z" title="发表于 2025-01-07 13:04:56">2025-01-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/05/%5B%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7%5DAI%E7%94%BB%E5%9B%BE%E4%BD%BF%E7%94%A8/" title="AI画图学习"><img src="/img/cover19.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI画图学习"/></a><div class="content"><a class="title" href="/2025/01/05/%5B%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7%5DAI%E7%94%BB%E5%9B%BE%E4%BD%BF%E7%94%A8/" title="AI画图学习">AI画图学习</a><time datetime="2025-01-05T12:14:30.000Z" title="发表于 2025-01-05 20:14:30">2025-01-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/24/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E5%9F%BA%E5%9B%A0%E7%BB%84-%E4%BB%A3%E8%B0%A2%E7%BB%84mGWAS%E7%BB%BC%E8%BF%B0/" title="基因组-代谢组mGWAS联合分析综述"><img src="/img/cover6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基因组-代谢组mGWAS联合分析综述"/></a><div class="content"><a class="title" href="/2024/12/24/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E5%9F%BA%E5%9B%A0%E7%BB%84-%E4%BB%A3%E8%B0%A2%E7%BB%84mGWAS%E7%BB%BC%E8%BF%B0/" title="基因组-代谢组mGWAS联合分析综述">基因组-代谢组mGWAS联合分析综述</a><time datetime="2024-12-24T11:55:32.000Z" title="发表于 2024-12-24 19:55:32">2024-12-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/22/%5B%E7%94%9F%E4%BF%A1%E5%AF%BC%5Dclass8_KEGG%E3%80%81GO%E6%95%B0%E6%8D%AE%E5%BA%93/" title="生信Class8_KEGG、GO数据库"><img src="/img/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="生信Class8_KEGG、GO数据库"/></a><div class="content"><a class="title" href="/2024/12/22/%5B%E7%94%9F%E4%BF%A1%E5%AF%BC%5Dclass8_KEGG%E3%80%81GO%E6%95%B0%E6%8D%AE%E5%BA%93/" title="生信Class8_KEGG、GO数据库">生信Class8_KEGG、GO数据库</a><time datetime="2024-12-22T06:09:19.000Z" title="发表于 2024-12-22 14:09:19">2024-12-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2025 By wanzi</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">很高心认识你！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(()=>{
+  const loadLivere = () => {
+    if (typeof LivereTower === 'object') window.LivereTower.init()
+    else {
+      (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+          if (typeof LivereTower === 'function') { return; }
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+          e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    }
+  }
+
+  if ('Livere' === 'Livere' || !false) {
+    if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+    else loadLivere()
+  } else {
+    window.loadOtherComment = loadLivere
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
