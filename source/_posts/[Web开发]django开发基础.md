@@ -6,7 +6,7 @@ cover: /img/cover12.jpg
 tags: 
   - 后端
   - python
-description: "Pyhonweb开发django学习笔记"
+description: "Pythonweb开发django学习笔记"
 ---
 
 
