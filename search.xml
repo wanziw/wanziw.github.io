@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>javascript学习</title>
+      <link href="/2025/01/12/%5BWeb%E5%BC%80%E5%8F%91%5Davascript%E5%AD%A6%E4%B9%A0/"/>
+      <url>/2025/01/12/%5BWeb%E5%BC%80%E5%8F%91%5Davascript%E5%AD%A6%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="javascript">JavaScript</h1><p>[toc]</p><blockquote><p>b站视频：<a href="https://www.bilibili.com/video/BV15L4y1a7or">四十分钟JavaScript快速入门 | 无废话且清晰流畅 | 手敲键盘 | WEB前端必备程序语言~</a></p></blockquote><h1 id="浏览器开发者工具">1 浏览器开发者工具</h1><p><img src="https://pic1.imgdb.cn/item/67838149d0e0a243d4f39e99.png" /></p><p>F12开发者工具 console里面可以敲js代码</p><h1 id="搭建开发环境">2 搭建开发环境</h1><p>下载vscode</p><p>下载nodejs</p><p>下载liveserver</p><h1 id="使用script代码">3 使用script代码</h1><p>引入第三方库可能使用</p><p>但是自己写的时候</p><p>&lt;script&gt;要写在body的末尾</p><p>因为浏览器是自上而下加载的，这样可以先把用户界面加载出来再加载js代码</p><p>一般我们想输入</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;&lt;/script&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br></pre></td></tr></table></figure><p>的时候，</p><p>输入script然后按tab键就好了</p><p>然后command/ctrl+D是重复前面步骤</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>test1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;这是第一句js代码&quot;</span>)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><h1 id="编码原则之关注点分离">4 编码原则之关注点分离</h1><p>单独整一个js文件</p><p>然后在html里面引入</p><h1 id="使用node运行js代码">5 使用node运行js代码</h1><p>终端输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node --version</span><br></pre></td></tr></table></figure><p>node是异步运行js的东西</p><h1 id="变量和常量">6 变量和常量</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var、let、const</span><br></pre></td></tr></table></figure><p>var基本上不用</p><p>let可以重新赋值</p><p>const就不能变</p><p>通常推荐使用 <code>const</code> 来声明变量，只有在确实需要重新赋值时才使用 <code>let</code>。</p><h1 id="原生数值类型">7 原生数值类型</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hifiasm基因组组装</title>
       <link href="/2025/01/11/%5BT2T%5Dhifiasm%E7%BB%84%E8%A3%85%E5%9F%BA%E5%9B%A0%E7%BB%84/"/>
       <url>/2025/01/11/%5BT2T%5Dhifiasm%E7%BB%84%E8%A3%85%E5%9F%BA%E5%9B%A0%E7%BB%84/</url>
