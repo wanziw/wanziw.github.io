@@ -6,7 +6,7 @@ cover: /img/cover21.jpg
 tags: 
   - 前端
   - js
-description: "web开发js学习笔记"
+description: "web开发前端js学习笔记"
 ---
 
 # JavaScript
