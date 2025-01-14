@@ -4,6 +4,7 @@ date: 2024-07-19 14:40:54
 categories: bug解决日记
 description: "Support for password authentication was removed on August 13, 2021."
 cover: https://pic.imgdb.cn/item/669b38ebd9c307b7e9f3e5e0.jpg
+tags: github
 ---
 
 # 第一章
