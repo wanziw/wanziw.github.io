@@ -9,13 +9,15 @@ tags:
   - 表观遗传学
 description: "MP 关于小麦的穗型与粒数的关系 使用多组学方法进行研究"
 ---
-# Systematic identification of wheat spike developmental regulators by integrated multi-omics, transcriptional network, GWAS, and genetic analyses
+
 [toc]
+
+
+# Systematic identification of wheat spike developmental regulators by integrated multi-omics, transcriptional network, GWAS, and genetic analyses
+
 > 这篇是MP的，属于是堆资源文章，学习一下
 >
 > 多个发育阶段、而且这篇文章在introduction里面已经把这些相关的基因给列出来了
->
-> 群体RNA-seq是什么
 >
 > 论文：Wheat-RegNet: An encyclopedia of common wheat hierarchical regulatory networks  柑橘是否可以做
 
@@ -128,15 +130,13 @@ landscape atlas是一个比较模糊的概念，一般来说对一个品种/人�
   - Pearson 相关系数
     - 不同样本之间的测序数据相关性，衡量**不同样本之间的数据一致性**
 
-![](https://pic1.imgdb.cn/item/6788aa39d0e0a243d4f4c2d4.png)
+<img src="https://pic1.imgdb.cn/item/6788aa39d0e0a243d4f4c2d4.png" style="zoom:33%;" />
 
 ### 3.2 转录组数据初步展示分析
 
 > 图1B、1C、1D
 >
 > **（B）** 显示不同发育阶段的转录组数据的主成分分析 （PCA）。每个样本都由一个点表示，刺突发育阶段由不同的颜色区分。每个阶段对三个生物学重复进行测序。
->
-> 这里的PCA的主成分相当于是对基因？？有点没搞懂，然后还有三个生物学重复是啥，跟表格的关系，还有就是PCA的意义分析呢，不知道意义是什么
 >
 > **（C）** 按 k-means 聚类排序的阶段特异性高表达基因的热图。列出了每个簇的基因编号和代表性基因。
 >
@@ -166,14 +166,14 @@ landscape atlas是一个比较模糊的概念，一般来说对一个品种/人�
   - **TaTFL1**：与每穗小穗数（SNS）相关，在W3.25和W3.5阶段高表达。
   - **TaAGL6**：花器官调控因子，在W4阶段高表达。
 
-![](https://pic1.imgdb.cn/item/6788b501d0e0a243d4f4c872.png)
+<img src="https://pic1.imgdb.cn/item/6788b501d0e0a243d4f4c872.png" style="zoom:50%;" />
 
 - **形态学转变与差异表达基因（DEGs）**
   - 补充图1D、补充表3
   - 差异基因表达分析：**两两阶段之间进行DEGs**，上调和下调
   - W2.5到W3、W3到W3.25、W3.5到W4阶段的形态转变伴随着大量DEGs的出现，这些转变对应着颖片原基、外稃原基和雄蕊原基的启动。
 
-<img src="https://pic1.imgdb.cn/item/6788bc55d0e0a243d4f4cbac.png" style="zoom:25%;" />
+<img src="https://pic1.imgdb.cn/item/6788bc55d0e0a243d4f4cbac.png" style="zoom:50%;" />
 
 <img src="https://pic1.imgdb.cn/item/6788bb2cd0e0a243d4f4cb5e.png" style="zoom:33%;" />
 
@@ -339,4 +339,28 @@ landscape atlas是一个比较模糊的概念，一般来说对一个品种/人�
   - **抑制同源基因**：表现出较低的染色质可及性和更多的抑制性组蛋白修饰，表明这些基因在特定发育阶段被抑制。
   - **亚基因组间的差异**：B亚基因组的组蛋白标记普遍低于A和D亚基因组，可能反映出不同亚基因组在基因表达调控中的不同角色和重要性。
 
+
+
+
+
+# 自问自答
+
+1. 3.2 图1B
+   1. Q：这里的PCA的主成分相当于是对基因？？有点没搞懂，然后还有三个生物学重复是啥，跟表格的关系，还有就是PCA的意义分析呢，不知道意义是什么
+   2. A：这里意义大概就是证明三组生物学重复可以聚集在一块地方，然后8个类别可以分开
+2. 3.2 两组以上做DEG
+   1. Q：**这里是分别对不同的类的基因进行富集分析，这样会不会有什么问题？？（思考）**，意思是他这样已经筛选出来了差异表达的基因，而不是单独做DEGs，因为有很多组（两组以上）？？
+   2. A：他这里是两个都做了，对聚类的结果，10类每一类的基因去做GO富集，听上去挺合理的。另外他也做了两两阶段之间的一个DEGs展示，但是没有进行进一步的富集分析。
+      1. ANoVA
+      2. WGCNA
+   3. （问题），**为什么只分析了其中三个阶段，是因为富集的结果比较突出吗，还是放不下了**
+      1. 估计两个原因都有
+
+3. 在做这些分析的时候，转录组、表观遗传的时候，正负链，还有同源基因是怎么处理的，比如二倍体、三倍体、六倍体，是混合在一起计算，还是同源基因合并成一个呢
+   1. ATAC-seq一般不分两个链来考虑，CHIP-seq可能分两个链考虑，要看具体的测序原理
+   2. RNA-seq一般几倍体、几种单倍型应该是做平均，反正是合成一个
+   3. 一般拷贝数变异啥的只在比较基因组学里需要分析，对于RNA-seq的话，应该计算的方法自己有考虑这个问题
+   4. 一般来说是不用分几倍体讨论的，因为测序一般测不到表达量是来自于哪个染色体的。
+   5. **一般同源二倍体，就是当作单倍型来看的**。这里小麦是6倍体，所以比较复杂，要分析三组
+4. 群体RNA-seq是什么
 
