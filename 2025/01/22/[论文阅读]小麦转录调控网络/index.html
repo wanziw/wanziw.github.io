@@ -1,0 +1,649 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>小麦转录调控网络 | 丸子Blog</title><meta name="author" content="wanzi"><meta name="copyright" content="wanzi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="MP 两篇关于构建转录调控网络的文章">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小麦转录调控网络">
+<meta property="og:url" content="http://example.com/2025/01/22/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]%E5%B0%8F%E9%BA%A6%E8%BD%AC%E5%BD%95%E8%B0%83%E6%8E%A7%E7%BD%91%E7%BB%9C/index.html">
+<meta property="og:site_name" content="丸子Blog">
+<meta property="og:description" content="MP 两篇关于构建转录调控网络的文章">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/cover27.jpg">
+<meta property="article:published_time" content="2025-01-22T07:28:02.000Z">
+<meta property="article:modified_time" content="2025-01-24T13:36:17.400Z">
+<meta property="article:author" content="wanzi">
+<meta property="article:tag" content="转录组学">
+<meta property="article:tag" content="表观遗传学">
+<meta property="article:tag" content="转录调控网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/cover27.jpg"><link rel="shortcut icon" href="/./img/favicon1.png"><link rel="canonical" href="http://example.com/2025/01/22/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]%E5%B0%8F%E9%BA%A6%E8%BD%AC%E5%BD%95%E8%B0%83%E6%8E%A7%E7%BD%91%E7%BB%9C/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '小麦转录调控网络',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-01-24 21:36:17'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">36</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover27.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="丸子Blog"><span class="site-name">丸子Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">小麦转录调控网络</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-01-22T07:28:02.000Z" title="发表于 2025-01-22 15:28:02">2025-01-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-24T13:36:17.400Z" title="更新于 2025-01-24 21:36:17">2025-01-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="小麦转录调控网络"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>一篇：A wheat integrative regulatory network from large-scale complementary functional datasets enables trait-associated gene discovery for crop improvement</p>
+<p>另一篇：Wheat-RegNet: An encyclopedia of common wheat hierarchical regulatory networks</p>
+</blockquote>
+<p>[toc]</p>
+<blockquote>
+<p>整合这些RNA-seq数据是一个很重要的事情</p>
+<p>参考一下做这个的意义，对于柑橘或者其他物种，哪些需求是需要的</p>
+</blockquote>
+<h1 id="a-wheat-integrative-regulatory-network-from-large-scale-complementary-functional-datasets-enables-trait-associated-gene-discovery-for-crop-improvement">A wheat integrative regulatory network from large-scale complementary functional datasets enables trait-associated gene discovery for crop improvement</h1>
+<p>来自大规模互补功能数据集的小麦综合调控网络支持性状相关基因发现，用于作物改良</p>
+<h2 id="摘要">摘要</h2>
+<ul>
+<li><strong>研究背景</strong>
+<ul>
+<li><strong>基因调控</strong>是生物生长的核心，理解基因调控对揭示复杂性状的生物学过程至关重要，尤其在作物改良中。</li>
+<li>当前，大规模<strong>功能数据集</strong>与<strong>性状相关基因发</strong>现的连接仍有不足。</li>
+</ul></li>
+<li><strong>研究目标</strong>
+<ul>
+<li>构建一个小麦整合<strong>基因调控网络（wGRN）</strong>，利用多种补充功能数据，将<strong>基因调控信息</strong>与<strong>性状相关基因发现</strong>联系起来。</li>
+</ul></li>
+<li><strong>方法与数据</strong>
+<ul>
+<li>数据来源：
+<ul>
+<li>更新的小麦<strong>基因组注释</strong>。</li>
+<li>多种功能数据集：基因表达、序列motifs、转录因子（TF）结合、染色质可及性、进化保守调控。</li>
+</ul></li>
+<li>网络内容：
+<ul>
+<li>包含720万条基因组范围内的交互信息。</li>
+<li>涉及5947个转录因子（TF）和127,439个靶基因。</li>
+</ul></li>
+<li>验证手段：
+<ul>
+<li>已知的调控关系。</li>
+<li>条件特异性表达。</li>
+<li>基因功能信息。</li>
+<li>实验数据。</li>
+</ul></li>
+</ul></li>
+<li><strong>关键发现</strong>
+<ol type="1">
+<li><strong>基因功能分配与优先级排序</strong>：
+<ol type="1">
+<li>利用wGRN，将全基因组基因分配到3891个生物学路径中。</li>
+<li>精确筛选基因组关联研究（GWAS）中的候选基因。</li>
+</ol></li>
+<li><strong>穗部性状研究</strong>：
+<ol type="1">
+<li>使用穗部时间动态转录组数据，构建高分辨率网络。</li>
+<li>鉴定了新型调控因子，提高了穗部性状预测的准确性。</li>
+<li>揭示了现代小麦品种中穗部性状差异的潜在调控机制。</li>
+</ol></li>
+<li><strong>机器学习应用</strong>：融入机器学习方法，强化性状预测。</li>
+</ol></li>
+<li><strong>研究意义</strong>
+<ul>
+<li>建立了用于探索基因调控和发现性状相关基因的整合资源。</li>
+<li>提供了一个交互式网络平台（<a target="_blank" rel="noopener" href="http://wheat.cau.edu.cn/wGRN">wGRN</a>），供社区研究者使用。</li>
+<li>推动了大规模功能数据在作物性状改良中的应用。</li>
+</ul></li>
+</ul>
+<h2 id="introduction">1 Introduction</h2>
+<p><strong>Plant development</strong> and <strong>environmental adaptation</strong> depend on the flexible control of <strong>gene expression</strong> in time and space</p>
+<p>TFs跟motifs结合，调节下游的靶基因的表达</p>
+<p>gene regulatory network (GRN)由TFs跟motifs组成，它们之间的相互关系连接组成了GRN。</p>
+<h3 id="grn">1.1 GRN</h3>
+<ul>
+<li><p>GRN重要性</p>
+<ul>
+<li><p>GRN控制了植物所有的生物过程，提供了调节生物过程的分子与复杂表型性状之间相互作用的整体视图。</p></li>
+<li><p>GRNs 是理解植物复杂生物通路的关键。</p></li>
+<li><p>通过研究GRNs，可揭示和精准设计有益的性状。</p>
+<ul>
+<li>最近研究通过删除水稻的基因调控元件，调整调控网络，成功解决了<strong>每穗粒数</strong>与<strong>分蘖数</strong>之间的权衡问题。</li>
+<li><code>Targeting a gene regulatory element enhances rice grain yield by decoupling panicle number and size</code></li>
+</ul></li>
+</ul></li>
+<li><p>现有技术</p>
+<ul>
+<li>physical regulation
+<ul>
+<li><strong>染色质免疫沉淀测序（ChIP-seq）</strong></li>
+<li><strong>DNA亲和纯化测序（DAP-seq）</strong></li>
+<li><strong>酵母单杂交实验（Yeast one-hybrid assay）</strong></li>
+<li><strong>染色质可及性分析</strong>：
+<ul>
+<li>DNase-I超敏位点测序（DNase-seq）</li>
+<li>转座酶可及染色质测序（ATAC-seq）</li>
+</ul></li>
+</ul></li>
+<li>expression regulation
+<ul>
+<li>分析方法：利用<strong>转录因子（TF）与下游靶基因的共表达模式</strong>构建表达网络。</li>
+<li><strong>进化保守性</strong>：许多基因表达调控网络在不同物种间具有<strong>进化保守性</strong>，可作为构建GRN的宝贵资源</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="现有研究">1.2 现有研究</h3>
+<p><strong>植物GRN的研究</strong>：</p>
+<ul>
+<li>使用<strong>转录组数据集</strong>在特定组织中研究作物的转录特征和GRN。
+<ul>
+<li>玉米利用ChIP-seq数据构建TF调控网络。</li>
+<li>全基因组网络研究通过RNA-seq或微阵列数据预测TF靶基因。</li>
+</ul></li>
+</ul>
+<p><strong>现有研究的局限性</strong>：</p>
+<ul>
+<li>独立构建的GRN无法提供<strong>全基因组范围内的相互作用及其对表型特征的影响</strong>的整体视图。</li>
+<li>在模式生物中有训练数据，但是在非模式生物中构建综合GRNs就很难</li>
+</ul>
+<blockquote>
+<p>随着多组学技术的发展，研究人员获得了大量不同类型的数据（如基因组、转录组、蛋白质组等），这些数据有助于全面理解基因如何在全基因组范围内进行调控。然而，<strong>如何有效整合</strong>这些<strong>海量且多样化的数据</strong>以构建<strong>准确的调控网络</strong>，仍然是一个技术和方法上的难题。</p>
+</blockquote>
+<ol type="1">
+<li><strong>模型生物中基于监督方法的整合推断</strong>：
+<ul>
+<li>模式生物拥有大量已知的实验数据，研究人员可以利用这些数据训练监督学习模型，从而更准确地推断基因之间的调控关系，构建出高质量的基因调控网络。
+<ul>
+<li>比如面包小麦基因组庞大复杂，缺乏实验训练数据</li>
+</ul></li>
+</ul></li>
+<li>机器学习和多组学网络分析方法
+<ul>
+<li>在玉米和拟南芥等作物研究中，能够预测基因的功能以及其对植物表型的影响，提升了基因功能注释的效率和准确性。</li>
+</ul></li>
+<li><strong>GRN与GWAS的结合</strong>：
+<ul>
+<li>GWAS能够<strong>识别与特定性状相关的遗传变异</strong>，而将这些变异置于基因调控网络中分析，可以更系统地理解<strong>变异如何通 过基因网络影响复杂性状</strong>，有助于精准育种和作物改良。</li>
+</ul></li>
+<li><strong>作物功能基因发现的限制</strong>：
+<ul>
+<li>作物基因组通常较为复杂，进行功能验证实验成本高昂且技术难度大，这限制了功能基因的快速发现和注释，阻碍了作物基因组学的发展。</li>
+</ul></li>
+<li><strong>现有基因网络数据库的局限性</strong>：
+<ul>
+<li>现有数据库如WheatCENet、WheatNet等仅包含单一调控类型数据，无法满足功能基因探索的需求。</li>
+</ul></li>
+</ol>
+<h3 id="本研究贡献">1.3 本研究贡献</h3>
+<p>wGRN的构建与应用：</p>
+<ul>
+<li>构建了<strong>高质量的小麦整合调控网络wGRN</strong>，结合了更新的基因组注释和多种调控数据。</li>
+<li>利用wGRN揭示未知功能和途径，增强对新数据集的解释能力。</li>
+<li>使用wGRN<strong>优先筛选</strong>GWAS和基因定位研究中的候选基因。</li>
+<li>生成时间序列穗发育转录组，构建精细的穗基因网络，<strong>发现预测穗粒数的新的调控因子</strong>。</li>
+<li>实现了一个<strong>在线平台</strong>，供社区探索调控网络和发现与性状相关的基因。</li>
+</ul>
+<blockquote>
+<p><strong>解释</strong>：wGRN作为一个综合性的小麦基因调控网络，不仅能够加快功能基因的发现过程，促进作物改良，还为其他非模式生物构建和应用整合基因调控网络提供了宝贵的参考和方法框架，有助于推动植物基因组学和育种学的发展。</p>
+</blockquote>
+<h2 id="构建小麦综合调控网络">2 构建小麦综合调控网络</h2>
+<p>重新注释了小麦基因组</p>
+<ul>
+<li><strong>新注释版本</strong>：wGRN_v1
+<ul>
+<li>133,804 个蛋白编码基因</li>
+<li>12,022 个长非编码RNA (lncRNAs)</li>
+<li>16,016 个基因组中未包含的新的转录本</li>
+</ul></li>
+</ul>
+<p><img src="https://pic1.imgdb.cn/item/6790b270d0e0a243d4f69049.png" /></p>
+<ul>
+<li><strong>多类型调控数据集的生成</strong>：图1A，总共7个网络
+<ul>
+<li><strong>基因表达网络</strong>：
+<ul>
+<li><strong>基于表达的调控网络</strong>：包括PCC网络和GENIE3网络
+<ul>
+<li>407份RNA-seq，来自5个组织</li>
+</ul></li>
+<li><strong>进化保守调控网络</strong>：cCOE网络
+<ul>
+<li>102份RNA-seq</li>
+</ul></li>
+</ul></li>
+<li><strong>物理调控网络</strong>：基于靶基因转录起始位点附近 DNA 结合
+<ul>
+<li><strong>TF motifs网络</strong>：PWM网络</li>
+<li><strong>进化保守的TF motifs网络</strong>：cPWM网络</li>
+<li><strong>TF结合占据网络</strong>：TF binding network
+<ul>
+<li>DAP-data</li>
+</ul></li>
+<li><strong>染色质可及性</strong>：chromatin accessibility
+<ul>
+<li>ATAC-seq、DNase-seq</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>wGRN包含总计720万条交互，涉及5947个TF和127,439个靶基因（图1C）。</p>
+<p>平均每个TF有1218个交互关系。</p>
+</blockquote>
+<ul>
+<li>wGRN网络结构：图1B
+<ul>
+<li>使用 <strong>7 个独立网络和集成推理</strong>方法构建的。
+<ul>
+<li>每个网络的每个interaction都有一个特定的权重</li>
+</ul></li>
+<li>引入了一个动态参数 α，以<strong>过滤掉低质量的交互</strong>以实现最佳预测性能</li>
+<li>可以看到里面的interactions都是有前面的几个网络数据支撑的</li>
+<li>整合完的wGRN网络当作数据库方便别人查询</li>
+</ul></li>
+<li>图1C：wGRN中interactions的简单统计</li>
+<li>图1D：独立网络对 wGRN 的互补贡献</li>
+</ul>
+<h2 id="wgrn-中预测的相互作用的多方面验证">3 wGRN 中预测的相互作用的多方面验证</h2>
+<p>Multiple-aspect verification of interactions predicted in wGRN</p>
+<p>通过6种评估方法来验证转录因子与靶基因相互作用的准确性</p>
+<blockquote>
+<p>第一种：根据RNA-seq数据，某个TF表达不同-&gt;表达量变化的基因，跟从wGRN中根据TF提取出来的靶基因，看重叠数量</p>
+<p>第二种：根据植物的环境胁迫，因为<strong>转录因子调控一组特定的靶基因</strong>，所以可以<strong>根据特定胁迫下的DEG</strong>，来推测哪些转录因子的调控网络改变，来看预测出了哪些转录因子，看跟之前研究文献的相关性</p>
+<p>第三种：别的模式生物的interactions，通过wGRN迁移到小麦上</p>
+<p>第四种：跟别的方法比较</p>
+<p>第五个：（比较重要级）wGRN 预测了许多新的interactions，并且进行了<strong>实验验证</strong></p>
+</blockquote>
+<h3 id="第一种评估">3.1 第一种评估</h3>
+<p>利用已有的RNA测序（RNA-seq）数据，这些数据来自于独立于wGRN的TF mutants或过表达系，来看下游靶基因的表达会发生变化，从而可以用于评估单个TF的靶基因。</p>
+<p><img src="https://pic1.imgdb.cn/item/6793873bd0e0a243d4f7a166.png" /></p>
+<ul>
+<li><p><strong>TaSPA-1B</strong>（参考文献：Guo et al., 2020）：</p>
+<ul>
+<li><p>在TaSPA-1B的过表达系中，共检测到1994个差异表达基因（DEGs）。</p></li>
+<li><p>从wGRN中提取出960个潜在靶基因。</p></li>
+<li><p>最终发现218个基因同时出现在wGRN预测的靶基因和DEGs中。</p></li>
+<li><p>通过超几何检验计算得出显著性P值为1.8e−194，表明这种重叠高度显著，远超随机预期。</p>
+<ul>
+<li>说明wGRN不是随机选出来的</li>
+</ul></li>
+</ul></li>
+<li><p><strong>TaNAC019</strong>（参考文献：Gao et al., 2021）：</p>
+<ul>
+<li><p>在TaNAC019突变体中，共检测到5742个DEGs。</p></li>
+<li><p>从wGRN中提取出1552个潜在靶基因。</p></li>
+<li><p>最终发现483个基因同时出现在wGRN预测的靶基因和DEGs中。</p></li>
+<li><p>超几何检验的P值为8.4e−284，同样显示出极高的显著性。</p></li>
+</ul></li>
+</ul>
+<h3 id="第二种评估方法">3.2 第二种评估方法</h3>
+<p>植物</p>
+<blockquote>
+<p>评估wGRN捕捉与<strong>特定组织发育和应激相关的生物学</strong>相关相互作用的能力</p>
+<p>在组织发育或应激反应期间，靶基因通常与调控因子表现出协调的表达模式。</p>
+</blockquote>
+<p>因为<strong>转录因子调控一组特定的靶基因</strong>，所以可以<strong>根据特定条件下的DEG</strong>，来推测哪些转录因子的调控网络被激活或者抑制</p>
+<ul>
+<li><strong>小麦叶片衰老的转录组分析</strong>：
+<ul>
+<li>利用公共时间序列转录组数据集（Borrill et al., 2019b）识别出5502个差异表达基因（DEGs）。</li>
+<li>预测分析显示918个转录因子（TFs）是叶片衰老的关键调控因子，其中107个属于NAC家族，已知其参与衰老过程（Woo et al., 2013）(图2C)。</li>
+<li>例如，NAC基因TaNAP-5B与其靶基因共表达（图2D）。</li>
+</ul></li>
+<li><strong>小麦幼苗热应激的转录组分析</strong>：
+<ul>
+<li>使用热应激下的小麦幼苗转录组数据集（Liu et al., 2015）识别出5742个DEGs。</li>
+<li>通过wGRN预测出286个关键调控TFs，其中35个属于HSF家族。</li>
+<li>例如，TaHSFB2A-7D作为热应激反应的关键调控因子（Wunderlich et al., 2014），其与靶基因表现出协调的表达模式（图2F）。</li>
+</ul></li>
+</ul>
+<h3 id="第三种-综合推断优势">3.3 第三种 综合推断优势</h3>
+<p>展示综合推断方法在构建基因调控网络（wGRN）中的优势</p>
+<blockquote>
+<p>综合推断：集合不同的数据来源</p>
+<p>下面是从拟南芥-&gt;小麦的<strong>直系同源基因</strong>（Orthologs）</p>
+</blockquote>
+<ul>
+<li>从<strong>拟南芥</strong>转录调控图谱（ATRM）（Jin et al., 2015）通过系统性文献挖掘收集了1431个已验证的转录因子（TF）-靶基因相互作用。</li>
+<li>将1431个TF-靶基因相互作用中的305个映射到<strong>小麦的直系同源基因</strong>。</li>
+<li>通过wGRN来把拟南芥的TF-gene相互作用在小麦的同源基因上面恢复</li>
+</ul>
+<p>同时，算法可以看到这个相互作用是有几个网络支持的，也体现了<strong>集成推理</strong>比单个网络有更高的预测性能</p>
+<h3 id="第四种-比较别的方法">3.4 第四种 比较别的方法</h3>
+<p>与别的基于小麦表达的调控网络 wheatGENIE3 进行了比较</p>
+<p>从DEG中回收靶基因</p>
+<p>预测准确性</p>
+<h3 id="第五种-预测新的相互作用">3.5 第五种 预测新的相互作用</h3>
+<p>通过wGRN可以预测新的相互作用，并且进行实验验证</p>
+<p><strong>选定的转录因子</strong>：</p>
+<ul>
+<li><strong>TaNAP-5B</strong>（Guo 和 Gan, 2006）：已知调控生长和发育。</li>
+<li><strong>TaYABBY3-1B</strong>（Stahle 等, 2009）：已知调控生长和发育。</li>
+</ul>
+<p><strong>双荧光素酶报告基因分析</strong>：</p>
+<ul>
+<li><p><strong>方法</strong>：使用载体 pGreenII 0800-LUC 进行双荧光素酶报告基因分析。</p></li>
+<li><p>结果</p>
+<p>：</p>
+<ul>
+<li>在共表达 TaFLO7-1A 和 TaNAP-5B 的小麦原生质体中，萤火虫荧光素酶（LUC）与雷尼拉荧光素酶（REN）的比率高于对照组（图2I）。</li>
+<li>在共表达 TaBOP3-5B 和 TaYABBY3-1B 的小麦原生质体中，LUC/REN 比率也高于对照组（图2J）。</li>
+</ul></li>
+<li><p><strong>结论</strong>：TaNAP-5B 和 TaYABBY3-1B 在体内激活 TaFLO7-1A 和 TaBOP3-5B 的表达，验证了wGRN的预测。</p></li>
+</ul>
+<p><strong>WRKY和ERF家族的作用</strong>：</p>
+<ul>
+<li><strong>功能</strong>：WRKY（Rushton 等, 2010）和ERF（Licausi 等, 2013）家族参与调控生长、发育和应激反应。</li>
+</ul>
+<p><strong>电泳迁移率变动分析（EMSA）</strong>：</p>
+<ul>
+<li><p>TaWRKY71-6B</p>
+<p>的调控：</p>
+<ul>
+<li>通过EMSA确认 TaWRKY71-6B 可以结合并调控以下基因：
+<ul>
+<li>TaMAPKKK55-3B</li>
+<li>TaFAD7-4A</li>
+<li>TaBIERF1-5B</li>
+<li>TaBSR1-5D（图2K 和 补充图5A）</li>
+</ul></li>
+</ul></li>
+<li><p>TaERF3-3D</p>
+<p>的调控：</p>
+<ul>
+<li>通过EMSA确认 TaERF3-3D 可以结合并调控以下基因：
+<ul>
+<li>TaCAF1B-2B</li>
+<li>TaCML16-3D</li>
+<li>TaSGL-6B</li>
+<li>TaCCD1-7D（图2L 和 补充图5B）</li>
+</ul></li>
+</ul></li>
+<li><p><strong>结论</strong>：TaWRKY71-6B 和 TaERF3-3D 直接调控其预测的靶基因，支持wGRN的预测。</p></li>
+</ul>
+<h2 id="wgrn-provides-一个计算机模拟框架使用regulation-information来regulation-information">4 wGRN provides 一个<em>计算机模拟</em>框架，使用regulation information来regulation information</h2>
+<ul>
+<li><p>目的：</p>
+<ul>
+<li><p>揭示功能基因和路径是作物改良的重要步骤，但小麦中许多生物学路径尚未被了解。</p></li>
+<li><p>利用wGRN将大量生物学相关基因连接成网络，有助于深入了解小麦基因功能</p></li>
+</ul></li>
+</ul>
+<h3 id="功能富集注释">4.1 功能富集注释</h3>
+<ul>
+<li>数据获取
+<ul>
+<li>获取基因本体论（GO）、植物本体论（PO）和植物性状本体论（TO）注释数据集</li>
+<li>对wGRN中的每个TF的靶基因进行富集分析</li>
+</ul></li>
+</ul>
+<p><img src="https://pic1.imgdb.cn/item/67939422d0e0a243d4f7a30c.png" style="zoom:25%;" /></p>
+<p>使用wGRN预测了5928个（99.7%）TF的GO功能。</p>
+<p>85.0%的wGRN预测与功能注释共享的TF至少具有一个已知注释</p>
+<p>wGRN帮助推断了1536个未知TF的功能（图3A）。</p>
+<p><img src="https://pic1.imgdb.cn/item/67939459d0e0a243d4f7a310.png" style="zoom:30%;" /></p>
+<p>前15个GO术语主要与发育过程和应激反应相关（图3B），突出这些路径在小麦生命周期中的重要性。</p>
+<p>我们还预测了 2374 个未知 TF 的 PO 函数和 3777 个未知 TF 的 TO 函数，并恢复了至少一半预测 TF 的至少一个已知注释</p>
+<h3 id="特定基因功能推断">4.2 <strong>特定基因功能推断</strong></h3>
+<p><img src="https://pic1.imgdb.cn/item/679395bad0e0a243d4f7a328.png" /></p>
+<p><strong>TaLAX1</strong>：</p>
+<ul>
+<li>需要用于穗形成的启动/维持（Gao et al., 2019; He et al., 2021）。</li>
+<li>wGRN推断其功能包括花发育调控、激素介导的信号通路和分生组织启动（图3C）。</li>
+</ul>
+<p><strong>HY5</strong>：</p>
+<ul>
+<li>参与下胚轴生长和侧根发育、叶绿体发育、激素和刺激反应、养分信号传导和蔗糖代谢，并在光依赖方式下促进色素积累（Zhang et al., 2011; Chen et al., 2016; Gangappa and Botto, 2016; Wang et al., 2021b）。</li>
+<li>wGRN预测其未注释功能包括对活性氧种的反应、类胡萝卜素生物合成过程、细胞分裂素代谢过程、质体组织、对硝酸盐的反应、葡萄糖稳态和油菜素内酯生物合成过程（图3D）。</li>
+</ul>
+<h3 id="预测小麦全基因组pathway">4.3 预测小麦全基因组pathway</h3>
+<p><img src="https://pic1.imgdb.cn/item/6793966fd0e0a243d4f7a337.png" style="zoom:33%;" /></p>
+<p>预测小麦全基因组范围内的生物学通路。</p>
+<p>对于每个ontology术语，我们将 wGRN 中的功能性 TFs、带有本体注释的基因和 TF-靶标相互作用组装成代表特定生物途径的 3891 个子网络，即 3169 个 GO 网络、508 个 TO 网络和 214 个 PO 网络。</p>
+<ul>
+<li><p>热应激响应通路</p>
+<ul>
+<li><p>从构建的子网络中提取出热应激响应通路（GO:0009408）进行进一步验证（见图3E）。</p></li>
+<li><p>该热应激响应网络包含629个基因，具体包括：</p>
+<ul>
+<li><p>36个HSF基因（热激转录因子家族）</p></li>
+<li><p>19个DREB基因（脱水响应元件结合蛋白）</p></li>
+<li><p>125个HSP基因（热激蛋白）</p></li>
+<li><p>涵盖32个DnaJ基因</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>先前研究已报道HSF转录因子家族（Ohama et al., 2017）、HSP和DnaJ蛋白（Qiu et al., 2006）、以及DREB转录因子家族在热应激响应中的作用。</p>
+</blockquote>
+<p>在热应激响应网络中，已知参与热应激响应的基因占总基因数的28.6%，显示出wGRN在解析生物学通路方面的高可靠性。</p>
+<h1 id="wheat-regnet-an-encyclopedia-of-common-wheat-hierarchical-regulatory-networks">Wheat-RegNet: An encyclopedia of common wheat hierarchical regulatory networks</h1>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">wanzi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/01/22/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]%E5%B0%8F%E9%BA%A6%E8%BD%AC%E5%BD%95%E8%B0%83%E6%8E%A7%E7%BD%91%E7%BB%9C/">http://example.com/2025/01/22/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]%E5%B0%8F%E9%BA%A6%E8%BD%AC%E5%BD%95%E8%B0%83%E6%8E%A7%E7%BD%91%E7%BB%9C/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">丸子Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%BD%AC%E5%BD%95%E7%BB%84%E5%AD%A6/">转录组学</a><a class="post-meta__tags" href="/tags/%E8%A1%A8%E8%A7%82%E9%81%97%E4%BC%A0%E5%AD%A6/">表观遗传学</a><a class="post-meta__tags" href="/tags/%E8%BD%AC%E5%BD%95%E8%B0%83%E6%8E%A7%E7%BD%91%E7%BB%9C/">转录调控网络</a></div><div class="post_share"><div class="social-share" data-image="/img/cover27.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2025/01/16/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DSystematic%20identification%20of%20wheat%20spike%20developmental%20regulators%20by%20integrated%20multi-omics,%20transcriptional%20network,%20GWAS,%20and%20genetic%20analyses/" title="《Systematic identification of wheat spike developmental regulators by integrated multi-omics, transcriptional network, GWAS, and genetic analyses》论文阅读"><img class="cover" src="/img/cover25.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">《Systematic identification of wheat spike developmental regulators by integrated multi-omics, transcriptional network, GWAS, and genetic analyses》论文阅读</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/01/16/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DSystematic%20identification%20of%20wheat%20spike%20developmental%20regulators%20by%20integrated%20multi-omics,%20transcriptional%20network,%20GWAS,%20and%20genetic%20analyses/" title="《Systematic identification of wheat spike developmental regulators by integrated multi-omics, transcriptional network, GWAS, and genetic analyses》论文阅读"><img class="cover" src="/img/cover25.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-16</div><div class="title">《Systematic identification of wheat spike developmental regulators by integrated multi-omics, transcriptional network, GWAS, and genetic analyses》论文阅读</div></div></a></div><div><a href="/2024/07/20/%5B%E7%94%9F%E4%BF%A1%E7%AC%94%E8%AE%B0%5D%E8%BD%AC%E5%BD%95%E7%BB%84%E5%AD%A6/" title="转录组学"><img class="cover" src="https://pic.imgdb.cn/item/669a4645d9c307b7e9f4ce5f.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-07-20</div><div class="title">转录组学</div></div></a></div><div><a href="/2025/01/15/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E6%A4%8D%E7%89%A9%E7%9B%B8%E5%85%B3%E5%88%86%E5%AD%90%E6%9C%BA%E5%88%B6%E5%A4%9A%E7%BB%84%E5%AD%A6%E5%88%86%E6%9E%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" title="植物相关分子机制多组学分析论文阅读"><img class="cover" src="/img/cover26.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-15</div><div class="title">植物相关分子机制多组学分析论文阅读</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC82MDAwNC8zNjQ2Nw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">wanzi</div><div class="author-info__description">一个人类</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">36</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/wanziw"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wanziw" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1530502197@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://blog.csdn.net/weixin_57345774" target="_blank" title="博客"><i class="fas fa-blog"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">许多东西,我曾经放下,但奇迹般地重新捡了起来</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#a-wheat-integrative-regulatory-network-from-large-scale-complementary-functional-datasets-enables-trait-associated-gene-discovery-for-crop-improvement"><span class="toc-text">A wheat integrative regulatory network from large-scale complementary functional datasets enables trait-associated gene discovery for crop improvement</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#introduction"><span class="toc-text">1 Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#grn"><span class="toc-text">1.1 GRN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%B0%E6%9C%89%E7%A0%94%E7%A9%B6"><span class="toc-text">1.2 现有研究</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E7%A0%94%E7%A9%B6%E8%B4%A1%E7%8C%AE"><span class="toc-text">1.3 本研究贡献</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E5%B0%8F%E9%BA%A6%E7%BB%BC%E5%90%88%E8%B0%83%E6%8E%A7%E7%BD%91%E7%BB%9C"><span class="toc-text">2 构建小麦综合调控网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wgrn-%E4%B8%AD%E9%A2%84%E6%B5%8B%E7%9A%84%E7%9B%B8%E4%BA%92%E4%BD%9C%E7%94%A8%E7%9A%84%E5%A4%9A%E6%96%B9%E9%9D%A2%E9%AA%8C%E8%AF%81"><span class="toc-text">3 wGRN 中预测的相互作用的多方面验证</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%A7%8D%E8%AF%84%E4%BC%B0"><span class="toc-text">3.1 第一种评估</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%E8%AF%84%E4%BC%B0%E6%96%B9%E6%B3%95"><span class="toc-text">3.2 第二种评估方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%A7%8D-%E7%BB%BC%E5%90%88%E6%8E%A8%E6%96%AD%E4%BC%98%E5%8A%BF"><span class="toc-text">3.3 第三种 综合推断优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%A7%8D-%E6%AF%94%E8%BE%83%E5%88%AB%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">3.4 第四种 比较别的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%A7%8D-%E9%A2%84%E6%B5%8B%E6%96%B0%E7%9A%84%E7%9B%B8%E4%BA%92%E4%BD%9C%E7%94%A8"><span class="toc-text">3.5 第五种 预测新的相互作用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wgrn-provides-%E4%B8%80%E4%B8%AA%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A8%A1%E6%8B%9F%E6%A1%86%E6%9E%B6%E4%BD%BF%E7%94%A8regulation-information%E6%9D%A5regulation-information"><span class="toc-text">4 wGRN provides 一个计算机模拟框架，使用regulation information来regulation information</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E5%AF%8C%E9%9B%86%E6%B3%A8%E9%87%8A"><span class="toc-text">4.1 功能富集注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%AE%9A%E5%9F%BA%E5%9B%A0%E5%8A%9F%E8%83%BD%E6%8E%A8%E6%96%AD"><span class="toc-text">4.2 特定基因功能推断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E6%B5%8B%E5%B0%8F%E9%BA%A6%E5%85%A8%E5%9F%BA%E5%9B%A0%E7%BB%84pathway"><span class="toc-text">4.3 预测小麦全基因组pathway</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#wheat-regnet-an-encyclopedia-of-common-wheat-hierarchical-regulatory-networks"><span class="toc-text">Wheat-RegNet: An encyclopedia of common wheat hierarchical regulatory networks</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/01/22/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E5%B0%8F%E9%BA%A6%E8%BD%AC%E5%BD%95%E8%B0%83%E6%8E%A7%E7%BD%91%E7%BB%9C/" title="小麦转录调控网络"><img src="/img/cover27.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小麦转录调控网络"/></a><div class="content"><a class="title" href="/2025/01/22/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E5%B0%8F%E9%BA%A6%E8%BD%AC%E5%BD%95%E8%B0%83%E6%8E%A7%E7%BD%91%E7%BB%9C/" title="小麦转录调控网络">小麦转录调控网络</a><time datetime="2025-01-22T07:28:02.000Z" title="发表于 2025-01-22 15:28:02">2025-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/16/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DSystematic%20identification%20of%20wheat%20spike%20developmental%20regulators%20by%20integrated%20multi-omics,%20transcriptional%20network,%20GWAS,%20and%20genetic%20analyses/" title="《Systematic identification of wheat spike developmental regulators by integrated multi-omics, transcriptional network, GWAS, and genetic analyses》论文阅读"><img src="/img/cover25.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《Systematic identification of wheat spike developmental regulators by integrated multi-omics, transcriptional network, GWAS, and genetic analyses》论文阅读"/></a><div class="content"><a class="title" href="/2025/01/16/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DSystematic%20identification%20of%20wheat%20spike%20developmental%20regulators%20by%20integrated%20multi-omics,%20transcriptional%20network,%20GWAS,%20and%20genetic%20analyses/" title="《Systematic identification of wheat spike developmental regulators by integrated multi-omics, transcriptional network, GWAS, and genetic analyses》论文阅读">《Systematic identification of wheat spike developmental regulators by integrated multi-omics, transcriptional network, GWAS, and genetic analyses》论文阅读</a><time datetime="2025-01-16T09:17:35.000Z" title="发表于 2025-01-16 17:17:35">2025-01-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/15/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E6%A4%8D%E7%89%A9%E7%9B%B8%E5%85%B3%E5%88%86%E5%AD%90%E6%9C%BA%E5%88%B6%E5%A4%9A%E7%BB%84%E5%AD%A6%E5%88%86%E6%9E%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" title="植物相关分子机制多组学分析论文阅读"><img src="/img/cover26.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="植物相关分子机制多组学分析论文阅读"/></a><div class="content"><a class="title" href="/2025/01/15/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E6%A4%8D%E7%89%A9%E7%9B%B8%E5%85%B3%E5%88%86%E5%AD%90%E6%9C%BA%E5%88%B6%E5%A4%9A%E7%BB%84%E5%AD%A6%E5%88%86%E6%9E%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" title="植物相关分子机制多组学分析论文阅读">植物相关分子机制多组学分析论文阅读</a><time datetime="2025-01-15T02:36:21.000Z" title="发表于 2025-01-15 10:36:21">2025-01-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/14/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DSystematic%20classification%20of%20unknown%20metabolites%20using%20high-resolution%20fragmentation%20mass%20spectra/" title="《Systematic classification of unknown metabolites using high-resolution fragmentation mass spectra》论文阅读"><img src="/img/cover24.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《Systematic classification of unknown metabolites using high-resolution fragmentation mass spectra》论文阅读"/></a><div class="content"><a class="title" href="/2025/01/14/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DSystematic%20classification%20of%20unknown%20metabolites%20using%20high-resolution%20fragmentation%20mass%20spectra/" title="《Systematic classification of unknown metabolites using high-resolution fragmentation mass spectra》论文阅读">《Systematic classification of unknown metabolites using high-resolution fragmentation mass spectra》论文阅读</a><time datetime="2025-01-14T09:20:30.000Z" title="发表于 2025-01-14 17:20:30">2025-01-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/14/%5BDebug%5D%E5%9B%A0%E4%B8%BAVPN%E5%AF%BC%E8%87%B4git-pull-push%E5%A4%B1%E8%B4%A5/" title="因为VPN导致git pull/push失败"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="因为VPN导致git pull/push失败"/></a><div class="content"><a class="title" href="/2025/01/14/%5BDebug%5D%E5%9B%A0%E4%B8%BAVPN%E5%AF%BC%E8%87%B4git-pull-push%E5%A4%B1%E8%B4%A5/" title="因为VPN导致git pull/push失败">因为VPN导致git pull/push失败</a><time datetime="2025-01-14T04:28:44.000Z" title="发表于 2025-01-14 12:28:44">2025-01-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2025 By wanzi</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">很高心认识你！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(()=>{
+  const loadLivere = () => {
+    if (typeof LivereTower === 'object') window.LivereTower.init()
+    else {
+      (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+          if (typeof LivereTower === 'function') { return; }
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+          e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    }
+  }
+
+  if ('Livere' === 'Livere' || !false) {
+    if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+    else loadLivere()
+  } else {
+    window.loadOtherComment = loadLivere
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
