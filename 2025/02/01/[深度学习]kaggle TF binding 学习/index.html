@@ -1,0 +1,438 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>kaggle TF-binding 学习 | 丸子Blog</title><meta name="author" content="wanzi"><meta name="copyright" content="wanzi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="kaggle上存的一些生物信息代码 尤其是TF-binding的学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="kaggle TF-binding 学习">
+<meta property="og:url" content="http://example.com/2025/02/01/[%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0]kaggle%20TF%20binding%20%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="丸子Blog">
+<meta property="og:description" content="kaggle上存的一些生物信息代码 尤其是TF-binding的学习">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/cover3.jpg">
+<meta property="article:published_time" content="2025-02-01T14:05:07.000Z">
+<meta property="article:modified_time" content="2025-02-09T14:37:02.510Z">
+<meta property="article:author" content="wanzi">
+<meta property="article:tag" content="卷积神经网络">
+<meta property="article:tag" content="样本不平衡">
+<meta property="article:tag" content="生物信息">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/cover3.jpg"><link rel="shortcut icon" href="/./img/favicon1.png"><link rel="canonical" href="http://example.com/2025/02/01/[%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0]kaggle%20TF%20binding%20%E5%AD%A6%E4%B9%A0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'kaggle TF-binding 学习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-02-09 22:37:02'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="丸子Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover3.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="丸子Blog"><span class="site-name">丸子Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">kaggle TF-binding 学习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-02-01T14:05:07.000Z" title="发表于 2025-02-01 22:05:07">2025-02-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-09T14:37:02.510Z" title="更新于 2025-02-09 22:37:02">2025-02-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="kaggle TF-binding 学习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p><a
+target="_blank" rel="noopener" href="https://www.kaggle.com/discussions/general/203136">"Bioinformatics"
+"community"</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://www.kaggle.com/code/shtrausslearning/transcription-factor-binding-location-prediction">Transcription
+Factor Binding Location Prediction</a></p>
+</blockquote>
+<p>学习的主要是对样本不平衡数据的处理，对整一个染色体上的序列进行小段的切割，还有TF-binding问题的建模</p>
+<p>其实最重要的数据处理部分还没有研究，如何把原始序列数据给处理成这里的.npy，有待日后进行学习</p>
+<p>这个项目的意义是通过在一个染色体上训练一个模型来检测JunD转录因子的结合位点，从而推断出全基因组范围内的结合位点</p>
+<h1 id="tf-binding">TF-binding</h1>
+<ol type="1">
+<li><strong>生物过程的复杂性</strong>：
+<ul>
+<li>将核苷酸序列转化为氨基酸链（蛋白质）的过程看似简单，但实际上比我们想象的要复杂得多。</li>
+<li>虽然一个简单的模型可能会认为这种关系是直接的，但在现实中，有很多因素使得这一过程变得复杂，转录因子就是其中之一（它是调节DNA转录为RNA的蛋白质）。</li>
+<li>理解转录和翻译的复杂过程非常困难，尤其是对于那些没有深入了解这些过程的细节的人。</li>
+</ul></li>
+<li><strong>深度学习的应用</strong>：
+<ul>
+<li>目标是使用深度学习预测转录因子将在DNA序列的哪些位置结合。这个问题可以被看作是一个二分类问题，模型需要识别一个转录因子是否会结合到某个特定的DNA位点。</li>
+<li>深度学习模型通过对大量DNA序列数据进行训练，寻找其中的模式，即使这些关系并不完全明确。</li>
+</ul></li>
+<li><strong>笔记本工作流程</strong>：
+<ul>
+<li><strong>生物概念介绍</strong>：提供了DNA、RNA和蛋白质关系的背景知识。</li>
+<li><strong>更现实的关系视角</strong>：承认实际的生物关系更加复杂，并引入转录因子作为影响过程的关键因素。</li>
+<li><strong>转录因子</strong>：聚焦于建模转录因子的行为，它们在转录和翻译中起着至关重要的作用。</li>
+<li><strong>实验数据</strong>：数据（DNA序列）已经过预处理（可能采用了像独热编码（OHE）这样的技术），并被分成训练集、验证集和测试集。</li>
+<li>添加了如 <code>dnaseq_features</code>
+这样的函数，以便在深度学习模型中一致地处理数据，确保不同数据集之间的预处理保持一致。</li>
+</ul></li>
+</ol>
+<p>整体上，目的是通过机器学习技术理解一个复杂的生物过程，识别大型生物数据集中的模式。虽然这种方法非常强大，但它需要对生物学背景和如何有效应用机器学习技术有深入的了解。</p>
+<h1 id="dataset">dataset</h1>
+<p><a
+target="_blank" rel="noopener" href="https://www.kaggle.com/datasets/shtrausslearning/bioinformatics/code">Bioinformatics
+Collection</a></p>
+<ul>
+<li><code>.gb</code> 或 <code>.bk</code>
+<ul>
+<li>genbank格式的文件</li>
+<li>基因组注释</li>
+</ul></li>
+<li>.faa
+<ul>
+<li>fasta格式</li>
+<li>蛋白质序列</li>
+</ul></li>
+<li>.fnn
+<ul>
+<li>fasta格式</li>
+<li>核酸序列</li>
+</ul></li>
+<li>.seq
+<ul>
+<li>原始序列数据</li>
+</ul></li>
+<li></li>
+</ul>
+<h1 id="code">code</h1>
+<p>暂时还不知道前面是怎么进行预处理成为npy文件的</p>
+<h2 id="读取预处理后的数据code">读取预处理后的数据code</h2>
+<p>读入数据</p>
+<ul>
+<li>数据已经提前处理好成了npy格式的数据</li>
+</ul>
+<blockquote>
+<p>数据与转录因子 <strong>JunD</strong> 相关，JunD 是转录因子激活蛋白
+(AP)-1 家族的成员之一。这个实验的目的是识别 <strong>JunD</strong>
+在人类基因组中的所有结合位点，并基于实验数据将这些信息存储在目标变量中。</p>
+<p>实验数据中的基因组序列只包括
+<strong>22号染色体</strong>，因为它的大小相对较小，只有大约 5000
+万个碱基对。实验将基因组序列分割为每段 101
+个碱基/字符，目标是找到每段序列中是否包含 <strong>JunD</strong>
+结合位点的信息。每个序列片段的标签表示是否包含 <strong>JunD</strong>
+结合位点（标签 0 或 1）。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Training - Feature Matrix: <span class="subst">&#123;data.train[<span class="string">&#x27;X&#x27;</span>].shape&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Training - Target Vector: <span class="subst">&#123;data.train[<span class="string">&#x27;y&#x27;</span>].shape&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Training - Sample Weighting: <span class="subst">&#123;data.train[<span class="string">&#x27;w&#x27;</span>].shape&#125;</span>\n&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Validation - Feature Matrix: <span class="subst">&#123;data.valid[<span class="string">&#x27;X&#x27;</span>].shape&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Validation - Target Vector: <span class="subst">&#123;data.valid[<span class="string">&#x27;y&#x27;</span>].shape&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Validation - Sample Weighting: <span class="subst">&#123;data.valid[<span class="string">&#x27;w&#x27;</span>].shape&#125;</span>\n&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Test - Feature Matrix: <span class="subst">&#123;data.test[<span class="string">&#x27;X&#x27;</span>].shape&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Test - Target Vector: <span class="subst">&#123;data.test[<span class="string">&#x27;y&#x27;</span>].shape&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Test - Sample Weighting: <span class="subst">&#123;data.test[<span class="string">&#x27;w&#x27;</span>].shape&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>数据大小</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Training - Feature Matrix: (276216, 101, 4)</span><br><span class="line">Training - Target Vector: (276216, 1)</span><br><span class="line">Training - Sample Weighting: (276216, 1)</span><br><span class="line"></span><br><span class="line">Validation - Feature Matrix: (34527, 101, 4)</span><br><span class="line">Validation - Target Vector: (34527, 1)</span><br><span class="line">Validation - Sample Weighting: (34527, 1)</span><br><span class="line"></span><br><span class="line">Test - Feature Matrix: (34528, 101, 4)</span><br><span class="line">Test - Target Vector: (34528, 1)</span><br><span class="line">Test - Sample Weighting: (34528, 1)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>大概就是实验</p></li>
+<li><p>x是染色体序列，然后每段长度为101,并且one hot编码</p></li>
+<li><p>y是0或1，表示是否包含JunD结合位点</p></li>
+<li><p>w是权重，样本加权的作用是调整不同样本在训练过程中对模型的影响</p>
+<ul>
+<li><p>对于不平衡的数据集，样本加权可以帮助模型更好地学习少数类样本（例如
+<strong>JunD</strong> 结合位点的出现频率可能较低）。</p>
+<p>样本加权可以通过 Keras 的 <code>class_weight</code> 或
+<code>sample_weight</code>
+参数进行传递，用于在训练过程中加大样本的权重，避免模型偏向某一类</p></li>
+</ul></li>
+<li><p>此外还传入了一个ID值，用来对应每一条序列的x、y和w</p></li>
+</ul>
+<h2 id="切割序列code">切割序列code</h2>
+<p>对输入的 DNA 序列进行切割，并为每个片段生成 One-Hot Encoding (OHE)
+特征，以便用于机器学习模型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">dnaseq_features</span>(<span class="params">seq, start=<span class="number">0</span>, n_segs=<span class="number">101</span>, seq_name=<span class="literal">None</span></span>):</span><br></pre></td></tr></table></figure>
+<h2 id="target-imbalance">Target Imbalance</h2>
+<p>目标不平衡，在训练集中有很少的样本是正类（即转录因子绑定到 DNA
+序列的位点）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Target Value Counts</span></span><br><span class="line">targ_weight = pd.DataFrame(np.concatenate([data.train[<span class="string">&#x27;y&#x27;</span>],data.train[<span class="string">&#x27;w&#x27;</span>]],axis=<span class="number">1</span>),columns=[<span class="string">&#x27;y&#x27;</span>,<span class="string">&#x27;w&#x27;</span>])</span><br><span class="line">targ_weight[<span class="string">&#x27;y&#x27;</span>].value_counts()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0.0    275048</span><br><span class="line">1.0      1168</span><br><span class="line">Name: y, dtype: int64</span><br></pre></td></tr></table></figure>
+<p>27万条是0，只有1168条是1，代表有结合位点</p>
+<ul>
+<li>可视化目标变量和样本权重的关系
+<ul>
+<li>可以查看每个样本在训练中的权重分配是否合理</li>
+<li>少数类样本（如 1
+类）的权重被设定为更大的值，意味着模型训练过程中将更多关注少数类样本。通过绘制样本权重（<code>w</code>）与目标变量（<code>y</code>）的关系图</li>
+</ul></li>
+<li><code>targ_weight.groupby('y').sum()</code>
+<ul>
+<li>通过计算每个目标类别（如 0 和
+1）在训练集中的权重总和，每一类的权重全部加起来</li>
+<li>我们可以检查权重是否分配得当。对于不平衡的类别数据集，少数类样本的权重总和应大于多数类。</li>
+</ul></li>
+</ul>
+<h2 id="model-training">Model training</h2>
+<p>训练binary classifier</p>
+<ul>
+<li>因为目标分布不平衡，所以我们要做<strong>样本平衡</strong>的处理</li>
+<li>避免<strong>过拟合</strong></li>
+</ul>
+<p>为了考虑这两点，于是设置了三个模型，来考察</p>
+<ul>
+<li><p>model1</p>
+<ul>
+<li>去除dropout的，看是否过拟合的影响</li>
+</ul></li>
+<li><p>model2</p>
+<ul>
+<li>去除样本加权，看是否做样本加权平衡的影响</li>
+</ul></li>
+<li><p>model3</p>
+<ul>
+<li>采取了dropout和加权平衡的满血模型的效果</li>
+</ul></li>
+<li><p>模型架构</p>
+<ul>
+<li>使用了三层的conv1d</li>
+</ul></li>
+<li><p>EVALUATION METRIC</p>
+<ul>
+<li>ROC</li>
+<li>AUC</li>
+</ul></li>
+<li><p>LOSS</p>
+<ul>
+<li><strong>binary_crossentropy</strong></li>
+</ul></li>
+<li><p>优化器</p>
+<ul>
+<li>sgd</li>
+</ul></li>
+<li><p>模型表现</p>
+<ul>
+<li>比较三个模型，AUC的结果说明</li>
+<li>model1:正如预期的那样;模型开始显示出训练和验证结果之间的显著差异，评估仅达到了0.504的验证AUC，这可能表明在神经网络模型中添加dropout层是合理的。</li>
+<li>说明需要dropout</li>
+<li><img src="https://pic1.imgdb.cn/item/67a0ecddd0e0a243d4fa0d47.png" style="zoom:33%;" /></li>
+<li>Model2:
+<ul>
+<li>当我们没有对每个样本进行加权时，我们在训练和验证结果之间有非常小的差异，这就是我们想要的，说明dropout有用</li>
+<li>然而模型学习非常缓慢，只达到了0.58的验证AUC，这可能是表明样本不平衡是一个重要的问题，加权它们是合理的，需要加权<img src="https://pic1.imgdb.cn/item/67a0ecbcd0e0a243d4fa0cb9.png" style="zoom:33%;" /></li>
+</ul></li>
+<li>model3</li>
+<li>效果都比较好<img src="https://pic1.imgdb.cn/item/67a0ed32d0e0a243d4fa0eb6.png" style="zoom:33%;" /></li>
+</ul></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">wanzi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/02/01/[%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0]kaggle%20TF%20binding%20%E5%AD%A6%E4%B9%A0/">http://example.com/2025/02/01/[%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0]kaggle%20TF%20binding%20%E5%AD%A6%E4%B9%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">丸子Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">卷积神经网络</a><a class="post-meta__tags" href="/tags/%E6%A0%B7%E6%9C%AC%E4%B8%8D%E5%B9%B3%E8%A1%A1/">样本不平衡</a><a class="post-meta__tags" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF/">生物信息</a></div><div class="post_share"><div class="social-share" data-image="/img/cover3.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2025/01/22/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E5%B0%8F%E9%BA%A6%E8%BD%AC%E5%BD%95%E8%B0%83%E6%8E%A7%E7%BD%91%E7%BB%9C/" title="小麦转录调控网络"><img class="cover" src="/img/cover27.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">小麦转录调控网络</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC82MDAwNC8zNjQ2Nw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">wanzi</div><div class="author-info__description">一个人类</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/wanziw"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wanziw" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1530502197@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://blog.csdn.net/weixin_57345774" target="_blank" title="博客"><i class="fas fa-blog"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">许多东西,我曾经放下,但奇迹般地重新捡了起来</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#tf-binding"><span class="toc-text">TF-binding</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dataset"><span class="toc-text">dataset</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#code"><span class="toc-text">code</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E9%A2%84%E5%A4%84%E7%90%86%E5%90%8E%E7%9A%84%E6%95%B0%E6%8D%AEcode"><span class="toc-text">读取预处理后的数据code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%87%E5%89%B2%E5%BA%8F%E5%88%97code"><span class="toc-text">切割序列code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#target-imbalance"><span class="toc-text">Target Imbalance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#model-training"><span class="toc-text">Model training</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/02/01/%5B%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%5Dkaggle%20TF%20binding%20%E5%AD%A6%E4%B9%A0/" title="kaggle TF-binding 学习"><img src="/img/cover3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="kaggle TF-binding 学习"/></a><div class="content"><a class="title" href="/2025/02/01/%5B%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%5Dkaggle%20TF%20binding%20%E5%AD%A6%E4%B9%A0/" title="kaggle TF-binding 学习">kaggle TF-binding 学习</a><time datetime="2025-02-01T14:05:07.000Z" title="发表于 2025-02-01 22:05:07">2025-02-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/22/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E5%B0%8F%E9%BA%A6%E8%BD%AC%E5%BD%95%E8%B0%83%E6%8E%A7%E7%BD%91%E7%BB%9C/" title="小麦转录调控网络"><img src="/img/cover27.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小麦转录调控网络"/></a><div class="content"><a class="title" href="/2025/01/22/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E5%B0%8F%E9%BA%A6%E8%BD%AC%E5%BD%95%E8%B0%83%E6%8E%A7%E7%BD%91%E7%BB%9C/" title="小麦转录调控网络">小麦转录调控网络</a><time datetime="2025-01-22T07:28:02.000Z" title="发表于 2025-01-22 15:28:02">2025-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/16/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DSystematic%20identification%20of%20wheat%20spike%20developmental%20regulators%20by%20integrated%20multi-omics,%20transcriptional%20network,%20GWAS,%20and%20genetic%20analyses/" title="《Systematic identification of wheat spike developmental regulators by integrated multi-omics, transcriptional network, GWAS, and genetic analyses》论文阅读"><img src="/img/cover25.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《Systematic identification of wheat spike developmental regulators by integrated multi-omics, transcriptional network, GWAS, and genetic analyses》论文阅读"/></a><div class="content"><a class="title" href="/2025/01/16/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DSystematic%20identification%20of%20wheat%20spike%20developmental%20regulators%20by%20integrated%20multi-omics,%20transcriptional%20network,%20GWAS,%20and%20genetic%20analyses/" title="《Systematic identification of wheat spike developmental regulators by integrated multi-omics, transcriptional network, GWAS, and genetic analyses》论文阅读">《Systematic identification of wheat spike developmental regulators by integrated multi-omics, transcriptional network, GWAS, and genetic analyses》论文阅读</a><time datetime="2025-01-16T09:17:35.000Z" title="发表于 2025-01-16 17:17:35">2025-01-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/15/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E6%A4%8D%E7%89%A9%E7%9B%B8%E5%85%B3%E5%88%86%E5%AD%90%E6%9C%BA%E5%88%B6%E5%A4%9A%E7%BB%84%E5%AD%A6%E5%88%86%E6%9E%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" title="植物相关分子机制多组学分析论文阅读"><img src="/img/cover26.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="植物相关分子机制多组学分析论文阅读"/></a><div class="content"><a class="title" href="/2025/01/15/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E6%A4%8D%E7%89%A9%E7%9B%B8%E5%85%B3%E5%88%86%E5%AD%90%E6%9C%BA%E5%88%B6%E5%A4%9A%E7%BB%84%E5%AD%A6%E5%88%86%E6%9E%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" title="植物相关分子机制多组学分析论文阅读">植物相关分子机制多组学分析论文阅读</a><time datetime="2025-01-15T02:36:21.000Z" title="发表于 2025-01-15 10:36:21">2025-01-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/14/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DSystematic%20classification%20of%20unknown%20metabolites%20using%20high-resolution%20fragmentation%20mass%20spectra/" title="《Systematic classification of unknown metabolites using high-resolution fragmentation mass spectra》论文阅读"><img src="/img/cover24.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《Systematic classification of unknown metabolites using high-resolution fragmentation mass spectra》论文阅读"/></a><div class="content"><a class="title" href="/2025/01/14/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DSystematic%20classification%20of%20unknown%20metabolites%20using%20high-resolution%20fragmentation%20mass%20spectra/" title="《Systematic classification of unknown metabolites using high-resolution fragmentation mass spectra》论文阅读">《Systematic classification of unknown metabolites using high-resolution fragmentation mass spectra》论文阅读</a><time datetime="2025-01-14T09:20:30.000Z" title="发表于 2025-01-14 17:20:30">2025-01-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2025 By wanzi</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">很高心认识你！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(()=>{
+  const loadLivere = () => {
+    if (typeof LivereTower === 'object') window.LivereTower.init()
+    else {
+      (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+          if (typeof LivereTower === 'function') { return; }
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+          e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    }
+  }
+
+  if ('Livere' === 'Livere' || !false) {
+    if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+    else loadLivere()
+  } else {
+    window.loadOtherComment = loadLivere
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
