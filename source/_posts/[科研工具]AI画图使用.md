@@ -81,3 +81,6 @@ description: "Adobe Illustrator绘制科研图片"
    - **临时切换快速复制**：按住 **Ctrl/Cmd + Alt/Option** 键，同时鼠标左键并拖动；
    - **快速切换选择工具**：按 **V** 键；
    - **撤回上一步操作**：按 **Ctrl/Cmd + Z** 键。
+
+
+临摹工具 可以把图片变成矢量图路径
