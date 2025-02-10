@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://example.com/2025/02/10/%5B%25E7%2594%259F%25E4%25BF%25A1%25E5%25B7%25A5%25E5%2585%25B7%5Djbrowse%25E4%25BD%25BF%25E7%2594%25A8/</loc>
+    
+    <lastmod>2025-02-10T15:44:59.360Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2025/01/05/%5B%25E7%25A7%2591%25E7%25A0%2594%25E5%25B7%25A5%25E5%2585%25B7%5DAI%25E7%2594%25BB%25E5%259B%25BE%25E4%25BD%25BF%25E7%2594%25A8/</loc>
+    
+    <lastmod>2025-02-10T15:35:58.710Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://example.com/2025/01/16/%5B%25E8%25AE%25BA%25E6%2596%2587%25E9%2598%2585%25E8%25AF%25BB%5DSystematic%2520identification%2520of%2520wheat%2520spike%2520developmental%2520regulators%2520by%2520integrated%2520multi-omics,%2520transcriptional%2520network,%2520GWAS,%2520and%2520genetic%2520analyses/</loc>
     
     <lastmod>2025-02-09T14:37:02.510Z</lastmod>
@@ -124,13 +138,6 @@
     <loc>http://example.com/2024/12/16/%5B%25E7%2594%259F%25E4%25BF%25A1%25E5%25AF%25BC%5Dclass8_%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593%25E5%2592%258C%25E4%25BD%259C%25E4%25B8%259A%25E6%25A0%2587%25E5%2587%2586/</loc>
     
     <lastmod>2025-01-07T11:40:58.050Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://example.com/2025/01/05/%5B%25E7%25A7%2591%25E7%25A0%2594%25E5%25B7%25A5%25E5%2585%25B7%5DAI%25E7%2594%25BB%25E5%259B%25BE%25E4%25BD%25BF%25E7%2594%25A8/</loc>
-    
-    <lastmod>2025-01-07T11:33:49.690Z</lastmod>
     
   </url>
   
