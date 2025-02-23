@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://example.com/2025/02/23/%5BDebug%5D%25E8%25BD%25AC%25E5%25BD%2595%25E7%25BB%2584%25E5%2588%2586%25E6%259E%2590Debug/</loc>
+    
+    <lastmod>2025-02-23T12:33:47.130Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2025/02/23/%5BDebug%5Dweb%25E5%25BC%2580%25E5%258F%2591%25E4%25B8%25ADbug%25E8%25AE%25B0%25E5%25BD%2595/</loc>
+    
+    <lastmod>2025-02-23T10:02:43.320Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://example.com/2025/02/10/%5B%25E7%2594%259F%25E4%25BF%25A1%25E5%25B7%25A5%25E5%2585%25B7%5Djbrowse%25E4%25BD%25BF%25E7%2594%25A8/</loc>
     
     <lastmod>2025-02-10T15:44:59.360Z</lastmod>
