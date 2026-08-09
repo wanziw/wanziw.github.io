@@ -45,6 +45,8 @@ https://zhuanlan.zhihu.com/p/664086283
 
 jbrowse sort-gff GCF_001879085.1_NIATTr2_genomic.gff | bgzip > GCF_001879085.1_NIATTr2_genomic.sorted.gff.gz
 tabix GCF_001879085.1_NIATTr2_genomic.sorted.gff.gz
+
 jbrowse add-track GCF_001879085.1_NIATTr2_genomic.sorted.gff.gz --load copy
 
 这里不要copy，这里要inplace
+
