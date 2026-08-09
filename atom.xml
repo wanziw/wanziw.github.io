@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2026-08-09T09:22:16.050Z</updated>
+  <updated>2026-08-09T09:26:12.900Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://example.com/2026/08/09/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]Smartcrop%E8%AE%BA%E6%96%87%E5%8F%91%E8%A1%A8/"/>
     <id>http://example.com/2026/08/09/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]Smartcrop%E8%AE%BA%E6%96%87%E5%8F%91%E8%A1%A8/</id>
     <published>2026-08-09T05:04:56.000Z</published>
-    <updated>2026-08-09T09:22:16.050Z</updated>
+    <updated>2026-08-09T09:26:12.900Z</updated>
     
-    <content type="html"><![CDATA[<p>[toc]</p><p>文章链接：<a href="https://www.mdpi.com/1422-0067/27/15/7005">Machine Learning-Guided Stress Atlases Reveal Co-Expression Rewiring and Divergent Cellular Deployment of Abiotic Stress Programs in Rice and Wheat</a><br>测试一下博客网页还能否运行，继续好好加油！</p>]]></content>
+    <content type="html"><![CDATA[<p>文章链接：<a href="https://www.mdpi.com/1422-0067/27/15/7005">MachineLearning-Guided Stress Atlases Reveal Co-Expression Rewiring andDivergent Cellular Deployment of Abiotic Stress Programs in Rice andWheat</a> 测试一下博客网页还能否运行，继续好好加油！</p>]]></content>
     
     
     <summary type="html">第一篇文章！</summary>
