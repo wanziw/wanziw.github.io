@@ -10303,7 +10303,7 @@ Wheat</a> 测试一下博客网页还能否运行，继续好好加油！</p>
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>《GeneCompass》论文精读</title>
     <url>/2026/08/09/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DGenecompass%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</url>
     <content><![CDATA[<h1
 id="genecompass-deciphering-universal-gene-regulatory-mechanisms-with-a-knowledge-informed-cross-species-foundation-model">GeneCompass:
@@ -10393,48 +10393,100 @@ gene</strong> 的 embedding 是否还能被区分？</p>
 <li>作者发现不同 gene 并不是全部塌缩成一样的
 embedding，因此认为模型仍然具有 gene distinguishability。</li>
 </ol></li>
-<li><p>``` 左：</p>
-<p>该相似的 homolog 确实比较相似</p>
-<pre><code>    +</code></pre>
-<p>右：</p>
-<p>不该全部相同的不同genes 也没有全部塌缩</p>
-<pre><code>    ↓</code></pre>
-<p>embedding既有跨物种同源性 又保留gene之间的区分性 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">4. fig2B</span><br><span class="line"></span><br><span class="line">   1. 模拟删除gene，是模型训练完成之后，参数不动，把这个gene从输入中移除</span><br><span class="line">   2. 重新跑模型得到每个gene的embedding</span><br><span class="line">   3. 然后比较cosine</span><br><span class="line">      1. GeneCompass 的 gene embedding 是 contextual 的，所以删除 GATA4 会改变其他 gene 所处的“上下文”</span><br><span class="line">      2. 如果某些 gene 的 embedding 因此特别明显地变化，而且这些 gene 恰好就是实验已知的 GATA4 direct targets，那么说明模型内部确实编码了与真实调控关系一致的信息。</span><br><span class="line"></span><br><span class="line">- 同一个gene在不同cell里面的数据是一个样本点，所以用的箱线图</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- Fig3</span><br><span class="line"></span><br><span class="line">预训练的时候它做的是：</span><br><span class="line"></span><br></pre></td></tr></table></figure> MASK
-gene ↓ 猜Gene ID</p></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">左：</span><br><span class="line"></span><br><span class="line">该相似的 homolog</span><br><span class="line">确实比较相似</span><br><span class="line"></span><br><span class="line">        +</span><br><span class="line"></span><br><span class="line">右：</span><br><span class="line"></span><br><span class="line">不该全部相同的不同genes</span><br><span class="line">也没有全部塌缩</span><br><span class="line"></span><br><span class="line">        ↓</span><br><span class="line"></span><br><span class="line">embedding既有跨物种同源性</span><br><span class="line">又保留gene之间的区分性</span><br></pre></td></tr></table></figure>
+<ol start="4" type="1">
+<li><p>fig2B</p>
+<ol type="1">
+<li>模拟删除gene，是模型训练完成之后，参数不动，把这个gene从输入中移除</li>
+<li>重新跑模型得到每个gene的embedding</li>
+<li>然后比较cosine
+<ol type="1">
+<li>GeneCompass 的 gene embedding 是 contextual 的，所以删除 GATA4
+会改变其他 gene 所处的“上下文”</li>
+<li>如果某些 gene 的 embedding 因此特别明显地变化，而且这些 gene
+恰好就是实验已知的 GATA4 direct
+targets，那么说明模型内部确实编码了与真实调控关系一致的信息。</li>
+</ol></li>
+</ol></li>
 </ol>
 <ul>
-<li>猜Expression <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">它并没有主要通过：</span><br><span class="line"></span><br></pre></td></tr></table></figure> 这个cell = B cell <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">这种人工标签训练。</span><br><span class="line"></span><br><span class="line">所以预训练结束后，GeneCompass 更像一个：</span><br><span class="line"></span><br><span class="line">&gt; **已经学了很多细胞和基因规律，但还没专门学“细胞分类”这门课的学生。**</span><br><span class="line"></span><br><span class="line">然后 Fig. 3 做 **fine-tuning**。</span><br><span class="line"></span><br><span class="line">使用真实的细胞类型标签，在cell embedding后添加一个全连接层，用交叉熵作为损失函数预测细胞类型</span><br><span class="line"></span><br></pre></td></tr></table></figure> 预训练
-大量无标签cell ↓ 学“细胞世界的基础规律” ↓ GeneCompass</li>
+<li><p>同一个gene在不同cell里面的数据是一个样本点，所以用的箱线图</p></li>
+<li><p>Fig3</p></li>
 </ul>
-<p>Fine-tuning 少量有cell-type标签的数据 ↓ 专门学习细胞分类
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 想做好一个human下游任务，并不一定只喂human数据最好。加入mouse数据，反而可以帮助。</span><br><span class="line">&gt;</span><br><span class="line">&gt; 跨物种预训练，可以反过来提升单物种任务。</span><br><span class="line"></span><br><span class="line">后面就是在证明模型可以在不同的组织里面区分细胞类型。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 离谱的fig3d</span><br><span class="line">  - Mouse 作为 reference species，Human 作为 target species。使用CAME模型，把 CAME 原本的 gene representation 换成 GeneCompass 学到的 gene embedding，会不会更好？</span><br><span class="line">  - came本身需要给每个gene一个初始representation。</span><br><span class="line">  - 作者想研究用预训练 GeneCompass 的 gene embeddings 初始化这些 gene nodes会不会更好，相当于给跨物种图神经网络一个更好的初始 gene representation。</span><br><span class="line"></span><br><span class="line">- Fig4 </span><br><span class="line"></span><br></pre></td></tr></table></figure> GeneCompass gene embedding │
-┌────────────────┼────────────────┐ ↓ ↓ ↓ GRN推断 药物剂量响应
-表达谱预测 │ ↓ 剂量敏感性预测 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">![pasted_1786279377845_xmzktb.png](https://pic1.imgdb.cn/i/03449umMtnpebpcBzRH0io.png)</span><br><span class="line"></span><br><span class="line">- 做下游任务GRN</span><br><span class="line"></span><br><span class="line">  - GRN实际上就是计算gene之间的余弦相似度提供先验</span><br><span class="line">  - 然后 DeepSEM 本身再根据 scRNA-seq 表达数据学习最终 GRN</span><br><span class="line"></span><br><span class="line">  - GRN inference 是一个严重类别不平衡任务，所以使用 AUPRC</span><br><span class="line">  - ground truth based on ChIP-Seq，并与 PECA GRN prior knowledge 做了 de-duplication。作为验证的关系里面剔除了预训练的GRN关系</span><br><span class="line"></span><br><span class="line">- 下游任务Drug dose response prediction</span><br><span class="line"></span><br><span class="line">  - 药物剂量与基因表达反应之间的关系。</span><br><span class="line">  - 用CPA这个模型做</span><br><span class="line"></span><br><span class="line">- 下游任务Gene expression profiling</span><br><span class="line"></span><br><span class="line">- Fig4都是结合其他模型做的，**同一套 GeneCompass 预训练 gene embeddings 能被四种完全不同的生物学任务利用，而且随着预训练数据增加，大多数任务的表现总体改善。**这个就是foundation model。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- Fig6</span><br><span class="line"></span><br><span class="line">![pasted_1786281079101_iusz0s.png](https://pic1.imgdb.cn/i/0344Abrz3JHCDCfkfvyMMf.png)</span><br><span class="line"></span><br><span class="line">这里和我们前面讲的 Fig. 2 非常不一样。Fig. 2 主要是**删掉一个 gene，看其他 gene embedding 怎么变**；Fig. 6 则是**定量改变 gene 的 expression，看整个 cell embedding 怎么移动**。</span><br><span class="line"></span><br><span class="line"> GeneCompass 同时看到：</span><br><span class="line"></span><br></pre></td></tr></table></figure> Expression变化 + Ranking变化
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">所以一次过表达会同时改变这两个输入信息。</span><br><span class="line"></span><br><span class="line">完整的一个流程：</span><br><span class="line"></span><br></pre></td></tr></table></figure> ① GeneCompass预训练时 同时学习Gene ID + expression +
-ranking</p>
-<pre><code>            ↓</code></pre>
-<p>② 人工修改某gene expression 比如： 过表达 / 降低一半 / 降到1/4 /
-降到0</p>
-<pre><code>            ↓</code></pre>
-<p>③ 所有gene按照新的expression重新排名</p>
-<pre><code>            ↓</code></pre>
-<p>④ 把修改后的同一个cell 再次送入GeneCompass</p>
-<pre><code>            ↓</code></pre>
-<p>⑤ 得到新的cell embedding</p>
-<pre><code>            ↓</code></pre>
-<p>⑥ 比较：</p>
-<p>原始cell embedding 扰动后cell embedding 目标cell embedding</p>
-<pre><code>            ↓</code></pre>
-<p>⑦ 如果扰动后： 离原始状态更远 离目标状态更近</p>
-<p>说明这个gene可能推动目标cell fate</p>
-<pre><code>            ↓</code></pre>
-<p>⑧ 对ESC中的大量gene逐个模拟过表达</p>
-<pre><code>            ↓</code></pre>
-<p>⑨ 找出： NR2F1 NR5A1 WT1 TCF21 GATA4</p>
-<pre><code>            ↓</code></pre>
-<p>⑩ 真实湿实验验证NR5A1和GATA4</p>
-<pre><code>            ↓</code></pre>
-<p>性腺相关marker上升 转录组改变 GO富集到gonadal processes ```</p>
+<p>预训练的时候它做的是：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MASK gene</span><br><span class="line">↓</span><br><span class="line">猜Gene ID</span><br><span class="line">+</span><br><span class="line">猜Expression</span><br></pre></td></tr></table></figure>
+<p>它并没有主要通过：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">这个cell = B cell</span><br></pre></td></tr></table></figure>
+<p>这种人工标签训练。</p>
+<p>所以预训练结束后，GeneCompass 更像一个：</p>
+<blockquote>
+<p><strong>已经学了很多细胞和基因规律，但还没专门学“细胞分类”这门课的学生。</strong></p>
+</blockquote>
+<p>然后 Fig. 3 做 <strong>fine-tuning</strong>。</p>
+<p>使用真实的细胞类型标签，在cell
+embedding后添加一个全连接层，用交叉熵作为损失函数预测细胞类型</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">预训练</span><br><span class="line">大量无标签cell</span><br><span class="line">↓</span><br><span class="line">学“细胞世界的基础规律”</span><br><span class="line">↓</span><br><span class="line">GeneCompass</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Fine-tuning</span><br><span class="line">少量有cell-type标签的数据</span><br><span class="line">↓</span><br><span class="line">专门学习细胞分类</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>想做好一个human下游任务，并不一定只喂human数据最好。加入mouse数据，反而可以帮助。</p>
+<p>跨物种预训练，可以反过来提升单物种任务。</p>
+</blockquote>
+<p>后面就是在证明模型可以在不同的组织里面区分细胞类型。</p>
+<ul>
+<li>离谱的fig3d
+<ul>
+<li>Mouse 作为 reference species，Human 作为 target
+species。使用CAME模型，把 CAME 原本的 gene representation 换成
+GeneCompass 学到的 gene embedding，会不会更好？</li>
+<li>came本身需要给每个gene一个初始representation。</li>
+<li>作者想研究用预训练 GeneCompass 的 gene embeddings 初始化这些 gene
+nodes会不会更好，相当于给跨物种图神经网络一个更好的初始 gene
+representation。</li>
+</ul></li>
+<li>Fig4</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">            GeneCompass gene embedding</span><br><span class="line">                    │</span><br><span class="line">   ┌────────────────┼────────────────┐</span><br><span class="line">   ↓                ↓                ↓</span><br><span class="line">GRN推断         药物剂量响应      表达谱预测</span><br><span class="line">                                    │</span><br><span class="line">                                    ↓</span><br><span class="line">                              剂量敏感性预测</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://pic1.imgdb.cn/i/03449umMtnpebpcBzRH0io.png"
+alt="pasted_1786279377845_xmzktb.png" />
+<figcaption
+aria-hidden="true">pasted_1786279377845_xmzktb.png</figcaption>
+</figure>
+<ul>
+<li><p>做下游任务GRN</p>
+<ul>
+<li><p>GRN实际上就是计算gene之间的余弦相似度提供先验</p></li>
+<li><p>然后 DeepSEM 本身再根据 scRNA-seq 表达数据学习最终 GRN</p></li>
+<li><p>GRN inference 是一个严重类别不平衡任务，所以使用 AUPRC</p></li>
+<li><p>ground truth based on ChIP-Seq，并与 PECA GRN prior knowledge
+做了 de-duplication。作为验证的关系里面剔除了预训练的GRN关系</p></li>
+</ul></li>
+<li><p>下游任务Drug dose response prediction</p>
+<ul>
+<li>药物剂量与基因表达反应之间的关系。</li>
+<li>用CPA这个模型做</li>
+</ul></li>
+<li><p>下游任务Gene expression profiling</p></li>
+<li><p>Fig4都是结合其他模型做的，<strong>同一套 GeneCompass 预训练 gene
+embeddings
+能被四种完全不同的生物学任务利用，而且随着预训练数据增加，大多数任务的表现总体改善。</strong>这个就是foundation
+model。</p></li>
+<li><p>Fig6</p></li>
+</ul>
+<figure>
+<img src="https://pic1.imgdb.cn/i/0344Abrz3JHCDCfkfvyMMf.png"
+alt="pasted_1786281079101_iusz0s.png" />
+<figcaption
+aria-hidden="true">pasted_1786281079101_iusz0s.png</figcaption>
+</figure>
+<p>这里和我们前面讲的 Fig. 2 非常不一样。Fig. 2 主要是<strong>删掉一个
+gene，看其他 gene embedding 怎么变</strong>；Fig. 6 则是<strong>定量改变
+gene 的 expression，看整个 cell embedding 怎么移动</strong>。</p>
+<p>GeneCompass 同时看到：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Expression变化</span><br><span class="line">+</span><br><span class="line">Ranking变化</span><br></pre></td></tr></table></figure>
+<p>所以一次过表达会同时改变这两个输入信息。</p>
+<p>完整的一个流程：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">① GeneCompass预训练时</span><br><span class="line">同时学习Gene ID + expression + ranking</span><br><span class="line"></span><br><span class="line">                ↓</span><br><span class="line"></span><br><span class="line">② 人工修改某gene expression</span><br><span class="line">比如：</span><br><span class="line">过表达 / 降低一半 / 降到1/4 / 降到0</span><br><span class="line"></span><br><span class="line">                ↓</span><br><span class="line"></span><br><span class="line">③ 所有gene按照新的expression重新排名</span><br><span class="line"></span><br><span class="line">                ↓</span><br><span class="line"></span><br><span class="line">④ 把修改后的同一个cell</span><br><span class="line">再次送入GeneCompass</span><br><span class="line"></span><br><span class="line">                ↓</span><br><span class="line"></span><br><span class="line">⑤ 得到新的cell embedding</span><br><span class="line"></span><br><span class="line">                ↓</span><br><span class="line"></span><br><span class="line">⑥ 比较：</span><br><span class="line"></span><br><span class="line">原始cell embedding</span><br><span class="line">扰动后cell embedding</span><br><span class="line">目标cell embedding</span><br><span class="line"></span><br><span class="line">                ↓</span><br><span class="line"></span><br><span class="line">⑦ 如果扰动后：</span><br><span class="line">离原始状态更远</span><br><span class="line">离目标状态更近</span><br><span class="line"></span><br><span class="line">说明这个gene可能推动目标cell fate</span><br><span class="line"></span><br><span class="line">                ↓</span><br><span class="line"></span><br><span class="line">⑧ 对ESC中的大量gene逐个模拟过表达</span><br><span class="line"></span><br><span class="line">                ↓</span><br><span class="line"></span><br><span class="line">⑨ 找出：</span><br><span class="line">NR2F1</span><br><span class="line">NR5A1</span><br><span class="line">WT1</span><br><span class="line">TCF21</span><br><span class="line">GATA4</span><br><span class="line"></span><br><span class="line">                ↓</span><br><span class="line"></span><br><span class="line">⑩ 真实湿实验验证NR5A1和GATA4</span><br><span class="line"></span><br><span class="line">                ↓</span><br><span class="line"></span><br><span class="line">性腺相关marker上升</span><br><span class="line">转录组改变</span><br><span class="line">GO富集到gonadal processes</span><br></pre></td></tr></table></figure>
 <ul>
 <li>总结</li>
 </ul>
