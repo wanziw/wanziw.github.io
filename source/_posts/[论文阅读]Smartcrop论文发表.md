@@ -1,5 +1,5 @@
 ---
-title: sepsis论文阅读
+title: 小麦水稻转录组研究
 date: 2026-08-09 13:04:56
 categories: 论文阅读
 cover: /img/cover21.jpg
