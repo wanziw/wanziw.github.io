@@ -1,6 +1,6 @@
 ---
 title:《GeneCompass: deciphering universal gene regulatory mechanisms with a knowledge-informed cross-species foundation model》论文精读
-date: 2026-8-9 21:26:37
+date: 2026-08-09 21:26:37
 categories: 论文阅读
 cover: /img/cover9.jpg
 tags: 
