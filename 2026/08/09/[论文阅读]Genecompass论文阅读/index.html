@@ -1,0 +1,412 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>丸子Blog | 丸子Blog</title><meta name="author" content="wanzi"><meta name="copyright" content="wanzi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="研究者将基因相关的先验知识融入模型，整合了 101.8M 跨物种（人类+小鼠）单细胞数据，成功训练了 GeneCompass，一个能够、全面地理解复杂的基因调控网络的单细胞基座模型。总体而言，GeneCompass 的设计与研究体现了多方借鉴与优化的成果：输入序列融合了 Geneformer 和 scGPT 的设计思路，并创新性地加入了先验知识作为补充信息；代码实现上，直接沿用了 Geneform">
+<meta property="og:type" content="article">
+<meta property="og:title" content="丸子Blog">
+<meta property="og:url" content="http://example.com/2026/08/09/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]Genecompass%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/index.html">
+<meta property="og:site_name" content="丸子Blog">
+<meta property="og:description" content="研究者将基因相关的先验知识融入模型，整合了 101.8M 跨物种（人类+小鼠）单细胞数据，成功训练了 GeneCompass，一个能够、全面地理解复杂的基因调控网络的单细胞基座模型。总体而言，GeneCompass 的设计与研究体现了多方借鉴与优化的成果：输入序列融合了 Geneformer 和 scGPT 的设计思路，并创新性地加入了先验知识作为补充信息；代码实现上，直接沿用了 Geneform">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/cover9.jpg">
+<meta property="article:published_time" content="2026-08-09T13:26:37.000Z">
+<meta property="article:modified_time" content="2026-08-09T13:30:03.250Z">
+<meta property="article:author" content="wanzi">
+<meta property="article:tag" content="单细胞基础模型">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/cover9.jpg"><link rel="shortcut icon" href="/./img/favicon1.png"><link rel="canonical" href="http://example.com/2026/08/09/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]Genecompass%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '丸子Blog',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-08-09 21:30:03'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="丸子Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover9.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="丸子Blog"><span class="site-name">丸子Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">无题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-08-09T13:26:37.000Z" title="发表于 2026-08-09 21:26:37">2026-08-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-08-09T13:30:03.250Z" title="更新于 2026-08-09 21:30:03">2026-08-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1
+id="genecompass-deciphering-universal-gene-regulatory-mechanisms-with-a-knowledge-informed-cross-species-foundation-model">GeneCompass:
+deciphering universal gene regulatory mechanisms with a
+knowledge-informed cross-species foundation model</h1>
+<blockquote>
+<p>别的博客解读,搭配食用更佳：</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/8553664471">(十一) GeneCompass
+| 知识驱动的跨物种单细胞基座模型</a></p>
+<p>关注模型训练和算法：<a
+target="_blank" rel="noopener" href="https://lishensuo.github.io/en/posts/basic/205-geneformer/">文献--单细胞组学大模型之Geneformer</a></p>
+<p>论文每一段的解读:<a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/14717627468">人工智能 | Cell Research
+| GeneCompass：用知识驱动的跨物种基础模型解析普遍的基因调控机制</a></p>
+</blockquote>
+<p>Genecompass 基于知识驱动的跨物种基础模型</p>
+<p>优势就在于整个不同物种的数据集</p>
+<ul>
+<li>GeneCompass</li>
+</ul>
+<blockquote>
+<p>预处理阶段保留了在各数据集中具有足够表达差异性或表达水平的基因，以捕捉生物异质性和细胞类型特异性特征。最终数据集包含
+36,092 个基因，其中 17,465 个为人类和小鼠的<a
+target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=250733522&amp;content_type=Article&amp;match_order=2&amp;q=同源基因&amp;zhida_source=entity">同源基因</a>，5,649
+个为人类特有基因，12,978 个为小鼠特有基因。</p>
+</blockquote>
+<ul>
+<li><p>输入层：</p>
+<ul>
+<li>取表达量最高的2048个gene</li>
+<li>每个gene token 包含
+<ul>
+<li>gene id</li>
+<li>绝对表达值</li>
+<li>表达量排序</li>
+<li>物种信息
+<ul>
+<li>额外token</li>
+</ul></li>
+<li>四类先验知识
+<ul>
+<li>GRN
+<ul>
+<li>GRN里面的gene坐标然后使用gene2vec</li>
+</ul></li>
+<li>启动子序列
+<ul>
+<li>一些bert模型转换来的embedding</li>
+</ul></li>
+<li>基因家族，同GRN</li>
+<li>共表达关系，同GRN</li>
+</ul></li>
+</ul></li>
+<li>12层Transformer</li>
+</ul></li>
+<li><p><img
+src="https://pic1.imgdb.cn/i/03447vEuGyV6qslo6a4fGM.png" /></p></li>
+<li><p>fig2</p></li>
+</ul>
+<p><img src="https://pic1.imgdb.cn/i/03448FYf2R9T2nd6QxFpqW.png" /></p>
+<ul>
+<li><p>fig2只要是训练完模型之后，判断内部学到的 gene embedding
+到底有没有生物学意义。</p></li>
+<li><p>2a判断的是物种间同源关系有没有学到</p></li>
+<li><p>后面几个图的是判断基因调控关系。</p></li>
+</ul>
+<p>选择了2000个人/小鼠的B cells</p>
+<p>现在每个gene通过模型之后会生成一个embedding，计算embedding之间的余弦相似度就可以比较gene间的关系</p>
+<ol type="1">
+<li><p>同源gene的相似度比非同源的高，说明模型学到了同源关系</p>
+<ol type="1">
+<li><p>为了防止被诟病，预训练的时候给了homology信息。于是做了几组补充比较</p></li>
+<li><blockquote>
+<ol type="1">
+<li><p>有pretraining + 有prior knowledge</p></li>
+<li><p>有pretraining + 没有prior knowledge</p></li>
+<li><p>没有pretraining + 有prior knowledge</p></li>
+<li><p>非同源基因作为baseline</p></li>
+</ol>
+</blockquote></li>
+<li><p>发现prior knowledge 有贡献， 但 self-supervised pretraining
+的贡献更大。主要还是模型学习到了这个关系</p></li>
+</ol></li>
+<li><p>fig2a右边的意思确认是同一个 species 里面，<strong>不同
+gene</strong> 的 embedding 是否还能被区分？</p>
+<ol type="1">
+<li>作者发现不同 gene 并不是全部塌缩成一样的
+embedding，因此认为模型仍然具有 gene distinguishability。</li>
+</ol></li>
+<li><p>``` 左：</p>
+<p>该相似的 homolog 确实比较相似</p>
+<pre><code>    +</code></pre>
+<p>右：</p>
+<p>不该全部相同的不同genes 也没有全部塌缩</p>
+<pre><code>    ↓</code></pre>
+<p>embedding既有跨物种同源性 又保留gene之间的区分性 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. fig2B</span><br><span class="line"></span><br><span class="line">   1. 模拟删除gene，是模型训练完成之后，参数不动，把这个gene从输入中移除</span><br><span class="line">   2. 重新跑模型得到每个gene的embedding</span><br><span class="line">   3. 然后比较cosine</span><br><span class="line">      1. GeneCompass 的 gene embedding 是 contextual 的，所以删除 GATA4 会改变其他 gene 所处的“上下文”</span><br><span class="line">      2. 如果某些 gene 的 embedding 因此特别明显地变化，而且这些 gene 恰好就是实验已知的 GATA4 direct targets，那么说明模型内部确实编码了与真实调控关系一致的信息。</span><br><span class="line"></span><br><span class="line">- 同一个gene在不同cell里面的数据是一个样本点，所以用的箱线图</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- Fig3</span><br><span class="line"></span><br><span class="line">预训练的时候它做的是：</span><br><span class="line"></span><br></pre></td></tr></table></figure> MASK
+gene ↓ 猜Gene ID</p></li>
+</ol>
+<ul>
+<li>猜Expression <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">它并没有主要通过：</span><br><span class="line"></span><br></pre></td></tr></table></figure> 这个cell = B cell <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这种人工标签训练。</span><br><span class="line"></span><br><span class="line">所以预训练结束后，GeneCompass 更像一个：</span><br><span class="line"></span><br><span class="line">&gt; **已经学了很多细胞和基因规律，但还没专门学“细胞分类”这门课的学生。**</span><br><span class="line"></span><br><span class="line">然后 Fig. 3 做 **fine-tuning**。</span><br><span class="line"></span><br><span class="line">使用真实的细胞类型标签，在cell embedding后添加一个全连接层，用交叉熵作为损失函数预测细胞类型</span><br><span class="line"></span><br></pre></td></tr></table></figure> 预训练
+大量无标签cell ↓ 学“细胞世界的基础规律” ↓ GeneCompass</li>
+</ul>
+<p>Fine-tuning 少量有cell-type标签的数据 ↓ 专门学习细胞分类
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 想做好一个human下游任务，并不一定只喂human数据最好。加入mouse数据，反而可以帮助。</span><br><span class="line">&gt;</span><br><span class="line">&gt; 跨物种预训练，可以反过来提升单物种任务。</span><br><span class="line"></span><br><span class="line">后面就是在证明模型可以在不同的组织里面区分细胞类型。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 离谱的fig3d</span><br><span class="line">  - Mouse 作为 reference species，Human 作为 target species。使用CAME模型，把 CAME 原本的 gene representation 换成 GeneCompass 学到的 gene embedding，会不会更好？</span><br><span class="line">  - came本身需要给每个gene一个初始representation。</span><br><span class="line">  - 作者想研究用预训练 GeneCompass 的 gene embeddings 初始化这些 gene nodes会不会更好，相当于给跨物种图神经网络一个更好的初始 gene representation。</span><br><span class="line"></span><br><span class="line">- Fig4 </span><br><span class="line"></span><br></pre></td></tr></table></figure> GeneCompass gene embedding │
+┌────────────────┼────────────────┐ ↓ ↓ ↓ GRN推断 药物剂量响应
+表达谱预测 │ ↓ 剂量敏感性预测 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![pasted_1786279377845_xmzktb.png](https://pic1.imgdb.cn/i/03449umMtnpebpcBzRH0io.png)</span><br><span class="line"></span><br><span class="line">- 做下游任务GRN</span><br><span class="line"></span><br><span class="line">  - GRN实际上就是计算gene之间的余弦相似度提供先验</span><br><span class="line">  - 然后 DeepSEM 本身再根据 scRNA-seq 表达数据学习最终 GRN</span><br><span class="line"></span><br><span class="line">  - GRN inference 是一个严重类别不平衡任务，所以使用 AUPRC</span><br><span class="line">  - ground truth based on ChIP-Seq，并与 PECA GRN prior knowledge 做了 de-duplication。作为验证的关系里面剔除了预训练的GRN关系</span><br><span class="line"></span><br><span class="line">- 下游任务Drug dose response prediction</span><br><span class="line"></span><br><span class="line">  - 药物剂量与基因表达反应之间的关系。</span><br><span class="line">  - 用CPA这个模型做</span><br><span class="line"></span><br><span class="line">- 下游任务Gene expression profiling</span><br><span class="line"></span><br><span class="line">- Fig4都是结合其他模型做的，**同一套 GeneCompass 预训练 gene embeddings 能被四种完全不同的生物学任务利用，而且随着预训练数据增加，大多数任务的表现总体改善。**这个就是foundation model。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- Fig6</span><br><span class="line"></span><br><span class="line">![pasted_1786281079101_iusz0s.png](https://pic1.imgdb.cn/i/0344Abrz3JHCDCfkfvyMMf.png)</span><br><span class="line"></span><br><span class="line">这里和我们前面讲的 Fig. 2 非常不一样。Fig. 2 主要是**删掉一个 gene，看其他 gene embedding 怎么变**；Fig. 6 则是**定量改变 gene 的 expression，看整个 cell embedding 怎么移动**。</span><br><span class="line"></span><br><span class="line"> GeneCompass 同时看到：</span><br><span class="line"></span><br></pre></td></tr></table></figure> Expression变化 + Ranking变化
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">所以一次过表达会同时改变这两个输入信息。</span><br><span class="line"></span><br><span class="line">完整的一个流程：</span><br><span class="line"></span><br></pre></td></tr></table></figure> ① GeneCompass预训练时 同时学习Gene ID + expression +
+ranking</p>
+<pre><code>            ↓</code></pre>
+<p>② 人工修改某gene expression 比如： 过表达 / 降低一半 / 降到1/4 /
+降到0</p>
+<pre><code>            ↓</code></pre>
+<p>③ 所有gene按照新的expression重新排名</p>
+<pre><code>            ↓</code></pre>
+<p>④ 把修改后的同一个cell 再次送入GeneCompass</p>
+<pre><code>            ↓</code></pre>
+<p>⑤ 得到新的cell embedding</p>
+<pre><code>            ↓</code></pre>
+<p>⑥ 比较：</p>
+<p>原始cell embedding 扰动后cell embedding 目标cell embedding</p>
+<pre><code>            ↓</code></pre>
+<p>⑦ 如果扰动后： 离原始状态更远 离目标状态更近</p>
+<p>说明这个gene可能推动目标cell fate</p>
+<pre><code>            ↓</code></pre>
+<p>⑧ 对ESC中的大量gene逐个模拟过表达</p>
+<pre><code>            ↓</code></pre>
+<p>⑨ 找出： NR2F1 NR5A1 WT1 TCF21 GATA4</p>
+<pre><code>            ↓</code></pre>
+<p>⑩ 真实湿实验验证NR5A1和GATA4</p>
+<pre><code>            ↓</code></pre>
+<p>性腺相关marker上升 转录组改变 GO富集到gonadal processes ```</p>
+<ul>
+<li>总结</li>
+</ul>
+<p>研究者将基因相关的先验知识融入模型，整合了 101.8M
+跨物种（人类+小鼠）单细胞数据，成功训练了
+GeneCompass，一个能够、全面地理解复杂的基因调控网络的单细胞基座模型。总体而言，GeneCompass
+的设计与研究体现了多方借鉴与优化的成果：输入序列融合了 Geneformer 和
+scGPT
+的设计思路，并创新性地加入了先验知识作为补充信息；代码实现上，直接沿用了
+Geneformer
+的框架并进行了改进；在下游应用上，几乎覆盖了目前单细胞基座模型的主要设计思录、数据集、和评估方法。这是一种兼具高效性与创新性的研究方法。</p>
+<p><strong>此外，在跨物种创新设计上，仍有更广阔的探索空间</strong>。通过混合人类和小鼠单细胞数据并注入同源基因信息的预训练模型，GeneCompass
+在解决<a
+target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=250733522&amp;content_type=Article&amp;match_order=1&amp;q=药物研发&amp;zhida_source=entity">药物研发</a>中的关键问题方面展现出巨大潜力。例如，药物研发初期通常以实验动物为模型进行筛选，但这种研发方法在人类中的<a
+target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=250733522&amp;content_type=Article&amp;match_order=1&amp;q=转化率&amp;zhida_source=entity">转化率</a>极低。如果能够合理设计下游任务，让
+GeneCompass
+预测基因变化在小鼠和人类细胞间的一致性，将为提高药物研发的临床转化效率提供重要助力，对未来的<a
+target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=250733522&amp;content_type=Article&amp;match_order=1&amp;q=精准医学&amp;zhida_source=entity">精准医学</a>与药物开发具有深远意义。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">wanzi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2026/08/09/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]Genecompass%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">http://example.com/2026/08/09/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]Genecompass%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">丸子Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%8D%95%E7%BB%86%E8%83%9E%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B/">单细胞基础模型</a></div><div class="post_share"><div class="social-share" data-image="/img/cover9.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2026/08/09/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DSmartcrop%E8%AE%BA%E6%96%87%E5%8F%91%E8%A1%A8/" title="小麦水稻转录组研究"><img class="cover" src="/img/cover21.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">小麦水稻转录组研究</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC82MDAwNC8zNjQ2Nw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">wanzi</div><div class="author-info__description">一个人类</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/wanziw"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wanziw" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1530502197@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://blog.csdn.net/weixin_57345774" target="_blank" title="博客"><i class="fas fa-blog"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">许多东西,我曾经放下,但奇迹般地重新捡了起来</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#genecompass-deciphering-universal-gene-regulatory-mechanisms-with-a-knowledge-informed-cross-species-foundation-model"><span class="toc-text">GeneCompass:
+deciphering universal gene regulatory mechanisms with a
+knowledge-informed cross-species foundation model</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/08/09/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DGenecompass%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" title="无题"><img src="/img/cover9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2026/08/09/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DGenecompass%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" title="无题">无题</a><time datetime="2026-08-09T13:26:37.000Z" title="发表于 2026-08-09 21:26:37">2026-08-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/08/09/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DSmartcrop%E8%AE%BA%E6%96%87%E5%8F%91%E8%A1%A8/" title="小麦水稻转录组研究"><img src="/img/cover21.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小麦水稻转录组研究"/></a><div class="content"><a class="title" href="/2026/08/09/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DSmartcrop%E8%AE%BA%E6%96%87%E5%8F%91%E8%A1%A8/" title="小麦水稻转录组研究">小麦水稻转录组研究</a><time datetime="2026-08-09T05:04:56.000Z" title="发表于 2026-08-09 13:04:56">2026-08-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/23/%5BDebug%5D%E8%BD%AC%E5%BD%95%E7%BB%84%E5%88%86%E6%9E%90Debug/" title="转录组分析"><img src="/img/cover31.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="转录组分析"/></a><div class="content"><a class="title" href="/2025/02/23/%5BDebug%5D%E8%BD%AC%E5%BD%95%E7%BB%84%E5%88%86%E6%9E%90Debug/" title="转录组分析">转录组分析</a><time datetime="2025-02-23T11:53:31.000Z" title="发表于 2025-02-23 19:53:31">2025-02-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/23/%5BDebug%5Dweb%E5%BC%80%E5%8F%91%E4%B8%ADbug%E8%AE%B0%E5%BD%95/" title="【Debug】web开发过程中bug记录"><img src="/img/cover30.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【Debug】web开发过程中bug记录"/></a><div class="content"><a class="title" href="/2025/02/23/%5BDebug%5Dweb%E5%BC%80%E5%8F%91%E4%B8%ADbug%E8%AE%B0%E5%BD%95/" title="【Debug】web开发过程中bug记录">【Debug】web开发过程中bug记录</a><time datetime="2025-02-23T09:56:54.000Z" title="发表于 2025-02-23 17:56:54">2025-02-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/10/%5B%E7%94%9F%E4%BF%A1%E5%B7%A5%E5%85%B7%5Djbrowse%E4%BD%BF%E7%94%A8/" title="jbrowse使用"><img src="/img/cover1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="jbrowse使用"/></a><div class="content"><a class="title" href="/2025/02/10/%5B%E7%94%9F%E4%BF%A1%E5%B7%A5%E5%85%B7%5Djbrowse%E4%BD%BF%E7%94%A8/" title="jbrowse使用">jbrowse使用</a><time datetime="2025-02-10T15:34:49.000Z" title="发表于 2025-02-10 23:34:49">2025-02-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2026 By wanzi</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">很高心认识你！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(()=>{
+  const loadLivere = () => {
+    if (typeof LivereTower === 'object') window.LivereTower.init()
+    else {
+      (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+          if (typeof LivereTower === 'function') { return; }
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+          e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    }
+  }
+
+  if ('Livere' === 'Livere' || !false) {
+    if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+    else loadLivere()
+  } else {
+    window.loadOtherComment = loadLivere
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
