@@ -1,11 +1,11 @@
 ---
-title:《GeneCompass: deciphering universal gene regulatory mechanisms with a knowledge-informed cross-species foundation model》论文精读
+title: 《GeneCompass》论文精读
 date: 2026-08-09 21:26:37
 categories: 论文阅读
 cover: /img/cover9.jpg
 tags: 
   - 单细胞基础模型
-description: "研究者将基因相关的先验知识融入模型，整合了 101.8M 跨物种（人类+小鼠）单细胞数据，成功训练了 GeneCompass，一个能够、全面地理解复杂的基因调控网络的单细胞基座模型。总体而言，GeneCompass 的设计与研究体现了多方借鉴与优化的成果：输入序列融合了 Geneformer 和 scGPT 的设计思路，并创新性地加入了先验知识作为补充信息；代码实现上，直接沿用了 Geneformer 的框架并进行了改进；在下游应用上，几乎覆盖了目前单细胞基座模型的主要设计思录、数据集、和评估方法。这是一种兼具高效性与创新性的研究方法。"
+description: "研究者将基因相关的先验知识融入模型，成功训练了 GeneCompass，一个能够、全面地理解复杂的基因调控网络的单细胞基座模型。"
 ---
 
 
@@ -88,7 +88,9 @@ Genecompass 基于知识驱动的跨物种基础模型
 
    1. 作者发现不同 gene 并不是全部塌缩成一样的 embedding，因此认为模型仍然具有 gene distinguishability。
 
-3. ```
+---
+
+```
    左：
    
    该相似的 homolog
@@ -105,7 +107,9 @@ Genecompass 基于知识驱动的跨物种基础模型
    
    embedding既有跨物种同源性
    又保留gene之间的区分性
-   ```
+```
+
+---
 
 4. fig2B
 
@@ -125,6 +129,7 @@ Genecompass 基于知识驱动的跨物种基础模型
 
 预训练的时候它做的是：
 
+---
 ```
 MASK gene
 ↓
@@ -132,12 +137,16 @@ MASK gene
 +
 猜Expression
 ```
+---
+
 
 它并没有主要通过：
 
 ```
 这个cell = B cell
 ```
+
+---
 
 这种人工标签训练。
 
@@ -148,6 +157,8 @@ MASK gene
 然后 Fig. 3 做 **fine-tuning**。
 
 使用真实的细胞类型标签，在cell embedding后添加一个全连接层，用交叉熵作为损失函数预测细胞类型
+
+
 
 ```
 预训练
@@ -163,6 +174,9 @@ Fine-tuning
 ↓
 专门学习细胞分类
 ```
+---
+
+
 
 > 想做好一个human下游任务，并不一定只喂human数据最好。加入mouse数据，反而可以帮助。
 >
@@ -179,6 +193,8 @@ Fine-tuning
 
 - Fig4 
 
+
+
 ```
                     GeneCompass gene embedding
                             │
@@ -189,6 +205,8 @@ Fine-tuning
                                             ↓
                                       剂量敏感性预测
 ```
+---
+
 
 ![pasted_1786279377845_xmzktb.png](https://pic1.imgdb.cn/i/03449umMtnpebpcBzRH0io.png)
 
@@ -219,15 +237,20 @@ Fine-tuning
 
  GeneCompass 同时看到：
 
+
 ```
 Expression变化
 +
 Ranking变化
 ```
+---
+
+
 
 所以一次过表达会同时改变这两个输入信息。
 
 完整的一个流程：
+
 
 ```
 ① GeneCompass预训练时
@@ -291,6 +314,9 @@ GATA4
 转录组改变
 GO富集到gonadal processes
 ```
+---
+
+
 
 - 总结
 
