@@ -1,0 +1,509 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>[论文阅读]单细胞基础模型汇总 | 丸子Blog</title><meta name="author" content="wanzi"><meta name="copyright" content="wanzi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="scBERT、scGPT、Geneformer、Regformer等模型阅读，持续更新ing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[论文阅读]单细胞基础模型汇总">
+<meta property="og:url" content="http://example.com/2026/09/07/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]%E5%8D%95%E7%BB%86%E8%83%9E%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:site_name" content="丸子Blog">
+<meta property="og:description" content="scBERT、scGPT、Geneformer、Regformer等模型阅读，持续更新ing">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/cover25.jpg">
+<meta property="article:published_time" content="2026-09-07T11:44:10.000Z">
+<meta property="article:modified_time" content="2026-09-07T11:46:46.400Z">
+<meta property="article:author" content="wanzi">
+<meta property="article:tag" content="单细胞基础模型">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/cover25.jpg"><link rel="shortcut icon" href="/./img/favicon1.png"><link rel="canonical" href="http://example.com/2026/09/07/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]%E5%8D%95%E7%BB%86%E8%83%9E%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B%E6%B1%87%E6%80%BB/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '[论文阅读]单细胞基础模型汇总',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-09-07 19:46:46'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="丸子Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover25.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="丸子Blog"><span class="site-name">丸子Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">[论文阅读]单细胞基础模型汇总</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-09-07T11:44:10.000Z" title="发表于 2026-09-07 19:44:10">2026-09-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-07T11:46:46.400Z" title="更新于 2026-09-07 19:46:46">2026-09-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="[论文阅读]单细胞基础模型汇总"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="scbert">scBERT</h2>
+<p>将 scRNA-seq
+数据使用语言模型建模，一个首要问题就是，<strong>如何将这样的表格数据变成序列并合理地代入
+BERT 架构</strong>进行 Tokenization、输入数据
+Embedding、输出数据的处理和应用。scRNA-seq与 DNA/RNA
+序列、自然语言序列的区别带来了<strong>必须要解决的问题</strong>：</p>
+<ul>
+<li>单细胞基因表达数据是一个 细胞 x 基因
+的矩阵，如果我们把每个细胞的基因表达作为一个序列，表达值是与它所代表的基因相绑定的；而一个句子由
+单词/Token 构成，它的意义是与其所处的位置绑定的 (所以才会有 Postitional
+Embedding)。两者的不同决定了 Embedding 的设计要有所不同。</li>
+<li>基因表达值是连续变量，而 碱基序列/单词 是离散变量，Tokenization
+将一个个词汇变成序号/数字，基因表达值该如何处理？</li>
+<li>每个细胞都有上万的基因表达，这意味着序列长度远超之前 BERT 模型中 512
+的序列长度。而由此带来的，是模型训练、推理过程中内存消耗二次方级上升，该如何解决？</li>
+<li>scRNA-seq 由于测序技术所带来的，是很大比例的缺失值
+(dropouts)，和不同数据间的批次效应，这些数据独特的问题，训练中应该如何处理？</li>
+</ul>
+<p>因此，scBERT 在 BERT 的基础上，针对 scRNA-seq
+数据在模型设计上做了不少的改动，包括 Tokenization 方法、Embedding
+层改动、替换 Transformer 层为 Performer 层等</p>
+<ul>
+<li>Tokenization
+<ul>
+<li>采用了传统的术语频率分析方法，通过分箱 (binning)
+将连续的表达变量离散化</li>
+<li>scRNA-seq 数据经过 log1p
+转化，通过将浮点数转换成整数数据类型，实现了表达值离散化处理。经过处理的表达值，在研究中一共有
+7 个分箱值 (1 - 7)，加上 0 代表的缺失值，和 8 代表的 [MASK] 符号，scBERT
+一共有 9 个 Token/词汇</li>
+<li>当然7个分箱值可能会让任务变得简单，损失率很多的信息</li>
+<li>scBERT 将 scRNA-seq 转化为的基因表达序列，永远是固定的 16k
+基因。不同的数据来源有着不同的批次效应和缺失值，<strong>强行要求输入为固定的
+16k 基因毫无疑问会引入更多的噪声</strong>。当然，scBERT
+的出发点是每一个基因对于细胞活动和类型都是重要的，因此他们选择了涵盖尽可能多的基因。但单细胞数据的质量是否真的支持这样做，他们的预训练数据大小
+(1.13M 细胞)
+是否足够学习到噪声和真实信号的区别，研究还未能给出明确的答案。<strong>在后续
+scGPT、Geneformer 论文中还会有不同的基因表达序列转换方法</strong></li>
+</ul></li>
+<li>模型架构
+<ul>
+<li>batch：一次给模型多少个细胞</li>
+<li>seq：16906+1，基因的总数+末尾的0。同时输入的gene永远是一致的顺序</li>
+<li>V=9。scBERT 的词汇量 (7个分箱值 + 0 + [MASK])</li>
+<li>D_h =200。Hidden dimension，每个分箱值都会被转换为长度为D_h
+的向量表示</li>
+</ul></li>
+<li>input
+<ul>
+<li>输入包括Token Embedding (输入的词汇序号映射成为隐藏维度向量) 和
+Positional Embedding (给每个 token 向量添加可训练的位置信息)</li>
+<li>但是，<strong>位置对于基因表达量序列并没有什么意义，更有意义的是每个位置都是什么基因
+(例如基因名字)</strong>。如果能将这个信息告知模型，模型就可以在注意力机制中学习基因之间的相互作用关系。因此，scBERT
+将 Positional Embedding 替换成了 Gene
+Embedding，<strong>将基因名字转换为一个向量</strong>。</li>
+</ul></li>
+<li><strong>为什么单细胞基础模型。跟nlp、dna/rna序列大模型不一样</strong>
+<ul>
+<li>前者输入顺序固定，后者是随机的。</li>
+<li>本质上大模型不关心顺序，只关系token和token之间的关联性。在序列模型中，关心position，代表了上下单词间的语义联系，所以专门有一个position
+embedding。</li>
+<li>而单细胞模型里，我们不关心顺序，所以有一个Gene Embedding，来代表Gene
+identity就行。所以不依赖 NLP 那种“顺序语义”</li>
+<li>此外，两者的Token Embedding倒是一样，一个是word
+embedding，一个是expression embedding</li>
+</ul></li>
+<li>下游任务：细胞类型注释</li>
+</ul>
+<h2 id="geneformer">Geneformer</h2>
+<p>总的来说，Geneformer 用一种独特又巧妙的策略实现了将 scRNA-seq
+这样的【表格数据】变成自然语言一样的【序列数据】，并在此基础上实现了多个下游任务微调的设计，还提出了
+In Silico Perturbation 方法。</p>
+<ul>
+<li>之前的scBERT一直要输入1.6w的gene，单细胞数据里全是噪声</li>
+<li>于是Geneformer 设计了 <strong>Rank Value Encoding</strong> 方法</li>
+</ul>
+<p>既然单细胞数据稀疏性如此的高，Geneformer
+干脆就把这些不包含有效信息的基因都丢掉。随之而来的一个问题是，如果把每个细胞的基因表达作为一个序列，那这些序列所包含的基因就不一样了，而我们序列的输入值是表达量，并不包含基因名字/ID
+的信息，这些乱七八糟的表达值无法用来进行预训练，也没有办法设计训练任务。</p>
+<p>但在 Geneformer
+看来，我们何必一定要限制模型用基因表达量作为输入呢？在 Geneformer 的
+Rank Value Encoding
+中，<strong>基因的名字被用作组成每一个细胞的序列，而基因名字的排列，则按照一定方式预处理后的表达值由高到低进行排序</strong>。这样一来，表达值的意义就包含在了基因的排列之中。这样的序列，位置也是有意义的
+(表达量高低)，且长短不受限制，更加接近自然语言的建模方式。</p>
+<figure>
+<img src="https://pic1.imgdb.cn/i/0348BILsZlPJbaHSnLISBq.png"
+alt="pasted_1786889087920_k5cnyl.png" />
+<figcaption
+aria-hidden="true">pasted_1786889087920_k5cnyl.png</figcaption>
+</figure>
+<p>对于每个细胞，只输入2048，不足的用<PAD>，于是一个表格一样的基因表达矩阵，就被转换成了自然语言序列
+Tokenization 之后的一串长度不等的数字</p>
+<ul>
+<li>图里面
+<ul>
+<li>每个gene先是<strong>经过按细胞做 normalization</strong>
+<ul>
+<li>解决不同细胞测序深度不同的问题</li>
+</ul></li>
+<li>然后<strong>按 gene 做 normalization</strong>
+<ul>
+<li>对<strong>每一个 gene</strong>，在所有细胞里计算它的 non-zero
+median，作为这个 gene 自己的“基准水平”</li>
+</ul></li>
+<li>这样子可以优先考虑区分细胞状态的基因，弱化一些管家gene，强化一些特殊功能的gene</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>计算 27.4M 细胞数据的 non-zero median
+值在计算资源的消耗上并不是个简单的事情。因此，在数据格式上，作者选择了
+HDF5 的 .loom 文件进行存储和读取。在计算过程中，作者使用 loompy 扫描
+.loom <a
+target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=243836963&amp;content_type=Article&amp;match_order=1&amp;q=数据块&amp;zhida_source=entity">数据块</a>，以内存高效的方式汇总每个基因的<a
+target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=243836963&amp;content_type=Article&amp;match_order=1&amp;q=转录本&amp;zhida_source=entity">转录本</a>
+counts 分布，并在t-digest <a
+target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=243836963&amp;content_type=Article&amp;match_order=1&amp;q=数据结构&amp;zhida_source=entity">数据结构</a>中更新基因的标准化
+counts 分布 (该数据结构是为 online accumulation of rank-based statistics
+而开发的，如果有机会，会在代码解读文章中讲解)</p>
+</blockquote>
+<ul>
+<li>模型上input
+<ul>
+<li>采用了<strong>Token Embedding（不是表达量，只有Gene ID对应的向量） +
+Position Embedding</strong> 的设计</li>
+</ul></li>
+<li>output
+<ul>
+<li><strong>Cell-level Classifier，</strong>对应 BERT 的 Sentence-level
+Classifier。可以用来进行细胞/序列水平的分类任务，例如预测细胞类型。在
+BERT 中，每个序列的最前面加了 <CLS>
+，用来学习整个句子的向量表示。<strong>但是，Geneformer 并没有使用
+<CLS></strong>，而是直接用了第一个基因经过 Transformer
+层后的表示向量进行了上述一系列操作，作者表示这是有意而为之，他们认为第一个基因在
+Fine-Tune 过程中可以既承担基因的信息，又承担序列表示信息。(详情见: <a
+href="https://link.zhihu.com/?target=https%3A//huggingface.co/ctheodoris/Geneformer/discussions/227">https://huggingface.co/ctheodoris/Geneformer/discussions/227</a>)</li>
+<li><strong>Gene-level Classifier</strong>，对应 BERT 的 Token-level
+Classifier。给每个 gene token 输出一个分类分数。</li>
+</ul></li>
+<li>下游任务
+<ul>
+<li>提出了In Silico Analysis</li>
+</ul></li>
+</ul>
+<h2 id="scgpt">scGPT</h2>
+<h1 id="regformer">RegFormer</h1>
+<p>传统的模型geneformer、scfoundation、scBERT，都是把scRNA-seq当作序列在处理，但是<strong>scRNA-seq
+中的基因本身并不存在天然的线性顺序</strong>；与此同时，真实生物系统却存在明确的
+<strong>转录因子 → 靶基因</strong> 的调控层级。</p>
+<p>大部分的基础模型都是把GRN信息当作先验证知识融进模型里。</p>
+<p>最开始用TF-motif-TG，做initial GRN，每个TF取前20个TG</p>
+<p>对每个gene做Node2Vec，graph embeding。</p>
+<p>同时要求是有向无环图，去除了循环的边。</p>
+<p>topological sorting这个方法可以实现：上游 regulator 排在下游 target
+前面。</p>
+<ul>
+<li>Mamba
+<ul>
+<li>对 scan order 敏感
+<ul>
+<li>Mamba 原论文把它描述成沿 sequence length 做 selective
+propagation/forgetting，而且具有线性 sequence scaling</li>
+<li>而自注意力机制本身没有这个位置的观察，大语言模型需要加入position</li>
+<li>所以GRN排序非常适配Mamba，直接利用state来传递信息</li>
+</ul></li>
+<li>可以解决长序列的问题，相比transformer</li>
+</ul></li>
+</ul>
+<blockquote>
+<p><strong>Transformer：能学远距离关系，但是长到
+10k、20k、更多以后越来越贵。</strong></p>
+<p><strong>Mamba：也能学长距离关系，但更适合把上下文做得很长。</strong></p>
+<p>scGPT 最大 sequence length：1200</p>
+<p>Geneformer：2048</p>
+<p>而RegFormer可以做到10k</p>
+</blockquote>
+<figure>
+<img src="https://pic1.imgdb.cn/i/03470vhGtXa1vCpnL2rtrv.png"
+alt="pasted_1786712159669_n3agmk.png" />
+<figcaption
+aria-hidden="true">pasted_1786712159669_n3agmk.png</figcaption>
+</figure>
+<p>整个模型的原理简单来说就是，把原本的GRN，最初始的GRN，用motif做出来的，改变输入的genes序列的顺序，从而直接让模型初始就能理解到基因存在
+regulatory hierarchy，直接把这个 hierarchy 直接塞进模型。</p>
+<ul>
+<li>设计loss
+<ul>
+<li>权重MVP(0.1)、GEPC(0.5)、TOPO(1)</li>
+<li>一次 forward，得到三个 loss，然后把三个 loss
+加权起来，一起反向传播。</li>
+</ul></li>
+</ul>
+<h2 id="addconcat的区别">add/concat的区别</h2>
+<p>【特征融合方式】</p>
+<ol type="1">
+<li><strong><a
+target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=249272602&amp;content_type=Article&amp;match_order=1&amp;q=add融合&amp;zhida_source=entity">add融合</a></strong>：这种方式就像是调料包混合，当特征之间独立且互补时，add操作能够有效地整合信息，减少参数和计算量。但就像混合后的调料包无法再分开一样，add融合也会带来一定的信息损失。</li>
+<li><strong>concat融合</strong>：与add不同，concat更像是把各种食材摆满一桌。它保留了原始特征向量的所有信息，是一种无损的融合方式。但就像处理一桌丰富的食材需要更多时间和精力一样，concat融合也会增加参数和计算量。</li>
+<li>【选择融合方式的考量】
+<ul>
+<li><strong>任务需求</strong>：如果任务要求保留尽可能多的原始信息，或者输入特征之间具有较强的相关性，那么concat可能是更好的选择。</li>
+<li><strong>计算资源</strong>：如果计算资源有限，或者追求更高效的模型，那么add融合可能更适合，因为它能够减少参数和计算量。</li>
+</ul></li>
+</ol>
+<h2 id="问题和质疑">问题和质疑</h2>
+<ul>
+<li><p>这个模型有一个问题就是依赖原本的一个GRN，但是原本的GRN本身就是不一定准确的</p></li>
+<li><p>“gene identity + expression value”有点抽象。说是类似token
+embedding + positional
+embedding，为什么是add，而不是concat，这个很重要</p>
+<ul>
+<li>对于我们的项目来说 最好还是用concat<img
+src="https://pic1.imgdb.cn/i/03474ypRlSgsnWeFatwaKz.png"
+alt="pasted_1786722059816_ect3ze.png" /></li>
+<li></li>
+</ul></li>
+<li><p>没懂这个cell embedding，所有的几万个gene
+embedding每个维度的值做平均</p></li>
+<li><p>TOPO 更像“结构约束”，而不是“结构发现”</p>
+<ul>
+<li>模型被要求把已有 GRN
+先验编码到自己的参数/表示里。更像是一种辅助结构loss</li>
+<li>topo这一块要好好研究一下他的逻辑到底对不对，这个gene序列的顺序说实话，有很多不一定对的，而且大部分可能都是没有意义的，就少部分才有意义，比如a调控b和c，但是排序是a那不是把b-c这个本身不存在的关系也当作有顺序关系了吗，但是loss的权重又很大。</li>
+<li>如果不对的话，后面自己训练模型，这一个可以不需要或者降低权重</li>
+<li>如果没有topo，这种开头GRN控制gene顺序的创新会不会其实就没用</li>
+<li>某些程度上更像时间序列or一维图像，但是又实用了next token
+prediction的技术</li>
+<li>可以从视觉模型中xuexi：<strong>“视觉模型如何解决 flatten
+后结构丢失的问题”</strong>，弥补这里的GRN
+<ul>
+<li>fixed ordering + long-range state propagation：Mamba / SSM / scan /
+long sequence</li>
+<li>什么一个有结构的 2D object 不能随便 flatten 成 1D？：Vision
+Mamba</li>
+<li>sequence model + graph connectivity 怎么同时存在？：Graph + sequence
+hybrid</li>
+</ul></li>
+</ul></li>
+</ul>
+<h1 id="bulkformer">bulkformer</h1>
+<p>一般的单细胞基础模型只取比如top2000的gene，单细胞是合理的，因为数据稀疏</p>
+<p>这恰恰是 BulkFormer 对这些 scFM 的批评：bulk 的 transcriptome 更
+dense，所以应该利用完整表达谱；BulkFormer因此专门设计了适配 bulk
+的连续表达编码和 full-transcriptome modeling。</p>
+<p>用的基本是别人整理好的rna-seq</p>
+<ul>
+<li>没有做 metadata integration，没有使用metadata信息</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">wanzi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2026/09/07/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]%E5%8D%95%E7%BB%86%E8%83%9E%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B%E6%B1%87%E6%80%BB/">http://example.com/2026/09/07/[%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB]%E5%8D%95%E7%BB%86%E8%83%9E%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B%E6%B1%87%E6%80%BB/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">丸子Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%8D%95%E7%BB%86%E8%83%9E%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B/">单细胞基础模型</a></div><div class="post_share"><div class="social-share" data-image="/img/cover25.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2026/09/07/%5B%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%5DscFoundation%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/" title="[深度学习]scFoundation代码实战"><img class="cover" src="/img/cover18.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">[深度学习]scFoundation代码实战</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/08/09/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DGenecompass%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" title="《GeneCompass》论文精读"><img class="cover" src="/img/cover9.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-09</div><div class="title">《GeneCompass》论文精读</div></div></a></div><div><a href="/2026/09/07/%5B%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%5DscFoundation%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/" title="[深度学习]scFoundation代码实战"><img class="cover" src="/img/cover18.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-07</div><div class="title">[深度学习]scFoundation代码实战</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC82MDAwNC8zNjQ2Nw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">wanzi</div><div class="author-info__description">一个人类</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/wanziw"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wanziw" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1530502197@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://blog.csdn.net/weixin_57345774" target="_blank" title="博客"><i class="fas fa-blog"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">许多东西,我曾经放下,但奇迹般地重新捡了起来</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#scbert"><span class="toc-text">scBERT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#geneformer"><span class="toc-text">Geneformer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scgpt"><span class="toc-text">scGPT</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#regformer"><span class="toc-text">RegFormer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#addconcat%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">add&#x2F;concat的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%92%8C%E8%B4%A8%E7%96%91"><span class="toc-text">问题和质疑</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#bulkformer"><span class="toc-text">bulkformer</span></a></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/07/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E5%8D%95%E7%BB%86%E8%83%9E%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B%E6%B1%87%E6%80%BB/" title="[论文阅读]单细胞基础模型汇总"><img src="/img/cover25.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[论文阅读]单细胞基础模型汇总"/></a><div class="content"><a class="title" href="/2026/09/07/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E5%8D%95%E7%BB%86%E8%83%9E%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B%E6%B1%87%E6%80%BB/" title="[论文阅读]单细胞基础模型汇总">[论文阅读]单细胞基础模型汇总</a><time datetime="2026-09-07T11:44:10.000Z" title="发表于 2026-09-07 19:44:10">2026-09-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/07/%5B%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%5DscFoundation%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/" title="[深度学习]scFoundation代码实战"><img src="/img/cover18.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[深度学习]scFoundation代码实战"/></a><div class="content"><a class="title" href="/2026/09/07/%5B%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%5DscFoundation%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/" title="[深度学习]scFoundation代码实战">[深度学习]scFoundation代码实战</a><time datetime="2026-09-07T11:39:52.000Z" title="发表于 2026-09-07 19:39:52">2026-09-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/07/%5B%E7%94%9F%E4%BF%A1%E7%AC%94%E8%AE%B0%5D%E5%8D%95%E7%BB%86%E8%83%9E%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" title="[生信笔记]单细胞数据处理"><img src="/img/cover29.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[生信笔记]单细胞数据处理"/></a><div class="content"><a class="title" href="/2026/09/07/%5B%E7%94%9F%E4%BF%A1%E7%AC%94%E8%AE%B0%5D%E5%8D%95%E7%BB%86%E8%83%9E%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" title="[生信笔记]单细胞数据处理">[生信笔记]单细胞数据处理</a><time datetime="2026-09-07T11:35:53.000Z" title="发表于 2026-09-07 19:35:53">2026-09-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/08/09/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DGenecompass%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" title="《GeneCompass》论文精读"><img src="/img/cover9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《GeneCompass》论文精读"/></a><div class="content"><a class="title" href="/2026/08/09/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DGenecompass%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" title="《GeneCompass》论文精读">《GeneCompass》论文精读</a><time datetime="2026-08-09T13:26:37.000Z" title="发表于 2026-08-09 21:26:37">2026-08-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/08/09/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DSmartcrop%E8%AE%BA%E6%96%87%E5%8F%91%E8%A1%A8/" title="小麦水稻转录组研究"><img src="/img/cover21.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小麦水稻转录组研究"/></a><div class="content"><a class="title" href="/2026/08/09/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DSmartcrop%E8%AE%BA%E6%96%87%E5%8F%91%E8%A1%A8/" title="小麦水稻转录组研究">小麦水稻转录组研究</a><time datetime="2026-08-09T05:04:56.000Z" title="发表于 2026-08-09 13:04:56">2026-08-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2026 By wanzi</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">很高心认识你！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(()=>{
+  const loadLivere = () => {
+    if (typeof LivereTower === 'object') window.LivereTower.init()
+    else {
+      (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+          if (typeof LivereTower === 'function') { return; }
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+          e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    }
+  }
+
+  if ('Livere' === 'Livere' || !false) {
+    if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+    else loadLivere()
+  } else {
+    window.loadOtherComment = loadLivere
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>

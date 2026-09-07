@@ -1,0 +1,506 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>[深度学习]scFoundation代码实战 | 丸子Blog</title><meta name="author" content="wanzi"><meta name="copyright" content="wanzi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="scFoundation 1. 数据处理 &#x2F;preprocessing 1.1 论文部分  收集数据集，来不同的数据库 去重，每一个数据有一个对应的论文，doi号，手动收集，然后根据重复id删除 统一raw count  raw count直接用 如果提供的是 normalized 表达，就反推回 count：把矩阵里最小的非零值当成 1，其余非零值除以这个最小值再取整数部分 如果是 TPM &#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[深度学习]scFoundation代码实战">
+<meta property="og:url" content="http://example.com/2026/09/07/[%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0]scFoundation%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/index.html">
+<meta property="og:site_name" content="丸子Blog">
+<meta property="og:description" content="scFoundation 1. 数据处理 &#x2F;preprocessing 1.1 论文部分  收集数据集，来不同的数据库 去重，每一个数据有一个对应的论文，doi号，手动收集，然后根据重复id删除 统一raw count  raw count直接用 如果提供的是 normalized 表达，就反推回 count：把矩阵里最小的非零值当成 1，其余非零值除以这个最小值再取整数部分 如果是 TPM &#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/cover18.jpg">
+<meta property="article:published_time" content="2026-09-07T11:39:52.000Z">
+<meta property="article:modified_time" content="2026-09-07T11:41:00.620Z">
+<meta property="article:author" content="wanzi">
+<meta property="article:tag" content="单细胞基础模型">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/cover18.jpg"><link rel="shortcut icon" href="/./img/favicon1.png"><link rel="canonical" href="http://example.com/2026/09/07/[%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0]scFoundation%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '[深度学习]scFoundation代码实战',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-09-07 19:41:00'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="丸子Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover18.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="丸子Blog"><span class="site-name">丸子Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">[深度学习]scFoundation代码实战</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-09-07T11:39:52.000Z" title="发表于 2026-09-07 19:39:52">2026-09-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-07T11:41:00.620Z" title="更新于 2026-09-07 19:41:00">2026-09-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="[深度学习]scFoundation代码实战"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="scfoundation">scFoundation</h1>
+<h2 id="数据处理-preprocessing">1. 数据处理 /preprocessing</h2>
+<h3 id="论文部分">1.1 论文部分</h3>
+<ol type="1">
+<li>收集数据集，来不同的数据库</li>
+<li>去重，每一个数据有一个对应的论文，doi号，手动收集，然后根据重复id删除</li>
+<li>统一raw count
+<ol type="1">
+<li>raw count直接用</li>
+<li>如果提供的是 normalized 表达，就反推回
+count：把矩阵里最小的非零值当成
+1，其余非零值除以这个最小值再取整数部分</li>
+<li>如果是 TPM / FPKM 这种无法反推的，就原样保留</li>
+</ol></li>
+<li>统一gene symbol，缺失的gene填0</li>
+<li>QC：用 Seurat 和 Scanpy，只保留 表达基因数 &gt; 200
+的细胞（目的是过滤空液滴、极低质量、损伤细胞）</li>
+</ol>
+<h3 id="代码部分">1.2 代码部分</h3>
+<blockquote>
+<p>/preprocessing</p>
+</blockquote>
+<ul>
+<li><p>down.sh，用来下载数据，</p>
+<ul>
+<li>每个项目一个log目录，记录下载成功还是失败，以及别的信息</li>
+<li>每个项目在数据里也是单独的一个文件夹</li>
+</ul></li>
+<li><p>demo.sh，调用down.sh</p>
+<ul>
+<li><strong>示例 1（10x Genomics 格式）</strong>：先运行
+<code>bash demo.sh</code> 下载 GEO 上的 10x 原始数据
+（<code>barcodes.tsv.gz</code> / <code>features.tsv.gz</code> /
+<code>matrix.mtx.gz</code>），再用 <code>scanpy.read_10x_mtx()</code>
+读取， 随后依次做 <strong>基因符号统一 → QC → 保存 h5ad</strong>。-</li>
+<li><strong>示例 2（CSV 格式）</strong>：下载单个 gzip 压缩的
+CSV（基因×细胞矩阵），用 <code>pandas.read_csv()</code> 读取，
+流程与示例 1 相同。</li>
+<li>实际上<img src="https://pic1.imgdb.cn/i/034EuotW7pxXjOlLIx3Xs2.png"
+alt="pasted_1787909885004_xiskok.png" /></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_47647983/article/details/156606115">5min让你理解单细胞测序数据为啥有这么多格式</a></li>
+<li>这里没有做「normalized→raw count 反推」，代码里没写</li>
+</ul></li>
+<li><p>下载的数据清单在Supplementary Data 1 &amp; 2，分别整理了</p></li>
+<li><p>「sample 级 + 每个样本细胞数」</p></li>
+<li><table>
+<thead>
+<tr>
+<th>project_ID</th>
+<th>sample_ID</th>
+<th>cell_number_reserved</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></li>
+<li><p>「project/研究级 + PubMed」</p></li>
+<li><table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 57%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr>
+<th>Project ID</th>
+<th>Study Title</th>
+<th>pubmed ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HCA-dcp6600438190759903</td>
+<td>A human cell atlas of fetal gene expression</td>
+<td>33184181</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>demo.ipynb：穿插讲解。调用demo.sh以及scRNA_workflow.py
+里面的函数</p>
+<ul>
+<li>对于不同格式数据读取，有时候要转置成行为细胞、列为基因</li>
+<li>基因符号统一，补0，重排</li>
+<li>QC</li>
+<li>保存h5ad，这样子每个样本的格式就可以统一了</li>
+</ul></li>
+<li><p>scRNA_workflow.py ，存放函数代码</p>
+<ul>
+<li><p>BasicFilter：过滤掉低质量的细胞和基因</p></li>
+<li><p>QC_Metrics_info：计算并展示质控(QC)指标图，用于人工判断合适的过滤阈值</p></li>
+<li><p>save_adata_h5ad</p></li>
+<li><p>read_adata_h5ad</p></li>
+<li><p>main_gene_selection(X_df, gene_list)，对每一个样本进行处理</p>
+<ul>
+<li>基因符号统一：把输入的「细胞 x 基因」表达矩阵对齐到目标基因列表
+gene_list</li>
+<li>填充目标基因列表里有，但是当前数据里没有的gene</li>
+<li>按照list重新排gene顺序</li>
+<li>额外返回 var['mask']，标记哪些列是补零出来的(1=补零, 0=真实)</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>为什么demo.sh里面有一些项目要下载三个文件，有一些项目就只下载一个csv，我咋知道呢，他这里面有好几百个项目</p>
+<p>是只有这两种格式吗</p>
+<p>下载的是projectid还是sampleid呢</p>
+<h2 id="下采样">2.下采样</h2>
+<p>现在就能看清下采样的真正作用了：</p>
+<ul>
+<li>如果没有下采样，标签永远和输入是同一个深度（同一个原始细胞），模型只能学"同深度的填空"；</li>
+<li>有了下采样，你才能造出这种训练样本：输入 = 浅版，标签 = 深版；</li>
+<li>换句话说，下采样不是"多喂一份数据给模型看"，而是<strong>"造一个更难的题目
++ 一份对应的标准答案"</strong>。
+输入和标签的深度差，才是"Read-Depth-Aware"的训练内容；没有下采样，这个深度差就不存在。</li>
+</ul>
+<blockquote>
+<p>scFoundation 故意不把测序深度"归一化掉"，而是把总 count
+作为显式信号（S/T token）喂给模型，让模型自己学 会"在不同 read depth
+下对齐表达"。论文里把这叫 read-depth-aware (RDA) 建模</p>
+</blockquote>
+<h2 id="模型结构-model">3.模型结构 /model</h2>
+<figure>
+<img src="https://pic1.imgdb.cn/i/034Gc7rOk77n2VJ6XRno59.png"
+alt="pasted_1788167350783_iruyai.png" />
+<figcaption
+aria-hidden="true">pasted_1788167350783_iruyai.png</figcaption>
+</figure>
+<h3 id="get_embedding.py">3.1 get_embedding.py</h3>
+<p>桥梁文件。把「预处理好的表达矩阵」转换成模型需要的输入，喂给预训练模型，并输出
+cell / gene 两类 embedding。</p>
+<blockquote>
+<p>"预处理后的数据"→"归一化 + S/T token +
+保留非零基因(gather)"→"喂模型"→"取get_embedding.py cell/gene embedding"
+全串起来。</p>
+</blockquote>
+<hr />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">输入表达矩阵</span><br><span class="line">[N cells, genes]</span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">对齐到 scFoundation 的固定 19264 个基因</span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">逐个 cell 处理</span><br><span class="line">        │</span><br><span class="line">        ├── 表达值 normalize + log1p</span><br><span class="line">        │</span><br><span class="line">        ├── 计算 total count</span><br><span class="line">        │</span><br><span class="line">        ├── 构造 T token</span><br><span class="line">        │</span><br><span class="line">        └── 构造 S token</span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">[19264 expression values + T + S]</span><br><span class="line">        │</span><br><span class="line">        │  shape = [1, 19266]</span><br><span class="line">        ▼</span><br><span class="line">value &gt; 0 ?</span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">gatherData()</span><br><span class="line">只留下非零位置</span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">例如 [1, 2302]</span><br><span class="line">        │</span><br><span class="line">        ├──────────────────────┐</span><br><span class="line">        ▼                      ▼</span><br><span class="line">表达值 embedding            Gene ID embedding</span><br><span class="line">token_emb()                 pos_emb()</span><br><span class="line">        │                      │</span><br><span class="line">        └───────── + ──────────┘</span><br><span class="line">                   │</span><br><span class="line">                   ▼</span><br><span class="line">             Transformer</span><br><span class="line">               Encoder</span><br><span class="line">                   │</span><br><span class="line">                   ▼</span><br><span class="line">             [1, 2302, D]</span><br><span class="line">                   │</span><br><span class="line">          ┌────────┼───────────┐</span><br><span class="line">          │        │           │</span><br><span class="line">          ▼        ▼           ▼</span><br><span class="line">        S token  T token   所有 gene tokens</span><br><span class="line">                              │</span><br><span class="line">                         max / mean</span><br><span class="line">                              │</span><br><span class="line">          └──────────────┬────┘</span><br><span class="line">                         ▼</span><br><span class="line">              Cell embedding</span><br></pre></td></tr></table></figure>
+<hr />
+<p><strong>19264 是固定 gene vocabulary。</strong>
+输入数据必须映射到完全一样的 gene space 和顺序。</p>
+<p><strong>基因表达值和基因身份是两种信息。</strong>
+<code>token_emb(expression)</code>
+告诉模型“表达多少”，<code>pos_emb(gene_id)</code> 告诉模型“这是谁”。</p>
+<p><strong>T/S 是两个特殊 token。</strong> <code>S</code> 表示当前 read
+depth，<code>T</code> 表示目标
+read-depth/resolution，因此模型不仅知道表达
+pattern，还知道测序深度条件。</p>
+<p><strong>encoder 不跑 19264 个基因。</strong>
+<code>gatherData()</code> 删除 0-expression genes，把 19266
+压成大约几千个 token，从而显著降低 Transformer 计算量。</p>
+<p><strong>cell 和 gene embedding 来自模型不同位置。</strong> cell
+embedding = encoder 上的
+<code>S + T + max genes + mean genes</code>；gene embedding = decoder
+中完整 19264 gene space 的 hidden representation。</p>
+<h3 id="q1">3.1.1 Q1</h3>
+<ul>
+<li>为什么preprocess已经做过的main_gene_selection这个补0，这个getembedding里面还要再做一遍</li>
+<li>因为 preprocessing/ 和 get_embedding.py
+是两个独立入口，服务的是两类完全不同的用户。前者是作者自己，后者是其他用户（拿自己的数据做推理），
+用户随便给的 csv/npy/h5ad。普适性很好</li>
+<li>里面有一个检测，如果是对齐好的，就不会重复进行</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> gexpr_feature.shape[<span class="number">1</span>] &lt; <span class="number">19264</span>:        <span class="comment"># 只有基因数不够时才补</span></span><br><span class="line">     gexpr_feature, to_fill_columns, var = main_gene_selection(gexpr_feature, gene_list)</span><br><span class="line">     <span class="keyword">assert</span> gexpr_feature.shape[<span class="number">1</span>] &gt;= <span class="number">19264</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="面对不同场景的设计">3.1.2 面对不同场景的设计</h3>
+<p>考虑的太全面了，要从项目最开始设计之初就学习</p>
+<blockquote>
+<p>第 1 层：读入 (文件格式：4 选 1) 第 2 层：基因统一 (自守卫：不够才补)
+第 3 层：归一化 (input_type × pre_normalized) 第 4 层：拼 T/S
+(input_type × tgthighres) 第 5 层：gather (统一，无分支) 第 6 层：取输出
+(output_type × pool_type)</p>
+<p>每一层只关心自己那一件事，处理完交给下一层。所以读代码时按层读，不要试图在脑子里展开所有组合——那样当然会晕。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">你可以直接抄走的 6 条设计原则</span><br><span class="line"></span><br><span class="line">  1. 边界防御：所有外部不确定性（格式、基因数、是否归一化）在入口一次性收敛，内部只面对规范化数据。</span><br><span class="line">  2. 把&quot;不确定&quot;显式化：不确定的事（是否已归一化）不要猜，设个参数让调用者声明（--pre_normalized）。</span><br><span class="line">  3. 字符串前缀做轻量策略：t/f/a 一个参数编码多种策略，比参数爆炸优雅（--tgthighres）。</span><br><span class="line">  4. 一个入口 + 枚举开关：多任务用 output_type 分派，而不是复制多个脚本。</span><br><span class="line">  5. 幂等自守卫：if shape[1] &lt; 19264 让&quot;已对齐&quot;和&quot;未对齐&quot;的输入都安全。</span><br><span class="line">  6. fail-fast：每个分支末尾 raise ValueError(&#x27;...must be ...&#x27;)，非法输入立刻报错，不静默跑错。</span><br><span class="line"></span><br><span class="line">  ———</span><br><span class="line"></span><br><span class="line">  等你写 PlantFormer 的推理入口时，可以对着这个清单问自己：我的输入可能有哪些格式？可能有没有归一化？可能有哪几种输出</span><br><span class="line">  粒度？ 把答案变成参数和分支，你的代码自然就&quot;规范&quot;了。</span><br></pre></td></tr></table></figure>
+<ol type="1">
+<li>数据不同输入格式
+<ol type="1">
+<li>npz / h5ad / npy / csv</li>
+</ol></li>
+<li>bulk的还是singlecell的
+<ol type="1">
+<li>模型是sc训练的，但是只要gene可以对齐，也可以使用bulk的数据。相当于输出的是sample
+embedding而不是cell embedding</li>
+</ol></li>
+<li>组装token
+T和S。根据pre_normalized：T/A/F，用户给我的数据做过归一化吗
+<ol type="1">
+<li>T，已归一化+log1p，直接用</li>
+<li>F，raw count，程序做normalize+log1p</li>
+<li>A，已归一化，原始测序深度也附在最后，专门给 GEARS 扰动预测任务</li>
+<li>默认是F，raw count</li>
+</ol></li>
+<li>tgthighres：t / f / a
+<ol type="1">
+<li>f、a、t</li>
+<li>对应三种下游需求：想「读深翻倍」就说 f2，想「绝对深度」就说
+t4，想「加一点」就说 a5。</li>
+</ol></li>
+<li>不同粒度的输出output_type：cell / gene / gene_batch /
+gene_expression</li>
+<li>细胞级表示</li>
+<li>gene级表示</li>
+<li>一批细胞表示， GEARS（单细胞基因 embedding 太大，要 batch）</li>
+<li>gene_expression 重建的表达值<br />
+</li>
+<li>pool_type：all / max</li>
+<li>cell 输出的聚合策略：all=4 路拼接（T/S + max + mean），max=整体
+max。</li>
+<li>这个max是每个维度取某个gene在这个维度的最大值，相当于每个维度对应不同gene</li>
+<li>version：ce / rde / noversion</li>
+<li>模型选型：ce=通用 embedding，rde=读深增强，noversion=用户自定义
+checkpoint 路径。对应 checkpoint 里存的多个子模型。</li>
+<li>--demo</li>
+<li>调试的快速通道：先用 10
+个细胞验证流程通不通，再跑全量。这是工程里非常实用的习惯。</li>
+</ol>
+<p>我觉得他这个代码写的非常的规范，面对不同的使用场景，我想学一下他这个设计的规范，是考虑了哪些主要的场景。我感觉有很多排列组合和分支，我都搞不太明白，我作为一个小白，我在刚开始写代码的时候肯定不会注意到这些场景的，但是这个代码确实考虑到了很多很多，写的很规范，所以帮我好好拆解一下</p>
+<p>S、T更像一个初始值会变的【CLS】</p>
+<h2 id="load.py">3.2 load.py</h2>
+<p>工具箱函数</p>
+<p>数据侧工具：gatherData（把稀疏表达压成短序列）、main_gene_selection、
+load_model_frommmf（checkpoint 读取 + config 转换）</p>
+<h2 id="pretrainmodelsmae_autobin.py">3.3
+pretrainmodels/mae_autobin.py</h2>
+<p>模型本体：AutoDiscretizationEmbedding2（连续表达值自动分箱成
+embedding）和 pretrainmodels/ MaeAutobin（encoder→decoder
+的完整前向）</p>
+<h2 id="pretrainmodelstransformer.pyperformer.py">3.4
+pretrainmodels/transformer.py+performer.py</h2>
+<p>编码器到底用的什么：标准 Transformer block 和
+Performer（线性注意力）</p>
+<h2 id="finetune_model.py">3.5 finetune_model.py</h2>
+<p>怎么冻结骨干、只微调最后几层、接分类头（你以后植物下游任务要照抄的模板）</p>
+<h2 id="training_hyperparameter.txt">3.6
+training_hyperparameter.txt</h2>
+<p>回看预训练配置（768 维、12 层、12 头、mask
+概率等），把代码和论文参数对上</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">wanzi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2026/09/07/[%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0]scFoundation%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/">http://example.com/2026/09/07/[%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0]scFoundation%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">丸子Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%8D%95%E7%BB%86%E8%83%9E%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B/">单细胞基础模型</a></div><div class="post_share"><div class="social-share" data-image="/img/cover18.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/09/07/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E5%8D%95%E7%BB%86%E8%83%9E%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B%E6%B1%87%E6%80%BB/" title="[论文阅读]单细胞基础模型汇总"><img class="cover" src="/img/cover25.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">[论文阅读]单细胞基础模型汇总</div></div></a></div><div class="next-post pull-right"><a href="/2026/09/07/%5B%E7%94%9F%E4%BF%A1%E7%AC%94%E8%AE%B0%5D%E5%8D%95%E7%BB%86%E8%83%9E%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" title="[生信笔记]单细胞数据处理"><img class="cover" src="/img/cover29.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">[生信笔记]单细胞数据处理</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/08/09/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DGenecompass%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" title="《GeneCompass》论文精读"><img class="cover" src="/img/cover9.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-09</div><div class="title">《GeneCompass》论文精读</div></div></a></div><div><a href="/2026/09/07/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E5%8D%95%E7%BB%86%E8%83%9E%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B%E6%B1%87%E6%80%BB/" title="[论文阅读]单细胞基础模型汇总"><img class="cover" src="/img/cover25.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-07</div><div class="title">[论文阅读]单细胞基础模型汇总</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC82MDAwNC8zNjQ2Nw=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">wanzi</div><div class="author-info__description">一个人类</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">42</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/wanziw"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wanziw" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1530502197@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://blog.csdn.net/weixin_57345774" target="_blank" title="博客"><i class="fas fa-blog"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">许多东西,我曾经放下,但奇迹般地重新捡了起来</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#scfoundation"><span class="toc-text">scFoundation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86-preprocessing"><span class="toc-text">1. 数据处理 &#x2F;preprocessing</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E9%83%A8%E5%88%86"><span class="toc-text">1.1 论文部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86"><span class="toc-text">1.2 代码部分</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E9%87%87%E6%A0%B7"><span class="toc-text">2.下采样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84-model"><span class="toc-text">3.模型结构 &#x2F;model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#get_embedding.py"><span class="toc-text">3.1 get_embedding.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#q1"><span class="toc-text">3.1.1 Q1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%A2%E5%AF%B9%E4%B8%8D%E5%90%8C%E5%9C%BA%E6%99%AF%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">3.1.2 面对不同场景的设计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#load.py"><span class="toc-text">3.2 load.py</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pretrainmodelsmae_autobin.py"><span class="toc-text">3.3
+pretrainmodels&#x2F;mae_autobin.py</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pretrainmodelstransformer.pyperformer.py"><span class="toc-text">3.4
+pretrainmodels&#x2F;transformer.py+performer.py</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#finetune_model.py"><span class="toc-text">3.5 finetune_model.py</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#training_hyperparameter.txt"><span class="toc-text">3.6
+training_hyperparameter.txt</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/07/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E5%8D%95%E7%BB%86%E8%83%9E%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B%E6%B1%87%E6%80%BB/" title="[论文阅读]单细胞基础模型汇总"><img src="/img/cover25.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[论文阅读]单细胞基础模型汇总"/></a><div class="content"><a class="title" href="/2026/09/07/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E5%8D%95%E7%BB%86%E8%83%9E%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B%E6%B1%87%E6%80%BB/" title="[论文阅读]单细胞基础模型汇总">[论文阅读]单细胞基础模型汇总</a><time datetime="2026-09-07T11:44:10.000Z" title="发表于 2026-09-07 19:44:10">2026-09-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/07/%5B%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%5DscFoundation%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/" title="[深度学习]scFoundation代码实战"><img src="/img/cover18.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[深度学习]scFoundation代码实战"/></a><div class="content"><a class="title" href="/2026/09/07/%5B%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%5DscFoundation%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98/" title="[深度学习]scFoundation代码实战">[深度学习]scFoundation代码实战</a><time datetime="2026-09-07T11:39:52.000Z" title="发表于 2026-09-07 19:39:52">2026-09-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/07/%5B%E7%94%9F%E4%BF%A1%E7%AC%94%E8%AE%B0%5D%E5%8D%95%E7%BB%86%E8%83%9E%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" title="[生信笔记]单细胞数据处理"><img src="/img/cover29.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[生信笔记]单细胞数据处理"/></a><div class="content"><a class="title" href="/2026/09/07/%5B%E7%94%9F%E4%BF%A1%E7%AC%94%E8%AE%B0%5D%E5%8D%95%E7%BB%86%E8%83%9E%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" title="[生信笔记]单细胞数据处理">[生信笔记]单细胞数据处理</a><time datetime="2026-09-07T11:35:53.000Z" title="发表于 2026-09-07 19:35:53">2026-09-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/08/09/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DGenecompass%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" title="《GeneCompass》论文精读"><img src="/img/cover9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《GeneCompass》论文精读"/></a><div class="content"><a class="title" href="/2026/08/09/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DGenecompass%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" title="《GeneCompass》论文精读">《GeneCompass》论文精读</a><time datetime="2026-08-09T13:26:37.000Z" title="发表于 2026-08-09 21:26:37">2026-08-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/08/09/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DSmartcrop%E8%AE%BA%E6%96%87%E5%8F%91%E8%A1%A8/" title="小麦水稻转录组研究"><img src="/img/cover21.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小麦水稻转录组研究"/></a><div class="content"><a class="title" href="/2026/08/09/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5DSmartcrop%E8%AE%BA%E6%96%87%E5%8F%91%E8%A1%A8/" title="小麦水稻转录组研究">小麦水稻转录组研究</a><time datetime="2026-08-09T05:04:56.000Z" title="发表于 2026-08-09 13:04:56">2026-08-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2026 By wanzi</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">很高心认识你！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(()=>{
+  const loadLivere = () => {
+    if (typeof LivereTower === 'object') window.LivereTower.init()
+    else {
+      (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+          if (typeof LivereTower === 'function') { return; }
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+          e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    }
+  }
+
+  if ('Livere' === 'Livere' || !false) {
+    if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+    else loadLivere()
+  } else {
+    window.loadOtherComment = loadLivere
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
