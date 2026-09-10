@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>[论文阅读]植物同源组系列论文阅读</title>
+      <link href="/2026/09/10/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E6%A4%8D%E7%89%A9%E5%90%8C%E6%BA%90%E7%BB%84%E7%B3%BB%E5%88%97%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+      <url>/2026/09/10/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E6%A4%8D%E7%89%A9%E5%90%8C%E6%BA%90%E7%BB%84%E7%B3%BB%E5%88%97%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</url>
+      
+        <content type="html"><![CDATA[<p>前三篇比较重要</p><ul><li>Passalacqua &amp; Gillis, Nature Plants, 2024 — <em>Coexpression enhances cross-species integration of single-cell RNA sequencing across diverse plant species</em><ul><li>从 many-to-many orthology 出发，用 <strong>coexpression</strong> 找 proxy gene pairs</li></ul></li><li>Haghani et al., Journal of Experimental Botany, 2026 — <em>Cross-species plant single-cell analysis: community challenges and shared solutions</em></li></ul><blockquote><p>One promising direction is a scalable framework that combines heterogeneous computational strategies with a curated, continuously expandable reference atlas ([Fig. 3](javascript:;)). Such a system could reduce annotation inconsistencies by grouping genes into ‘macrogenes’ derived from <strong>orthogroups, protein language models, co-expression profiles, or DNA foundation-model embeddings.</strong> Different macrogene definitions and integration strategies could be systematically benchmarked to identify the most robust combination for cross-species label transfer. The resulting annotations would assign cell type identities while quantifying confidence, enabling detection of conserved versus potentially novel states, and the reference atlas could be updated iteratively as new datasets are incorporated.</p></blockquote><ul><li>Orthologous marker groups reveal broad cell identity conservation across plant single-cell transcriptomes 2025<ul><li>用 <strong>orthogroup</strong> 比较不同植物的 marker genes</li></ul></li><li>Nature, 2024 — <em>Exaptation of ancestral cell-identity networks enables C4 photosynthesis</em></li><li>Rosen et al., Nature Methods, 2024 — SATURN, <em>Toward universal cell embeddings: integrating single-cell RNA-seq datasets across species with SATURN</em><ul><li>用 <strong>ESM2 protein embedding</strong> 把功能相似 genes 学成 macrogenes</li></ul></li><li>UCE nature<ul><li>大规模使用 <strong>protein-derived gene representation</strong> 构建跨物种 foundation model</li></ul></li></ul><h1>2024 <em>Nature Plants</em> 通过共表达实现同源整合</h1><p>玉米和水稻</p><p>相当于从原来的从序列中判断同源性，变成了从coexpression network来判断</p><p><img src="https://pic1.imgdb.cn/i/034MKjazE1znqwGSUKKIv9.png" alt="pasted_1789034317495_7yg25p.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文阅读 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 比较基因组学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[论文阅读]单细胞基础模型汇总</title>
       <link href="/2026/09/07/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E5%8D%95%E7%BB%86%E8%83%9E%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B%E6%B1%87%E6%80%BB/"/>
       <url>/2026/09/07/%5B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5D%E5%8D%95%E7%BB%86%E8%83%9E%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B%E6%B1%87%E6%80%BB/</url>
